@@ -500,7 +500,7 @@
   <span class="md-ellipsis">
     
   
-    Features flow does not have
+    Unsupported Features
   
 
     
@@ -1002,7 +1002,7 @@
   <a href="#not-supported" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4.1 Features flow does not have
+        4.1 Unsupported Features
       
     </span>
   </a>
@@ -1139,102 +1139,71 @@
             </div>
         </section>
         <section class="print-page" id="index" heading-number="1"><h1 id="index-flow-unofficial-documentation">Flow Unofficial Documentation</h1>
-<p><a href="https://content.luanti.org/packages/luk3yx/flow/"><img alt="ContentDB" src="https://content.luanti.org/packages/luk3yx/flow/shields/downloads/" /></a></p>
-<p>An experimental layout manager and formspec API replacement for Luanti (formerly Minetest).
+<p>TODO(P2): reword for slightly more sizzle
+An experimental layout manager and formspec API replacement for Luanti (formerly Minetest).
 Vaguely inspired by Flutter and GTK.</p>
-<p>Luanti's built-in way of describing menus (inventories, chests, dialogs, ...)
-is called a <em>formspec</em>. A formspec is a long string made of elements such as
-buttons, text fields, and inventory slots, and you have to give every element
-its exact position and size by hand. Flow lets you describe a menu with Lua
-tables instead, positions and sizes everything for you, and generates the
-formspec itself, so you never have to write one.</p>
+<p>TODO(P3): reword with subtle snark about formspec (web search complaints and compare to flow api)
+Luanti's built-in way of describing menus (inventories, chests, dialogs, ...) is called a <em>formspec</em>. A formspec is a long string made of elements such as buttons, text fields, and inventory slots, and you have to give every element its exact position and size by hand. Flow lets you describe a menu with Lua tables instead, positions and sizes everything for you, and generates the formspec itself, so you never have to write one.</p>
 <p><a href="https://luk3yx.gitlab.io/minetest-flow-playground/">Online tutorial/demo</a>
 (<a href="https://gitlab.com/luk3yx/minetest-flow-playground">source</a>)</p>
 <h2 id="index-features">Features</h2>
 <h3 id="index-layouting">Layouting</h3>
 <ul>
-<li>No manual positioning of elements.</li>
+<li>No manual positioning of elements. TODO(P2): make positive</li>
 <li>Automatic layouting using <code>HBox</code> and <code>VBox</code> containers</li>
-<li>Some elements have an automatic size.</li>
-<li>The size of elements can optionally expand to fit larger spaces</li>
-<li>Elements which get their size based on their label length automatically become
-   larger/smaller to fit long translations<sup id="index-fnref:label-size"><a class="footnote-ref" href="#index-fn:label-size">1</a></sup>.</li>
+<li>Some elements have an automatic size. TODO(P1): which ones? Reword for concise specifics.</li>
+<li>The size of elements can optionally expand to fit larger spaces TODO(P2): reword</li>
+<li>Elements which get their size based on their label length automatically become larger/smaller to fit long translations<sup id="fnref:label-size"><a class="footnote-ref" href="#index-fn:label-size">1</a></sup>.</li>
 </ul>
 <h3 id="index-other-features">Other features</h3>
 <ul>
 <li>No form names. Form names are still used internally, however they are
-   hidden from the API.</li>
-<li>No having to worry about state.</li>
+   hidden from the API. TODO(P2): make into a positive statement</li>
+<li>No having to worry about state. TODO(P2): make into a positive statement</li>
 <li>Values of fields, scrollbars, checkboxes, etc are remembered when
    redrawing a form and are automatically applied.</li>
-<li>Has an <a href="https://content.luanti.org/packages/luk3yx/flow_inspector/">inspector mod</a>
+<li>Includes an <a href="https://content.luanti.org/packages/luk3yx/flow_inspector/">inspector mod</a>
    to help with developing and debugging forms.</li>
-<li>Some common security issues with formspec input handling are mitigated.</li>
+<li>Some common security issues with formspec input handling are mitigated. TODO(P1): Clarify with a reference to a section. Add the section if not present.</li>
 </ul>
 <h2 id="index-limitations">Limitations</h2>
 <ul>
 <li>This mod doesn't support all of the features that regular formspecs do.
-   See <a href="#not-supported">Features flow does not have</a> for a list.</li>
-<li><a href="https://content.luanti.org/packages/luk3yx/fs51/">FS51</a> is required if
-   you want to have full support for Luanti 5.3 and below.</li>
-<li>Make sure you're using the latest version of flow if you are on MT 5.10-dev
-   or later, older versions used a hack which no longer works.</li>
+   See <a href="#not-supported">Unsupported Features</a> for a list.</li>
 </ul>
 <h2 id="index-security">Security</h2>
-<p>Flow ignores potentially malicious formspec input from clients, such as
-buttons or fields that haven't been shown to the client, out-of-bounds dropdown
-selections, and newlines in <code>Field</code> elements (where it's impossible to enter
-a newline without pasting it in).</p>
-<h2 id="index-other-formspec-librariesutilities">Other formspec libraries/utilities</h2>
-<p>These utilities likely aren't compatible with flow.</p>
-<ul>
-<li><a href="https://github.com/fluxionary/minetest-fs_layout/">fs_layout</a> is another mod library that does automatic formspec element positioning.</li>
-<li><a href="https://content.luanti.org/packages/LMD/fslib/">fslib</a> is a small mod library that lets you build formspec strings.</li>
-<li><a href="https://content.luanti.org/packages/Just_Visiting/formspec_editor">Just_Visiting's formspec editor</a> is a Luanti (sub)game that lets you edit formspecs and preview them as you go</li>
-<li><a href="https://github.com/TerraQuest-Studios/kuto/">kuto</a> is a formspec library that has some extra widgets/components and has a callback API. Some automatic sizing can be done for buttons.</li>
-<li>It may be possible to use kuto's components with flow somehow as they both use formspec_ast internally.</li>
-<li>kuto was the the source of the "on_event" function idea.</li>
-<li><a href="https://forum.luanti.org/viewtopic.php?f=14&amp;t=24130">My web-based formspec editor</a> lets you add elements and drag+drop them, however it doesn't support all formspec features.</li>
-</ul>
-<h2 id="index-documentation">Documentation</h2>
-<p>The official documentation is available at
-<a href="https://luk3yx.gitlab.io/minetest-flow/">https://luk3yx.gitlab.io/minetest-flow/</a>. Some code snippets have a "run" button
-which will open them in a web-based playground, not all of these will work
-properly as the playground doesn't support all formspec elements.</p>
-<h2 id="index-original-flow-mods-code-copyright">Original Flow Mod's Code Copyright</h2>
-<p>Copyright © 2022-2025 by luk3yx. LGPL 2.1 or later.</p>
-<h3 id="index-lgpl-21-disclaimer">LGPL 2.1 Disclaimer</h3>
-<p>This program is free software: you can redistribute it and/or modify it under the terms of the GNU Lesser General Public License as published by the Free Software Foundation, either version 2.1 of the License, or (at your option) any later version.</p>
-<p>This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU Lesser General Public License for more details.</p>
-<p>You should have received a copy of the GNU Lesser General Public License along with this program.  If not, see <a href="https://www.gnu.org/licenses/">https://www.gnu.org/licenses/</a>.</p>
-<h3 id="index-license-copy">License Copy</h3>
-<p>See <code>skyblock_zero/docs</code> directory for full copies of all required licenses used in Skyblock Zero, including LGPL-2.1.</p>
+<p>TODO(P1): research the specifics of this and expand to a new page we can simply reference
+Flow ignores potentially malicious formspec input from clients, such as buttons or fields that haven't been shown to the client, out-of-bounds dropdown selections, and newlines in <code>Field</code> elements (where it's impossible to enter a newline without pasting it in).</p>
+<h2 id="index-other-documentation">Other Documentation</h2>
+<p>The official documentation is available at <a href="https://luk3yx.gitlab.io/minetest-flow/">https://luk3yx.gitlab.io/minetest-flow/</a>. Some code snippets have a "run" button which will open them in a web-based playground, not all of these will work properly as the playground doesn't support all formspec elements.</p>
 <div class="footnote">
 <hr />
 <ol>
 <li id="index-fn:label-size">
-<p>This isn't perfect, the actual size of labels depends on the client's font, DPI, window size, and formspec-related scaling settings.&#160;<a class="footnote-backref" href="#index-fnref:label-size" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+<p>This isn't perfect, the actual size of labels depends on the client's font, DPI, window size, and formspec-related scaling settings. TODO(P4): research and add a section about getting the sizing perfect for the most common fonts. May need to look up Luanti API and/or source code.&#160;<a class="footnote-backref" href="#index-fnref:label-size" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div></section><section class="print-page" id="getting-started" heading-number="2"><h1 id="getting-started-getting-started">Getting started</h1>
-<p>A <em>form</em> is a menu that is shown to a player. It is made of <em>elements</em> (also
-called widgets), such as labels, buttons, text fields, and inventory slots,
-which are arranged by layout elements like <code>gui.VBox</code>. You describe a form with
-a <em>build function</em> that returns the elements, and flow works out the positions
-and sizes and shows the form for you. See <a href="#elements">Elements</a> for what
-each element does.</p>
+<!-- TODO(link): link gui.VBox to layout-elements.md#guivbox on first mention. -->
+
+<!-- TODO(clarify): "build function" here vs build_func in padding.md; pick one term and define it. -->
+
+<p>A <em>form</em> is a menu that is shown to a player. It is made of <em>elements</em> (also called widgets), such as labels, buttons, text fields, and inventory slots, which are arranged by layout elements like <code>gui.VBox</code>. You describe a form with a <em>build function</em> that returns the elements, and flow works out the positions and sizes and shows the form for you. See <a href="#elements">Elements</a> for what each element does.</p>
 <h2 id="getting-started-basic-example">Basic example</h2>
-<p>See <code>example.lua</code> for a more comprehensive example which demonstrates how
-layouting and alignment works.</p>
+<!-- TODO(link): example.lua has no link or location (also in manual-positioning.md); link it in the flow repo. -->
+
+<p>See <code>example.lua</code> for a more comprehensive example which demonstrates how layouting and alignment works.</p>
+<!-- TODO(clarify): "playground" is the web playground player name; tell mod authors to use a real player. Say what the 2nd arg of form:show() is (initial ctx) and define ctx (see elements.md#names-and-values). -->
+
 <pre><code class="language-lua">local gui = flow.widgets -- local recommended for direct referencing
 local STARTING_SELECTION = 3 -- change and rerun to see the difference
 
 local function build_vbox(player_obj, ctx)
     return gui.VBox {
-        gui.Label {label = &quot;Here is a dropdown:&quot;},
+        gui.Label { label = &quot;Here is a dropdown:&quot; },
         gui.Dropdown {
             name = &quot;cool_dropdown&quot;,
-            items = {'First item', 'Second item', 'Third item'},
+            items = { 'First item', 'Second item', 'Third item' },
             index_event = true,
             selected_idx = ctx.value or 1
         },
@@ -1252,16 +1221,13 @@ end
 local form = flow.make_gui(build_vbox)
 local player_obj = core.get_player_by_name(&quot;playground&quot;)
 
-form:show(player_obj, {value = STARTING_SELECTION}) -- second argument is optional
+form:show(player_obj, { value = STARTING_SELECTION }) -- second argument is optional
 </code></pre>
 <h2 id="getting-started-updating-forms">Updating forms</h2>
-<p>If some data displayed inside a form changes (for example a timer or progress
-indicator), you can use <code>form:update</code> to update the form without resetting
-<code>ctx</code> or showing the form again if the player has closed it.</p>
-<p>Luanti has no way to change a form that is already open, so flow has to show
-the whole form again. Because of this, players may lose text typed into fields
-that hasn't been sent to the server (which happens when they press a button or
-Enter) when <code>form:update</code> is called.</p>
+<!-- TODO(clarify): prose says form:update but the API is my_gui:update(player) / update_where(); make the names match. -->
+
+<p>If some data displayed inside a form changes (for example a timer or progress indicator), you can use <code>form:update</code> to update the form without resetting <code>ctx</code> or showing the form again if the player has closed it.</p>
+<p>Luanti has no way to change a form that is already open, so flow has to show the whole form again. Because of this, players may lose text typed into fields that hasn't been sent to the server (which happens when they press a button or Enter) when <code>form:update</code> is called.</p>
 <pre><code class="language-lua">-- Re-shows the form for one player if they have the form open
 my_gui:update(player)
 
@@ -1279,73 +1245,63 @@ end)
 -- Re-shows the form for all players with the form open
 my_gui:update_where(function() return true end)
 </code></pre>
+<!-- TODO(link): link on_event / return true to elements.md#events. -->
+
 <p>Inside an <code>on_event</code> handler, you can use <code>return true</code> instead.</p>
-<pre><code class="language-lua">gui.Button{
+<pre><code class="language-lua">gui.Button {
     label = &quot;Update form&quot;,
     on_event = function(player, ctx)
         return true
     end,
 }
 </code></pre>
+<!-- TODO(link): no page documents show_hud / close_hud; add one and link experimental.md#putting-the-form-somewhere-else-on-the-screen-likely-required-for-most-huds and inventory.md. -->
+
 <p>If you're using a form as a HUD, you must call <code>form:show_hud</code> to update it.</p></section>
                     <section class='print-page md-section' id='section-3' heading-number='3'>
                         <h1>Elements/widgets<a class='headerlink' href='#section-3' title='Permanent link'></a>
                         </h1>
                     <section class="print-page" id="layout-elements" heading-number="3.1"><h1 id="layout-elements-layouting-elements">Layouting elements</h1>
-<p>You should do <code>local gui = flow.widgets</code> in your code to improve readability.
-All examples will assume that this line exists.</p>
-<p>These elements control how other elements are arranged. Most of them draw
-nothing themselves: they place the elements inside them, work out how big
-everything is, and share out any spare space. Elements that draw something or
-accept input (labels, buttons, fields, ...) are described in
-<a href="#elements">Elements</a>. To place elements at exact coordinates instead, see
-<a href="#manual-positioning">Manual positioning</a>.</p>
-<p><strong>Warning:</strong> The below elements (except <code>gui.Spacer</code>) do not support <code>w</code> and
-<code>h</code> properties and will break in weird ways if you try and use them. Use
-<code>min_w</code> and <code>min_h</code> instead.</p>
+<p>You should do <code>local gui = flow.widgets</code> in your code to improve readability. All examples will assume that this line exists.</p>
+<p>These elements control how other elements are arranged. Most of them draw nothing themselves: they place the elements inside them, work out how big everything is, and share out any spare space. Elements that draw something or accept input (labels, buttons, fields, ...) are described in <a href="#elements">Elements</a>. To place elements at exact coordinates instead, see <a href="#manual-positioning">Manual positioning</a>.</p>
+<!-- TODO(clarify): contradicts gui.ScrollableVBox and gui.PaginatedVBox below, which take w and h; list which elements accept them. -->
+
+<p><strong>Warning:</strong> The below elements (except <code>gui.Spacer</code>) do not support <code>w</code> and <code>h</code> properties and will break in weird ways if you try and use them. Use <code>min_w</code> and <code>min_h</code> instead.</p>
 <h2 id="layout-elements-guivbox"><code>gui.VBox</code></h2>
 <p>A vertical box, similar to a VBox in GTK. Elements inside a VBox are stacked
 vertically.</p>
-<pre><code class="language-lua">gui.VBox{
+<pre><code class="language-lua">gui.VBox {
     -- These elements are documented later on.
-    gui.Label{label=&quot;I am a label!&quot;},
+    gui.Label { label = &quot;I am a label!&quot; },
 
     -- The second label will be positioned underneath the first one.
-    gui.Label{label=&quot;I am a second label!&quot;},
+    gui.Label { label = &quot;I am a second label!&quot; },
 }
 </code></pre>
-<p>Elements inside boxes have a spacing of 0.2 between them. To change this, you
-can add <code>spacing = &lt;number&gt;</code> to the box definition. For example, <code>spacing = 0</code>
-will remove all spacing between the elements.</p>
+<!-- TODO(link): spacing is also described in padding.md; cross-link. -->
+
+<p>Elements inside boxes have a spacing of 0.2 between them. To change this, you can add <code>spacing = &lt;number&gt;</code> to the box definition. For example, <code>spacing = 0</code> will remove all spacing between the elements.</p>
 <h2 id="layout-elements-guihbox"><code>gui.HBox</code></h2>
 <p>Like <code>gui.VBox</code> but stacks elements horizontally instead.</p>
-<pre><code class="language-lua">gui.HBox{
+<pre><code class="language-lua">gui.HBox {
     -- These elements are documented later on.
-    gui.Label{label=&quot;I am a label!&quot;},
+    gui.Label { label = &quot;I am a label!&quot; },
 
     -- The second label will be positioned to the right of first one.
-    gui.Label{label=&quot;I am a second label!&quot;},
+    gui.Label { label = &quot;I am a second label!&quot; },
 
     -- You can nest HBox and VBox elements
-    gui.VBox{
-        gui.Image{w=1, h=1, texture_name=&quot;default_dirt.png&quot;, align_h=&quot;center&quot;},
-        gui.Label{label=&quot;Dirt&quot;, expand=true, align_h=&quot;center&quot;},
+    gui.VBox {
+        gui.Image { w = 1, h = 1, texture_name = &quot;default_dirt.png&quot;, align_h = &quot;center&quot; },
+        gui.Label { label = &quot;Dirt&quot;, expand = true, align_h = &quot;center&quot; },
     }
 }
 </code></pre>
 <h2 id="layout-elements-guiscrollablevbox"><code>gui.ScrollableVBox</code></h2>
-<p>Similar to <code>gui.VBox</code>, but shows its contents in an area of a fixed size
-that the player can scroll, and automatically adds a scrollbar next to it.
-Anything outside the area is hidden until it is scrolled into view. The area is
-<code>w</code> by <code>h</code>, both are optional: the width defaults to the width of the contents
-and the height defaults to the height of the contents, up to a maximum of 5.</p>
-<p>On clients too old to support scrolling areas (before Luanti 5.4), flow shows
-one page of the contents at a time instead, with <code>&lt;</code> and <code>&gt;</code> buttons to change
-page.</p>
-<p>To change how the scrollbar looks, set <code>custom_scrollbar</code> to a table of
-parameters for <a href="#elements-guiscrollbar"><code>gui.Scrollbar</code></a>, for example
-<code>custom_scrollbar = {w = 0.8}</code> to make it wider.</p>
-<pre><code class="language-lua">gui.ScrollableVBox{
+<p>Similar to <code>gui.VBox</code>, but shows its contents in an area of a fixed size that the player can scroll, and automatically adds a scrollbar next to it. Anything outside the area is hidden until it is scrolled into view. The area is <code>w</code> by <code>h</code>, both are optional: the width defaults to the width of the contents and the height defaults to the height of the contents, up to a maximum of 5.</p>
+<p>On clients too old to support scrolling areas (before Luanti 5.4), flow shows one page of the contents at a time instead, with <code>&lt;</code> and <code>&gt;</code> buttons to change page.</p>
+<p>To change how the scrollbar looks, set <code>custom_scrollbar</code> to a table of parameters for <a href="#elements-guiscrollbar"><code>gui.Scrollbar</code></a>, for example <code>custom_scrollbar = {w = 0.8}</code> to make it wider.</p>
+<pre><code class="language-lua">gui.ScrollableVBox {
     -- A name must be provided for ScrollableVBox elements. You don't
     -- have to use this name anywhere else, it just makes sure flow
     -- doesn't mix up scrollbar states if one gets removed or if the
@@ -1358,123 +1314,104 @@ parameters for <a href="#elements-guiscrollbar"><code>gui.Scrollbar</code></a>, 
     h = 10,
 
     -- These elements are documented later on.
-    gui.Label{label=&quot;I am a label!&quot;},
+    gui.Label { label = &quot;I am a label!&quot; },
 
     -- The second label will be positioned underneath the first one.
-    gui.Label{label=&quot;I am a second label!&quot;},
+    gui.Label { label = &quot;I am a second label!&quot; },
 }
 </code></pre>
 <h2 id="layout-elements-guispacer"><code>gui.Spacer</code></h2>
 <p>A "flexible space" element that expands by default. Example usage:</p>
-<pre><code class="language-lua">gui.HBox{
+<pre><code class="language-lua">gui.HBox {
     -- These buttons will be on the left-hand side of the screen
-    gui.Button{label = &quot;Cancel&quot;},
-    gui.Button{label = &quot;&lt; Back&quot;},
+    gui.Button { label = &quot;Cancel&quot; },
+    gui.Button { label = &quot;&lt; Back&quot; },
 
-    gui.Spacer{},
+    gui.Spacer {},
 
     -- These buttons will be on the right-hand side of the screen
-    gui.Button{label = &quot;Next &gt;&quot;},
-    gui.Button{label = &quot;Confirm&quot;},
+    gui.Button { label = &quot;Next &gt;&quot; },
+    gui.Button { label = &quot;Confirm&quot; },
 }
 </code></pre>
-<p>I advise against using spacers when <code>expand = true</code> and <code>align = ...</code> would
-work just as well since spacers are implemented hackily and won't account for
-some special cases.</p>
-<p>You can replicate the above example without spacers, however the code doesn't
-look as clean:</p>
-<pre><code class="language-lua">gui.HBox{
+<!-- TODO(clarify): first person is the flow author's voice; reword for an unofficial doc. "align = ..." should be align_h / align_v (no align parameter exists). -->
+
+<p>I advise against using spacers when <code>expand = true</code> and <code>align = ...</code> would work just as well since spacers are implemented hackily and won't account for some special cases.</p>
+<p>You can replicate the above example without spacers, however the code doesn't look as clean:</p>
+<pre><code class="language-lua">gui.HBox {
     -- These buttons will be on the left-hand side of the screen
-    gui.Button{label = &quot;Cancel&quot;},
-    gui.Button{label = &quot;&lt; Back&quot;, expand = true, align_h = &quot;left&quot;},
+    gui.Button { label = &quot;Cancel&quot; },
+    gui.Button { label = &quot;&lt; Back&quot;, expand = true, align_h = &quot;left&quot; },
 
     -- These buttons will be on the right-hand side of the screen
-    gui.Button{label = &quot;Next &gt;&quot;},
-    gui.Button{label = &quot;Confirm&quot;},
+    gui.Button { label = &quot;Next &gt;&quot; },
+    gui.Button { label = &quot;Confirm&quot; },
 }
 </code></pre>
-<p>You should not use spacers to center elements as it creates unnecessary boxes,
-and labels may be slightly off-center (because label widths depend on screen
-size, DPI, etc and this code doesn't trigger the centering hack):</p>
+<p>You should not use spacers to center elements as it creates unnecessary boxes, and labels may be slightly off-center (because label widths depend on screen size, DPI, etc and this code doesn't trigger the centering hack):</p>
 <pre><code class="language-lua">-- This is bad!
-gui.HBox{
-    gui.Spacer{},
-    gui.Label{label=&quot;I am not properly centered!&quot;},
-    gui.Spacer{},
+gui.HBox {
+    gui.Spacer {},
+    gui.Label { label = &quot;I am not properly centered!&quot; },
+    gui.Spacer {},
 }
 </code></pre>
 <p>You should do this instead:</p>
-<pre><code class="language-lua">gui.Label{label=&quot;I am centered!&quot;, align_h = &quot;center&quot;},
+<pre><code class="language-lua">gui.Label { label = &quot;I am centered!&quot;, align_h = &quot;center&quot; },
 </code></pre>
-<p>This applies to other elements as well, because using HBox and Spacer to center
-elements creates unnecessary containers.</p>
+<p>This applies to other elements as well, because using HBox and Spacer to center elements creates unnecessary containers.</p>
 <h2 id="layout-elements-guinil"><code>gui.Nil</code></h2>
+<!-- TODO(link): cross-link hiding-elements.md (visible = false keeps space, gui.Nil removes it). -->
+
 <p>A tool to allow for ternary-ish conditional widgets:</p>
 <pre><code class="language-lua">local form = flow.make_gui(function(player, ctx)
     local the_boolean = false
-    return gui.VBox{
-        gui.Label{label = &quot;The box below is only present if the boolean is truthy&quot;},
-        the_boolean and gui.Box{w = 1, h = 1, color = &quot;#FF0000&quot;} or gui.Nil{},
+    return gui.VBox {
+        gui.Label { label = &quot;The box below is only present if the boolean is truthy&quot; },
+        the_boolean and gui.Box { w = 1, h = 1, color = &quot;#FF0000&quot; } or gui.Nil {},
     }
 end)
 </code></pre>
-<p>Use sparingly, flow still has to process each <code>Nil</code> object to be able to know to
-remove it, and thus could still slow things down. The fastest element is one
-that doesn't exist, and thus doesn't need processing.</p>
+<p>Use sparingly, flow still has to process each <code>Nil</code> object to be able to know to remove it, and thus could still slow things down. The fastest element is one that doesn't exist, and thus doesn't need processing.</p>
 <h2 id="layout-elements-guistack"><code>gui.Stack</code></h2>
-<p>This container element places its children on top of each other. All child
-elements are expanded in both directions.</p>
-<p>Note that some elements (such as centred labels) won't pass clicks through to
-the element below them.</p>
+<p>This container element places its children on top of each other. All child elements are expanded in both directions.</p>
+<p>Note that some elements (such as centred labels) won't pass clicks through to the element below them.</p>
 <h3 id="layout-elements-example">Example</h3>
-<pre><code class="language-lua">gui.Stack{
+<pre><code class="language-lua">gui.Stack {
     min_w = 10,
-    gui.Button{label = &quot;Hello world!&quot;},
-    gui.Image{w = 1, h = 1, texture_name = &quot;air.png&quot;, padding = 0.2, align_h = &quot;left&quot;},
+    gui.Button { label = &quot;Hello world!&quot; },
+    gui.Image { w = 1, h = 1, texture_name = &quot;air.png&quot;, padding = 0.2, align_h = &quot;left&quot; },
 }
 </code></pre>
+<!-- TODO(clarify): screenshot is hotlinked from user-images.githubusercontent.com; copy it into docs/ so it cannot break. -->
+
 <p><img alt="Screenshot" src="https://user-images.githubusercontent.com/3182651/215946217-3705dbd1-4ec8-4aed-a9eb-381fecb2d8f2.png" /></p>
 <h2 id="layout-elements-guipaginatedvbox"><code>gui.PaginatedVBox</code></h2>
-<p>Like <code>gui.ScrollableVBox</code>, but splits the contents into pages instead of
-scrolling. Only one page is shown at a time, with a <code>&lt;</code> button, a "Page 1 of 3"
-label, and a <code>&gt;</code> button underneath to change page. It needs a unique <code>name</code>,
-and <code>w</code> and <code>h</code> work the same way as for <code>gui.ScrollableVBox</code>. Elements are
-never cut in half: an element that does not fit on a page starts the next one.</p>
+<p>Like <code>gui.ScrollableVBox</code>, but splits the contents into pages instead of scrolling. Only one page is shown at a time, with a <code>&lt;</code> button, a "Page 1 of 3" label, and a <code>&gt;</code> button underneath to change page. It needs a unique <code>name</code>, and <code>w</code> and <code>h</code> work the same way as for <code>gui.ScrollableVBox</code>. Elements are never cut in half: an element that does not fit on a page starts the next one.</p>
 <p><code>gui.ScrollableVBox</code> uses this automatically on clients that cannot scroll.</p>
+<!-- TODO(link): gui.Flow (experimental.md#guiflow-container) is missing from this page; add an entry. -->
+
 <h2 id="layout-elements-guipadding-deprecated"><code>gui.Padding</code> (deprecated)</h2>
-<p>Wraps a single element to add padding around it. It is deprecated and logs a
-warning, use the <code>padding</code> parameter of the element itself instead, see
-<a href="#padding">Padding</a>.</p></section><section class="print-page" id="elements" heading-number="3.2"><h1 id="elements-elements">Elements</h1>
-<p>This page describes the elements (widgets) that draw something or accept
-input. Elements that only arrange other elements (<code>gui.VBox</code>, <code>gui.HBox</code>,
-<code>gui.Stack</code>, ...) are described in <a href="#layout-elements">Layouting elements</a>.</p>
-<p>Every element is a function in <code>flow.widgets</code> that takes a table of
-parameters:</p>
+<p>Wraps a single element to add padding around it. It is deprecated and logs a warning, use the <code>padding</code> parameter of the element itself instead, see <a href="#padding">Padding</a>.</p></section><section class="print-page" id="elements" heading-number="3.2"><h1 id="elements-elements">Elements</h1>
+<p>This page describes the elements (widgets) that draw something or accept input. Elements that only arrange other elements (<code>gui.VBox</code>, <code>gui.HBox</code>, <code>gui.Stack</code>, ...) are described in <a href="#layout-elements">Layouting elements</a>.</p>
+<p>Every element is a function in <code>flow.widgets</code> that takes a table of parameters:</p>
 <pre><code class="language-lua">local gui = flow.widgets
 
-gui.Label{label = &quot;Hello world!&quot;}
+gui.Label { label = &quot;Hello world!&quot; }
 </code></pre>
-<p>The parameter lists below are generated automatically. Parameters marked
-<code>-- Optional</code> can be left out.</p>
+<!-- TODO(clarify): say what generates them; hand edits (including spacing) may be overwritten. Placeholder values mislead: url = "Hello world!" (ButtonURL, ButtonUrlExit), frame_duration = 4, item_name / inventory_location / mesh = "Hello world!"; Tabheader lists w last. -->
+
+<p>The parameter lists below are generated automatically. Parameters marked <code>-- Optional</code> can be left out.</p>
 <h2 id="elements-concepts-used-on-this-page">Concepts used on this page</h2>
 <h3 id="elements-sizes">Sizes</h3>
-<p>Sizes are measured in inventory slots: <code>1</code> is the width and height
-of one item slot. There is no hidden padding or spacing, so two boxes that are
-<code>1</code> wide and placed next to each other with <code>spacing = 0</code> touch. You never
-give an element a position, boxes place their children and flow works out the
-total size of the form.</p>
-<p>Elements that show text, such as labels, buttons, and fields, are sized to
-fit their text unless you give them a <code>w</code> and <code>h</code>. Elements that show
-something without a natural size, such as images, boxes, models, and tables,
-need an explicit <code>w</code> and <code>h</code> (their parameter lists below do not say
-<code>-- Optional</code>). Flow can only estimate the width of text because the real
-width depends on the player's font, screen size, and scaling settings, so
-avoid layouts that rely on exact text widths.</p>
+<p>Sizes are measured in inventory slots: <code>1</code> is the width and height of one item slot. There is no hidden padding or spacing, so two boxes that are <code>1</code> wide and placed next to each other with <code>spacing = 0</code> touch. You never give an element a position, boxes place their children and flow works out the total size of the form.</p>
+<!-- TODO(link): link to the label-size footnote in index.md (index.md#fn:label-size). -->
+
+<p>Elements that show text, such as labels, buttons, and fields, are sized to fit their text unless you give them a <code>w</code> and <code>h</code>. Elements that show something without a natural size, such as images, boxes, models, and tables, need an explicit <code>w</code> and <code>h</code> (their parameter lists below do not say <code>-- Optional</code>). Flow can only estimate the width of text because the real width depends on the player's font, screen size, and scaling settings, so avoid layouts that rely on exact text widths.</p>
 <h3 id="elements-names-and-values">Names and values</h3>
-<p>Many elements take a <code>name</code>. Input elements (fields,
-checkboxes, dropdowns, lists of text, tables, ...) with a <code>name</code> have their
-current value stored in <code>ctx.form[name]</code> and flow remembers it when the form
-is redrawn:</p>
+<p>Many elements take a <code>name</code>. Input elements (fields, checkboxes, dropdowns, lists of text, tables, ...) with a <code>name</code> have their current value stored in <code>ctx.form[name]</code> and flow remembers it when the form is redrawn:</p>
+<!-- TODO(clarify): table is incomplete: gui.Scrollbar (number), gui.Tabheader (tab number) and gui.Hypertext (action string) also store values. -->
+
 <table>
 <thead>
 <tr>
@@ -1501,33 +1438,19 @@ is redrawn:</p>
 </tr>
 </tbody>
 </table>
-<p>Until the player changes something, the value is the element's initial value
-(<code>default</code>, <code>selected</code>, <code>selected_idx</code>), or <code>""</code>, <code>false</code>, or <code>1</code> if you did
-not give one. Text fields only send their text to the server when the player
-presses a button or Enter, so <code>ctx.form</code> can be out of date until then.</p>
-<p>If your build function reads <code>ctx.form.some_name</code>, flow redraws the form
-automatically whenever the player changes that value (unless the element has
-its own <code>on_event</code>). Buttons do not store a value.</p>
+<p>Until the player changes something, the value is the element's initial value (<code>default</code>, <code>selected</code>, <code>selected_idx</code>), or <code>""</code>, <code>false</code>, or <code>1</code> if you did not give one. Text fields only send their text to the server when the player presses a button or Enter, so <code>ctx.form</code> can be out of date until then.</p>
+<!-- TODO(link): this auto-redraw rule is not in getting-started.md#updating-forms; document it there and cross-link. -->
+
+<p>If your build function reads <code>ctx.form.some_name</code>, flow redraws the form automatically whenever the player changes that value (unless the element has its own <code>on_event</code>). Buttons do not store a value.</p>
 <h3 id="elements-events">Events</h3>
-<p>Elements that the player can use accept an <code>on_event</code> function,
-which is called with the player and <code>ctx</code>. Return <code>true</code> from it to redraw
-the form. A <code>name</code> is optional if you use <code>on_event</code>, flow makes one up.</p>
+<p>Elements that the player can use accept an <code>on_event</code> function, which is called with the player and <code>ctx</code>. Return <code>true</code> from it to redraw the form. A <code>name</code> is optional if you use <code>on_event</code>, flow makes one up.</p>
 <h3 id="elements-colors">Colors</h3>
-<p>Colors are strings. <code>"#RGB"</code> and <code>"#RRGGBB"</code> are fully opaque, while
-<code>"#RGBA"</code> and <code>"#RRGGBBAA"</code> end with an alpha value, where <code>00</code> is fully
-transparent and <code>FF</code> is fully opaque. Color names also work (all the names
-from CSS, such as <code>"red"</code> and <code>"darkgreen"</code>), and you can add an alpha value
-after a <code>#</code>, for example <code>"darkgreen#08"</code>.</p>
-<p>Most text can also be coloured by putting color escape sequences in it, such
-as the ones made by <code>core.colorize()</code>. Dropdown items and tab captions are an
-exception, they cannot be coloured.</p>
+<p>Colors are strings. <code>"#RGB"</code> and <code>"#RRGGBB"</code> are fully opaque, while <code>"#RGBA"</code> and <code>"#RRGGBBAA"</code> end with an alpha value, where <code>00</code> is fully transparent and <code>FF</code> is fully opaque. Color names also work (all the names from CSS, such as <code>"red"</code> and <code>"darkgreen"</code>), and you can add an alpha value after a <code>#</code>, for example <code>"darkgreen#08"</code>.</p>
+<p>Most text can also be coloured by putting color escape sequences in it, such as the ones made by <code>core.colorize()</code>. Dropdown items and tab captions are an exception, they cannot be coloured.</p>
 <h3 id="elements-textures-and-items">Textures and items</h3>
-<p>A texture name is the file name of an image from the
-<code>textures</code> folder of any loaded mod, such as <code>"default_dirt.png"</code>. An item
-name is the registered name of an item or node, such as <code>"default:dirt"</code>.</p>
+<p>A texture name is the file name of an image from the <code>textures</code> folder of any loaded mod, such as <code>"default_dirt.png"</code>. An item name is the registered name of an item or node, such as <code>"default:dirt"</code>.</p>
 <h3 id="elements-parameters-shared-by-all-elements">Parameters shared by all elements</h3>
-<p>Every element, including <a href="#layout-elements">layouting elements</a>, accepts
-these parameters in addition to its own:</p>
+<p>Every element, including <a href="#layout-elements">layouting elements</a>, accepts these parameters in addition to its own:</p>
 <table>
 <thead>
 <tr>
@@ -1571,29 +1494,18 @@ these parameters in addition to its own:</p>
 </tbody>
 </table>
 <h3 id="elements-nine-slice-images">Nine-slice images</h3>
-<p>Images and image-like backgrounds can optionally be
-drawn as a "nine-slice". The picture is cut into a 3x3 grid, where the
-corners keep their size, the edges are stretched in one direction, and the
-middle is stretched in both. This lets one small texture make a panel or
-border of any size without distorting its corners. The <code>middle_*</code> parameters
-describe where the cuts are, in texture pixels (whole numbers):</p>
+<p>Images and image-like backgrounds can optionally be drawn as a "nine-slice". The picture is cut into a 3x3 grid, where the corners keep their size, the edges are stretched in one direction, and the middle is stretched in both. This lets one small texture make a panel or border of any size without distorting its corners. The <code>middle_*</code> parameters describe where the cuts are, in texture pixels (whole numbers):</p>
 <ul>
 <li><code>middle_x</code> only: the cuts are <code>middle_x</code> pixels from every side.</li>
-<li><code>middle_x</code> and <code>middle_y</code>: <code>middle_x</code> pixels from the left and right
-   sides and <code>middle_y</code> pixels from the top and bottom.</li>
-<li>All four: the middle rectangle starts at <code>middle_x, middle_y</code> and ends at
-   <code>middle_x2, middle_y2</code>. Negative <code>middle_x2</code> and <code>middle_y2</code> values are
-   measured from the far (right/bottom) edge of the texture.</li>
+<li><code>middle_x</code> and <code>middle_y</code>: <code>middle_x</code> pixels from the left and right sides and <code>middle_y</code> pixels from the top and bottom.</li>
+<li>All four: the middle rectangle starts at <code>middle_x, middle_y</code> and ends at <code>middle_x2, middle_y2</code>. Negative <code>middle_x2</code> and <code>middle_y2</code> values are measured from the far (right/bottom) edge of the texture.</li>
 </ul>
 <h2 id="elements-elements_1">Elements</h2>
 <h3 id="elements-guianimatedimage"><code>gui.AnimatedImage</code></h3>
-<p>Shows an image that plays an animation. The texture must contain every frame
-stacked on top of each other (the first frame at the top), with all frames
-the same size. <code>w</code> and <code>h</code> are the size of one displayed frame.</p>
-<p><code>middle_*</code> parameters turn on nine-slice drawing, see
-<a href="#elements-nine-slice-images">Nine-slice images</a>.</p>
+<p>Shows an image that plays an animation. The texture must contain every frame stacked on top of each other (the first frame at the top), with all frames the same size. <code>w</code> and <code>h</code> are the size of one displayed frame.</p>
+<p><code>middle_*</code> parameters turn on nine-slice drawing, see <a href="#elements-nine-slice-images">Nine-slice images</a>.</p>
 <p><strong>Example</strong></p>
-<pre><code class="language-lua">gui.AnimatedImage{
+<pre><code class="language-lua">gui.AnimatedImage {
     w = 1,
     h = 2,
 
@@ -1618,16 +1530,10 @@ the same size. <code>w</code> and <code>h</code> are the size of one displayed f
 }
 </code></pre>
 <h3 id="elements-guibackground"><code>gui.Background</code></h3>
-<p>Draws a picture behind everything else in the form: all backgrounds are drawn
-before any other element, whatever order they are in. The picture
-(<code>texture_name</code>) is stretched to <code>w</code> by <code>h</code>. If <code>auto_clip</code> is <code>true</code>, it is
-cut off at the edge of the form instead and <code>w</code> and <code>h</code> are ignored.</p>
-<p>You usually do not need this element, set <code>bgimg</code> on a container or the root
-element instead (see <a href="#padding">Padding</a>). Inside a <code>gui.Stack</code>, a
-<code>gui.ScrollableVBox</code>, or an embedded form, flow draws backgrounds without
-<code>auto_clip</code> as ordinary images.</p>
+<p>Draws a picture behind everything else in the form: all backgrounds are drawn before any other element, whatever order they are in. The picture (<code>texture_name</code>) is stretched to <code>w</code> by <code>h</code>. If <code>auto_clip</code> is <code>true</code>, it is cut off at the edge of the form instead and <code>w</code> and <code>h</code> are ignored.</p>
+<p>You usually do not need this element, set <code>bgimg</code> on a container or the root element instead (see <a href="#padding">Padding</a>). Inside a <code>gui.Stack</code>, a <code>gui.ScrollableVBox</code>, or an embedded form, flow draws backgrounds without <code>auto_clip</code> as ordinary images.</p>
 <p><strong>Example</strong></p>
-<pre><code class="language-lua">gui.Background{
+<pre><code class="language-lua">gui.Background {
     w = 1,
     h = 2,
 
@@ -1639,11 +1545,9 @@ element instead (see <a href="#padding">Padding</a>). Inside a <code>gui.Stack</
 }
 </code></pre>
 <h3 id="elements-guibackground9"><code>gui.Background9</code></h3>
-<p>Like <code>gui.Background</code>, but the picture is drawn as a
-<a href="#elements-nine-slice-images">nine-slice</a> so that it can be stretched to any size
-without distorting its corners.</p>
+<p>Like <code>gui.Background</code>, but the picture is drawn as a <a href="#elements-nine-slice-images">nine-slice</a> so that it can be stretched to any size without distorting its corners.</p>
 <p><strong>Example</strong></p>
-<pre><code class="language-lua">gui.Background9{
+<pre><code class="language-lua">gui.Background9 {
     w = 1,
     h = 2,
 
@@ -1661,12 +1565,9 @@ without distorting its corners.</p>
 }
 </code></pre>
 <h3 id="elements-guibgcolor"><code>gui.Bgcolor</code></h3>
-<p>Sets the colors behind the form. This does the same thing as the <code>bgcolor</code>,
-<code>fbgcolor</code>, and <code>bg_fullscreen</code> options of the root element, which are
-explained in <a href="#experimental-bgcolor">Experimental features</a> and are easier
-to use. <code>fullscreen</code> can be <code>false</code>, <code>true</code>, <code>"both"</code>, or <code>"neither"</code>.</p>
+<p>Sets the colors behind the form. This does the same thing as the <code>bgcolor</code>, <code>fbgcolor</code>, and <code>bg_fullscreen</code> options of the root element, which are explained in <a href="#experimental-bgcolor">Experimental features</a> and are easier to use. <code>fullscreen</code> can be <code>false</code>, <code>true</code>, <code>"both"</code>, or <code>"neither"</code>.</p>
 <p><strong>Example</strong></p>
-<pre><code class="language-lua">gui.Bgcolor{
+<pre><code class="language-lua">gui.Bgcolor {
     -- Background color of the form.
     bgcolor = &quot;#FF0000&quot;,
 
@@ -1678,13 +1579,12 @@ to use. <code>fullscreen</code> can be <code>false</code>, <code>true</code>, <c
 }
 </code></pre>
 <h3 id="elements-guibox"><code>gui.Box</code></h3>
-<p>Draws a solid rectangle of one color. Boxes have no natural size, so
-give them a <code>w</code> and <code>h</code>.</p>
-<p>Unlike everywhere else, a hexadecimal color without an alpha value, such as
-<code>"#FF0000"</code>, is drawn semi-transparent here. Add the alpha value
-(<code>"#FF0000FF"</code>) to make it opaque.</p>
+<p>Draws a solid rectangle of one color. Boxes have no natural size, so give them a <code>w</code> and <code>h</code>.</p>
+<!-- TODO(clarify): state the actual default alpha for gui.Box colors without one. -->
+
+<p>Unlike everywhere else, a hexadecimal color without an alpha value, such as <code>"#FF0000"</code>, is drawn semi-transparent here. Add the alpha value (<code>"#FF0000FF"</code>) to make it opaque.</p>
 <p><strong>Example</strong></p>
-<pre><code class="language-lua">gui.Box{
+<pre><code class="language-lua">gui.Box {
     w = 1,
     h = 2,
 
@@ -1693,12 +1593,10 @@ give them a <code>w</code> and <code>h</code>.</p>
 }
 </code></pre>
 <h3 id="elements-guibutton"><code>gui.Button</code></h3>
-<p>A clickable button showing <code>label</code>. Your <code>on_event</code> function is called when it
-is clicked. If you do not set <code>w</code> and <code>h</code>, the button is sized to fit the label
-(but never smaller than 1.6 by 0.8).</p>
+<p>A clickable button showing <code>label</code>. Your <code>on_event</code> function is called when it is clicked. If you do not set <code>w</code> and <code>h</code>, the button is sized to fit the label (but never smaller than 1.6 by 0.8).</p>
 <p>Buttons do not store a value in <code>ctx.form</code>.</p>
 <p><strong>Example</strong></p>
-<pre><code class="language-lua">gui.Button{
+<pre><code class="language-lua">gui.Button {
     w = 6, -- Optional
     h = 2, -- Optional
     name = &quot;my_button&quot;, -- Optional
@@ -1706,11 +1604,9 @@ is clicked. If you do not set <code>w</code> and <code>h</code>, the button is s
 }
 </code></pre>
 <h3 id="elements-guibuttonexit"><code>gui.ButtonExit</code></h3>
-<p>A button that closes the form when it is clicked. Your <code>on_event</code> function is
-still called before the form closes. In all other respects it works like
-<code>gui.Button</code>.</p>
+<p>A button that closes the form when it is clicked. Your <code>on_event</code> function is still called before the form closes. In all other respects it works like <code>gui.Button</code>.</p>
 <p><strong>Example</strong></p>
-<pre><code class="language-lua">gui.ButtonExit{
+<pre><code class="language-lua">gui.ButtonExit {
     w = 6, -- Optional
     h = 2, -- Optional
     name = &quot;my_button_exit&quot;, -- Optional
@@ -1718,12 +1614,9 @@ still called before the form closes. In all other respects it works like
 }
 </code></pre>
 <h3 id="elements-guibuttonurl"><code>gui.ButtonURL</code></h3>
-<p>A button that, when clicked, offers the player the choice of opening <code>url</code>
-in their web browser. <code>url</code> must start with <code>http://</code> or <code>https://</code>. Your
-<code>on_event</code> function is also called. In all other respects it works like
-<code>gui.Button</code>.</p>
+<p>A button that, when clicked, offers the player the choice of opening <code>url</code> in their web browser. <code>url</code> must start with <code>http://</code> or <code>https://</code>. Your <code>on_event</code> function is also called. In all other respects it works like <code>gui.Button</code>.</p>
 <p><strong>Example</strong></p>
-<pre><code class="language-lua">gui.ButtonURL{
+<pre><code class="language-lua">gui.ButtonURL {
     w = 6, -- Optional
     h = 2, -- Optional
     name = &quot;my_button_url&quot;, -- Optional
@@ -1736,7 +1629,7 @@ in their web browser. <code>url</code> must start with <code>http://</code> or <
 <h3 id="elements-guibuttonurlexit"><code>gui.ButtonUrlExit</code></h3>
 <p>Like <code>gui.ButtonURL</code>, but the form also closes when the button is clicked.</p>
 <p><strong>Example</strong></p>
-<pre><code class="language-lua">gui.ButtonUrlExit{
+<pre><code class="language-lua">gui.ButtonUrlExit {
     w = 6, -- Optional
     h = 2, -- Optional
     name = &quot;my_button_url_exit&quot;, -- Optional
@@ -1747,44 +1640,36 @@ in their web browser. <code>url</code> must start with <code>http://</code> or <
 }
 </code></pre>
 <h3 id="elements-guicheckbox"><code>gui.Checkbox</code></h3>
-<p>A tick box with a text <code>label</code>. <code>selected</code> sets whether it starts ticked. If
-you give it a <code>name</code>, <code>ctx.form[name]</code> is <code>true</code> or <code>false</code> and is updated as
-soon as the player ticks or unticks it.</p>
+<p>A tick box with a text <code>label</code>. <code>selected</code> sets whether it starts ticked. If you give it a <code>name</code>, <code>ctx.form[name]</code> is <code>true</code> or <code>false</code> and is updated as soon as the player ticks or unticks it.</p>
 <p>Checkboxes are sized automatically and do not accept <code>w</code> or <code>h</code>.</p>
 <p><strong>Example</strong></p>
-<pre><code class="language-lua">gui.Checkbox{
+<pre><code class="language-lua">gui.Checkbox {
     name = &quot;my_checkbox&quot;, -- Optional
     label = &quot;Hello world!&quot;, -- Optional
     selected = false, -- Optional
 }
 </code></pre>
 <h3 id="elements-guicontainer"><code>gui.Container</code></h3>
-<p>A group of elements that you position yourself with <code>x</code> and <code>y</code> instead of
-letting flow lay them out. See <a href="#manual-positioning">Manual positioning</a>.</p>
+<p>A group of elements that you position yourself with <code>x</code> and <code>y</code> instead of letting flow lay them out. See <a href="#manual-positioning">Manual positioning</a>.</p>
 <p><strong>Example</strong></p>
-<pre><code class="language-lua">gui.Container{
+<pre><code class="language-lua">gui.Container {
     w = 6, h = 2, -- Optional
-    {type = &quot;box&quot;, x = 0, y = 0, w = 1, h = 1, color = &quot;red&quot;},
-    {type = &quot;label&quot;, x = 1, y = 1.5, label = &quot;Hello world!&quot;},
+    { type = &quot;box&quot;, x = 0, y = 0, w = 1, h = 1, color = &quot;red&quot; },
+    { type = &quot;label&quot;, x = 1, y = 1.5, label = &quot;Hello world!&quot; },
 }
 </code></pre>
 <h3 id="elements-guidropdown"><code>gui.Dropdown</code></h3>
-<p>A drop-down list that shows the currently selected item and lets the player
-pick another one from <code>items</code> (a list of strings). <code>selected_idx</code> is the
-number of the item that is selected at first (the first item is <code>1</code>).</p>
-<p><code>ctx.form[name]</code> is the text of the selected item. If <code>index_event = true</code>
-it is the number of the selected item instead, which is easier to work with
-when two items have the same text or when the text is translated.</p>
-<p>If you do not set <code>w</code> and <code>h</code>, the dropdown is sized to fit its longest
-item (but never smaller than 2 by 0.8). Item text cannot be coloured.</p>
+<p>A drop-down list that shows the currently selected item and lets the player pick another one from <code>items</code> (a list of strings). <code>selected_idx</code> is the number of the item that is selected at first (the first item is <code>1</code>).</p>
+<p><code>ctx.form[name]</code> is the text of the selected item. If <code>index_event = true</code> it is the number of the selected item instead, which is easier to work with when two items have the same text or when the text is translated.</p>
+<p>If you do not set <code>w</code> and <code>h</code>, the dropdown is sized to fit its longest item (but never smaller than 2 by 0.8). Item text cannot be coloured.</p>
 <p><strong>Example</strong></p>
-<pre><code class="language-lua">gui.Dropdown{
+<pre><code class="language-lua">gui.Dropdown {
     w = 2, -- Optional
     h = 2, -- Optional
     name = &quot;my_dropdown&quot;, -- Optional
 
     -- List of choices.
-    items = {&quot;Hello world!&quot;, ...},
+    items = { &quot;Hello world!&quot;, ... },
 
     -- Number of the item selected at first.
     selected_idx = 3, -- Optional
@@ -1794,16 +1679,11 @@ item (but never smaller than 2 by 0.8). Item text cannot be coloured.</p>
 }
 </code></pre>
 <h3 id="elements-guifield"><code>gui.Field</code></h3>
-<p>A single-line text box. <code>label</code>, if set, is shown above the box (flow
-leaves room for it automatically). <code>default</code> is the text it starts with.</p>
-<p><code>ctx.form[name]</code> is the text in the box. Newlines and other control
-characters are removed from it (a player can only get them into a field by
-pasting). The text is sent to the server when the player presses a button or
-Enter. To react to Enter, see <a href="#experimental-handling-enter-keypresses-in-fields">Handling enter keypresses in fields</a>.</p>
-<p>If you do not set <code>w</code> and <code>h</code>, the field is sized to fit its default text and
-label (but never smaller than 3 by 0.8).</p>
+<p>A single-line text box. <code>label</code>, if set, is shown above the box (flow leaves room for it automatically). <code>default</code> is the text it starts with.</p>
+<p><code>ctx.form[name]</code> is the text in the box. Newlines and other control characters are removed from it (a player can only get them into a field by pasting). The text is sent to the server when the player presses a button or Enter. To react to Enter, see <a href="#experimental-handling-enter-keypresses-in-fields">Handling enter keypresses in fields</a>.</p>
+<p>If you do not set <code>w</code> and <code>h</code>, the field is sized to fit its default text and label (but never smaller than 3 by 0.8).</p>
 <p><strong>Example</strong></p>
-<pre><code class="language-lua">gui.Field{
+<pre><code class="language-lua">gui.Field {
     w = 6, -- Optional
     h = 2, -- Optional
     name = &quot;my_field&quot;, -- Optional
@@ -1823,38 +1703,28 @@ label (but never smaller than 3 by 0.8).</p>
 }
 </code></pre>
 <h3 id="elements-guifieldcloseonenter"><code>gui.FieldCloseOnEnter</code></h3>
-<p>Sets whether pressing Enter in the field with this <code>name</code> closes the form.
-You normally do not need this element, as <code>gui.Field</code> has a <code>close_on_enter</code>
-parameter (and by default Enter does not close the form).</p>
+<p>Sets whether pressing Enter in the field with this <code>name</code> closes the form. You normally do not need this element, as <code>gui.Field</code> has a <code>close_on_enter</code> parameter (and by default Enter does not close the form).</p>
 <p><strong>Example</strong></p>
-<pre><code class="language-lua">gui.FieldCloseOnEnter{
+<pre><code class="language-lua">gui.FieldCloseOnEnter {
     -- Name of the field.
     name = &quot;my_field_close_on_enter&quot;,
     close_on_enter = false,
 }
 </code></pre>
 <h3 id="elements-guifieldenterafteredit"><code>gui.FieldEnterAfterEdit</code></h3>
-<p>Experimental, and only affects Android. If <code>enter_after_edit</code> is <code>true</code>,
-pressing "Done" in the text input dialog of the field with this <code>name</code> counts
-as pressing Enter. You normally do not need this element, as <code>gui.Field</code> has an
-<code>enter_after_edit</code> parameter.</p>
+<p>Experimental, and only affects Android. If <code>enter_after_edit</code> is <code>true</code>, pressing "Done" in the text input dialog of the field with this <code>name</code> counts as pressing Enter. You normally do not need this element, as <code>gui.Field</code> has an <code>enter_after_edit</code> parameter.</p>
 <p><strong>Example</strong></p>
-<pre><code class="language-lua">gui.FieldEnterAfterEdit{
+<pre><code class="language-lua">gui.FieldEnterAfterEdit {
     -- Name of the field.
     name = &quot;my_field_enter_after_edit&quot;,
     enter_after_edit = false,
 }
 </code></pre>
 <h3 id="elements-guihypertext"><code>gui.Hypertext</code></h3>
-<p>Shows text that can be formatted (bold, colors, different sizes, images,
-...) and can contain clickable links. The text is written in a small
-HTML-like language, which is described in <a href="#hypertext">Hypertext markup</a>.
-<code>w</code> and <code>h</code> are the size of the area that the text is wrapped to fit in.</p>
-<p>If the markup contains <code>&lt;action name=...&gt;</code> links, <code>ctx.form[name]</code> is set to
-<code>"action:"</code> followed by the action name when the player clicks one. This
-behaviour is experimental and may change.</p>
+<p>Shows text that can be formatted (bold, colors, different sizes, images, ...) and can contain clickable links. The text is written in a small HTML-like language, which is described in <a href="#hypertext">Hypertext markup</a>. <code>w</code> and <code>h</code> are the size of the area that the text is wrapped to fit in.</p>
+<p>If the markup contains <code>&lt;action name=...&gt;</code> links, <code>ctx.form[name]</code> is set to <code>"action:"</code> followed by the action name when the player clicks one. This behaviour is experimental and may change.</p>
 <p><strong>Example</strong></p>
-<pre><code class="language-lua">gui.Hypertext{
+<pre><code class="language-lua">gui.Hypertext {
     w = 6,
     h = 2,
 
@@ -1866,11 +1736,9 @@ behaviour is experimental and may change.</p>
 }
 </code></pre>
 <h3 id="elements-guiimage"><code>gui.Image</code></h3>
-<p>Shows a picture, stretched to fit <code>w</code> by <code>h</code>. If you want to use one small
-texture for pictures of many sizes, use the <code>middle_*</code> parameters, see
-<a href="#elements-nine-slice-images">Nine-slice images</a>.</p>
+<p>Shows a picture, stretched to fit <code>w</code> by <code>h</code>. If you want to use one small texture for pictures of many sizes, use the <code>middle_*</code> parameters, see <a href="#elements-nine-slice-images">Nine-slice images</a>.</p>
 <p><strong>Example</strong></p>
-<pre><code class="language-lua">gui.Image{
+<pre><code class="language-lua">gui.Image {
     w = 4,
     h = 2,
 
@@ -1883,16 +1751,14 @@ texture for pictures of many sizes, use the <code>middle_*</code> parameters, se
 }
 </code></pre>
 <h3 id="elements-guiimagebutton"><code>gui.ImageButton</code></h3>
-<p>A button that is drawn as a picture instead of the usual button face. The
-picture (<code>texture_name</code>) is stretched to <code>w</code> by <code>h</code>, and <code>label</code> is drawn on
-top of it. It works like <code>gui.Button</code> otherwise.</p>
+<p>A button that is drawn as a picture instead of the usual button face. The picture (<code>texture_name</code>) is stretched to <code>w</code> by <code>h</code>, and <code>label</code> is drawn on top of it. It works like <code>gui.Button</code> otherwise.</p>
 <ul>
 <li><code>noclip</code>: Allow the button to be drawn outside the form's area.</li>
 <li><code>drawborder</code>: Draw the normal button border around the picture.</li>
 <li><code>pressed_texture_name</code>: Picture to show while the button is held down.</li>
 </ul>
 <p><strong>Example</strong></p>
-<pre><code class="language-lua">gui.ImageButton{
+<pre><code class="language-lua">gui.ImageButton {
     w = 6,
     h = 2,
 
@@ -1908,7 +1774,7 @@ top of it. It works like <code>gui.Button</code> otherwise.</p>
 <h3 id="elements-guiimagebuttonexit"><code>gui.ImageButtonExit</code></h3>
 <p>Like <code>gui.ImageButton</code>, but the form also closes when the button is clicked.</p>
 <p><strong>Example</strong></p>
-<pre><code class="language-lua">gui.ImageButtonExit{
+<pre><code class="language-lua">gui.ImageButtonExit {
     w = 6,
     h = 2,
 
@@ -1922,10 +1788,9 @@ top of it. It works like <code>gui.Button</code> otherwise.</p>
 }
 </code></pre>
 <h3 id="elements-guiitemimage"><code>gui.ItemImage</code></h3>
-<p>Shows the picture that is used for an item or node in inventories
-(<code>item_name</code>, such as <code>"default:dirt"</code>), stretched to fit <code>w</code> by <code>h</code>.</p>
+<p>Shows the picture that is used for an item or node in inventories (<code>item_name</code>, such as <code>"default:dirt"</code>), stretched to fit <code>w</code> by <code>h</code>.</p>
 <p><strong>Example</strong></p>
-<pre><code class="language-lua">gui.ItemImage{
+<pre><code class="language-lua">gui.ItemImage {
     w = 2,
     h = 3,
 
@@ -1934,14 +1799,10 @@ top of it. It works like <code>gui.Button</code> otherwise.</p>
 }
 </code></pre>
 <h3 id="elements-guiitemimagebutton"><code>gui.ItemImageButton</code></h3>
-<p>A button that shows the inventory picture of an item or node (<code>item_name</code>).
-By default, the item's description is shown as a tooltip when the player
-hovers over the button, which you can replace with the <code>tooltip</code> parameter.
-It works like <code>gui.Button</code> otherwise.</p>
-<p>Give every item image button its own unique <code>name</code>, otherwise its tooltip may
-not work.</p>
+<p>A button that shows the inventory picture of an item or node (<code>item_name</code>). By default, the item's description is shown as a tooltip when the player hovers over the button, which you can replace with the <code>tooltip</code> parameter. It works like <code>gui.Button</code> otherwise.</p>
+<p>Give every item image button its own unique <code>name</code>, otherwise its tooltip may not work.</p>
 <p><strong>Example</strong></p>
-<pre><code class="language-lua">gui.ItemImageButton{
+<pre><code class="language-lua">gui.ItemImageButton {
     w = 1,
     h = 2,
 
@@ -1952,43 +1813,24 @@ not work.</p>
 }
 </code></pre>
 <h3 id="elements-guilabel"><code>gui.Label</code></h3>
-<p>Shows text. Labels do not wrap long lines automatically: use <code>\n</code> to start
-a new line and do not use labels for long paragraphs. For those, use
-<code>gui.Hypertext</code>, or a <code>gui.Textarea</code> without a <code>name</code> (which wraps its text
-and gets a scrollbar if the text is too long).</p>
-<p>Labels are sized to fit their text, and flow ignores color escape sequences
-when it estimates the width. To make the text bigger or smaller, use
-the <code>font_size</code> style (for example <code>style = {font_size = "*2"}</code>), see
-<a href="#styling">Styling</a>.</p>
+<p>Shows text. Labels do not wrap long lines automatically: use <code>\n</code> to start a new line and do not use labels for long paragraphs. For those, use <code>gui.Hypertext</code>, or a <code>gui.Textarea</code> without a <code>name</code> (which wraps its text and gets a scrollbar if the text is too long).</p>
+<p>Labels are sized to fit their text, and flow ignores color escape sequences when it estimates the width. To make the text bigger or smaller, use the <code>font_size</code> style (for example <code>style = {font_size = "*2"}</code>), see <a href="#styling">Styling</a>.</p>
 <p><strong>Example</strong></p>
-<pre><code class="language-lua">gui.Label{
+<pre><code class="language-lua">gui.Label {
     label = &quot;Hello world!&quot;,
 }
 </code></pre>
 <h3 id="elements-guilist"><code>gui.List</code></h3>
-<p>Shows a grid of inventory slots, with the items of one inventory list in it.
-This is how you show the player's inventory, a chest, a furnace's input slots,
-and so on.</p>
+<p>Shows a grid of inventory slots, with the items of one inventory list in it. This is how you show the player's inventory, a chest, a furnace's input slots, and so on.</p>
 <ul>
-<li><code>inventory_location</code>: Which inventory to show. Common values are
-   <code>"current_player"</code> (the inventory of the player who has the form open),
-   <code>"nodemeta:X,Y,Z"</code> (the inventory of the node at that position, for
-   example <code>"nodemeta:10,5,-3"</code>), and <code>"detached:name"</code> (a detached
-   inventory). <code>"player:name"</code> is the inventory of a specific player and is
-   only ever sent to that player.</li>
-<li><code>list_name</code>: The name of the list inside that inventory, such as <code>"main"</code>
-   or <code>"craft"</code>.</li>
+<li><code>inventory_location</code>: Which inventory to show. Common values are <code>"current_player"</code> (the inventory of the player who has the form open), <code>"nodemeta:X,Y,Z"</code> (the inventory of the node at that position, for example <code>"nodemeta:10,5,-3"</code>), and <code>"detached:name"</code> (a detached inventory). <code>"player:name"</code> is the inventory of a specific player and is only ever sent to that player.</li>
+<li><code>list_name</code>: The name of the list inside that inventory, such as <code>"main"</code> or <code>"craft"</code>.</li>
 <li><code>w</code> and <code>h</code>: How many slots wide and high to draw (whole numbers).</li>
 </ul>
-<p>Slots are filled from left to right, then top to bottom, and the player can
-move items in and out of them. The list is only shown if the inventory has
-been sent to the player's client. Only as many slots as the inventory list
-has are drawn, even if <code>w</code> times <code>h</code> is larger.</p>
-<p>Each slot is 1 by 1, with 0.25 between slots, so a list that is 8 slots wide
-and 4 high is 9.75 by 4.75 big. To change the slot size or spacing, use the
-<code>size</code> and <code>spacing</code> styles, see <a href="#styling">Styling</a>.</p>
+<p>Slots are filled from left to right, then top to bottom, and the player can move items in and out of them. The list is only shown if the inventory has been sent to the player's client. Only as many slots as the inventory list has are drawn, even if <code>w</code> times <code>h</code> is larger.</p>
+<p>Each slot is 1 by 1, with 0.25 between slots, so a list that is 8 slots wide and 4 high is 9.75 by 4.75 big. To change the slot size or spacing, use the <code>size</code> and <code>spacing</code> styles, see <a href="#styling">Styling</a>.</p>
 <p><strong>Example</strong></p>
-<pre><code class="language-lua">gui.List{
+<pre><code class="language-lua">gui.List {
     -- Which inventory to show.
     inventory_location = &quot;Hello world!&quot;,
 
@@ -2003,8 +1845,7 @@ and 4 high is 9.75 by 4.75 big. To change the slot size or spacing, use the
 }
 </code></pre>
 <h3 id="elements-guilistcolors"><code>gui.Listcolors</code></h3>
-<p>Sets the colors of inventory slots. It is invisible, takes up no space, and
-should come before the <code>gui.List</code> elements it is for.</p>
+<p>Sets the colors of inventory slots. It is invisible, takes up no space, and should come before the <code>gui.List</code> elements it is for.</p>
 <ul>
 <li><code>slot_bg_normal</code>: Background color of a slot.</li>
 <li><code>slot_bg_hover</code>: Background color of a slot while the mouse is over it.</li>
@@ -2012,10 +1853,11 @@ should come before the <code>gui.List</code> elements it is for.</p>
 <li><code>tooltip_bgcolor</code>: Default background color of item tooltips.</li>
 <li><code>tooltip_fontcolor</code>: Default text color of item tooltips.</li>
 </ul>
-<p>Only the first two are required. To use pictures instead of colors for slots,
-see <a href="#not-supported">Features flow does not have</a>.</p>
+<!-- TODO(link): link text "Features flow does not have" does not match the page title "Unsupported Features" (also elements.md, hypertext.md, styling.md x3). -->
+
+<p>Only the first two are required. To use pictures instead of colors for slots, see <a href="#not-supported">Features flow does not have</a>.</p>
 <p><strong>Example</strong></p>
-<pre><code class="language-lua">gui.Listcolors{
+<pre><code class="language-lua">gui.Listcolors {
     -- Slot background color.
     slot_bg_normal = &quot;#FF0000&quot;,
 
@@ -2033,15 +1875,10 @@ see <a href="#not-supported">Features flow does not have</a>.</p>
 }
 </code></pre>
 <h3 id="elements-guilistring"><code>gui.Listring</code></h3>
-<p>Sets where items go when the player shift-clicks them. Every
-<code>gui.Listring{inventory_location = ..., list_name = ...}</code> adds a list to a
-ring, and shift-clicking an item in one list of the ring moves it to the next
-list in the ring. The first time a list appears in the ring decides which
-inventory the items are sent to.</p>
-<p><code>gui.Listring{}</code> with no parameters adds the last two <code>gui.List</code> elements that
-came before it. It is invisible and takes up no space.</p>
+<p>Sets where items go when the player shift-clicks them. Every <code>gui.Listring{inventory_location = ..., list_name = ...}</code> adds a list to a ring, and shift-clicking an item in one list of the ring moves it to the next list in the ring. The first time a list appears in the ring decides which inventory the items are sent to.</p>
+<p><code>gui.Listring{}</code> with no parameters adds the last two <code>gui.List</code> elements that came before it. It is invisible and takes up no space.</p>
 <p><strong>Example</strong></p>
-<pre><code class="language-lua">gui.Listring{
+<pre><code class="language-lua">gui.Listring {
     -- Same as for gui.List.
     inventory_location = &quot;Hello world!&quot;, -- Optional
 
@@ -2053,21 +1890,16 @@ came before it. It is invisible and takes up no space.</p>
 <p>Shows a 3D model that the player can turn around with their mouse.</p>
 <ul>
 <li><code>mesh</code>: File name of the model, from the <code>models</code> folder of any loaded mod.</li>
-<li><code>textures</code>: The textures for the model, one for each of the model's
-   materials in order.</li>
-<li><code>rotation_x</code> and <code>rotation_y</code>: How far the model is turned at first, in
-   degrees.</li>
+<li><code>textures</code>: The textures for the model, one for each of the model's materials in order.</li>
+<li><code>rotation_x</code> and <code>rotation_y</code>: How far the model is turned at first, in degrees.</li>
 <li><code>continuous</code>: Keep the model rotating by itself.</li>
-<li><code>mouse_control</code>: Whether the player can rotate the model with their mouse.
-   Defaults to <code>true</code>.</li>
-<li><code>frame_loop_begin</code> and <code>frame_loop_end</code>: The range of animation frames to
-   play. Defaults to all frames.</li>
-<li><code>animation_speed</code>: Frames per second to play the animation at. Defaults to
-   <code>0</code> (no animation).</li>
+<li><code>mouse_control</code>: Whether the player can rotate the model with their mouse. Defaults to <code>true</code>.</li>
+<li><code>frame_loop_begin</code> and <code>frame_loop_end</code>: The range of animation frames to play. Defaults to all frames.</li>
+<li><code>animation_speed</code>: Frames per second to play the animation at. Defaults to <code>0</code> (no animation).</li>
 </ul>
 <p><code>name</code> is optional and only useful for <a href="#styling">styling</a>.</p>
 <p><strong>Example</strong></p>
-<pre><code class="language-lua">gui.Model{
+<pre><code class="language-lua">gui.Model {
     w = 5,
     h = 3,
 
@@ -2078,7 +1910,7 @@ came before it. It is invisible and takes up no space.</p>
     mesh = &quot;Hello world!&quot;,
 
     -- One texture for each material of the model.
-    textures = {&quot;texture.png&quot;, ...},
+    textures = { &quot;texture.png&quot;, ... },
 
     -- Starting rotation in degrees.
     rotation_x = 3, -- Optional
@@ -2103,12 +1935,9 @@ came before it. It is invisible and takes up no space.</p>
 }
 </code></pre>
 <h3 id="elements-guipwdfield"><code>gui.Pwdfield</code></h3>
-<p>A single-line text box for passwords: what the player types is hidden. It
-works like <code>gui.Field</code>, apart from not having a <code>default</code>. <code>ctx.form[name]</code>
-is the text that was typed. <code>on_key_enter</code> is supported, see
-<a href="#experimental-handling-enter-keypresses-in-fields">Handling enter keypresses in fields</a>.</p>
+<p>A single-line text box for passwords: what the player types is hidden. It works like <code>gui.Field</code>, apart from not having a <code>default</code>. <code>ctx.form[name]</code> is the text that was typed. <code>on_key_enter</code> is supported, see <a href="#experimental-handling-enter-keypresses-in-fields">Handling enter keypresses in fields</a>.</p>
 <p><strong>Example</strong></p>
-<pre><code class="language-lua">gui.Pwdfield{
+<pre><code class="language-lua">gui.Pwdfield {
     w = 6, -- Optional
     h = 2, -- Optional
     name = &quot;my_pwdfield&quot;, -- Optional
@@ -2119,35 +1948,28 @@ is the text that was typed. <code>on_key_enter</code> is supported, see
 }
 </code></pre>
 <h3 id="elements-guiscrollcontainer"><code>gui.ScrollContainer</code></h3>
-<p>An area of a fixed size that clips the elements inside it and moves them when a
-scrollbar is moved. You usually want <code>gui.ScrollableVBox</code> instead, which does
-all of this for you. The elements inside are positioned by hand with <code>x</code> and
-<code>y</code>, like in <code>gui.Container</code>.</p>
+<p>An area of a fixed size that clips the elements inside it and moves them when a scrollbar is moved. You usually want <code>gui.ScrollableVBox</code> instead, which does all of this for you. The elements inside are positioned by hand with <code>x</code> and <code>y</code>, like in <code>gui.Container</code>.</p>
 <ul>
 <li><code>w</code> and <code>h</code>: The size of the visible area.</li>
-<li><code>scrollbar_name</code>: The <code>name</code> of the <code>gui.Scrollbar</code> that controls the area.
-   You need to add that scrollbar yourself.</li>
+<li><code>scrollbar_name</code>: The <code>name</code> of the <code>gui.Scrollbar</code> that controls the area. You need to add that scrollbar yourself.</li>
 <li><code>orientation</code>: <code>"vertical"</code> (the default) or <code>"horizontal"</code>.</li>
-<li><code>scroll_factor</code>: How far the contents move for each step of the scrollbar's
-   value. Default <code>0.1</code>. It cannot be negative.</li>
+<li><code>scroll_factor</code>: How far the contents move for each step of the scrollbar's value. Default <code>0.1</code>. It cannot be negative.</li>
 </ul>
-<p>Flow cannot work out the range of the scrollbar for you here. Set <code>max</code> and
-<code>thumbsize</code> with <code>gui.ScrollbarOptions</code> before the scrollbar, where <code>max</code> is
-the height that is hidden divided by <code>scroll_factor</code>.</p>
+<p>Flow cannot work out the range of the scrollbar for you here. Set <code>max</code> and <code>thumbsize</code> with <code>gui.ScrollbarOptions</code> before the scrollbar, where <code>max</code> is the height that is hidden divided by <code>scroll_factor</code>.</p>
 <p><strong>Example</strong></p>
-<pre><code class="language-lua">gui.HBox{
-    gui.ScrollContainer{
+<pre><code class="language-lua">gui.HBox {
+    gui.ScrollContainer {
         w = 4, h = 3,
         scrollbar_name = &quot;my_scrollbar&quot;,
         orientation = &quot;vertical&quot;,
-        {type = &quot;label&quot;, x = 0, y = 0.5, label = &quot;Top&quot;},
-        {type = &quot;label&quot;, x = 0, y = 7.5, label = &quot;Bottom&quot;},
+        { type = &quot;label&quot;, x = 0, y = 0.5, label = &quot;Top&quot; },
+        { type = &quot;label&quot;, x = 0, y = 7.5, label = &quot;Bottom&quot; },
     },
 
     -- The contents are 8 high and 3 are visible, so 5 are hidden. This
     -- is 50 scroll steps of 0.1 each.
-    gui.ScrollbarOptions{opts = {max = &quot;50&quot;, thumbsize = &quot;19&quot;}},
-    gui.Scrollbar{
+    gui.ScrollbarOptions { opts = { max = &quot;50&quot;, thumbsize = &quot;19&quot; } },
+    gui.Scrollbar {
         w = 0.5, h = 3,
         orientation = &quot;vertical&quot;,
         name = &quot;my_scrollbar&quot;,
@@ -2155,16 +1977,12 @@ the height that is hidden divided by <code>scroll_factor</code>.</p>
 }
 </code></pre>
 <h3 id="elements-guiscrollbar"><code>gui.Scrollbar</code></h3>
-<p>A slider that the player can drag. <code>ctx.form[name]</code> is its position, a whole
-number from <code>min</code> to <code>max</code> (by default <code>0</code> to <code>1000</code>, change them with
-<a href="#elements-guiscrollbaroptions"><code>gui.ScrollbarOptions</code></a> before the scrollbar). <code>value</code>
-is the position it starts at, and <code>orientation</code> is <code>"vertical"</code> or
-<code>"horizontal"</code>. Use it with a <code>gui.ScrollContainer</code>, or by itself as a slider.</p>
-<p><code>scrollbar_bg</code>, <code>slider</code>, <code>arrow_up</code>, and <code>arrow_down</code> are textures that
-replace the parts of the scrollbar. They are not described in the Luanti
-documentation and may be ignored.</p>
+<p>A slider that the player can drag. <code>ctx.form[name]</code> is its position, a whole number from <code>min</code> to <code>max</code> (by default <code>0</code> to <code>1000</code>, change them with <a href="#elements-guiscrollbaroptions"><code>gui.ScrollbarOptions</code></a> before the scrollbar). <code>value</code> is the position it starts at, and <code>orientation</code> is <code>"vertical"</code> or <code>"horizontal"</code>. Use it with a <code>gui.ScrollContainer</code>, or by itself as a slider.</p>
+<!-- TODO(clarify): confirm in the Luanti source which versions use these textures. -->
+
+<p><code>scrollbar_bg</code>, <code>slider</code>, <code>arrow_up</code>, and <code>arrow_down</code> are textures that replace the parts of the scrollbar. They are not described in the Luanti documentation and may be ignored.</p>
 <p><strong>Example</strong></p>
-<pre><code class="language-lua">gui.Scrollbar{
+<pre><code class="language-lua">gui.Scrollbar {
     w = 8,
     h = 2,
 
@@ -2189,38 +2007,25 @@ documentation and may be ignored.</p>
 }
 </code></pre>
 <h3 id="elements-guiscrollbaroptions"><code>gui.ScrollbarOptions</code></h3>
-<p>Sets the options of the <code>gui.Scrollbar</code> elements that come after it. It is
-invisible and takes up no space. <code>opts</code> is a table with any of these options,
-all values are strings that contain whole numbers (except <code>arrows</code>):</p>
+<p>Sets the options of the <code>gui.Scrollbar</code> elements that come after it. It is invisible and takes up no space. <code>opts</code> is a table with any of these options, all values are strings that contain whole numbers (except <code>arrows</code>):</p>
 <ul>
 <li><code>min</code>: The smallest value (default <code>0</code>).</li>
-<li><code>max</code>: The largest value (default <code>1000</code>). If it is the same as <code>min</code>, the
-   scrollbar is disabled.</li>
-<li><code>smallstep</code>: How much the value changes when an arrow is clicked or the
-   mouse wheel is scrolled (default <code>10</code>). A negative number resets it to <code>10</code>.</li>
-<li><code>largestep</code>: How much the value changes for Page Up and Page Down (default
-   <code>100</code>). A negative number resets it to <code>100</code>.</li>
-<li><code>thumbsize</code>: The size of the thumb (the part that is dragged), counted in
-   values out of the range of the scrollbar. For a scrollbar from 1 to 100, a
-   <code>thumbsize</code> of <code>10</code> makes the thumb a tenth of the scrollbar long. If it is
-   zero or less, it is reset to <code>1</code>.</li>
-<li><code>arrows</code>: <code>"show"</code> or <code>"hide"</code> the arrow buttons. <code>"default"</code> hides them if
-   the scrollbar gets too small, and shows them otherwise.</li>
+<li><code>max</code>: The largest value (default <code>1000</code>). If it is the same as <code>min</code>, the scrollbar is disabled.</li>
+<li><code>smallstep</code>: How much the value changes when an arrow is clicked or the mouse wheel is scrolled (default <code>10</code>). A negative number resets it to <code>10</code>.</li>
+<li><code>largestep</code>: How much the value changes for Page Up and Page Down (default <code>100</code>). A negative number resets it to <code>100</code>.</li>
+<li><code>thumbsize</code>: The size of the thumb (the part that is dragged), counted in values out of the range of the scrollbar. For a scrollbar from 1 to 100, a <code>thumbsize</code> of <code>10</code> makes the thumb a tenth of the scrollbar long. If it is zero or less, it is reset to <code>1</code>.</li>
+<li><code>arrows</code>: <code>"show"</code> or <code>"hide"</code> the arrow buttons. <code>"default"</code> hides them if the scrollbar gets too small, and shows them otherwise.</li>
 </ul>
 <p><strong>Example</strong></p>
-<pre><code class="language-lua">gui.ScrollbarOptions{
-    opts = {min = &quot;0&quot;, max = &quot;100&quot;, smallstep = &quot;5&quot;, arrows = &quot;hide&quot;},
+<pre><code class="language-lua">gui.ScrollbarOptions {
+    opts = { min = &quot;0&quot;, max = &quot;100&quot;, smallstep = &quot;5&quot;, arrows = &quot;hide&quot; },
 }
 </code></pre>
 <h3 id="elements-guisetfocus"><code>gui.SetFocus</code></h3>
-<p>Gives keyboard focus to the element with this <code>name</code>. Put it before that
-element. Normally the focus is not changed when the form is shown again (for
-example by <code>form:update()</code>), so that the focus the player chose is kept. Set
-<code>force</code> to <code>true</code> to move the focus every time.</p>
-<p>Checkboxes, buttons (of all kinds), tables, text lists, dropdowns, fields,
-password fields, text areas, and scrollbars can be focused.</p>
+<p>Gives keyboard focus to the element with this <code>name</code>. Put it before that element. Normally the focus is not changed when the form is shown again (for example by <code>form:update()</code>), so that the focus the player chose is kept. Set <code>force</code> to <code>true</code> to move the focus every time.</p>
+<p>Checkboxes, buttons (of all kinds), tables, text lists, dropdowns, fields, password fields, text areas, and scrollbars can be focused.</p>
 <p><strong>Example</strong></p>
-<pre><code class="language-lua">gui.SetFocus{
+<pre><code class="language-lua">gui.SetFocus {
     -- Name of the element to focus.
     name = &quot;my_set_focus&quot;,
 
@@ -2229,40 +2034,31 @@ password fields, text areas, and scrollbars can be focused.</p>
 }
 </code></pre>
 <h3 id="elements-guistyle"><code>gui.Style</code></h3>
-<p>Sets style properties of elements by their <code>name</code>. See
-<a href="#styling-separate-style-elements">Styling</a>. It is invisible and takes up no
-space.</p>
+<p>Sets style properties of elements by their <code>name</code>. See <a href="#styling-separate-style-elements">Styling</a>. It is invisible and takes up no space.</p>
 <p><strong>Example</strong></p>
-<pre><code class="language-lua">gui.Style{
-    selectors = {&quot;my_button&quot;},
-    props = {bgcolor = &quot;red&quot;, textcolor = &quot;yellow&quot;},
+<pre><code class="language-lua">gui.Style {
+    selectors = { &quot;my_button&quot; },
+    props = { bgcolor = &quot;red&quot;, textcolor = &quot;yellow&quot; },
 }
 </code></pre>
 <h3 id="elements-guistyletype"><code>gui.StyleType</code></h3>
-<p>Sets style properties of every element of a type. See
-<a href="#styling-separate-style-elements">Styling</a>. It is invisible and takes up no
-space.</p>
+<p>Sets style properties of every element of a type. See <a href="#styling-separate-style-elements">Styling</a>. It is invisible and takes up no space.</p>
 <p><strong>Example</strong></p>
-<pre><code class="language-lua">gui.StyleType{
-    selectors = {&quot;button&quot;, &quot;image_button&quot;},
-    props = {textcolor = &quot;yellow&quot;},
+<pre><code class="language-lua">gui.StyleType {
+    selectors = { &quot;button&quot;, &quot;image_button&quot; },
+    props = { textcolor = &quot;yellow&quot; },
 }
 </code></pre>
 <h3 id="elements-guitabheader"><code>gui.Tabheader</code></h3>
-<p>A row of tabs. <code>captions</code> is the text of each tab, <code>ctx.form[name]</code> is the
-number of the selected tab (the first tab is <code>1</code>), and <code>current_tab</code> is the tab
-that is selected at first. Showing the right contents for the selected tab is
-up to you, usually by reading <code>ctx.form[name]</code> in your build function.</p>
-<p>Give it both a <code>w</code> and an <code>h</code>: flow cannot work out how much space it needs.
-If <code>transparent</code> is <code>true</code> the tabs are semi-transparent, and <code>draw_border</code>
-draws a thin line along the bottom of the tabs.</p>
+<p>A row of tabs. <code>captions</code> is the text of each tab, <code>ctx.form[name]</code> is the number of the selected tab (the first tab is <code>1</code>), and <code>current_tab</code> is the tab that is selected at first. Showing the right contents for the selected tab is up to you, usually by reading <code>ctx.form[name]</code> in your build function.</p>
+<p>Give it both a <code>w</code> and an <code>h</code>: flow cannot work out how much space it needs. If <code>transparent</code> is <code>true</code> the tabs are semi-transparent, and <code>draw_border</code> draws a thin line along the bottom of the tabs.</p>
 <p><strong>Example</strong></p>
-<pre><code class="language-lua">gui.Tabheader{
+<pre><code class="language-lua">gui.Tabheader {
     h = 1,
     name = &quot;my_tabheader&quot;, -- Optional
 
     -- Text of each tab.
-    captions = {&quot;Hello world!&quot;, ...},
+    captions = { &quot;Hello world!&quot;, ... },
 
     -- Tab selected at first, the first is 1.
     current_tab = 2, -- Optional
@@ -2276,42 +2072,34 @@ draws a thin line along the bottom of the tabs.</p>
 }
 </code></pre>
 <h3 id="elements-guitable"><code>gui.Table</code></h3>
-<p>A table with rows and columns that scrolls if it has too many rows. The
-player can select one row, and <code>ctx.form[name]</code> is the number of the
-selected row (the first row is <code>1</code>). <code>selected_idx</code> is the row that is
-selected at first.</p>
-<p><code>cells</code> is one flat list with the text of every cell, going left to right
-along each row and then down to the next row. The number of columns comes
-from <a href="#elements-guitablecolumns"><code>gui.TableColumns</code></a> (the default is one text column).
-Put <code>gui.TableColumns</code> and <a href="#elements-guitableoptions"><code>gui.TableOptions</code></a> before the
-table, as they only affect the table that comes after them. They do not take
-up any space.</p>
+<p>A table with rows and columns that scrolls if it has too many rows. The player can select one row, and <code>ctx.form[name]</code> is the number of the selected row (the first row is <code>1</code>). <code>selected_idx</code> is the row that is selected at first.</p>
+<p><code>cells</code> is one flat list with the text of every cell, going left to right along each row and then down to the next row. The number of columns comes from <a href="#elements-guitablecolumns"><code>gui.TableColumns</code></a> (the default is one text column). Put <code>gui.TableColumns</code> and <a href="#elements-guitableoptions"><code>gui.TableOptions</code></a> before the table, as they only affect the table that comes after them. They do not take up any space.</p>
 <p>Tables have no natural size, so you must give them a <code>w</code> and <code>h</code>.</p>
 <p><strong>Example</strong></p>
-<pre><code class="language-lua">gui.Table{
+<pre><code class="language-lua">gui.Table {
     w = 3,
     h = 2,
     name = &quot;my_table&quot;, -- Optional
 
     -- Text of every cell, row by row.
-    cells = {&quot;Hello world!&quot;, ...},
+    cells = { &quot;Hello world!&quot;, ... },
 
     -- Row selected at first, the first row is 1.
     selected_idx = 3, -- Optional
 }
 </code></pre>
 <p><strong>Example with columns and options</strong></p>
-<pre><code class="language-lua">gui.VBox{
-    gui.TableColumns{
+<pre><code class="language-lua">gui.VBox {
+    gui.TableColumns {
         tablecolumns = {
-            {type = &quot;text&quot;, opts = {width = &quot;8&quot;}},
-            {type = &quot;text&quot;, opts = {align = &quot;right&quot;}},
+            { type = &quot;text&quot;, opts = { width = &quot;8&quot; } },
+            { type = &quot;text&quot;, opts = { align = &quot;right&quot; } },
         },
     },
-    gui.TableOptions{
-        opts = {highlight = &quot;#335577&quot;},
+    gui.TableOptions {
+        opts = { highlight = &quot;#335577&quot; },
     },
-    gui.Table{
+    gui.Table {
         w = 10, h = 4,
         name = &quot;scores&quot;,
         cells = {
@@ -2322,58 +2110,41 @@ up any space.</p>
 }
 </code></pre>
 <h3 id="elements-guitablecolumns"><code>gui.TableColumns</code></h3>
-<p>Sets the columns of the <code>gui.Table</code> that follows it. <code>tablecolumns</code> is a list
-with one <code>{type = ..., opts = {...}}</code> entry for each column, from left to
-right. <code>type</code> is one of:</p>
+<p>Sets the columns of the <code>gui.Table</code> that follows it. <code>tablecolumns</code> is a list with one <code>{type = ..., opts = {...}}</code> entry for each column, from left to right. <code>type</code> is one of:</p>
 <ul>
 <li><code>"text"</code>: Show the cell contents as text.</li>
-<li><code>"image"</code>: The cell contents are a number that picks an image, which you
-   set with the options <code>["0"] = "texture.png"</code>, <code>["1"] = "other.png"</code>, and
-   so on (the numbers do not have to be consecutive). Empty cells and cells
-   that are not numbers use image <code>0</code>. Images are scaled down to fit the
-   height of the row if necessary.</li>
-<li><code>"color"</code>: The cell contents are a color that is used for the text of the
-   next column(s). Use the <code>span</code> option to set how many columns it
-   affects (default: all remaining columns).</li>
-<li><code>"indent"</code>: The cell contents are a number that sets how far the next
-   column is indented.</li>
-<li><code>"tree"</code>: Like <code>"indent"</code>, but the player can open and close the
-   indented rows, like in a file browser.</li>
+<li><code>"image"</code>: The cell contents are a number that picks an image, which you set with the options <code>["0"] = "texture.png"</code>, <code>["1"] = "other.png"</code>, and so on (the numbers do not have to be consecutive). Empty cells and cells that are not numbers use image <code>0</code>. Images are scaled down to fit the height of the row if necessary.</li>
+<li><code>"color"</code>: The cell contents are a color that is used for the text of the next column(s). Use the <code>span</code> option to set how many columns it affects (default: all remaining columns).</li>
+<li><code>"indent"</code>: The cell contents are a number that sets how far the next column is indented.</li>
+<li><code>"tree"</code>: Like <code>"indent"</code>, but the player can open and close the indented rows, like in a file browser.</li>
 </ul>
 <p><code>opts</code> is a table of options, all values are strings:</p>
 <ul>
-<li><code>align</code>: For text and image columns, where the content goes in the
-   cell: <code>"left"</code> (default), <code>"center"</code>, <code>"right"</code>, or <code>"inline"</code>.</li>
-<li><code>width</code>: For text and image columns, the minimum width, in "em" units
-   (relative to the font size, default <code>0</code>). For indent and tree
-   columns, how far each level is indented (default <code>1.5</code>).</li>
-<li><code>padding</code>: Space to the left of the column, in "em" units (default <code>0.5</code>,
-   or <code>0</code> for indent columns).</li>
+<li><code>align</code>: For text and image columns, where the content goes in the cell: <code>"left"</code> (default), <code>"center"</code>, <code>"right"</code>, or <code>"inline"</code>.</li>
+<li><code>width</code>: For text and image columns, the minimum width, in "em" units (relative to the font size, default <code>0</code>). For indent and tree columns, how far each level is indented (default <code>1.5</code>).</li>
+<li><code>padding</code>: Space to the left of the column, in "em" units (default <code>0.5</code>, or <code>0</code> for indent columns).</li>
 <li><code>tooltip</code>: Text to show when hovering over the column.</li>
 </ul>
 <p><strong>Example</strong></p>
-<pre><code class="language-lua">gui.TableColumns{
+<pre><code class="language-lua">gui.TableColumns {
     tablecolumns = {
-        {type = &quot;text&quot;, opts = {width = &quot;8&quot;}},
-        {type = &quot;text&quot;, opts = {align = &quot;right&quot;}},
+        { type = &quot;text&quot;, opts = { width = &quot;8&quot; } },
+        { type = &quot;text&quot;, opts = { align = &quot;right&quot; } },
     },
 }
 </code></pre>
 <h3 id="elements-guitableoptions"><code>gui.TableOptions</code></h3>
-<p>Sets the appearance of the <code>gui.Table</code> that follows it. <code>opts</code> is a table
-with any of these options, all values are strings:</p>
+<p>Sets the appearance of the <code>gui.Table</code> that follows it. <code>opts</code> is a table with any of these options, all values are strings:</p>
 <ul>
 <li><code>color</code>: Default text color (default <code>"#FFFFFF"</code>).</li>
 <li><code>background</code>: Background color of the table (default <code>"#000000"</code>).</li>
-<li><code>border</code>: <code>"true"</code> or <code>"false"</code>, whether to draw a border (default
-   <code>"true"</code>).</li>
+<li><code>border</code>: <code>"true"</code> or <code>"false"</code>, whether to draw a border (default <code>"true"</code>).</li>
 <li><code>highlight</code>: Background color of the selected row (default <code>"#466432"</code>).</li>
 <li><code>highlight_text</code>: Text color of the selected row (default <code>"#FFFFFF"</code>).</li>
-<li><code>opendepth</code>: How many levels of <code>"tree"</code> column rows are open at first.
-   Rows deeper than this are collapsed (default <code>"0"</code>).</li>
+<li><code>opendepth</code>: How many levels of <code>"tree"</code> column rows are open at first. Rows deeper than this are collapsed (default <code>"0"</code>).</li>
 </ul>
 <p><strong>Example</strong></p>
-<pre><code class="language-lua">gui.TableOptions{
+<pre><code class="language-lua">gui.TableOptions {
     opts = {
         background = &quot;#222222&quot;,
         highlight = &quot;#335577&quot;,
@@ -2382,15 +2153,10 @@ with any of these options, all values are strings:</p>
 }
 </code></pre>
 <h3 id="elements-guitextarea"><code>gui.Textarea</code></h3>
-<p>A multi-line text box. Long lines are wrapped to fit the width, and a
-scrollbar is added if the text is too tall. <code>label</code>, if set, is shown above
-the box and <code>default</code> is the text it starts with. <code>ctx.form[name]</code> is the
-text in the box, including its newlines.</p>
-<p>If you leave out <code>name</code>, the text cannot be edited and no box is drawn,
-which makes it a label that wraps text and scrolls. Because it wraps, you
-should set a <code>w</code> and <code>h</code> for this.</p>
+<p>A multi-line text box. Long lines are wrapped to fit the width, and a scrollbar is added if the text is too tall. <code>label</code>, if set, is shown above the box and <code>default</code> is the text it starts with. <code>ctx.form[name]</code> is the text in the box, including its newlines.</p>
+<p>If you leave out <code>name</code>, the text cannot be edited and no box is drawn, which makes it a label that wraps text and scrolls. Because it wraps, you should set a <code>w</code> and <code>h</code> for this.</p>
 <p><strong>Example</strong></p>
-<pre><code class="language-lua">gui.Textarea{
+<pre><code class="language-lua">gui.Textarea {
     w = 6, -- Optional
     h = 2, -- Optional
     name = &quot;my_textarea&quot;, -- Optional
@@ -2401,21 +2167,16 @@ should set a <code>w</code> and <code>h</code> for this.</p>
 }
 </code></pre>
 <h3 id="elements-guitextlist"><code>gui.Textlist</code></h3>
-<p>A list of text rows that scrolls if there are too many to fit. The player can
-select a row, and <code>ctx.form[name]</code> is the number of the selected row (the
-first row is <code>1</code>). <code>selected_idx</code> is the row that is selected at first.</p>
-<p><code>listelems</code> is the text of each row. To color a row, start it with
-<code>#RRGGBB</code> (six hexadecimal digits). To start a row with a literal <code>#</code>,
-write <code>##</code>. If <code>transparent</code> is <code>true</code>, no background is drawn behind the
-list.</p>
+<p>A list of text rows that scrolls if there are too many to fit. The player can select a row, and <code>ctx.form[name]</code> is the number of the selected row (the first row is <code>1</code>). <code>selected_idx</code> is the row that is selected at first.</p>
+<p><code>listelems</code> is the text of each row. To color a row, start it with <code>#RRGGBB</code> (six hexadecimal digits). To start a row with a literal <code>#</code>, write <code>##</code>. If <code>transparent</code> is <code>true</code>, no background is drawn behind the list.</p>
 <p><strong>Example</strong></p>
-<pre><code class="language-lua">gui.Textlist{
+<pre><code class="language-lua">gui.Textlist {
     w = 1, -- Optional
     h = 2, -- Optional
     name = &quot;my_textlist&quot;, -- Optional
 
     -- Text of each row.
-    listelems = {&quot;Hello world!&quot;, ...},
+    listelems = { &quot;Hello world!&quot;, ... },
 
     -- Row selected at first, the first row is 1.
     selected_idx = 3, -- Optional
@@ -2425,14 +2186,10 @@ list.</p>
 }
 </code></pre>
 <h3 id="elements-guitooltip"><code>gui.Tooltip</code></h3>
-<p>Sets the text that is shown when the player hovers over another element, and
-optionally the colors of that tooltip. <code>gui_element_name</code> is the <code>name</code> of
-that element. Put the tooltip after the element it belongs to. It is
-invisible and does not take up any space.</p>
-<p>If you only need to add some text, use the <code>tooltip</code> parameter on the element
-itself, see <a href="#tooltips">Tooltips</a>.</p>
+<p>Sets the text that is shown when the player hovers over another element, and optionally the colors of that tooltip. <code>gui_element_name</code> is the <code>name</code> of that element. Put the tooltip after the element it belongs to. It is invisible and does not take up any space.</p>
+<p>If you only need to add some text, use the <code>tooltip</code> parameter on the element itself, see <a href="#tooltips">Tooltips</a>.</p>
 <p><strong>Example</strong></p>
-<pre><code class="language-lua">gui.Tooltip{
+<pre><code class="language-lua">gui.Tooltip {
     -- Text to show.
     tooltip_text = &quot;Hello world!&quot;,
 
@@ -2449,40 +2206,32 @@ itself, see <a href="#tooltips">Tooltips</a>.</p>
 <h3 id="elements-guivertlabel"><code>gui.Vertlabel</code></h3>
 <p>Shows text vertically, with one letter below the other, from top to bottom.</p>
 <p><strong>Example</strong></p>
-<pre><code class="language-lua">gui.Vertlabel{
+<pre><code class="language-lua">gui.Vertlabel {
     label = &quot;Hello world!&quot;,
 }
 </code></pre></section><section class="print-page" id="hypertext" heading-number="3.3"><h1 id="hypertext-hypertext-markup">Hypertext markup</h1>
-<p><a href="#elements-guihypertext"><code>gui.Hypertext</code></a> shows text that is written in a
-small markup language with tags that look like HTML tags. It can be used to
-make text bold, coloured, bigger, or centred, to add pictures, and to add
-clickable links.</p>
-<p><strong>Warning:</strong> The markup language is currently unstable and may change. Use it
-with caution. Flow passes the text to Luanti without looking at it, so
-everything on this page is handled by the player's Luanti client, not by flow.</p>
-<pre><code class="language-lua">gui.Hypertext{
+<p><a href="#elements-guihypertext"><code>gui.Hypertext</code></a> shows text that is written in a small markup language with tags that look like HTML tags. It can be used to make text bold, coloured, bigger, or centred, to add pictures, and to add clickable links.</p>
+<!-- TODO(link): link the upstream Luanti hypertext documentation (lua_api.md). -->
+
+<p><strong>Warning:</strong> The markup language is currently unstable and may change. Use it with caution. Flow passes the text to Luanti without looking at it, so everything on this page is handled by the player's Luanti client, not by flow.</p>
+<pre><code class="language-lua">gui.Hypertext {
     w = 8, h = 3,
     text = &quot;&lt;center&gt;&lt;big&gt;Welcome!&lt;/big&gt;&lt;/center&gt;&quot; ..
         &quot;This is &lt;b&gt;bold&lt;/b&gt;, &lt;i&gt;italic&lt;/i&gt;, and &quot; ..
         &quot;&lt;style color='red'&gt;red&lt;/style&gt; text.&quot;,
 }
 </code></pre>
-<p><strong>What flow does not have:</strong> the markup can only be used in <code>gui.Hypertext</code>.
-Luanti can also show it in a tooltip (<code>hypertip[]</code>), but flow has no element
-for that, see <a href="#not-supported">Features flow does not have</a>. Colors in
-the markup are written like colors everywhere else, see
-<a href="#elements-colors">Colors</a>.</p>
+<!-- TODO(link): link text "Features flow does not have" does not match the page title "Unsupported Features" (also elements.md, hypertext.md, styling.md x3). -->
+
+<!-- TODO(clarify): hypertext colors are parsed by the client; confirm color names and alpha forms from elements.md#colors are accepted. -->
+
+<p><strong>What flow does not have:</strong> the markup can only be used in <code>gui.Hypertext</code>. Luanti can also show it in a tooltip (<code>hypertip[]</code>), but flow has no element for that, see <a href="#not-supported">Features flow does not have</a>. Colors in the markup are written like colors everywhere else, see <a href="#elements-colors">Colors</a>.</p>
 <h2 id="hypertext-syntax">Syntax</h2>
-<p>Some tags enclose text: they open with <code>&lt;tagname&gt;</code> and close with
-<code>&lt;/tagname&gt;</code>. Tags can have attributes, which are written in the opening tag as
-<code>key=value</code>. Attribute values should be quoted with either <code>"</code> or <code>'</code>. Inside a
-Lua string that is already in double quotes, use single quotes, as in
-<code>&lt;style color='red'&gt;</code>.</p>
-<p>To write a literal <code>&lt;</code>, <code>&gt;</code>, or <code>\</code> in the text, put a backslash before it. In
-a quoted attribute value, put a backslash before a literal quote mark. In Lua
-code, each backslash has to be written twice (<code>"\\&lt;"</code>), or you can use a long
-string (<code>[[\&lt;]]</code>).</p>
+<p>Some tags enclose text: they open with <code>&lt;tagname&gt;</code> and close with <code>&lt;/tagname&gt;</code>. Tags can have attributes, which are written in the opening tag as <code>key=value</code>. Attribute values should be quoted with either <code>"</code> or <code>'</code>. Inside a Lua string that is already in double quotes, use single quotes, as in <code>&lt;style color='red'&gt;</code>.</p>
+<p>To write a literal <code>&lt;</code>, <code>&gt;</code>, or <code>\</code> in the text, put a backslash before it. In a quoted attribute value, put a backslash before a literal quote mark. In Lua code, each backslash has to be written twice (<code>"\\&lt;"</code>), or you can use a long string (<code>[[\&lt;]]</code>).</p>
 <h2 id="hypertext-basic-tags">Basic tags</h2>
+<!-- TODO(clarify): "size" format and units are not given (absolute, or relative like +2 / *1.5 as in styling.md?). -->
+
 <h3 id="hypertext-style-color-font-sizestyle"><code>&lt;style color=... font=... size=...&gt;...&lt;/style&gt;</code></h3>
 <p>Changes the style of the text inside it.</p>
 <ul>
@@ -2491,8 +2240,7 @@ string (<code>[[\&lt;]]</code>).</p>
 <li><code>font</code>: Text font, <code>mono</code> or <code>normal</code>.</li>
 </ul>
 <h3 id="hypertext-global"><code>&lt;global ...&gt;</code></h3>
-<p>Sets the style of the whole text. You only need to use it once. If you put
-several in the text, their changes are made in the order the tags appear.</p>
+<p>Sets the style of the whole text. You only need to use it once. If you put several in the text, their changes are made in the order the tags appear.</p>
 <p>Attributes that only apply to the whole text:</p>
 <ul>
 <li><code>background</code>: Background of the text, a color or <code>none</code>.</li>
@@ -2505,16 +2253,14 @@ several in the text, their changes are made in the order the tags appear.</p>
 <li><code>hovercolor</code>: Color of <code>&lt;action&gt;</code> links while the mouse is over them.</li>
 <li><code>size</code>: Default text size.</li>
 <li><code>font</code>: Default font, <code>mono</code> or <code>normal</code>.</li>
-<li><code>halign</code>: Default horizontal alignment: <code>left</code>, <code>right</code>, <code>center</code>, or
-   <code>justify</code>.</li>
+<li><code>halign</code>: Default horizontal alignment: <code>left</code>, <code>right</code>, <code>center</code>, or <code>justify</code>.</li>
 </ul>
 <h3 id="hypertext-tag-name-color-hovercolor-font-size"><code>&lt;tag name=... color=... hovercolor=... font=... size=...&gt;</code></h3>
 <p>Defines a new tag, or changes the style of an existing one.</p>
 <ul>
 <li><code>name</code>: The name of the tag to define or change.</li>
 <li><code>color</code>: Text color.</li>
-<li><code>hovercolor</code>: Text color while the mouse is over it (only for <code>action</code>
-   tags).</li>
+<li><code>hovercolor</code>: Text color while the mouse is over it (only for <code>action</code> tags).</li>
 <li><code>size</code>: Text size.</li>
 <li><code>font</code>: Text font, <code>mono</code> or <code>normal</code>.</li>
 </ul>
@@ -2568,13 +2314,11 @@ several in the text, their changes are made in the order the tags appear.</p>
 </table>
 <h2 id="hypertext-links">Links</h2>
 <h3 id="hypertext-action-nameaction"><code>&lt;action name=...&gt;...&lt;/action&gt;</code></h3>
-<p>Makes the text inside it clickable. <code>name</code> is required. An optional <code>url</code>
-attribute is a web address to open when the text is clicked.</p>
-<p>When the player clicks it, the form is sent to the server and the value of the
-<code>gui.Hypertext</code> element is <code>"action:"</code> followed by the action name. In flow,
-give the element a <code>name</code> and an <code>on_event</code> function, and read the value from
-<code>ctx.form</code>. This is experimental and may change.</p>
-<pre><code class="language-lua">gui.Hypertext{
+<p>Makes the text inside it clickable. <code>name</code> is required. An optional <code>url</code> attribute is a web address to open when the text is clicked.</p>
+<!-- TODO(link): link ctx.form and on_event to elements.md#names-and-values and elements.md#events. -->
+
+<p>When the player clicks it, the form is sent to the server and the value of the <code>gui.Hypertext</code> element is <code>"action:"</code> followed by the action name. In flow, give the element a <code>name</code> and an <code>on_event</code> function, and read the value from <code>ctx.form</code>. This is experimental and may change.</p>
+<pre><code class="language-lua">gui.Hypertext {
     w = 6, h = 1,
     name = &quot;help&quot;,
     text = &quot;Read the &lt;action name='rules'&gt;rules&lt;/action&gt;.&quot;,
@@ -2590,30 +2334,25 @@ give the element a <code>name</code> and an <code>on_event</code> function, and 
 <p>Draws a texture that is in the client's media cache.</p>
 <ul>
 <li><code>name</code>: The name of the texture (required).</li>
-<li><code>float</code>: If present, the picture floats to the <code>left</code> or <code>right</code> and the
-   text flows around it.</li>
-<li><code>width</code>, <code>height</code>: Force a size instead of using the size of the texture. If
-   you only give one of them, the shape of the texture is kept.</li>
+<li><code>float</code>: If present, the picture floats to the <code>left</code> or <code>right</code> and the text flows around it.</li>
+<li><code>width</code>, <code>height</code>: Force a size instead of using the size of the texture. If you only give one of them, the shape of the texture is kept.</li>
 </ul>
 <h3 id="hypertext-item-name-float-width-height-rotate-angle"><code>&lt;item name=... float=... width=... height=... rotate=... angle=...&gt;</code></h3>
 <p>Draws the inventory picture of an item.</p>
 <ul>
 <li><code>name</code>: The item name (required), such as <code>default:dirt</code>.</li>
 <li><code>float</code>, <code>width</code>, <code>height</code>: Like for <code>&lt;img&gt;</code>.</li>
-<li><code>rotate</code>: Make the item turn. Either <code>yes</code> or <code>X,Y,Z</code>, the rotation speeds
-   around each axis as percentages of the standard speed (-1000 to 1000).</li>
-<li><code>angle</code>: The angle the item is shown at, as <code>X,Y,Z</code>, the angles around each
-   of the three axes.</li>
+<li><code>rotate</code>: Make the item turn. Either <code>yes</code> or <code>X,Y,Z</code>, the rotation speeds around each axis as percentages of the standard speed (-1000 to 1000).</li>
+<li><code>angle</code>: The angle the item is shown at, as <code>X,Y,Z</code>, the angles around each of the three axes.</li>
 </ul>
-<p><code>rotate</code> and <code>angle</code> only work if the player has the <code>inventory_items_animations</code>
-setting turned on.</p></section></section>
+<p><code>rotate</code> and <code>angle</code> only work if the player has the <code>inventory_items_animations</code> setting turned on.</p></section></section>
                     <section class='print-page md-section' id='section-4' heading-number='4'>
                         <h1>Other features<a class='headerlink' href='#section-4' title='Permanent link'></a>
                         </h1>
-                    <section class="print-page" id="not-supported" heading-number="4.1"><h1 id="not-supported-features-flow-does-not-have">Features flow does not have</h1>
-<p>Flow does not support everything that Luanti formspecs can do. This page lists
-what is missing, so you know before you look for it. Where there is a way to
-get a similar result, it is mentioned.</p>
+                    <section class="print-page" id="not-supported" heading-number="4.1"><h1 id="not-supported-unsupported-features">Unsupported Features</h1>
+<!-- TODO(link): link each formspec element named below to the Luanti formspec docs (lua_api.md). -->
+
+<p>Flow does not support everything that Luanti formspecs can do. This page lists what is missing, so you know before you look for it. Where there is a way to get a similar result, it is mentioned.</p>
 <h2 id="not-supported-missing-elements">Missing elements</h2>
 <table>
 <thead>
@@ -2657,147 +2396,103 @@ get a similar result, it is mentioned.</p>
 </tbody>
 </table>
 <h2 id="not-supported-missing-parameters">Missing parameters</h2>
+<!-- TODO(link): link gui.ScrollbarOptions to elements.md#guiscrollbaroptions. -->
+
 <ul>
-<li><strong>Content padding of scroll containers.</strong> Luanti can work out the range of a
-   scroll container's scrollbar for you, but flow's
-   <a href="#elements-guiscrollcontainer"><code>gui.ScrollContainer</code></a> does not expose
-   this, so you have to set the range yourself with <code>gui.ScrollbarOptions</code>.
-   <a href="#layout-elements-guiscrollablevbox"><code>gui.ScrollableVBox</code></a> already does this
-   for you.</li>
-<li><strong>Node formspec inventory locations.</strong> The <code>"current_node"</code> inventory
-   location refers to the node whose formspec is open. A flow form cannot be
-   the formspec of a node, so use <code>"nodemeta:X,Y,Z"</code> to show a node's
-   inventory instead.</li>
+<li><strong>Content padding of scroll containers.</strong> Luanti can work out the range of a scroll container's scrollbar for you, but flow's <a href="#elements-guiscrollcontainer"><code>gui.ScrollContainer</code></a> does not expose this, so you have to set the range yourself with <code>gui.ScrollbarOptions</code>. <a href="#layout-elements-guiscrollablevbox"><code>gui.ScrollableVBox</code></a> already does this for you.</li>
+<li><strong>Node formspec inventory locations.</strong> The <code>"current_node"</code> inventory location refers to the node whose formspec is open. A flow form cannot be the formspec of a node, so use <code>"nodemeta:X,Y,Z"</code> to show a node's inventory instead.</li>
 </ul>
 <h2 id="not-supported-things-flow-does-for-you">Things flow does for you</h2>
-<p>These formspec elements exist, but flow generates them itself and you cannot
-write them:</p>
+<p>These formspec elements exist, but flow generates them itself and you cannot write them:</p>
+<!-- TODO(link): link no_prepend and bgcolor to experimental.md#no_prepend and experimental.md#bgcolor. -->
+
 <ul>
 <li><code>size[]</code>: The size of the form is worked out from the elements in it.</li>
-<li><code>position[]</code>, <code>anchor[]</code>, and <code>padding[]</code>: Use the <code>window_position</code>,
-   <code>window_anchor</code>, and <code>window_padding</code> options of the root element, see
-   <a href="#experimental-putting-the-form-somewhere-else-on-the-screen-likely-required-for-most-huds">Experimental features</a>.</li>
-<li><code>no_prepend[]</code> and <code>bgcolor[]</code>: Use the <code>no_prepend</code>, <code>bgcolor</code>, <code>fbgcolor</code>,
-   and <code>bg_fullscreen</code> options of the root element.</li>
-<li><code>real_coordinates[]</code>: Flow always uses the newer coordinate system, where
-   there is no hidden padding or spacing between elements.</li>
-<li><code>container_end[]</code> and <code>scroll_container_end[]</code>: Elements inside
-   <code>gui.Container</code> and <code>gui.ScrollContainer</code> are written inside the table.</li>
+<li><code>position[]</code>, <code>anchor[]</code>, and <code>padding[]</code>: Use the <code>window_position</code>, <code>window_anchor</code>, and <code>window_padding</code> options of the root element, see <a href="#experimental-putting-the-form-somewhere-else-on-the-screen-likely-required-for-most-huds">Experimental features</a>.</li>
+<li><code>no_prepend[]</code> and <code>bgcolor[]</code>: Use the <code>no_prepend</code>, <code>bgcolor</code>, <code>fbgcolor</code>, and <code>bg_fullscreen</code> options of the root element.</li>
+<li><code>real_coordinates[]</code>: Flow always uses the newer coordinate system, where there is no hidden padding or spacing between elements.</li>
+<li><code>container_end[]</code> and <code>scroll_container_end[]</code>: Elements inside <code>gui.Container</code> and <code>gui.ScrollContainer</code> are written inside the table.</li>
 <li><code>formspec_version[]</code>: Flow always uses formspec version 7.</li>
 </ul>
 <h2 id="not-supported-newer-luanti-features">Newer Luanti features</h2>
-<p>Because flow always uses formspec version 7 (Luanti 5.8), features that were
-added in newer versions may not work, even if the missing element or parameter
-is not listed above. This includes the area label (version 9), floating-point
-animation frames in <code>gui.Model</code> (version 10), and the <code>halign</code> and <code>valign</code>
-styles of fields and text areas (version 11), and the <code>editable</code> style of
-checkboxes, dropdowns, and fields (version 12, the only addition in that
-version). Formspec versions are described in the "Formspec Version History"
-section of the Luanti API documentation.</p></section><section class="print-page" id="styling" heading-number="4.2"><h1 id="styling-styling-forms">Styling forms</h1>
-<p>Styles change how elements look: their colors, images, fonts, and so on.
-A style is a set of properties such as <code>bgcolor = "red"</code>, and which
-properties exist depends on the type of element. All of them are listed in the
-<a href="#styling-property-reference">property reference</a> below.</p>
-<p>You can style a single element with the <code>style</code> field (the
-<a href="#styling-inline-syntax">inline syntax</a>), or style many elements at once with the
-<code>gui.Style</code> and <code>gui.StyleType</code> elements (see
-<a href="#styling-separate-style-elements">separate style elements</a>).</p>
+<!-- TODO(clarify): styling.md gives Luanti releases (5.17, 5.18) where this page gives formspec versions (11, 12); add a version -> release table and link it from both. -->
+
+<p>Because flow always uses formspec version 7 (Luanti 5.8), features that were added in newer versions may not work, even if the missing element or parameter is not listed above. This includes the area label (version 9), floating-point animation frames in <code>gui.Model</code> (version 10), and the <code>halign</code> and <code>valign</code> styles of fields and text areas (version 11), and the <code>editable</code> style of checkboxes, dropdowns, and fields (version 12, the only addition in that version). Formspec versions are described in the "Formspec Version History" section of the Luanti API documentation.</p></section><section class="print-page" id="styling" heading-number="4.2"><h1 id="styling-styling-forms">Styling forms</h1>
+<p>Styles change how elements look: their colors, images, fonts, and so on. A style is a set of properties such as <code>bgcolor = "red"</code>, and which properties exist depends on the type of element. All of them are listed in the <a href="#styling-property-reference">property reference</a> below.</p>
+<p>You can style a single element with the <code>style</code> field (the <a href="#styling-inline-syntax">inline syntax</a>), or style many elements at once with the <code>gui.Style</code> and <code>gui.StyleType</code> elements (see <a href="#styling-separate-style-elements">separate style elements</a>).</p>
 <h2 id="styling-inline-syntax">Inline syntax</h2>
-<p>At the moment I suggest only using this syntax if your form won't look broken
-without the style - older versions of flow don't support this syntax, and I may
-make breaking changes to the sub-style syntax in the future.</p>
+<!-- TODO(clarify): first person is the flow author's voice; reword for an unofficial doc. Give the flow version or date that added inline styles. -->
+
+<p>At the moment I suggest only using this syntax if your form won't look broken without the style - older versions of flow don't support this syntax, and I may make breaking changes to the sub-style syntax in the future.</p>
 <p>You can add inline styles to elements with the <code>style</code> field:</p>
-<pre><code class="language-lua">gui.Button{
+<pre><code class="language-lua">gui.Button {
     label = &quot;Test&quot;,
     style = {
         bgcolor = &quot;red&quot;,
 
         -- You can style specific states of elements:
-        {sel = &quot;$hovered&quot;, bgcolor = &quot;green&quot;},
+        { sel = &quot;$hovered&quot;, bgcolor = &quot;green&quot; },
 
         -- Or a combination of states:
-        {sel = &quot;$hovered, $pressed&quot;, bgcolor = &quot;blue&quot;},
-        {sel = &quot;$hovered+pressed&quot;, bgcolor = &quot;white&quot;},
+        { sel = &quot;$hovered, $pressed&quot;, bgcolor = &quot;blue&quot; },
+        { sel = &quot;$hovered+pressed&quot;, bgcolor = &quot;white&quot; },
     },
 }
 </code></pre>
-<p>The properties directly inside <code>style</code> always apply. A <code>sel</code> entry only
-applies while the element is in one of the listed <a href="#styling-states">states</a>. Separate
-states with a comma to apply the style when <em>any</em> of them is active
-(<code>"$hovered, $pressed"</code>), or join them with <code>+</code> to apply it only when <em>all</em> of
-them are active at once (<code>"$hovered+pressed"</code>).</p>
+<!-- TODO(clarify): explain the "$" prefix: sel uses "$hovered+pressed" but selectors use "button:hovered+pressed". -->
+
+<p>The properties directly inside <code>style</code> always apply. A <code>sel</code> entry only applies while the element is in one of the listed <a href="#styling-states">states</a>. Separate states with a comma to apply the style when <em>any</em> of them is active (<code>"$hovered, $pressed"</code>), or join them with <code>+</code> to apply it only when <em>all</em> of them are active at once (<code>"$hovered+pressed"</code>).</p>
 <p>If you need to style multiple elements, you can reuse the <code>style</code> table:</p>
-<pre><code class="language-lua">local my_style = {bgcolor = &quot;red&quot;, {sel = &quot;$hovered&quot;, bgcolor = &quot;green&quot;}}
+<!-- TODO(clarify): this variable shadows the gui table; rename it to form as on other pages. -->
+
+<pre><code class="language-lua">local my_style = { bgcolor = &quot;red&quot;, { sel = &quot;$hovered&quot;, bgcolor = &quot;green&quot; } }
 
 local gui = flow.make_gui(function(player, ctx)
-    return gui.VBox{
-        gui.Button{label = &quot;Styled button&quot;, style = my_style},
-        gui.Button{label = &quot;Unstyled button&quot;},
-        gui.Button{label = &quot;Second styled button&quot;, style = my_style},
+    return gui.VBox {
+        gui.Button { label = &quot;Styled button&quot;, style = my_style },
+        gui.Button { label = &quot;Unstyled button&quot; },
+        gui.Button { label = &quot;Second styled button&quot;, style = my_style },
     }
 end)
 </code></pre>
-<p>Note that this may inadvertently reset styles on subsequent elements if used on
-elements without a name. Luanti can only style unnamed elements by their type,
-so flow applies the style to every element of that type and then resets those
-properties to their defaults straight after the element. This also undoes any
-earlier <code>gui.StyleType</code> for the same properties. Give the element a <code>name</code> to
-avoid this.</p>
-<p>Property values are normally strings, but flow also accepts numbers and
-booleans where a property needs one. Setting a property to an empty string
-(<code>bgimg = ""</code>) resets it to its default value.</p>
+<p>Note that this may inadvertently reset styles on subsequent elements if used on elements without a name. Luanti can only style unnamed elements by their type, so flow applies the style to every element of that type and then resets those properties to their defaults straight after the element. This also undoes any earlier <code>gui.StyleType</code> for the same properties. Give the element a <code>name</code> to avoid this.</p>
+<p>Property values are normally strings, but flow also accepts numbers and booleans where a property needs one. Setting a property to an empty string (<code>bgimg = ""</code>) resets it to its default value.</p>
 <h2 id="styling-separate-style-elements">Separate style elements</h2>
-<p>Alternatively, you can use the <code>gui.Style</code> and <code>gui.StyleType</code> elements if you
-need to style a large group of elements or need to support older versions of
-flow:</p>
-<pre><code class="language-lua">gui.Style{
-    selectors = {&quot;btn1&quot;},
+<p>Alternatively, you can use the <code>gui.Style</code> and <code>gui.StyleType</code> elements if you need to style a large group of elements or need to support older versions of flow:</p>
+<pre><code class="language-lua">gui.Style {
+    selectors = { &quot;btn1&quot; },
     props = {
         bgimg = &quot;button.png&quot;,
         border = false,
     }
 },
 
-gui.Button{
+gui.Button {
     name = &quot;btn1&quot;,
     label = &quot;Button&quot;,
 },
 </code></pre>
-<p>The <code>Style</code> and <code>StyleType</code> elements are invisible and won't affect padding.
-They only affect the elements that come after them, so put them before the
-elements you want to style.</p>
-<p><strong>Warning:</strong> <code>gui.Style</code> and <code>gui.StyleType</code> do not support styles that change
-the element size, such as <code>font_size</code> for labels, buttons, and fields, and
-<code>size</code>/<code>spacing</code> for lists. Flow only sees these properties in the inline
-syntax, so use that for them.</p>
+<p>The <code>Style</code> and <code>StyleType</code> elements are invisible and won't affect padding. They only affect the elements that come after them, so put them before the elements you want to style.</p>
+<p><strong>Warning:</strong> <code>gui.Style</code> and <code>gui.StyleType</code> do not support styles that change the element size, such as <code>font_size</code> for labels, buttons, and fields, and <code>size</code>/<code>spacing</code> for lists. Flow only sees these properties in the inline syntax, so use that for them.</p>
 <h2 id="styling-selectors-and-states">Selectors and states</h2>
 <p><code>selectors</code> is a list that says which elements the style applies to:</p>
 <ul>
-<li><code>gui.Style</code> selects elements by their <code>name</code>, so <code>{"btn1"}</code> styles the
-   element with <code>name = "btn1"</code>.</li>
-<li><code>gui.StyleType</code> selects elements by their type, so <code>{"button"}</code> styles every
-   button that comes after it. The type is the element's name in lowercase with
-   underscores between words, for example <code>item_image_button</code> for
-   <code>gui.ItemImageButton</code>. Some types also style other types, see
-   <a href="#styling-element-types">element types</a>.</li>
+<li><code>gui.Style</code> selects elements by their <code>name</code>, so <code>{"btn1"}</code> styles the element with <code>name = "btn1"</code>.</li>
+<li><code>gui.StyleType</code> selects elements by their type, so <code>{"button"}</code> styles every button that comes after it. The type is the element's name in lowercase with underscores between words, for example <code>item_image_button</code> for <code>gui.ItemImageButton</code>. Some types also style other types, see <a href="#styling-element-types">element types</a>.</li>
 <li><code>gui.StyleType</code> also accepts <code>"*"</code>, which selects every element.</li>
 </ul>
-<p>A selector can end with a colon and one or more <a href="#styling-states">states</a> to only style
-the element while it is in that state, such as <code>"btn1:hovered"</code> or
-<code>"button:hovered+pressed"</code> (<code>+</code> means all of the states have to be active).</p>
-<pre><code class="language-lua">gui.StyleType{
-    selectors = {&quot;button&quot;, &quot;image_button&quot;},
-    props = {textcolor = &quot;yellow&quot;},
+<p>A selector can end with a colon and one or more <a href="#styling-states">states</a> to only style the element while it is in that state, such as <code>"btn1:hovered"</code> or <code>"button:hovered+pressed"</code> (<code>+</code> means all of the states have to be active).</p>
+<pre><code class="language-lua">gui.StyleType {
+    selectors = { &quot;button&quot;, &quot;image_button&quot; },
+    props = { textcolor = &quot;yellow&quot; },
 },
-gui.StyleType{
-    selectors = {&quot;button:hovered&quot;},
-    props = {bgcolor = &quot;#336699&quot;},
+gui.StyleType {
+    selectors = { &quot;button:hovered&quot; },
+    props = { bgcolor = &quot;#336699&quot; },
 },
 </code></pre>
 <h3 id="styling-states">States</h3>
-<p>Every element has the <code>default</code> state, which is the same as not giving any
-state. Buttons (<code>gui.Button</code>, <code>gui.ButtonExit</code>, <code>gui.ImageButton</code>,
-<code>gui.ItemImageButton</code>) also have these states:</p>
+<p>Every element has the <code>default</code> state, which is the same as not giving any state. Buttons (<code>gui.Button</code>, <code>gui.ButtonExit</code>, <code>gui.ImageButton</code>, <code>gui.ItemImageButton</code>) also have these states:</p>
 <table>
 <thead>
 <tr>
@@ -2821,9 +2516,7 @@ state. Buttons (<code>gui.Button</code>, <code>gui.ButtonExit</code>, <code>gui.
 </tbody>
 </table>
 <h3 id="styling-element-types">Element types</h3>
-<p>These are the types that can be styled. A type that "inherits" from another
-also uses the styles set for the other type, for example a style set on
-<code>image</code> also applies to <code>animated_image</code>.</p>
+<p>These are the types that can be styled. A type that "inherits" from another also uses the styles set for the other type, for example a style set on <code>image</code> also applies to <code>animated_image</code>.</p>
 <table>
 <thead>
 <tr>
@@ -2935,17 +2628,11 @@ also uses the styles set for the other type, for example a style set on
 </tr>
 </tbody>
 </table>
-<p>Luanti also lists <code>hypertip</code>, but flow has no element for it, see
-<a href="#not-supported-missing-elements">Features flow does not have</a>.
-<code>gui.ItemImage</code> has the <code>item_image</code> type, which only supports <code>noclip</code> (see
-<a href="#styling-other-elements">Other elements</a>). <code>gui.ImageButtonExit</code> and <code>gui.ButtonURL</code>
-are not in Luanti's list of types, so give them a <code>name</code> and style them with
-<code>gui.Style</code> or the inline syntax.</p>
+<!-- TODO(link): link text "Features flow does not have" does not match the page title "Unsupported Features" (also elements.md, hypertext.md, styling.md x3). -->
+
+<p>Luanti also lists <code>hypertip</code>, but flow has no element for it, see <a href="#not-supported-missing-elements">Features flow does not have</a>. <code>gui.ItemImage</code> has the <code>item_image</code> type, which only supports <code>noclip</code> (see <a href="#styling-other-elements">Other elements</a>). <code>gui.ImageButtonExit</code> and <code>gui.ButtonURL</code> are not in Luanti's list of types, so give them a <code>name</code> and style them with <code>gui.Style</code> or the inline syntax.</p>
 <h2 id="styling-property-reference">Property reference</h2>
-<p>Colors are described in <a href="#elements-colors">Elements</a>, and textures are
-image file names. A "2D vector" is written as a string such
-as <code>"1,2"</code>. Properties that only list a type of element are not valid on other
-elements, and an unknown property is ignored.</p>
+<p>Colors are described in <a href="#elements-colors">Elements</a>, and textures are image file names. A "2D vector" is written as a string such as <code>"1,2"</code>. Properties that only list a type of element are not valid on other elements, and an unknown property is ignored.</p>
 <h3 id="styling-all-elements">All elements</h3>
 <table>
 <thead>
@@ -2962,10 +2649,7 @@ elements, and an unknown property is ignored.</p>
 </tbody>
 </table>
 <h3 id="styling-text-properties">Text properties</h3>
-<p>These properties change how text looks. <code>font</code> and <code>font_size</code> are valid on
-buttons, labels, fields, tables, and text lists. <code>textcolor</code> is valid on
-buttons, labels, fields, and tab headers, but not on tables and text lists.
-The sections below show which applies where.</p>
+<p>These properties change how text looks. <code>font</code> and <code>font_size</code> are valid on buttons, labels, fields, tables, and text lists. <code>textcolor</code> is valid on buttons, labels, fields, and tab headers, but not on tables and text lists. The sections below show which applies where.</p>
 <table>
 <thead>
 <tr>
@@ -2988,16 +2672,13 @@ The sections below show which applies where.</p>
 </tr>
 </tbody>
 </table>
-<p>Flow can make room for bigger text in <code>gui.Label</code>s, buttons, and the default
-text of fields, but only if <code>font_size</code> starts with <code>*</code> and is set with the
-inline syntax (<code>style = {font_size = "*2"}</code>). Other values still change the text
-but not the size of the element. The labels above fields and checkboxes ignore
-<code>font_size</code>, and a <code>gui.Label</code> with a fixed <code>h</code> is positioned as if
-<code>font_size</code> was not set (this is deprecated).</p>
+<!-- TODO(clarify): "(this is deprecated)" is ambiguous: the fixed h on labels, or the positioning behaviour? -->
+
+<p>Flow can make room for bigger text in <code>gui.Label</code>s, buttons, and the default text of fields, but only if <code>font_size</code> starts with <code>*</code> and is set with the inline syntax (<code>style = {font_size = "*2"}</code>). Other values still change the text but not the size of the element. The labels above fields and checkboxes ignore <code>font_size</code>, and a <code>gui.Label</code> with a fixed <code>h</code> is positioned as if <code>font_size</code> was not set (this is deprecated).</p>
 <h3 id="styling-buttons">Buttons</h3>
-<p>For <code>gui.Button</code>, <code>gui.ButtonExit</code>, <code>gui.ImageButton</code>, and
-<code>gui.ItemImageButton</code>. Buttons also support <code>font</code>, <code>font_size</code>, and
-<code>textcolor</code>.</p>
+<p>For <code>gui.Button</code>, <code>gui.ButtonExit</code>, <code>gui.ImageButton</code>, and <code>gui.ItemImageButton</code>. Buttons also support <code>font</code>, <code>font_size</code>, and <code>textcolor</code>.</p>
+<!-- TODO(clarify): the style property padding shares its name with the element parameter padding (padding.md); explain the difference. Also say what format sound takes. -->
+
 <table>
 <thead>
 <tr>
@@ -3040,8 +2721,7 @@ but not the size of the element. The labels above fields and checkboxes ignore
 </tr>
 </tbody>
 </table>
-<p><code>gui.ImageButton</code> has some more properties for the picture drawn on top of the
-button:</p>
+<p><code>gui.ImageButton</code> has some more properties for the picture drawn on top of the button:</p>
 <table>
 <thead>
 <tr>
@@ -3060,14 +2740,11 @@ button:</p>
 </tr>
 </tbody>
 </table>
-<p>Some older properties still work but are deprecated. Use
-<a href="#styling-states">states</a> instead: <code>bgcolor_hovered</code>, <code>bgcolor_pressed</code>,
-<code>bgimg_hovered</code>, <code>bgimg_pressed</code>, <code>fgimg_hovered</code>, and <code>fgimg_pressed</code>. They
-work like <code>bgcolor</code> and <code>bgimg</code> but only apply while the button is hovered or
-pressed.</p>
+<p>Some older properties still work but are deprecated. Use <a href="#styling-states">states</a> instead: <code>bgcolor_hovered</code>, <code>bgcolor_pressed</code>, <code>bgimg_hovered</code>, <code>bgimg_pressed</code>, <code>fgimg_hovered</code>, and <code>fgimg_pressed</code>. They work like <code>bgcolor</code> and <code>bgimg</code> but only apply while the button is hovered or pressed.</p>
 <h3 id="styling-fields-and-text-areas">Fields and text areas</h3>
-<p>For <code>gui.Field</code>, <code>gui.Pwdfield</code>, and <code>gui.Textarea</code>. They also support
-<code>font</code>, <code>font_size</code>, and <code>textcolor</code>.</p>
+<p>For <code>gui.Field</code>, <code>gui.Pwdfield</code>, and <code>gui.Textarea</code>. They also support <code>font</code>, <code>font_size</code>, and <code>textcolor</code>.</p>
+<!-- TODO(clarify): "5.17 or newer" here vs "version 11" in not-supported.md; add a formspec version -> Luanti release table and link it. -->
+
 <table>
 <thead>
 <tr>
@@ -3092,9 +2769,7 @@ pressed.</p>
 </table>
 <h3 id="styling-labels">Labels</h3>
 <p>For <code>gui.Label</code> and <code>gui.Vertlabel</code>: <code>font</code>, <code>font_size</code>, and <code>textcolor</code>.</p>
-<p>Luanti also has <code>halign</code> and <code>valign</code> for labels, but they only apply to the
-area label, which flow does not have, so they do nothing here (see
-<a href="#not-supported-missing-elements">Features flow does not have</a>).</p>
+<p>Luanti also has <code>halign</code> and <code>valign</code> for labels, but they only apply to the area label, which flow does not have, so they do nothing here (see <a href="#not-supported-missing-elements">Features flow does not have</a>).</p>
 <h3 id="styling-lists">Lists</h3>
 <p>For <code>gui.List</code>:</p>
 <table>
@@ -3115,19 +2790,13 @@ area label, which flow does not have, so they do nothing here (see
 </tr>
 </tbody>
 </table>
-<p>Flow uses these values to work out how big a list is, but it only understands
-whole numbers in them (such as <code>"2,2"</code> or <code>"0,0"</code>).</p>
+<p>Flow uses these values to work out how big a list is, but it only understands whole numbers in them (such as <code>"2,2"</code> or <code>"0,0"</code>).</p>
 <h3 id="styling-boxes">Boxes</h3>
-<p>For <code>gui.Box</code>. These properties only take effect when the box has no <code>color</code>
-of its own. The <code>colors</code>, <code>bordercolors</code>, and <code>borderwidths</code> properties can
-have one, two, or four values separated by commas (like CSS borders):</p>
+<p>For <code>gui.Box</code>. These properties only take effect when the box has no <code>color</code> of its own. The <code>colors</code>, <code>bordercolors</code>, and <code>borderwidths</code> properties can have one, two, or four values separated by commas (like CSS borders):</p>
 <ul>
 <li>One value, such as <code>"#FF0"</code>: used for all corners or borders.</li>
-<li>Two values, such as <code>"red,#FFAAFF"</code>: for the colors, the top-left and
-   bottom-right corners, then the top-right and bottom-left corners. For the
-   widths, the top and bottom borders, then the left and right borders.</li>
-<li>Four values, such as <code>"blue,#A0F,green,#FFFA"</code>: starting with the top-left
-   corner (or the top border) and going clockwise.</li>
+<li>Two values, such as <code>"red,#FFAAFF"</code>: for the colors, the top-left and bottom-right corners, then the top-right and bottom-left corners. For the widths, the top and bottom borders, then the left and right borders.</li>
+<li>Four values, such as <code>"blue,#A0F,green,#FFFA"</code>: starting with the top-left corner (or the top border) and going clockwise.</li>
 </ul>
 <table>
 <thead>
@@ -3168,14 +2837,7 @@ have one, two, or four values separated by commas (like CSS borders):</p>
 </tbody>
 </table>
 <h3 id="styling-read-only-elements-editable">Read-only elements (<code>editable</code>)</h3>
-<p>Luanti 5.18 (formspec version 12) added an <code>editable</code> property for
-<code>gui.Checkbox</code>, <code>gui.Dropdown</code>, <code>gui.Field</code>, <code>gui.Pwdfield</code>, and
-<code>gui.Textarea</code>. Setting it to <code>false</code> makes the element read-only (default
-<code>true</code>). Flow does not support it yet, because flow always uses formspec
-version 7, so it may do nothing or be ignored depending on the player's
-version of Luanti. To make a field read-only for now, handle that in your own
-code, for example by ignoring changes to it. See also
-<a href="#not-supported-newer-luanti-features">Newer Luanti features</a>.</p>
+<p>Luanti 5.18 (formspec version 12) added an <code>editable</code> property for <code>gui.Checkbox</code>, <code>gui.Dropdown</code>, <code>gui.Field</code>, <code>gui.Pwdfield</code>, and <code>gui.Textarea</code>. Setting it to <code>false</code> makes the element read-only (default <code>true</code>). Flow does not support it yet, because flow always uses formspec version 7, so it may do nothing or be ignored depending on the player's version of Luanti. To make a field read-only for now, handle that in your own code, for example by ignoring changes to it. See also <a href="#not-supported-newer-luanti-features">Newer Luanti features</a>.</p>
 <h3 id="styling-other-elements">Other elements</h3>
 <table>
 <thead>
@@ -3207,21 +2869,19 @@ code, for example by ignoring changes to it. See also
 </tr>
 </tbody>
 </table></section><section class="print-page" id="padding" heading-number="4.3"><h1 id="padding-padding-spacing-and-backgrounds">Padding, spacing, and backgrounds</h1>
-<p>All elements can have a <code>padding</code> value, which will add the specified amount of
-padding around the element. The "root" element of the form (the one returned by
-<code>build_func</code>) has a default padding of 0.3, everything else has a default
-padding of 0.</p>
-<p><code>HBox</code> and <code>VBox</code> have a <code>spacing</code> field which specifies how much spacing there
-is between elements inside the box. If unspecified, <code>spacing</code> will default to
-0.2.</p>
-<p>Container elements (HBox and VBox) can optionally have <code>bgimg</code> and <code>bgimg_middle</code>
-parameters that specify a background for the container. <code>bgimg</code> is the name of
-a texture. If <code>bgimg_middle</code> is set, the texture is drawn as a
-<a href="#elements-nine-slice-images">nine-slice</a> whose corners are <code>bgimg_middle</code>
-pixels big, so one small texture can make a background of any size. The
-background will be drawn behind any padding that the container has.</p>
+<!-- TODO(clarify): conflicts with experimental.md (gui.Flow ignores padding); list the elements that do not support it. -->
+
+<!-- TODO(link): link build_func to getting-started.md, units to elements.md#sizes, and gui.Padding to layout-elements.md. -->
+
+<p>All elements can have a <code>padding</code> value, which will add the specified amount of padding around the element. The "root" element of the form (the one returned by <code>build_func</code>) has a default padding of 0.3, everything else has a default padding of 0.</p>
+<!-- TODO(link): spacing is also described in layout-elements.md (gui.VBox); keep the 0.2 default in one place and cross-link. -->
+
+<p><code>HBox</code> and <code>VBox</code> have a <code>spacing</code> field which specifies how much spacing there is between elements inside the box. If unspecified, <code>spacing</code> will default to 0.2.</p>
+<p>Container elements (HBox and VBox) can optionally have <code>bgimg</code> and <code>bgimg_middle</code> parameters that specify a background for the container. <code>bgimg</code> is the name of a texture. If <code>bgimg_middle</code> is set, the texture is drawn as a <a href="#elements-nine-slice-images">nine-slice</a> whose corners are <code>bgimg_middle</code> pixels big, so one small texture can make a background of any size. The background will be drawn behind any padding that the container has.</p>
+<!-- TODO(clarify): code comment says bgimg works without bgimg_middle but the example sets both; show the plain bgimg case or reword. -->
+
 <p>Example:</p>
-<pre><code class="language-lua">gui.VBox{
+<pre><code class="language-lua">gui.VBox {
     padding = 0.5,
     spacing = 0.1,
 
@@ -3229,32 +2889,33 @@ background will be drawn behind any padding that the container has.</p>
     bgimg = &quot;air.png&quot;,
     bgimg_middle = 2,
 
-    gui.Button{label=&quot;Button 1&quot;},
-    gui.Button{label=&quot;Button 2&quot;},
+    gui.Button { label = &quot;Button 1&quot; },
+    gui.Button { label = &quot;Button 2&quot; },
 }
 </code></pre>
+<!-- TODO(clarify): screenshot is hotlinked from user-images.githubusercontent.com; copy it into docs/ so it cannot break. -->
+
 <p><img alt="Screenshot" src="https://user-images.githubusercontent.com/3182651/198194381-4812c0fa-1909-48f8-b50d-6713c4c126ec.png" /></p>
-<p>The padding around the VBox is 0.5 and the spacing between the buttons inside
-it is 0.1.</p></section><section class="print-page" id="tooltips" heading-number="4.4"><h1 id="tooltips-tooltips">Tooltips</h1>
-<p>A tooltip is a small box of text that appears when the player hovers over an
-element.</p>
+<p>The padding around the VBox is 0.5 and the spacing between the buttons inside it is 0.1.</p></section><section class="print-page" id="tooltips" heading-number="4.4"><h1 id="tooltips-tooltips">Tooltips</h1>
+<p>A tooltip is a small box of text that appears when the player hovers over an element.</p>
 <p>You can add tooltips to elements using the <code>tooltip</code> field:</p>
-<pre><code class="language-lua">gui.Image{
+<pre><code class="language-lua">gui.Image {
     w = 2, h = 2,
     texture_name = &quot;air.png&quot;,
     tooltip = &quot;Air&quot;,
 }
 </code></pre>
-<p>This works on elements without a <code>name</code> as well. In that case the tooltip covers
-the area of the element, and the tooltip of a named element that overlaps it
-takes priority.</p>
-<p>There is also a <a href="#elements-guitooltip"><code>gui.Tooltip</code></a> element which lets you
-change the background and text color of the tooltip. It refers to the element
-it belongs to by <code>name</code>, and should come after that element. As with
-<code>gui.Style</code>, it is invisible and won't affect padding.</p>
-<pre><code class="language-lua">gui.VBox{
-    gui.Button{name = &quot;my_button&quot;, label = &quot;Hover over me&quot;},
-    gui.Tooltip{
+<!-- TODO(clarify): say how overlapping tooltips are prioritised beyond "named wins" (document order?). -->
+
+<p>This works on elements without a <code>name</code> as well. In that case the tooltip covers the area of the element, and the tooltip of a named element that overlaps it takes priority.</p>
+<!-- TODO(clarify): prose says it refers to the element "by name" but the parameter is gui_element_name. -->
+
+<!-- TODO(link): link gui.Style to elements.md#guistyle; link not-supported.md#missing-elements for hypertip[] and area tooltips. -->
+
+<p>There is also a <a href="#elements-guitooltip"><code>gui.Tooltip</code></a> element which lets you change the background and text color of the tooltip. It refers to the element it belongs to by <code>name</code>, and should come after that element. As with <code>gui.Style</code>, it is invisible and won't affect padding.</p>
+<pre><code class="language-lua">gui.VBox {
+    gui.Button { name = &quot;my_button&quot;, label = &quot;Hover over me&quot; },
+    gui.Tooltip {
         gui_element_name = &quot;my_button&quot;,
         tooltip_text = &quot;Hello!&quot;,
         bgcolor = &quot;#000000&quot;,
@@ -3262,129 +2923,120 @@ it belongs to by <code>name</code>, and should come after that element. As with
     },
 }
 </code></pre></section><section class="print-page" id="hiding-elements" heading-number="4.5"><h1 id="hiding-elements-hiding-elements">Hiding elements</h1>
-<p>Elements inside boxes can have <code>visible = false</code> set to hide them from the
-player. Elements hidden this way will still take up space like with
-<code>visibility: hidden;</code> in CSS.</p>
+<!-- TODO(clarify): does visible = false work outside HBox/VBox (Stack, Container, root)? Are hidden buttons still focusable or clickable? -->
+
+<!-- TODO(link): link visible to elements.md#parameters-shared-by-all-elements. -->
+
+<p>Elements inside boxes can have <code>visible = false</code> set to hide them from the player. Elements hidden this way will still take up space like with <code>visibility: hidden;</code> in CSS.</p>
 <h2 id="hiding-elements-example">Example</h2>
-<pre><code class="language-lua">gui.VBox{
-    gui.Button{label = &quot;First button&quot;},
-    gui.Button{label = &quot;Hidden&quot;, visible = false},
-    gui.Button{label = &quot;Last button&quot;},
+<pre><code class="language-lua">gui.VBox {
+    gui.Button { label = &quot;First button&quot; },
+    gui.Button { label = &quot;Hidden&quot;, visible = false },
+    gui.Button { label = &quot;Last button&quot; },
 }
 </code></pre>
 <h2 id="hiding-elements-alternatives">Alternatives</h2>
-<p>If you don't want hidden elements to take up any space, see the documentation
-for <a href="#layout-elements-guinil"><code>gui.Nil</code></a>.</p></section><section class="print-page" id="inventory" heading-number="4.6"><h1 id="inventory-using-a-form-as-an-inventory">Using a form as an inventory</h1>
+<p>If you don't want hidden elements to take up any space, see the documentation for <a href="#layout-elements-guinil"><code>gui.Nil</code></a>.</p></section><section class="print-page" id="inventory" heading-number="4.6"><h1 id="inventory-using-a-form-as-an-inventory">Using a form as an inventory</h1>
 <blockquote>
-<p>Consider using <a href="https://content.luanti.org/packages/lazerbeak12345/sway/">Sway</a>
-instead if you want to use flow as an inventory replacement while still
-having some way for other mods to extend the inventory.</p>
+<p>Consider using <a href="https://content.luanti.org/packages/lazerbeak12345/sway/">Sway</a> instead if you want to use flow as an inventory replacement while still having some way for other mods to extend the inventory.</p>
 </blockquote>
-<p>A form can be set as the player inventory, which is the screen the player sees
-when they open their inventory. Flow internally generates the formspec (the
-text Luanti uses to describe a menu) and passes it to
-<code>player:set_inventory_formspec()</code>. This will completely replace your inventory
-and isn't compatible with inventory mods like sfinv (the inventory in Minetest
-Game, which lets mods add tabs).</p>
-<pre><code class="language-lua">local example_inventory = flow.make_gui(function (player, context)
-    return gui.Label{ label = &quot;Inventory goes here!&quot; }
+<!-- TODO(link): link "formspec" to index.md, player:set_inventory_formspec() to the Luanti API docs, and sfinv-style embedding to experimental.md#rendering-to-a-formspec. -->
+
+<p>A form can be set as the player inventory, which is the screen the player sees when they open their inventory. Flow internally generates the formspec (the text Luanti uses to describe a menu) and passes it to <code>player:set_inventory_formspec()</code>. This will completely replace your inventory and isn't compatible with inventory mods like sfinv (the inventory in Minetest Game, which lets mods add tabs).</p>
+<!-- TODO(clarify): snippet uses gui without "local gui = flow.widgets"; it names the context "context" where other pages use ctx. -->
+
+<pre><code class="language-lua">local example_inventory = flow.make_gui(function(player, context)
+    return gui.Label { label = &quot;Inventory goes here!&quot; }
 end)
 core.register_on_joinplayer(function(player)
     example_inventory:set_as_inventory_for(player)
 end)
 </code></pre>
-<p>Like with the <code>show_hud</code> function, <code>update*</code> functions don't do anything, so to
-update it, call <code>set_as_inventory_for</code> again with the new context. If the
-context is not provided, it will reuse the existing context.</p>
+<!-- TODO(link): show_hud and close_hud are not documented anywhere (see getting-started.md). -->
+
+<!-- TODO(clarify): what happens if the inventory is open when set_as_inventory_for is called again: redraw now, or next open? -->
+
+<p>Like with the <code>show_hud</code> function, <code>update*</code> functions don't do anything, so to update it, call <code>set_as_inventory_for</code> again with the new context. If the context is not provided, it will reuse the existing context.</p>
 <pre><code class="language-lua">example_inventory:set_as_inventory_for(player, new_context)
 </code></pre>
-<p>While the form will of course be cleared when the player leaves, if you'd like
-to unset the inventory manually, call <code>:unset_as_inventory_for(player)</code>,
-analogue to <code>close_hud</code>:</p>
+<p>While the form will of course be cleared when the player leaves, if you'd like to unset the inventory manually, call <code>:unset_as_inventory_for(player)</code>, analogue to <code>close_hud</code>:</p>
 <pre><code class="language-lua">example_inventory:unset_as_inventory_for(player)
 </code></pre>
-<p>This will set the inventory formspec string to <code>""</code> and stop flow from
-processing inventory formspec input.</p></section><section class="print-page" id="manual-positioning" heading-number="4.7"><h1 id="manual-positioning-manual-positioning">Manual positioning</h1>
+<p>This will set the inventory formspec string to <code>""</code> and stop flow from processing inventory formspec input.</p></section><section class="print-page" id="manual-positioning" heading-number="4.7"><h1 id="manual-positioning-manual-positioning">Manual positioning</h1>
 <h2 id="manual-positioning-dynamic-element-types">Dynamic element types</h2>
-<p>This is only recommended for elements inside <code>gui.Container</code> (see below)
-outside of some rare use cases that need it, as it does not support flow's
-layouting elements.</p>
-<p>If you want to generate element types from a variable, you can use
-<code>{type = "label", label = "Hello world!"}</code> instead of
-<code>gui.Label{label="Hello world!"}</code>. The <code>type</code> is the name of the <code>gui</code>
-function in lowercase with underscores between words, for example
-<code>"item_image_button"</code> for <code>gui.ItemImageButton</code>. HBoxes and VBoxes can be created
-this way as well (with <code>type = "hbox"</code> and <code>type = "vbox"</code>), however other
-layouting elements (such as ScrollableVBox and Spacer) won't work correctly.</p>
+<!-- TODO(clarify): first paragraph is hard to parse; state when type tables are fine. "won't work correctly" for ScrollableVBox/Spacer: error or wrong layout? -->
+
+<!-- TODO(link): link gui.Container to elements.md#guicontainer, ScrollableVBox/Spacer to layout-elements.md, type names to styling.md#element-types. -->
+
+<p>This is only recommended for elements inside <code>gui.Container</code> (see below) outside of some rare use cases that need it, as it does not support flow's layouting elements.</p>
+<p>If you want to generate element types from a variable, you can use <code>{type = "label", label = "Hello world!"}</code> instead of <code>gui.Label{label="Hello world!"}</code>. The <code>type</code> is the name of the <code>gui</code> function in lowercase with underscores between words, for example <code>"item_image_button"</code> for <code>gui.ItemImageButton</code>. HBoxes and VBoxes can be created this way as well (with <code>type = "hbox"</code> and <code>type = "vbox"</code>), however other layouting elements (such as ScrollableVBox and Spacer) won't work correctly.</p>
+<!-- TODO(link): example.lua has no link or location (also in getting-started.md). -->
+
 <p>An example of this is in <code>example.lua</code>.</p>
 <h2 id="manual-positioning-manual-positioning-of-elements">Manual positioning of elements</h2>
-<p>You can use <code>gui.Container</code> elements to contain manually positioned elements.
-Every element inside a container has an <code>x</code> and <code>y</code>, which is the distance of
-its top-left corner from the top-left corner of the container, in the same
-units as <code>w</code> and <code>h</code>. Containers can be nested, in which case the offsets add
-up. If you do not give a <code>w</code> and <code>h</code>, flow uses the smallest size that fits
-all the elements inside.</p>
-<pre><code class="language-lua">gui.VBox{
-    gui.Label{label = &quot;Automatically positioned&quot;},
-    gui.Container{
+<p>You can use <code>gui.Container</code> elements to contain manually positioned elements. Every element inside a container has an <code>x</code> and <code>y</code>, which is the distance of its top-left corner from the top-left corner of the container, in the same units as <code>w</code> and <code>h</code>. Containers can be nested, in which case the offsets add up. If you do not give a <code>w</code> and <code>h</code>, flow uses the smallest size that fits all the elements inside.</p>
+<pre><code class="language-lua">gui.VBox {
+    gui.Label { label = &quot;Automatically positioned&quot; },
+    gui.Container {
         -- You can specify a width and height if you don't want flow to try and
         -- guess at the size of the container.
         -- w = 3, h = 2,
 
         -- You may embed most plain element tables (a `type`, an `x` and `y`,
         -- and the same parameters as the matching gui function) in a container
-        {type = &quot;box&quot;, x = 0, y = 0, w = 1, h = 1, color = &quot;red&quot;},
-        {type = &quot;box&quot;, x = 0.3, y = 0.3, w = 1, h = 1, color = &quot;green&quot;},
-        {type = &quot;box&quot;, x = 0.6, y = 0.6, w = 1, h = 1, color = &quot;blue&quot;},
+        { type = &quot;box&quot;, x = 0, y = 0, w = 1, h = 1, color = &quot;red&quot; },
+        { type = &quot;box&quot;, x = 0.3, y = 0.3, w = 1, h = 1, color = &quot;green&quot; },
+        { type = &quot;box&quot;, x = 0.6, y = 0.6, w = 1, h = 1, color = &quot;blue&quot; },
 
-        {type = &quot;label&quot;, x = 2, y = 1.1, label = &quot;Manually positioned&quot;}
+        { type = &quot;label&quot;, x = 2, y = 1.1, label = &quot;Manually positioned&quot; }
     },
 }
 </code></pre>
-<p>Note that you should not nest layouted elements (like <code>gui.VBox</code>) inside
-<code>gui.Container</code>.</p></section><section class="print-page" id="experimental" heading-number="4.8"><h1 id="experimental-experimental-features">Experimental features</h1>
+<!-- TODO(clarify): contradicts the section above, which says type = "hbox" / "vbox" tables work; are HBox/VBox allowed inside gui.Container? -->
+
+<p>Note that you should not nest layouted elements (like <code>gui.VBox</code>) inside <code>gui.Container</code>.</p></section><section class="print-page" id="experimental" heading-number="4.8"><h1 id="experimental-experimental-features">Experimental features</h1>
+<!-- TODO(link): popovers.md is also experimental and is not linked from here; add it. -->
+
 <p>These features might be broken in the future.</p>
 <h2 id="experimental-no_prepend"><code>no_prepend</code></h2>
-<p>Games and mods can add extra content to the start of every form shown to a
-player with <code>player:set_formspec_prepend()</code>, for example to give all forms the
-same background or style. This is called a "prepend", and it can be why a form
-has a background or style you did not expect.</p>
-<p>You can set <code>no_prepend = true</code> on the "root" element to stop prepends from
-being applied to a form.</p>
+<p>Games and mods can add extra content to the start of every form shown to a player with <code>player:set_formspec_prepend()</code>, for example to give all forms the same background or style. This is called a "prepend", and it can be why a form has a background or style you did not expect.</p>
+<p>You can set <code>no_prepend = true</code> on the "root" element to stop prepends from being applied to a form.</p>
 <p>Example:</p>
+<!-- TODO(clarify): the visible = false button is unrelated to no_prepend; drop it or link hiding-elements.md. -->
+
 <pre><code class="language-lua">local my_gui = flow.make_gui(function(player, ctx)
-    return gui.VBox{
+    return gui.VBox {
         no_prepend = true,
 
-        gui.Button{label = &quot;Button 1&quot;},
+        gui.Button { label = &quot;Button 1&quot; },
 
         -- There will be an empty space where the second button would be
-        gui.Button{label = &quot;Button 2&quot;, visible = false},
+        gui.Button { label = &quot;Button 2&quot;, visible = false },
 
-        gui.Button{label = &quot;Button 3&quot;},
+        gui.Button { label = &quot;Button 3&quot; },
     }
 end)
 </code></pre>
+<!-- TODO(clarify): screenshot is hotlinked from user-images.githubusercontent.com; copy it into docs/ so it cannot break. -->
+
 <p><img alt="Screenshot" src="https://user-images.githubusercontent.com/3182651/212222545-baee3669-15cd-410d-a638-c63b65a8811b.png" /></p>
 <h2 id="experimental-bgcolor"><code>bgcolor</code></h2>
-<p>You can set <code>bgcolor = "#123"</code>, <code>fbgcolor = "#123"</code>, and
-<code>bg_fullscreen = true</code> on the root element to set background colors:</p>
+<!-- TODO(clarify): bg_fullscreen = true drawing only fbgcolor reads backwards; verify against the flow source and add an example. -->
+
+<p>You can set <code>bgcolor = "#123"</code>, <code>fbgcolor = "#123"</code>, and <code>bg_fullscreen = true</code> on the root element to set background colors:</p>
 <ul>
 <li><code>bgcolor</code>: The color of the background of the form itself.</li>
-<li><code>fbgcolor</code>: The color of the fullscreen background, which covers the whole
-   screen behind the form.</li>
-<li><code>bg_fullscreen</code>: Which of the two colors to draw. <code>false</code> (the default)
-   only draws <code>bgcolor</code>, <code>true</code> only draws <code>fbgcolor</code>, <code>"both"</code> draws both, and
-   <code>"neither"</code> draws neither.</li>
+<li><code>fbgcolor</code>: The color of the fullscreen background, which covers the whole screen behind the form.</li>
+<li><code>bg_fullscreen</code>: Which of the two colors to draw. <code>false</code> (the default) only draws <code>bgcolor</code>, <code>true</code> only draws <code>fbgcolor</code>, <code>"both"</code> draws both, and <code>"neither"</code> draws neither.</li>
 </ul>
-<p>Colors that you leave out are not changed. See <a href="#elements-colors">Elements</a>
-for how colors are written.</p>
+<p>Colors that you leave out are not changed. See <a href="#elements-colors">Elements</a> for how colors are written.</p>
+<!-- TODO(clarify): this long heading is also a URL anchor (used in not-supported.md); a short heading would be easier to link. No page documents HUDs. -->
+
 <h2 id="experimental-putting-the-form-somewhere-else-on-the-screen-likely-required-for-most-huds">Putting the form somewhere else on the screen (likely required for most HUDs)</h2>
-<p>These values allow the position of the displayed form to be moved around and
-adjust how it is scaled.</p>
+<p>These values allow the position of the displayed form to be moved around and adjust how it is scaled.</p>
 <p>Example:</p>
 <pre><code class="language-lua">local my_gui = flow.make_gui(function(player, ctx)
-    return gui.VBox{
+    return gui.VBox {
         -- window_position is the point on the screen where the form is
         -- placed, and window_anchor is the point on the form that is put
         -- there. For both, 0 is the top/left and 1 is the bottom/right, and
@@ -3392,8 +3044,8 @@ adjust how it is scaled.</p>
         -- You probably want to set `window_position` and `window_anchor` to
         -- the same value.
         -- This puts the form in the bottom-right corner.
-        window_position = {x = 1, y = 1},
-        window_anchor = {x = 1, y = 1},
+        window_position = { x = 1, y = 1 },
+        window_anchor = { x = 1, y = 1 },
 
         -- Minimum space to leave around the form, as a fraction of the
         -- screen size (here 10% on the left/right and 20% at the top/bottom).
@@ -3403,46 +3055,35 @@ adjust how it is scaled.</p>
         -- Default for forms: {x = 0.05, y = 0.05} (i.e. 5% of screen size)
         -- HUDs default to a hardcoded pixel size, if you want them to roughly
         -- line up with formspecs then you may explicitly specify this.
-        window_padding = {x = 0.1, y = 0.2},
+        window_padding = { x = 0.1, y = 0.2 },
 
-        gui.Label{label = &quot;Hello world&quot;},
+        gui.Label { label = &quot;Hello world&quot; },
     }
 end)
 </code></pre>
 <h2 id="experimental-rendering-to-a-formspec">Rendering to a formspec</h2>
-<p>This API should only be used when necessary and may have breaking changes in
-the future.</p>
-<p>Luanti describes menus with formspec strings, which flow normally generates
-and shows for you. Some APIs in other mods, such as sfinv, expect formspec
-strings instead. You can use this API to embed flow forms inside them. To use
-flow with these mods, you can call
-<code>form:render_to_formspec_string(player, ctx, standalone)</code>.</p>
+<p>This API should only be used when necessary and may have breaking changes in the future.</p>
+<!-- TODO(link): link "formspec" to index.md, sfinv to inventory.md, and units to elements.md#sizes. -->
+
+<p>Luanti describes menus with formspec strings, which flow normally generates and shows for you. Some APIs in other mods, such as sfinv, expect formspec strings instead. You can use this API to embed flow forms inside them. To use flow with these mods, you can call <code>form:render_to_formspec_string(player, ctx, standalone)</code>.</p>
+<!-- TODO(clarify): define "fields" (the raw formspec fields table?) and when process_event returns true. Is info.formspec_version always 7 (see not-supported.md#newer-luanti-features)? -->
+
 <ul>
-<li>A complete formspec starts with a <code>formspec_version[]</code> element (the version
-   of the formspec language it uses) and a <code>size[]</code> element (the size of the
-   form). By default these aren't included in the returned formspec, and are
-   returned in a third value instead: a table <code>info</code> with <code>w</code> and <code>h</code> (the
-   size of the form, in the units described in <a href="#elements">Elements</a>) and
-   <code>formspec_version</code> (the version number). Set <code>standalone</code> to include them
-   in the returned formspec string. The third return value will not be
-   returned.</li>
+<li>A complete formspec starts with a <code>formspec_version[]</code> element (the version of the formspec language it uses) and a <code>size[]</code> element (the size of the form). By default these aren't included in the returned formspec, and are returned in a third value instead: a table <code>info</code> with <code>w</code> and <code>h</code> (the size of the form, in the units described in <a href="#elements">Elements</a>) and <code>formspec_version</code> (the version number). Set <code>standalone</code> to include them in the returned formspec string. The third return value will not be returned.</li>
 <li>Returns <code>formspec, process_event[, info]</code></li>
-<li>The <code>process_event(fields)</code> callback will return true if the formspec should
-   be redrawn, where <code>render_to_formspec_string</code> should be called and the new
-   <code>process_event</code> should be used in the future. This function may return true
-   even if fields.quit is sent.</li>
+<li>The <code>process_event(fields)</code> callback will return true if the formspec should be redrawn, where <code>render_to_formspec_string</code> should be called and the new <code>process_event</code> should be used in the future. This function may return true even if fields.quit is sent.</li>
 </ul>
 <blockquote>
-<p><strong>Warning:</strong>
-Do not use this API with node meta formspecs (formspecs that are stored in
-the metadata of a node), it can and will break!</p>
+<p><strong>Warning:</strong> Do not use this API with node meta formspecs (formspecs that are stored in the metadata of a node), it can and will break!</p>
 </blockquote>
 <h2 id="experimental-embedding-a-form-into-another-form">Embedding a form into another form</h2>
+<!-- TODO(clarify): other_form and gui are not defined in the snippet; "before 2025-06-17" should be a flow version or tag. -->
+
 <p>You can embed form objects inside others like this:</p>
 <pre><code class="language-lua">local parent_form = flow.make_gui(function(player, ctx)
-    return gui.VBox{
-        gui.Label{label = &quot;Hello world&quot;},
-        other_form:embed{
+    return gui.VBox {
+        gui.Label { label = &quot;Hello world&quot; },
+        other_form:embed {
             -- You can optionally pass in the player object to support older
             -- versions of flow (before 2025-06-17).
             player = player,
@@ -3460,29 +3101,27 @@ end)
 </code></pre>
 <p>Special characters (excluding <code>-</code> and <code>_</code>) are not allowed in embed names.</p>
 <h2 id="experimental-running-code-when-a-form-is-closed">Running code when a form is closed</h2>
-<p><code>gui.Container</code>, <code>gui.HBox</code>, <code>gui.VBox</code>, and <code>gui.Stack</code> elements support an
-<code>on_quit</code> callback which gets run when a player closes a form (for example by
-pressing Escape or clicking an exit button).</p>
-<p>Note that this function is not called in some cases, such as when the player
-leaves without closing the form or when another form/formspec is shown.</p>
-<p>This function must not return anything, behaviour may get added to return
-values in the future.</p>
+<!-- TODO(link): link gui.Container, gui.HBox, gui.VBox and gui.Stack to elements.md / layout-elements.md. -->
+
+<p><code>gui.Container</code>, <code>gui.HBox</code>, <code>gui.VBox</code>, and <code>gui.Stack</code> elements support an <code>on_quit</code> callback which gets run when a player closes a form (for example by pressing Escape or clicking an exit button).</p>
+<p>Note that this function is not called in some cases, such as when the player leaves without closing the form or when another form/formspec is shown.</p>
+<p>This function must not return anything, behaviour may get added to return values in the future.</p>
+<!-- TODO(clarify): example is named parent_form (copied from the embed example); rename to my_gui. -->
+
 <pre><code class="language-lua">local parent_form = flow.make_gui(function(player, ctx)
-    return gui.VBox{
+    return gui.VBox {
         on_quit = function(player, ctx)
             core.chat_send_player(player:get_player_name(), &quot;Form closed!&quot;)
         end,
     }
 end)
 </code></pre>
-<p>If multiple <code>on_quit</code> callbacks are specified in different elements, they will
-all get called.</p>
+<p>If multiple <code>on_quit</code> callbacks are specified in different elements, they will all get called.</p>
 <h2 id="experimental-handling-enter-keypresses-in-fields">Handling enter keypresses in fields</h2>
-<p><code>gui.Field</code> and <code>gui.Pwdfield</code> support an <code>on_key_enter</code> callback that gets
-called if enter is pressed:</p>
+<p><code>gui.Field</code> and <code>gui.Pwdfield</code> support an <code>on_key_enter</code> callback that gets called if enter is pressed:</p>
 <pre><code class="language-lua">local form = flow.make_gui(function(player, ctx)
-    return gui.VBox{
-        gui.Field{
+    return gui.VBox {
+        gui.Field {
             label = &quot;Press enter!&quot;,
             name = &quot;field&quot;,
             on_key_enter = function(player, ctx)
@@ -3499,26 +3138,20 @@ called if enter is pressed:</p>
 end)
 </code></pre>
 <p>Notes:</p>
+<!-- TODO(clarify): first person is the flow author's voice; reword for an unofficial doc. -->
+
+<!-- TODO(link): link on_event to elements.md#events. -->
+
 <ul>
-<li>If you're using this callback, please make sure there's some other way to
-   trigger the enter action (like a button) to support older flow versions and
-   in case I replace this API with a better one in the future.</li>
-<li>If you want recent mobile clients to call this callback when editing text,
-   add <code>enter_after_edit = true</code> to the field definition. Without it, pressing
-   "Done" on the on-screen keyboard of an Android device does not count as
-   pressing enter. This is experimental.</li>
-<li>The similarly named <code>on_event</code> gets called whenever the client submits the
-   field to the server, which could be at any time, and is not very useful, but
-   is still supported for compatibility (and there may be uses for it, such as
-   sanitising field values). Be careful not to accidentally use the wrong
-   callback.</li>
+<li>If you're using this callback, please make sure there's some other way to trigger the enter action (like a button) to support older flow versions and in case I replace this API with a better one in the future.</li>
+<li>If you want recent mobile clients to call this callback when editing text, add <code>enter_after_edit = true</code> to the field definition. Without it, pressing "Done" on the on-screen keyboard of an Android device does not count as pressing enter. This is experimental.</li>
+<li>The similarly named <code>on_event</code> gets called whenever the client submits the field to the server, which could be at any time, and is not very useful, but is still supported for compatibility (and there may be uses for it, such as sanitising field values). Be careful not to accidentally use the wrong callback.</li>
 </ul>
 <h2 id="experimental-getting-a-reference-to-the-current-player-and-context">Getting a reference to the current player and context</h2>
-<p>If you're making a custom widget, it might be useful to get a reference to
-<code>ctx</code> and <code>player</code> so you don't have to pass them in manually.</p>
+<p>If you're making a custom widget, it might be useful to get a reference to <code>ctx</code> and <code>player</code> so you don't have to pass them in manually.</p>
 <pre><code class="language-lua">local function HelloWorld(def)
     local ctx, player = flow.get_context()
-    return gui.Label{
+    return gui.Label {
         label = &quot;Hello, &quot; .. player:get_player_name() .. &quot;!\n&quot; ..
             &quot;some_value=&quot; .. ctx.some_value,
         style = def.style,
@@ -3527,44 +3160,43 @@ end
 
 local form = flow.make_gui(function(player, ctx)
     ctx.some_value = 123
-    return HelloWorld{style = {font_size = &quot;*2&quot;}}
+    return HelloWorld { style = { font_size = &quot;*2&quot; } }
 end)
 </code></pre>
-<p><code>flow.get_context()</code> will error when called outside a build function (as you
-should not normally do this).</p>
+<p><code>flow.get_context()</code> will error when called outside a build function (as you should not normally do this).</p>
 <h2 id="experimental-guiflow-container"><code>gui.Flow</code> container</h2>
-<p><code>gui.Flow</code> is a fixed-width container that wraps items around if they don't
-fit. Unlike other elements, you must specify a width, and some options like
-<code>min_w</code> and <code>padding</code> aren't supported.</p>
+<!-- TODO(link): gui.Flow is missing from layout-elements.md; add an entry there that links here. -->
+
+<!-- TODO(clarify): "w = 3 * (1 + 0.2)" relies on the default spacing 0.2 (padding.md); say so. -->
+
+<p><code>gui.Flow</code> is a fixed-width container that wraps items around if they don't fit. Unlike other elements, you must specify a width, and some options like <code>min_w</code> and <code>padding</code> aren't supported.</p>
 <p>This is similar to GTK's <code>FlowBox</code>, but with a lot fewer features.</p>
-<pre><code class="language-lua">gui.Flow{
+<pre><code class="language-lua">gui.Flow {
     -- Fits 3 items
     w = 3 * (1 + 0.2),
 
-    gui.Image{w = 1, h = 1, texture_name = &quot;default_mese_crystal.png&quot;},
-    gui.Image{w = 1, h = 1, texture_name = &quot;default_mese_crystal.png&quot;},
-    gui.Image{w = 1, h = 1, texture_name = &quot;default_mese_crystal.png&quot;},
-    gui.Image{w = 1, h = 1, texture_name = &quot;default_mese_crystal.png&quot;},
-    gui.Image{w = 1, h = 1, texture_name = &quot;default_mese_crystal.png&quot;},
+    gui.Image { w = 1, h = 1, texture_name = &quot;default_mese_crystal.png&quot; },
+    gui.Image { w = 1, h = 1, texture_name = &quot;default_mese_crystal.png&quot; },
+    gui.Image { w = 1, h = 1, texture_name = &quot;default_mese_crystal.png&quot; },
+    gui.Image { w = 1, h = 1, texture_name = &quot;default_mese_crystal.png&quot; },
+    gui.Image { w = 1, h = 1, texture_name = &quot;default_mese_crystal.png&quot; },
 }
 </code></pre></section><section class="print-page" id="popovers" heading-number="4.9"><h1 id="popovers-popovers-highly-experimental">Popovers (highly experimental)</h1>
 <p><strong>This API will likely have breaking changes in the future.</strong></p>
-<p>Flow supports a highly experimental low-level API for defining popovers.
-Popovers appear over top of all other elements and are anchored to their parent.</p>
-<p>This API is intended to be used for creating themed widgets like dropdowns, or
-for a higher level popover API that adds styling and is easier to use.</p>
-<p>You add a <code>popover</code> attribute to any container element to define a popover.
-Flow does not manage the lifecycle (opening/closing) of popovers, you must
-ensure that you do this yourself like in the example.</p>
+<p>Flow supports a highly experimental low-level API for defining popovers. Popovers appear over top of all other elements and are anchored to their parent.</p>
+<p>This API is intended to be used for creating themed widgets like dropdowns, or for a higher level popover API that adds styling and is easier to use.</p>
+<p>You add a <code>popover</code> attribute to any container element to define a popover. Flow does not manage the lifecycle (opening/closing) of popovers, you must ensure that you do this yourself like in the example.</p>
+<!-- TODO(clarify): snippet uses ctx outside a build function, and ctx.form.side is nil on first draw; show the flow.make_gui wrapper. on_close_popover is documented only in this example. -->
+
 <p>See the below example for details on how to use the API:</p>
-<pre><code class="language-lua">gui.VBox{
+<pre><code class="language-lua">gui.VBox {
     -- Some padding is added for the purposes of the demo so that the popup
     -- isn't off-screen
     padding = 3,
-    gui.Label{label = &quot;Popover demo:&quot;},
+    gui.Label { label = &quot;Popover demo:&quot; },
 
-    gui.Stack{
-        gui.Button{
+    gui.Stack {
+        gui.Button {
             label = &quot;Open popover&quot;,
 
             -- When the popover button is clicked, open the popover
@@ -3577,7 +3209,7 @@ ensure that you do this yourself like in the example.</p>
         -- The actual element to overlay
         -- &quot;popover&quot; is set to the gui.VBox element if (and only if)
         -- ctx.show_popover is true, otherwise it's nil so no popover is shown.
-        popover = ctx.show_popover and gui.VBox{
+        popover = ctx.show_popover and gui.VBox {
             -- Specifying padding and bgcolor is optional, but is probably a
             -- good idea since flow doesn't do any styling on its own.
             padding = 0.2,
@@ -3596,8 +3228,8 @@ ensure that you do this yourself like in the example.</p>
             align_v = &quot;center&quot;,
 
             -- Popover contents
-            gui.Label{label = &quot;Hi there!&quot;},
-            gui.Dropdown{
+            gui.Label { label = &quot;Hi there!&quot; },
+            gui.Dropdown {
                 name = &quot;side&quot;,
                 items = {
                     &quot;bottom&quot;,
@@ -3616,19 +3248,17 @@ ensure that you do this yourself like in the example.</p>
         end,
     },
 
-    gui.Label{label = &quot;After popover button&quot;},
+    gui.Label { label = &quot;After popover button&quot; },
 }
 </code></pre>
 <p>There are some restrictions on popovers:</p>
+<!-- TODO(link): link noclip to styling.md#all-elements, align_h/align_v to elements.md#parameters-shared-by-all-elements, gui.Stack/HBox/VBox to layout-elements.md. -->
+
 <ul>
-<li>They must not extend outside the form, otherwise they'll only be partially
-   visible (unless everything is styled with <code>noclip = true</code>, see <a href="#styling">Styling</a>). Flow does not
-   attempt to detect this.</li>
-<li>You can only define <code>popover</code> on container elements, like gui.Stack,
-   gui.HBox, and gui.VBox.</li>
+<li>They must not extend outside the form, otherwise they'll only be partially visible (unless everything is styled with <code>noclip = true</code>, see <a href="#styling">Styling</a>). Flow does not attempt to detect this.</li>
+<li>You can only define <code>popover</code> on container elements, like gui.Stack, gui.HBox, and gui.VBox.</li>
 <li>Only one popover is shown at a time.</li>
-<li>Players can still use tab to interact with things behind the popover,
-   despite being unable to use their mouse to do so.</li>
+<li>Players can still use tab to interact with things behind the popover, despite being unable to use their mouse to do so.</li>
 <li>You cannot show popovers inside of other popovers.</li>
 <li>Popovers cannot be on the root element.</li>
 </ul></section></section>

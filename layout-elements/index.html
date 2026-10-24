@@ -344,7 +344,7 @@
 <span class="md-ellipsis">
     
   
-    Features flow does not have
+    Unsupported Features
   
 
     
@@ -619,60 +619,44 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1 id="layouting-elements">Layouting elements</h1>
-<p>You should do <code>local gui = flow.widgets</code> in your code to improve readability.
-All examples will assume that this line exists.</p>
-<p>These elements control how other elements are arranged. Most of them draw
-nothing themselves: they place the elements inside them, work out how big
-everything is, and share out any spare space. Elements that draw something or
-accept input (labels, buttons, fields, ...) are described in
-<a href="../elements/">Elements</a>. To place elements at exact coordinates instead, see
-<a href="../manual-positioning/">Manual positioning</a>.</p>
-<p><strong>Warning:</strong> The below elements (except <code>gui.Spacer</code>) do not support <code>w</code> and
-<code>h</code> properties and will break in weird ways if you try and use them. Use
-<code>min_w</code> and <code>min_h</code> instead.</p>
+<p>You should do <code>local gui = flow.widgets</code> in your code to improve readability. All examples will assume that this line exists.</p>
+<p>These elements control how other elements are arranged. Most of them draw nothing themselves: they place the elements inside them, work out how big everything is, and share out any spare space. Elements that draw something or accept input (labels, buttons, fields, ...) are described in <a href="../elements/">Elements</a>. To place elements at exact coordinates instead, see <a href="../manual-positioning/">Manual positioning</a>.</p>
+<!-- TODO(clarify): contradicts gui.ScrollableVBox and gui.PaginatedVBox below, which take w and h; list which elements accept them. -->
+<p><strong>Warning:</strong> The below elements (except <code>gui.Spacer</code>) do not support <code>w</code> and <code>h</code> properties and will break in weird ways if you try and use them. Use <code>min_w</code> and <code>min_h</code> instead.</p>
 <h2 id="guivbox"><code>gui.VBox</code></h2>
 <p>A vertical box, similar to a VBox in GTK. Elements inside a VBox are stacked
 vertically.</p>
-<pre><code class="language-lua">gui.VBox{
+<pre><code class="language-lua">gui.VBox {
     -- These elements are documented later on.
-    gui.Label{label="I am a label!"},
+    gui.Label { label = "I am a label!" },
 
     -- The second label will be positioned underneath the first one.
-    gui.Label{label="I am a second label!"},
+    gui.Label { label = "I am a second label!" },
 }
 </code></pre>
-<p>Elements inside boxes have a spacing of 0.2 between them. To change this, you
-can add <code>spacing = &lt;number&gt;</code> to the box definition. For example, <code>spacing = 0</code>
-will remove all spacing between the elements.</p>
+<!-- TODO(link): spacing is also described in padding.md; cross-link. -->
+<p>Elements inside boxes have a spacing of 0.2 between them. To change this, you can add <code>spacing = &lt;number&gt;</code> to the box definition. For example, <code>spacing = 0</code> will remove all spacing between the elements.</p>
 <h2 id="guihbox"><code>gui.HBox</code></h2>
 <p>Like <code>gui.VBox</code> but stacks elements horizontally instead.</p>
-<pre><code class="language-lua">gui.HBox{
+<pre><code class="language-lua">gui.HBox {
     -- These elements are documented later on.
-    gui.Label{label="I am a label!"},
+    gui.Label { label = "I am a label!" },
 
     -- The second label will be positioned to the right of first one.
-    gui.Label{label="I am a second label!"},
+    gui.Label { label = "I am a second label!" },
 
     -- You can nest HBox and VBox elements
-    gui.VBox{
-        gui.Image{w=1, h=1, texture_name="default_dirt.png", align_h="center"},
-        gui.Label{label="Dirt", expand=true, align_h="center"},
+    gui.VBox {
+        gui.Image { w = 1, h = 1, texture_name = "default_dirt.png", align_h = "center" },
+        gui.Label { label = "Dirt", expand = true, align_h = "center" },
     }
 }
 </code></pre>
 <h2 id="guiscrollablevbox"><code>gui.ScrollableVBox</code></h2>
-<p>Similar to <code>gui.VBox</code>, but shows its contents in an area of a fixed size
-that the player can scroll, and automatically adds a scrollbar next to it.
-Anything outside the area is hidden until it is scrolled into view. The area is
-<code>w</code> by <code>h</code>, both are optional: the width defaults to the width of the contents
-and the height defaults to the height of the contents, up to a maximum of 5.</p>
-<p>On clients too old to support scrolling areas (before Luanti 5.4), flow shows
-one page of the contents at a time instead, with <code>&lt;</code> and <code>&gt;</code> buttons to change
-page.</p>
-<p>To change how the scrollbar looks, set <code>custom_scrollbar</code> to a table of
-parameters for <a href="../elements/#guiscrollbar"><code>gui.Scrollbar</code></a>, for example
-<code>custom_scrollbar = {w = 0.8}</code> to make it wider.</p>
-<pre><code class="language-lua">gui.ScrollableVBox{
+<p>Similar to <code>gui.VBox</code>, but shows its contents in an area of a fixed size that the player can scroll, and automatically adds a scrollbar next to it. Anything outside the area is hidden until it is scrolled into view. The area is <code>w</code> by <code>h</code>, both are optional: the width defaults to the width of the contents and the height defaults to the height of the contents, up to a maximum of 5.</p>
+<p>On clients too old to support scrolling areas (before Luanti 5.4), flow shows one page of the contents at a time instead, with <code>&lt;</code> and <code>&gt;</code> buttons to change page.</p>
+<p>To change how the scrollbar looks, set <code>custom_scrollbar</code> to a table of parameters for <a href="../elements/#guiscrollbar"><code>gui.Scrollbar</code></a>, for example <code>custom_scrollbar = {w = 0.8}</code> to make it wider.</p>
+<pre><code class="language-lua">gui.ScrollableVBox {
     -- A name must be provided for ScrollableVBox elements. You don't
     -- have to use this name anywhere else, it just makes sure flow
     -- doesn't mix up scrollbar states if one gets removed or if the
@@ -685,93 +669,81 @@ parameters for <a href="../elements/#guiscrollbar"><code>gui.Scrollbar</code></a
     h = 10,
 
     -- These elements are documented later on.
-    gui.Label{label="I am a label!"},
+    gui.Label { label = "I am a label!" },
 
     -- The second label will be positioned underneath the first one.
-    gui.Label{label="I am a second label!"},
+    gui.Label { label = "I am a second label!" },
 }
 </code></pre>
 <h2 id="guispacer"><code>gui.Spacer</code></h2>
 <p>A "flexible space" element that expands by default. Example usage:</p>
-<pre><code class="language-lua">gui.HBox{
+<pre><code class="language-lua">gui.HBox {
     -- These buttons will be on the left-hand side of the screen
-    gui.Button{label = "Cancel"},
-    gui.Button{label = "&lt; Back"},
+    gui.Button { label = "Cancel" },
+    gui.Button { label = "&lt; Back" },
 
-    gui.Spacer{},
+    gui.Spacer {},
 
     -- These buttons will be on the right-hand side of the screen
-    gui.Button{label = "Next &gt;"},
-    gui.Button{label = "Confirm"},
+    gui.Button { label = "Next &gt;" },
+    gui.Button { label = "Confirm" },
 }
 </code></pre>
-<p>I advise against using spacers when <code>expand = true</code> and <code>align = ...</code> would
-work just as well since spacers are implemented hackily and won't account for
-some special cases.</p>
-<p>You can replicate the above example without spacers, however the code doesn't
-look as clean:</p>
-<pre><code class="language-lua">gui.HBox{
+<!-- TODO(clarify): first person is the flow author's voice; reword for an unofficial doc. "align = ..." should be align_h / align_v (no align parameter exists). -->
+<p>I advise against using spacers when <code>expand = true</code> and <code>align = ...</code> would work just as well since spacers are implemented hackily and won't account for some special cases.</p>
+<p>You can replicate the above example without spacers, however the code doesn't look as clean:</p>
+<pre><code class="language-lua">gui.HBox {
     -- These buttons will be on the left-hand side of the screen
-    gui.Button{label = "Cancel"},
-    gui.Button{label = "&lt; Back", expand = true, align_h = "left"},
+    gui.Button { label = "Cancel" },
+    gui.Button { label = "&lt; Back", expand = true, align_h = "left" },
 
     -- These buttons will be on the right-hand side of the screen
-    gui.Button{label = "Next &gt;"},
-    gui.Button{label = "Confirm"},
+    gui.Button { label = "Next &gt;" },
+    gui.Button { label = "Confirm" },
 }
 </code></pre>
-<p>You should not use spacers to center elements as it creates unnecessary boxes,
-and labels may be slightly off-center (because label widths depend on screen
-size, DPI, etc and this code doesn't trigger the centering hack):</p>
+<p>You should not use spacers to center elements as it creates unnecessary boxes, and labels may be slightly off-center (because label widths depend on screen size, DPI, etc and this code doesn't trigger the centering hack):</p>
 <pre><code class="language-lua">-- This is bad!
-gui.HBox{
-    gui.Spacer{},
-    gui.Label{label="I am not properly centered!"},
-    gui.Spacer{},
+gui.HBox {
+    gui.Spacer {},
+    gui.Label { label = "I am not properly centered!" },
+    gui.Spacer {},
 }
 </code></pre>
 <p>You should do this instead:</p>
-<pre><code class="language-lua">gui.Label{label="I am centered!", align_h = "center"},
+<pre><code class="language-lua">gui.Label { label = "I am centered!", align_h = "center" },
 </code></pre>
-<p>This applies to other elements as well, because using HBox and Spacer to center
-elements creates unnecessary containers.</p>
+<p>This applies to other elements as well, because using HBox and Spacer to center elements creates unnecessary containers.</p>
 <h2 id="guinil"><code>gui.Nil</code></h2>
+<!-- TODO(link): cross-link hiding-elements.md (visible = false keeps space, gui.Nil removes it). -->
 <p>A tool to allow for ternary-ish conditional widgets:</p>
 <pre><code class="language-lua">local form = flow.make_gui(function(player, ctx)
     local the_boolean = false
-    return gui.VBox{
-        gui.Label{label = "The box below is only present if the boolean is truthy"},
-        the_boolean and gui.Box{w = 1, h = 1, color = "#FF0000"} or gui.Nil{},
+    return gui.VBox {
+        gui.Label { label = "The box below is only present if the boolean is truthy" },
+        the_boolean and gui.Box { w = 1, h = 1, color = "#FF0000" } or gui.Nil {},
     }
 end)
 </code></pre>
-<p>Use sparingly, flow still has to process each <code>Nil</code> object to be able to know to
-remove it, and thus could still slow things down. The fastest element is one
-that doesn't exist, and thus doesn't need processing.</p>
+<p>Use sparingly, flow still has to process each <code>Nil</code> object to be able to know to remove it, and thus could still slow things down. The fastest element is one that doesn't exist, and thus doesn't need processing.</p>
 <h2 id="guistack"><code>gui.Stack</code></h2>
-<p>This container element places its children on top of each other. All child
-elements are expanded in both directions.</p>
-<p>Note that some elements (such as centred labels) won't pass clicks through to
-the element below them.</p>
+<p>This container element places its children on top of each other. All child elements are expanded in both directions.</p>
+<p>Note that some elements (such as centred labels) won't pass clicks through to the element below them.</p>
 <h3 id="example">Example</h3>
-<pre><code class="language-lua">gui.Stack{
+<pre><code class="language-lua">gui.Stack {
     min_w = 10,
-    gui.Button{label = "Hello world!"},
-    gui.Image{w = 1, h = 1, texture_name = "air.png", padding = 0.2, align_h = "left"},
+    gui.Button { label = "Hello world!" },
+    gui.Image { w = 1, h = 1, texture_name = "air.png", padding = 0.2, align_h = "left" },
 }
 </code></pre>
+<!-- TODO(clarify): screenshot is hotlinked from user-images.githubusercontent.com; copy it into docs/ so it cannot break. -->
 <p><img alt="Screenshot" src="https://user-images.githubusercontent.com/3182651/215946217-3705dbd1-4ec8-4aed-a9eb-381fecb2d8f2.png"/></p>
 <h2 id="guipaginatedvbox"><code>gui.PaginatedVBox</code></h2>
-<p>Like <code>gui.ScrollableVBox</code>, but splits the contents into pages instead of
-scrolling. Only one page is shown at a time, with a <code>&lt;</code> button, a "Page 1 of 3"
-label, and a <code>&gt;</code> button underneath to change page. It needs a unique <code>name</code>,
-and <code>w</code> and <code>h</code> work the same way as for <code>gui.ScrollableVBox</code>. Elements are
-never cut in half: an element that does not fit on a page starts the next one.</p>
+<p>Like <code>gui.ScrollableVBox</code>, but splits the contents into pages instead of scrolling. Only one page is shown at a time, with a <code>&lt;</code> button, a "Page 1 of 3" label, and a <code>&gt;</code> button underneath to change page. It needs a unique <code>name</code>, and <code>w</code> and <code>h</code> work the same way as for <code>gui.ScrollableVBox</code>. Elements are never cut in half: an element that does not fit on a page starts the next one.</p>
 <p><code>gui.ScrollableVBox</code> uses this automatically on clients that cannot scroll.</p>
+<!-- TODO(link): gui.Flow (experimental.md#guiflow-container) is missing from this page; add an entry. -->
 <h2 id="guipadding-deprecated"><code>gui.Padding</code> (deprecated)</h2>
-<p>Wraps a single element to add padding around it. It is deprecated and logs a
-warning, use the <code>padding</code> parameter of the element itself instead, see
-<a href="../padding/">Padding</a>.</p>
+<p>Wraps a single element to add padding around it. It is deprecated and logs a warning, use the <code>padding</code> parameter of the element itself instead, see <a href="../padding/">Padding</a>.</p>
 </article>
 </div>
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>

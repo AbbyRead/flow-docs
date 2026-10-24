@@ -9,7 +9,7 @@
 <link href="../styling/" rel="next"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.6.1, mkdocs-material-9.8.0" name="generator"/>
-<title>Features flow does not have - Flow Unofficial Docs</title>
+<title>Unsupported Features - Flow Unofficial Docs</title>
 <link href="../assets/stylesheets/main.57a0d79d.min.css" rel="stylesheet"/>
 <link href="../assets/stylesheets/palette.fb2fffe2.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -25,7 +25,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#features-flow-does-not-have">
+<a class="md-skip" href="#unsupported-features">
           Skip to content
         </a>
 </div>
@@ -49,7 +49,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Features flow does not have
+              Unsupported Features
             
           </span>
 </div>
@@ -240,7 +240,7 @@
 <span class="md-ellipsis">
     
   
-    Features flow does not have
+    Unsupported Features
   
 
     
@@ -251,7 +251,7 @@
 <span class="md-ellipsis">
     
   
-    Features flow does not have
+    Unsupported Features
   
 
     
@@ -520,10 +520,9 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="features-flow-does-not-have">Features flow does not have</h1>
-<p>Flow does not support everything that Luanti formspecs can do. This page lists
-what is missing, so you know before you look for it. Where there is a way to
-get a similar result, it is mentioned.</p>
+<h1 id="unsupported-features">Unsupported Features</h1>
+<!-- TODO(link): link each formspec element named below to the Luanti formspec docs (lua_api.md). -->
+<p>Flow does not support everything that Luanti formspecs can do. This page lists what is missing, so you know before you look for it. Where there is a way to get a similar result, it is mentioned.</p>
 <h2 id="missing-elements">Missing elements</h2>
 <table>
 <thead>
@@ -567,43 +566,25 @@ get a similar result, it is mentioned.</p>
 </tbody>
 </table>
 <h2 id="missing-parameters">Missing parameters</h2>
+<!-- TODO(link): link gui.ScrollbarOptions to elements.md#guiscrollbaroptions. -->
 <ul>
-<li><strong>Content padding of scroll containers.</strong> Luanti can work out the range of a
-   scroll container's scrollbar for you, but flow's
-   <a href="../elements/#guiscrollcontainer"><code>gui.ScrollContainer</code></a> does not expose
-   this, so you have to set the range yourself with <code>gui.ScrollbarOptions</code>.
-   <a href="../layout-elements/#guiscrollablevbox"><code>gui.ScrollableVBox</code></a> already does this
-   for you.</li>
-<li><strong>Node formspec inventory locations.</strong> The <code>"current_node"</code> inventory
-   location refers to the node whose formspec is open. A flow form cannot be
-   the formspec of a node, so use <code>"nodemeta:X,Y,Z"</code> to show a node's
-   inventory instead.</li>
+<li><strong>Content padding of scroll containers.</strong> Luanti can work out the range of a scroll container's scrollbar for you, but flow's <a href="../elements/#guiscrollcontainer"><code>gui.ScrollContainer</code></a> does not expose this, so you have to set the range yourself with <code>gui.ScrollbarOptions</code>. <a href="../layout-elements/#guiscrollablevbox"><code>gui.ScrollableVBox</code></a> already does this for you.</li>
+<li><strong>Node formspec inventory locations.</strong> The <code>"current_node"</code> inventory location refers to the node whose formspec is open. A flow form cannot be the formspec of a node, so use <code>"nodemeta:X,Y,Z"</code> to show a node's inventory instead.</li>
 </ul>
 <h2 id="things-flow-does-for-you">Things flow does for you</h2>
-<p>These formspec elements exist, but flow generates them itself and you cannot
-write them:</p>
+<p>These formspec elements exist, but flow generates them itself and you cannot write them:</p>
+<!-- TODO(link): link no_prepend and bgcolor to experimental.md#no_prepend and experimental.md#bgcolor. -->
 <ul>
 <li><code>size[]</code>: The size of the form is worked out from the elements in it.</li>
-<li><code>position[]</code>, <code>anchor[]</code>, and <code>padding[]</code>: Use the <code>window_position</code>,
-   <code>window_anchor</code>, and <code>window_padding</code> options of the root element, see
-   <a href="../experimental/#putting-the-form-somewhere-else-on-the-screen-likely-required-for-most-huds">Experimental features</a>.</li>
-<li><code>no_prepend[]</code> and <code>bgcolor[]</code>: Use the <code>no_prepend</code>, <code>bgcolor</code>, <code>fbgcolor</code>,
-   and <code>bg_fullscreen</code> options of the root element.</li>
-<li><code>real_coordinates[]</code>: Flow always uses the newer coordinate system, where
-   there is no hidden padding or spacing between elements.</li>
-<li><code>container_end[]</code> and <code>scroll_container_end[]</code>: Elements inside
-   <code>gui.Container</code> and <code>gui.ScrollContainer</code> are written inside the table.</li>
+<li><code>position[]</code>, <code>anchor[]</code>, and <code>padding[]</code>: Use the <code>window_position</code>, <code>window_anchor</code>, and <code>window_padding</code> options of the root element, see <a href="../experimental/#putting-the-form-somewhere-else-on-the-screen-likely-required-for-most-huds">Experimental features</a>.</li>
+<li><code>no_prepend[]</code> and <code>bgcolor[]</code>: Use the <code>no_prepend</code>, <code>bgcolor</code>, <code>fbgcolor</code>, and <code>bg_fullscreen</code> options of the root element.</li>
+<li><code>real_coordinates[]</code>: Flow always uses the newer coordinate system, where there is no hidden padding or spacing between elements.</li>
+<li><code>container_end[]</code> and <code>scroll_container_end[]</code>: Elements inside <code>gui.Container</code> and <code>gui.ScrollContainer</code> are written inside the table.</li>
 <li><code>formspec_version[]</code>: Flow always uses formspec version 7.</li>
 </ul>
 <h2 id="newer-luanti-features">Newer Luanti features</h2>
-<p>Because flow always uses formspec version 7 (Luanti 5.8), features that were
-added in newer versions may not work, even if the missing element or parameter
-is not listed above. This includes the area label (version 9), floating-point
-animation frames in <code>gui.Model</code> (version 10), and the <code>halign</code> and <code>valign</code>
-styles of fields and text areas (version 11), and the <code>editable</code> style of
-checkboxes, dropdowns, and fields (version 12, the only addition in that
-version). Formspec versions are described in the "Formspec Version History"
-section of the Luanti API documentation.</p>
+<!-- TODO(clarify): styling.md gives Luanti releases (5.17, 5.18) where this page gives formspec versions (11, 12); add a version -> release table and link it from both. -->
+<p>Because flow always uses formspec version 7 (Luanti 5.8), features that were added in newer versions may not work, even if the missing element or parameter is not listed above. This includes the area label (version 9), floating-point animation frames in <code>gui.Model</code> (version 10), and the <code>halign</code> and <code>valign</code> styles of fields and text areas (version 11), and the <code>editable</code> style of checkboxes, dropdowns, and fields (version 12, the only addition in that version). Formspec versions are described in the "Formspec Version History" section of the Luanti API documentation.</p>
 </article>
 </div>
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>

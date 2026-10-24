@@ -238,7 +238,7 @@
 <span class="md-ellipsis">
     
   
-    Features flow does not have
+    Unsupported Features
   
 
     
@@ -424,22 +424,19 @@
 <article class="md-content__inner md-typeset">
 <h1 id="popovers-highly-experimental">Popovers (highly experimental)</h1>
 <p><strong>This API will likely have breaking changes in the future.</strong></p>
-<p>Flow supports a highly experimental low-level API for defining popovers.
-Popovers appear over top of all other elements and are anchored to their parent.</p>
-<p>This API is intended to be used for creating themed widgets like dropdowns, or
-for a higher level popover API that adds styling and is easier to use.</p>
-<p>You add a <code>popover</code> attribute to any container element to define a popover.
-Flow does not manage the lifecycle (opening/closing) of popovers, you must
-ensure that you do this yourself like in the example.</p>
+<p>Flow supports a highly experimental low-level API for defining popovers. Popovers appear over top of all other elements and are anchored to their parent.</p>
+<p>This API is intended to be used for creating themed widgets like dropdowns, or for a higher level popover API that adds styling and is easier to use.</p>
+<p>You add a <code>popover</code> attribute to any container element to define a popover. Flow does not manage the lifecycle (opening/closing) of popovers, you must ensure that you do this yourself like in the example.</p>
+<!-- TODO(clarify): snippet uses ctx outside a build function, and ctx.form.side is nil on first draw; show the flow.make_gui wrapper. on_close_popover is documented only in this example. -->
 <p>See the below example for details on how to use the API:</p>
-<pre><code class="language-lua">gui.VBox{
+<pre><code class="language-lua">gui.VBox {
     -- Some padding is added for the purposes of the demo so that the popup
     -- isn't off-screen
     padding = 3,
-    gui.Label{label = "Popover demo:"},
+    gui.Label { label = "Popover demo:" },
 
-    gui.Stack{
-        gui.Button{
+    gui.Stack {
+        gui.Button {
             label = "Open popover",
 
             -- When the popover button is clicked, open the popover
@@ -452,7 +449,7 @@ ensure that you do this yourself like in the example.</p>
         -- The actual element to overlay
         -- "popover" is set to the gui.VBox element if (and only if)
         -- ctx.show_popover is true, otherwise it's nil so no popover is shown.
-        popover = ctx.show_popover and gui.VBox{
+        popover = ctx.show_popover and gui.VBox {
             -- Specifying padding and bgcolor is optional, but is probably a
             -- good idea since flow doesn't do any styling on its own.
             padding = 0.2,
@@ -471,8 +468,8 @@ ensure that you do this yourself like in the example.</p>
             align_v = "center",
 
             -- Popover contents
-            gui.Label{label = "Hi there!"},
-            gui.Dropdown{
+            gui.Label { label = "Hi there!" },
+            gui.Dropdown {
                 name = "side",
                 items = {
                     "bottom",
@@ -491,19 +488,16 @@ ensure that you do this yourself like in the example.</p>
         end,
     },
 
-    gui.Label{label = "After popover button"},
+    gui.Label { label = "After popover button" },
 }
 </code></pre>
 <p>There are some restrictions on popovers:</p>
+<!-- TODO(link): link noclip to styling.md#all-elements, align_h/align_v to elements.md#parameters-shared-by-all-elements, gui.Stack/HBox/VBox to layout-elements.md. -->
 <ul>
-<li>They must not extend outside the form, otherwise they'll only be partially
-   visible (unless everything is styled with <code>noclip = true</code>, see <a href="../styling/">Styling</a>). Flow does not
-   attempt to detect this.</li>
-<li>You can only define <code>popover</code> on container elements, like gui.Stack,
-   gui.HBox, and gui.VBox.</li>
+<li>They must not extend outside the form, otherwise they'll only be partially visible (unless everything is styled with <code>noclip = true</code>, see <a href="../styling/">Styling</a>). Flow does not attempt to detect this.</li>
+<li>You can only define <code>popover</code> on container elements, like gui.Stack, gui.HBox, and gui.VBox.</li>
 <li>Only one popover is shown at a time.</li>
-<li>Players can still use tab to interact with things behind the popover,
-   despite being unable to use their mouse to do so.</li>
+<li>Players can still use tab to interact with things behind the popover, despite being unable to use their mouse to do so.</li>
 <li>You cannot show popovers inside of other popovers.</li>
 <li>Popovers cannot be on the root element.</li>
 </ul>

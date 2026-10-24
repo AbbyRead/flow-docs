@@ -10,6 +10,24 @@
     overflow-wrap: break-word;
 }
 
+/* Global paged media configuration for WeasyPrint (PDF output) */
+@page {
+    size: A4;
+    margin: 20mm 20mm 20mm 20mm;
+
+    /* Top Right: Section name / title */
+    @top-right {
+        content: "Your Section Name";
+        font-size: 10pt !important;
+    }
+
+    /* Bottom Center: Page numbering */
+    @bottom-center {
+        content: counter(page);
+        font-size: 11pt !important;
+    }
+}
+
 /* PDF/print only styles */
 @media print {
     /* Title page elements */
@@ -23,7 +41,7 @@
 
     /* Change regular body text font size */
     body, p, li, span, div {
-        font-size: 11pt !important;
+        font-size: 10pt !important;
         line-height: 1.5 !important;
     }
 
@@ -54,7 +72,7 @@
 
     /* Inline code (single backticks) */
     code:not(pre code) {
-        font-size: 10pt !important;
+        font-size: 9pt !important;
     }
 
     /* Code blocks font size and wrapping */
@@ -67,7 +85,7 @@
         padding: 8px 10px !important;
         background: #f8f8f8 !important;
         border: 1px solid #e1e4e5 !important;
-        font-size: 10pt !important;
+        font-size: 8pt !important;
     }
 
     pre code,
@@ -79,6 +97,6 @@
         border: 0 !important;
         background: none !important;
         color: #000 !important;
-        font-size: 10pt !important;
+        font-size: 8pt !important;
     }
 }

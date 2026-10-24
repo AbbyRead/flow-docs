@@ -203,53 +203,13 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#other-formspec-librariesutilities">
+<a class="md-nav__link" href="#other-documentation">
 <span class="md-ellipsis">
       
-        Other formspec libraries/utilities
+        Other Documentation
       
     </span>
 </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#documentation">
-<span class="md-ellipsis">
-      
-        Documentation
-      
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#original-flow-mods-code-copyright">
-<span class="md-ellipsis">
-      
-        Original Flow Mod's Code Copyright
-      
-    </span>
-</a>
-<nav aria-label="Original Flow Mod's Code Copyright" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#lgpl-21-disclaimer">
-<span class="md-ellipsis">
-      
-        LGPL 2.1 Disclaimer
-      
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#license-copy">
-<span class="md-ellipsis">
-      
-        License Copy
-      
-    </span>
-</a>
-</li>
-</ul>
-</nav>
 </li>
 </ul>
 </nav>
@@ -356,7 +316,7 @@
 <span class="md-ellipsis">
     
   
-    Features flow does not have
+    Unsupported Features
   
 
     
@@ -588,53 +548,13 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#other-formspec-librariesutilities">
+<a class="md-nav__link" href="#other-documentation">
 <span class="md-ellipsis">
       
-        Other formspec libraries/utilities
+        Other Documentation
       
     </span>
 </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#documentation">
-<span class="md-ellipsis">
-      
-        Documentation
-      
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#original-flow-mods-code-copyright">
-<span class="md-ellipsis">
-      
-        Original Flow Mod's Code Copyright
-      
-    </span>
-</a>
-<nav aria-label="Original Flow Mod's Code Copyright" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#lgpl-21-disclaimer">
-<span class="md-ellipsis">
-      
-        LGPL 2.1 Disclaimer
-      
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#license-copy">
-<span class="md-ellipsis">
-      
-        License Copy
-      
-    </span>
-</a>
-</li>
-</ul>
-</nav>
 </li>
 </ul>
 </nav>
@@ -644,81 +564,48 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1 id="flow-unofficial-documentation">Flow Unofficial Documentation</h1>
-<p><a href="https://content.luanti.org/packages/luk3yx/flow/"><img alt="ContentDB" src="https://content.luanti.org/packages/luk3yx/flow/shields/downloads/"/></a></p>
-<p>An experimental layout manager and formspec API replacement for Luanti (formerly Minetest).
+<p>TODO(P2): reword for slightly more sizzle
+An experimental layout manager and formspec API replacement for Luanti (formerly Minetest).
 Vaguely inspired by Flutter and GTK.</p>
-<p>Luanti's built-in way of describing menus (inventories, chests, dialogs, ...)
-is called a <em>formspec</em>. A formspec is a long string made of elements such as
-buttons, text fields, and inventory slots, and you have to give every element
-its exact position and size by hand. Flow lets you describe a menu with Lua
-tables instead, positions and sizes everything for you, and generates the
-formspec itself, so you never have to write one.</p>
+<p>TODO(P3): reword with subtle snark about formspec (web search complaints and compare to flow api)
+Luanti's built-in way of describing menus (inventories, chests, dialogs, ...) is called a <em>formspec</em>. A formspec is a long string made of elements such as buttons, text fields, and inventory slots, and you have to give every element its exact position and size by hand. Flow lets you describe a menu with Lua tables instead, positions and sizes everything for you, and generates the formspec itself, so you never have to write one.</p>
 <p><a href="https://luk3yx.gitlab.io/minetest-flow-playground/">Online tutorial/demo</a>
 (<a href="https://gitlab.com/luk3yx/minetest-flow-playground">source</a>)</p>
 <h2 id="features">Features</h2>
 <h3 id="layouting">Layouting</h3>
 <ul>
-<li>No manual positioning of elements.</li>
+<li>No manual positioning of elements. TODO(P2): make positive</li>
 <li>Automatic layouting using <code>HBox</code> and <code>VBox</code> containers</li>
-<li>Some elements have an automatic size.</li>
-<li>The size of elements can optionally expand to fit larger spaces</li>
-<li>Elements which get their size based on their label length automatically become
-   larger/smaller to fit long translations<sup id="fnref:label-size"><a class="footnote-ref" href="#fn:label-size">1</a></sup>.</li>
+<li>Some elements have an automatic size. TODO(P1): which ones? Reword for concise specifics.</li>
+<li>The size of elements can optionally expand to fit larger spaces TODO(P2): reword</li>
+<li>Elements which get their size based on their label length automatically become larger/smaller to fit long translations<sup id="fnref:label-size"><a class="footnote-ref" href="#fn:label-size">1</a></sup>.</li>
 </ul>
 <h3 id="other-features">Other features</h3>
 <ul>
 <li>No form names. Form names are still used internally, however they are
-   hidden from the API.</li>
-<li>No having to worry about state.</li>
+   hidden from the API. TODO(P2): make into a positive statement</li>
+<li>No having to worry about state. TODO(P2): make into a positive statement</li>
 <li>Values of fields, scrollbars, checkboxes, etc are remembered when
    redrawing a form and are automatically applied.</li>
-<li>Has an <a href="https://content.luanti.org/packages/luk3yx/flow_inspector/">inspector mod</a>
+<li>Includes an <a href="https://content.luanti.org/packages/luk3yx/flow_inspector/">inspector mod</a>
    to help with developing and debugging forms.</li>
-<li>Some common security issues with formspec input handling are mitigated.</li>
+<li>Some common security issues with formspec input handling are mitigated. TODO(P1): Clarify with a reference to a section. Add the section if not present.</li>
 </ul>
 <h2 id="limitations">Limitations</h2>
 <ul>
 <li>This mod doesn't support all of the features that regular formspecs do.
-   See <a href="not-supported/">Features flow does not have</a> for a list.</li>
-<li><a href="https://content.luanti.org/packages/luk3yx/fs51/">FS51</a> is required if
-   you want to have full support for Luanti 5.3 and below.</li>
-<li>Make sure you're using the latest version of flow if you are on MT 5.10-dev
-   or later, older versions used a hack which no longer works.</li>
+   See <a href="not-supported/">Unsupported Features</a> for a list.</li>
 </ul>
 <h2 id="security">Security</h2>
-<p>Flow ignores potentially malicious formspec input from clients, such as
-buttons or fields that haven't been shown to the client, out-of-bounds dropdown
-selections, and newlines in <code>Field</code> elements (where it's impossible to enter
-a newline without pasting it in).</p>
-<h2 id="other-formspec-librariesutilities">Other formspec libraries/utilities</h2>
-<p>These utilities likely aren't compatible with flow.</p>
-<ul>
-<li><a href="https://github.com/fluxionary/minetest-fs_layout/">fs_layout</a> is another mod library that does automatic formspec element positioning.</li>
-<li><a href="https://content.luanti.org/packages/LMD/fslib/">fslib</a> is a small mod library that lets you build formspec strings.</li>
-<li><a href="https://content.luanti.org/packages/Just_Visiting/formspec_editor">Just_Visiting's formspec editor</a> is a Luanti (sub)game that lets you edit formspecs and preview them as you go</li>
-<li><a href="https://github.com/TerraQuest-Studios/kuto/">kuto</a> is a formspec library that has some extra widgets/components and has a callback API. Some automatic sizing can be done for buttons.</li>
-<li>It may be possible to use kuto's components with flow somehow as they both use formspec_ast internally.</li>
-<li>kuto was the the source of the "on_event" function idea.</li>
-<li><a href="https://forum.luanti.org/viewtopic.php?f=14&amp;t=24130">My web-based formspec editor</a> lets you add elements and drag+drop them, however it doesn't support all formspec features.</li>
-</ul>
-<h2 id="documentation">Documentation</h2>
-<p>The official documentation is available at
-<a href="https://luk3yx.gitlab.io/minetest-flow/">https://luk3yx.gitlab.io/minetest-flow/</a>. Some code snippets have a "run" button
-which will open them in a web-based playground, not all of these will work
-properly as the playground doesn't support all formspec elements.</p>
-<h2 id="original-flow-mods-code-copyright">Original Flow Mod's Code Copyright</h2>
-<p>Copyright © 2022-2025 by luk3yx. LGPL 2.1 or later.</p>
-<h3 id="lgpl-21-disclaimer">LGPL 2.1 Disclaimer</h3>
-<p>This program is free software: you can redistribute it and/or modify it under the terms of the GNU Lesser General Public License as published by the Free Software Foundation, either version 2.1 of the License, or (at your option) any later version.</p>
-<p>This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU Lesser General Public License for more details.</p>
-<p>You should have received a copy of the GNU Lesser General Public License along with this program.  If not, see <a href="https://www.gnu.org/licenses/">https://www.gnu.org/licenses/</a>.</p>
-<h3 id="license-copy">License Copy</h3>
-<p>See <code>skyblock_zero/docs</code> directory for full copies of all required licenses used in Skyblock Zero, including LGPL-2.1.</p>
+<p>TODO(P1): research the specifics of this and expand to a new page we can simply reference
+Flow ignores potentially malicious formspec input from clients, such as buttons or fields that haven't been shown to the client, out-of-bounds dropdown selections, and newlines in <code>Field</code> elements (where it's impossible to enter a newline without pasting it in).</p>
+<h2 id="other-documentation">Other Documentation</h2>
+<p>The official documentation is available at <a href="https://luk3yx.gitlab.io/minetest-flow/">https://luk3yx.gitlab.io/minetest-flow/</a>. Some code snippets have a "run" button which will open them in a web-based playground, not all of these will work properly as the playground doesn't support all formspec elements.</p>
 <div class="footnote">
 <hr/>
 <ol>
 <li id="fn:label-size">
-<p>This isn't perfect, the actual size of labels depends on the client's font, DPI, window size, and formspec-related scaling settings. <a class="footnote-backref" href="#fnref:label-size" title="Jump back to footnote 1 in the text">↩</a></p>
+<p>This isn't perfect, the actual size of labels depends on the client's font, DPI, window size, and formspec-related scaling settings. TODO(P4): research and add a section about getting the sizing perfect for the most common fonts. May need to look up Luanti API and/or source code. <a class="footnote-backref" href="#fnref:label-size" title="Jump back to footnote 1 in the text">↩</a></p>
 </li>
 </ol>
 </div>

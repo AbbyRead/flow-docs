@@ -277,7 +277,7 @@
 <span class="md-ellipsis">
     
   
-    Features flow does not have
+    Unsupported Features
   
 
     
@@ -485,24 +485,22 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1 id="getting-started">Getting started</h1>
-<p>A <em>form</em> is a menu that is shown to a player. It is made of <em>elements</em> (also
-called widgets), such as labels, buttons, text fields, and inventory slots,
-which are arranged by layout elements like <code>gui.VBox</code>. You describe a form with
-a <em>build function</em> that returns the elements, and flow works out the positions
-and sizes and shows the form for you. See <a href="../elements/">Elements</a> for what
-each element does.</p>
+<!-- TODO(link): link gui.VBox to layout-elements.md#guivbox on first mention. -->
+<!-- TODO(clarify): "build function" here vs build_func in padding.md; pick one term and define it. -->
+<p>A <em>form</em> is a menu that is shown to a player. It is made of <em>elements</em> (also called widgets), such as labels, buttons, text fields, and inventory slots, which are arranged by layout elements like <code>gui.VBox</code>. You describe a form with a <em>build function</em> that returns the elements, and flow works out the positions and sizes and shows the form for you. See <a href="../elements/">Elements</a> for what each element does.</p>
 <h2 id="basic-example">Basic example</h2>
-<p>See <code>example.lua</code> for a more comprehensive example which demonstrates how
-layouting and alignment works.</p>
+<!-- TODO(link): example.lua has no link or location (also in manual-positioning.md); link it in the flow repo. -->
+<p>See <code>example.lua</code> for a more comprehensive example which demonstrates how layouting and alignment works.</p>
+<!-- TODO(clarify): "playground" is the web playground player name; tell mod authors to use a real player. Say what the 2nd arg of form:show() is (initial ctx) and define ctx (see elements.md#names-and-values). -->
 <pre><code class="language-lua">local gui = flow.widgets -- local recommended for direct referencing
 local STARTING_SELECTION = 3 -- change and rerun to see the difference
 
 local function build_vbox(player_obj, ctx)
     return gui.VBox {
-        gui.Label {label = "Here is a dropdown:"},
+        gui.Label { label = "Here is a dropdown:" },
         gui.Dropdown {
             name = "cool_dropdown",
-            items = {'First item', 'Second item', 'Third item'},
+            items = { 'First item', 'Second item', 'Third item' },
             index_event = true,
             selected_idx = ctx.value or 1
         },
@@ -520,16 +518,12 @@ end
 local form = flow.make_gui(build_vbox)
 local player_obj = core.get_player_by_name("playground")
 
-form:show(player_obj, {value = STARTING_SELECTION}) -- second argument is optional
+form:show(player_obj, { value = STARTING_SELECTION }) -- second argument is optional
 </code></pre>
 <h2 id="updating-forms">Updating forms</h2>
-<p>If some data displayed inside a form changes (for example a timer or progress
-indicator), you can use <code>form:update</code> to update the form without resetting
-<code>ctx</code> or showing the form again if the player has closed it.</p>
-<p>Luanti has no way to change a form that is already open, so flow has to show
-the whole form again. Because of this, players may lose text typed into fields
-that hasn't been sent to the server (which happens when they press a button or
-Enter) when <code>form:update</code> is called.</p>
+<!-- TODO(clarify): prose says form:update but the API is my_gui:update(player) / update_where(); make the names match. -->
+<p>If some data displayed inside a form changes (for example a timer or progress indicator), you can use <code>form:update</code> to update the form without resetting <code>ctx</code> or showing the form again if the player has closed it.</p>
+<p>Luanti has no way to change a form that is already open, so flow has to show the whole form again. Because of this, players may lose text typed into fields that hasn't been sent to the server (which happens when they press a button or Enter) when <code>form:update</code> is called.</p>
 <pre><code class="language-lua">-- Re-shows the form for one player if they have the form open
 my_gui:update(player)
 
@@ -547,14 +541,16 @@ end)
 -- Re-shows the form for all players with the form open
 my_gui:update_where(function() return true end)
 </code></pre>
+<!-- TODO(link): link on_event / return true to elements.md#events. -->
 <p>Inside an <code>on_event</code> handler, you can use <code>return true</code> instead.</p>
-<pre><code class="language-lua">gui.Button{
+<pre><code class="language-lua">gui.Button {
     label = "Update form",
     on_event = function(player, ctx)
         return true
     end,
 }
 </code></pre>
+<!-- TODO(link): no page documents show_hud / close_hud; add one and link experimental.md#putting-the-form-somewhere-else-on-the-screen-likely-required-for-most-huds and inventory.md. -->
 <p>If you're using a form as a HUD, you must call <code>form:show_hud</code> to update it.</p>
 </article>
 </div>
