@@ -472,7 +472,7 @@ is clicked. If you do not set <code>w</code> and <code>h</code>, the button is s
 <p>Buttons do not store a value in <code>ctx.form</code>.</p>
 <p><strong>Example</strong></p>
 <pre><code class="language-lua">gui.Button{
-    w = 1, -- Optional
+    w = 6, -- Optional
     h = 2, -- Optional
     name = &quot;my_button&quot;, -- Optional
     label = &quot;Hello world!&quot;, -- Optional
@@ -484,10 +484,7 @@ still called before the form closes. In all other respects it works like
 <code>gui.Button</code>.</p>
 <p><strong>Example</strong></p>
 <pre><code class="language-lua">gui.ButtonExit{
-    w = 1, -- Optional
-    h = 2, -- Optional
-    name = &quot;my_button_exit&quot;, -- Optional
-    label = &quot;Hello world!&quot;, -- Optional
+    w = 6 = &quot;Hello world!&quot;, -- Optional
 }
 </code></pre>
 <h3 id="guibuttonurl"><code>gui.ButtonURL</code></h3>
@@ -497,10 +494,7 @@ in their web browser. <code>url</code> must start with <code>http://</code> or <
 <code>gui.Button</code>.</p>
 <p><strong>Example</strong></p>
 <pre><code class="language-lua">gui.ButtonURL{
-    w = 1, -- Optional
-    h = 2, -- Optional
-    name = &quot;my_button_url&quot;, -- Optional
-    label = &quot;Hello world!&quot;, -- Optional
+    w = 6 = &quot;Hello world!&quot;, -- Optional
 
     -- Web address to offer to open.
     url = &quot;Hello world!&quot;,
@@ -510,10 +504,7 @@ in their web browser. <code>url</code> must start with <code>http://</code> or <
 <p>Like <code>gui.ButtonURL</code>, but the form also closes when the button is clicked.</p>
 <p><strong>Example</strong></p>
 <pre><code class="language-lua">gui.ButtonUrlExit{
-    w = 1, -- Optional
-    h = 2, -- Optional
-    name = &quot;my_button_url_exit&quot;, -- Optional
-    label = &quot;Hello world!&quot;, -- Optional
+    w = 6 = &quot;Hello world!&quot;, -- Optional
 
     -- Web address to offer to open.
     url = &quot;Hello world!&quot;,
@@ -536,7 +527,7 @@ soon as the player ticks or unticks it.</p>
 letting flow lay them out. See <a href="../manual-positioning/">Manual positioning</a>.</p>
 <p><strong>Example</strong></p>
 <pre><code class="language-lua">gui.Container{
-    w = 3, h = 2, -- Optional
+    w = 6, h = 2, -- Optional
     {type = &quot;box&quot;, x = 0, y = 0, w = 1, h = 1, color = &quot;red&quot;},
     {type = &quot;label&quot;, x = 1, y = 1.5, label = &quot;Hello world!&quot;},
 }
@@ -577,10 +568,7 @@ Enter. To react to Enter, see <a href="../experimental/#handling-enter-keypresse
 label (but never smaller than 3 by 0.8).</p>
 <p><strong>Example</strong></p>
 <pre><code class="language-lua">gui.Field{
-    w = 1, -- Optional
-    h = 2, -- Optional
-    name = &quot;my_field&quot;, -- Optional
-    label = &quot;Hello world!&quot;, -- Optional
+    w = 6 = &quot;Hello world!&quot;, -- Optional
 
     -- Text the field starts with.
     default = &quot;Hello world!&quot;, -- Optional
@@ -882,10 +870,7 @@ is the text that was typed. <code>on_key_enter</code> is supported, see
 <a href="../experimental/#handling-enter-keypresses-in-fields">Handling enter keypresses in fields</a>.</p>
 <p><strong>Example</strong></p>
 <pre><code class="language-lua">gui.Pwdfield{
-    w = 1, -- Optional
-    h = 2, -- Optional
-    name = &quot;my_pwdfield&quot;, -- Optional
-    label = &quot;Hello world!&quot;, -- Optional
+    w = 6 = &quot;Hello world!&quot;, -- Optional
 
     -- Called when the player presses Enter.
     on_key_enter = function(player, ctx) end, -- Optional
@@ -1164,10 +1149,7 @@ which makes it a label that wraps text and scrolls. Because it wraps, you
 should set a <code>w</code> and <code>h</code> for this.</p>
 <p><strong>Example</strong></p>
 <pre><code class="language-lua">gui.Textarea{
-    w = 1, -- Optional
-    h = 2, -- Optional
-    name = &quot;my_textarea&quot;, -- Optional
-    label = &quot;Hello world!&quot;, -- Optional
+    w = 6 = &quot;Hello world!&quot;, -- Optional
 
     -- Text the box starts with.
     default = &quot;Hello world!&quot;, -- Optional
