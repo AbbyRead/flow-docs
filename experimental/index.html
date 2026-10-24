@@ -1,137 +1,126 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+
+<html class="writer-html5" lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>Experimental features - Flow Unofficial Docs</title>
-    <link rel="stylesheet" href="../css/theme.css" />
-    <link rel="stylesheet" href="../css/theme_extra.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
-        <link href="../extra.css" rel="stylesheet" />
-    
-      <script>
+<meta charset="utf-8"/>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="../img/favicon.ico" rel="shortcut icon"/>
+<title>Experimental features - Flow Unofficial Docs</title>
+<link href="../css/theme.css" rel="stylesheet"/>
+<link href="../css/theme_extra.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" rel="stylesheet"/>
+<link href="../extra.css" rel="stylesheet"/>
+<script>
         // Current page data
         var mkdocs_page_name = "Experimental features";
         var mkdocs_page_input_path = "experimental.md";
         var mkdocs_page_url = null;
       </script>
-    
-    <!--[if lt IE 9]>
+<!--[if lt IE 9]>
       <script src="../js/html5shiv.min.js"></script>
     <![endif]-->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
-      <script>hljs.highlightAll();</script> 
-</head>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+<link href="../pdf/document.pdf" rel="alternate" title="PDF" type="application/pdf"/></head>
 <body class="wy-body-for-nav" role="document">
-
-  <div class="wy-grid-for-nav">
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
-    <div class="wy-side-scroll">
-      <div class="wy-side-nav-search">
-          <a href=".." class="icon icon-home"> Flow Unofficial Docs
-        </a><div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
-      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
-  </form>
+<div class="wy-grid-for-nav">
+<nav class="wy-nav-side stickynav" data-toggle="wy-nav-shift">
+<div class="wy-side-scroll">
+<div class="wy-side-nav-search">
+<a class="icon icon-home" href=".."> Flow Unofficial Docs
+        </a>
 </div>
-      </div>
-
-      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="..">Introduction</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../getting-started/">Getting started</a>
-                </li>
-              </ul>
-              <p class="caption"><span class="caption-text">Elements/widgets</span></p>
-              <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../layout-elements/">Layouting elements</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../elements/">All other elements</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../hypertext/">Hypertext markup</a>
-                  </li>
-              </ul>
-              <p class="caption"><span class="caption-text">Other features</span></p>
-              <ul class="current">
-                  <li class="toctree-l1"><a class="reference internal" href="../not-supported/">Features flow does not have</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../styling/">Styling forms</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../padding/">Padding, spacing, and backgrounds</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../tooltips/">Tooltips</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../hiding-elements/">Hiding elements</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../inventory/">Using a form as an inventory</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../manual-positioning/">Manual positioning</a>
-                  </li>
-                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Experimental features</a>
-    <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#no_prepend">no_prepend</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#bgcolor">bgcolor</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#putting-the-form-somewhere-else-on-the-screen-likely-required-for-most-huds">Putting the form somewhere else on the screen (likely required for most HUDs)</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#rendering-to-a-formspec">Rendering to a formspec</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#embedding-a-form-into-another-form">Embedding a form into another form</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#running-code-when-a-form-is-closed">Running code when a form is closed</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#handling-enter-keypresses-in-fields">Handling enter keypresses in fields</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#getting-a-reference-to-the-current-player-and-context">Getting a reference to the current player and context</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#guiflow-container">gui.Flow container</a>
-    </li>
-    </ul>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../popovers/">Popovers (highly experimental)</a>
-                  </li>
-              </ul>
-              <p class="caption"><span class="caption-text">Development tools</span></p>
-              <ul>
-                  <li class="toctree-l1"><a class="" href="https://content.luanti.org/packages/luk3yx/flow_inspector/">Flow Inspector</a>
-                  </li>
-                  <li class="toctree-l1"><a class="" href="https://luk3yx.gitlab.io/minetest-flow-playground/">Flow Playground / Tutorial</a>
-                  </li>
-                  <li class="toctree-l1"><a class="" href="https://content.luanti.org/packages/luk3yx/snippets/">Snippets</a>
-                  </li>
-              </ul>
-      </div>
-    </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="..">Flow Unofficial Docs</a>
-        
-      </nav>
-      <div class="wy-nav-content">
-        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
-  <ul class="wy-breadcrumbs">
-    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
-          <li class="breadcrumb-item">Other features</li>
-      <li class="breadcrumb-item active">Experimental features</li>
-    <li class="wy-breadcrumbs-aside">
-    </li>
-  </ul>
-  <hr/>
+<div aria-label="Navigation menu" class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="..">Introduction</a>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/">Getting started</a>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Elements/widgets</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../layout-elements/">Layouting elements</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../elements/">All other elements</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../hypertext/">Hypertext markup</a>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Other features</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../not-supported/">Features flow does not have</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../styling/">Styling forms</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../padding/">Padding, spacing, and backgrounds</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tooltips/">Tooltips</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../hiding-elements/">Hiding elements</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../inventory/">Using a form as an inventory</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../manual-positioning/">Manual positioning</a>
+</li>
+<li class="toctree-l1 current"><a class="reference internal current" href="#">Experimental features</a>
+<ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="#no_prepend">no_prepend</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#bgcolor">bgcolor</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#putting-the-form-somewhere-else-on-the-screen-likely-required-for-most-huds">Putting the form somewhere else on the screen (likely required for most HUDs)</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#rendering-to-a-formspec">Rendering to a formspec</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#embedding-a-form-into-another-form">Embedding a form into another form</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#running-code-when-a-form-is-closed">Running code when a form is closed</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#handling-enter-keypresses-in-fields">Handling enter keypresses in fields</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#getting-a-reference-to-the-current-player-and-context">Getting a reference to the current player and context</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#guiflow-container">gui.Flow container</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../popovers/">Popovers (highly experimental)</a>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Development tools</span></p>
+<ul>
+<li class="toctree-l1"><a class="" href="https://content.luanti.org/packages/luk3yx/flow_inspector/">Flow Inspector</a>
+</li>
+<li class="toctree-l1"><a class="" href="https://luk3yx.gitlab.io/minetest-flow-playground/">Flow Playground / Tutorial</a>
+</li>
+<li class="toctree-l1"><a class="" href="https://content.luanti.org/packages/luk3yx/snippets/">Snippets</a>
+</li>
+</ul>
 </div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-            <div class="section" itemprop="articleBody">
-              
-                <h1 id="experimental-features">Experimental features</h1>
+</div>
+</nav>
+<section class="wy-nav-content-wrap" data-toggle="wy-nav-shift">
+<nav aria-label="Mobile navigation menu" class="wy-nav-top" role="navigation">
+<i class="fa fa-bars" data-toggle="wy-nav-top"></i>
+<a href="..">Flow Unofficial Docs</a>
+</nav>
+<div class="wy-nav-content">
+<div class="rst-content"><div aria-label="breadcrumbs navigation" role="navigation">
+<ul class="wy-breadcrumbs">
+<li><a aria-label="Docs" class="icon icon-home" href=".."></a></li>
+<li class="breadcrumb-item">Other features</li>
+<li class="breadcrumb-item active">Experimental features</li>
+<li class="wy-breadcrumbs-aside">
+</li>
+</ul>
+<hr/>
+</div>
+<div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
+<div class="section" itemprop="articleBody">
+<h1 id="experimental-features">Experimental features</h1>
 <p>These features might be broken in the future.</p>
 <h2 id="no_prepend"><code>no_prepend</code></h2>
 <p>Games and mods can add extra content to the start of every form shown to a
@@ -145,16 +134,16 @@ being applied to a form.</p>
     return gui.VBox{
         no_prepend = true,
 
-        gui.Button{label = &quot;Button 1&quot;},
+        gui.Button{label = "Button 1"},
 
         -- There will be an empty space where the second button would be
-        gui.Button{label = &quot;Button 2&quot;, visible = false},
+        gui.Button{label = "Button 2", visible = false},
 
-        gui.Button{label = &quot;Button 3&quot;},
+        gui.Button{label = "Button 3"},
     }
 end)
 </code></pre>
-<p><img alt="Screenshot" src="https://user-images.githubusercontent.com/3182651/212222545-baee3669-15cd-410d-a638-c63b65a8811b.png" /></p>
+<p><img alt="Screenshot" src="https://user-images.githubusercontent.com/3182651/212222545-baee3669-15cd-410d-a638-c63b65a8811b.png"/></p>
 <h2 id="bgcolor"><code>bgcolor</code></h2>
 <p>You can set <code>bgcolor = "#123"</code>, <code>fbgcolor = "#123"</code>, and
 <code>bg_fullscreen = true</code> on the root element to set background colors:</p>
@@ -194,7 +183,7 @@ adjust how it is scaled.</p>
         -- line up with formspecs then you may explicitly specify this.
         window_padding = {x = 0.1, y = 0.2},
 
-        gui.Label{label = &quot;Hello world&quot;},
+        gui.Label{label = "Hello world"},
     }
 end)
 </code></pre>
@@ -230,7 +219,7 @@ the metadata of a node), it can and will break!</p>
 <p>You can embed form objects inside others like this:</p>
 <pre><code class="language-lua">local parent_form = flow.make_gui(function(player, ctx)
     return gui.VBox{
-        gui.Label{label = &quot;Hello world&quot;},
+        gui.Label{label = "Hello world"},
         other_form:embed{
             -- You can optionally pass in the player object to support older
             -- versions of flow (before 2025-06-17).
@@ -242,7 +231,7 @@ the metadata of a node), it can and will break!</p>
             -- parent form. If name is not specified, the embedded form will
             -- share ctx and ctx.form with the parent, and will not have field
             -- names rewritten.
-            name = &quot;my_embed_name&quot;,
+            name = "my_embed_name",
         },
     }
 end)
@@ -259,7 +248,7 @@ values in the future.</p>
 <pre><code class="language-lua">local parent_form = flow.make_gui(function(player, ctx)
     return gui.VBox{
         on_quit = function(player, ctx)
-            core.chat_send_player(player:get_player_name(), &quot;Form closed!&quot;)
+            core.chat_send_player(player:get_player_name(), "Form closed!")
         end,
     }
 end)
@@ -272,11 +261,11 @@ called if enter is pressed:</p>
 <pre><code class="language-lua">local form = flow.make_gui(function(player, ctx)
     return gui.VBox{
         gui.Field{
-            label = &quot;Press enter!&quot;,
-            name = &quot;field&quot;,
+            label = "Press enter!",
+            name = "field",
             on_key_enter = function(player, ctx)
                 core.chat_send_player(player:get_player_name(),
-                    &quot;Field value: &quot; .. dump(ctx.form.field))
+                    "Field value: " .. dump(ctx.form.field))
             end,
 
             -- Pressing enter does not close the form by default. You can
@@ -308,15 +297,15 @@ end)
 <pre><code class="language-lua">local function HelloWorld(def)
     local ctx, player = flow.get_context()
     return gui.Label{
-        label = &quot;Hello, &quot; .. player:get_player_name() .. &quot;!\n&quot; ..
-            &quot;some_value=&quot; .. ctx.some_value,
+        label = "Hello, " .. player:get_player_name() .. "!\n" ..
+            "some_value=" .. ctx.some_value,
         style = def.style,
     }
 end
 
 local form = flow.make_gui(function(player, ctx)
     ctx.some_value = 123
-    return HelloWorld{style = {font_size = &quot;*2&quot;}}
+    return HelloWorld{style = {font_size = "*2"}}
 end)
 </code></pre>
 <p><code>flow.get_context()</code> will error when called outside a build function (as you
@@ -330,59 +319,45 @@ fit. Unlike other elements, you must specify a width, and some options like
     -- Fits 3 items
     w = 3 * (1 + 0.2),
 
-    gui.Image{w = 1, h = 1, texture_name = &quot;default_mese_crystal.png&quot;},
-    gui.Image{w = 1, h = 1, texture_name = &quot;default_mese_crystal.png&quot;},
-    gui.Image{w = 1, h = 1, texture_name = &quot;default_mese_crystal.png&quot;},
-    gui.Image{w = 1, h = 1, texture_name = &quot;default_mese_crystal.png&quot;},
-    gui.Image{w = 1, h = 1, texture_name = &quot;default_mese_crystal.png&quot;},
+    gui.Image{w = 1, h = 1, texture_name = "default_mese_crystal.png"},
+    gui.Image{w = 1, h = 1, texture_name = "default_mese_crystal.png"},
+    gui.Image{w = 1, h = 1, texture_name = "default_mese_crystal.png"},
+    gui.Image{w = 1, h = 1, texture_name = "default_mese_crystal.png"},
+    gui.Image{w = 1, h = 1, texture_name = "default_mese_crystal.png"},
 }
 </code></pre>
-              
-            </div>
-          </div><footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../manual-positioning/" class="btn btn-neutral float-left" title="Manual positioning"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../popovers/" class="btn btn-neutral float-right" title="Popovers (highly experimental)">Next <span class="icon icon-circle-arrow-right"></span></a>
-    </div>
-
-  <hr/>
-
-  <div role="contentinfo">
-    <!-- Copyright etc -->
-  </div>
+</div>
+</div><footer>
+<div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
+<a class="btn btn-neutral float-left" href="../manual-positioning/" title="Manual positioning"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+<a class="btn btn-neutral float-right" href="../popovers/" title="Popovers (highly experimental)">Next <span class="icon icon-circle-arrow-right"></span></a>
+</div>
+<hr/>
+<div role="contentinfo">
+<!-- Copyright etc -->
+</div>
 
   Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
-          
-        </div>
-      </div>
-
-    </section>
-
-  </div>
-
-  <div class="rst-versions" role="note" aria-label="Versions">
-  <span class="rst-current-version" data-toggle="rst-current-version">
-    
-    
-      <span><a href="../manual-positioning/" style="color: #fcfcfc">&laquo; Previous</a></span>
-    
-    
-      <span><a href="../popovers/" style="color: #fcfcfc">Next &raquo;</a></span>
-    
-  </span>
 </div>
-    <script src="../js/jquery-3.6.0.min.js"></script>
-    <script>var base_url = "..";</script>
-    <script src="../js/theme_extra.js"></script>
-    <script src="../js/theme.js"></script>
-      <script src="../playground-links.js"></script>
-      <script src="../search/main.js"></script>
-    <script>
+</div>
+</section>
+</div>
+<div aria-label="Versions" class="rst-versions" role="note">
+<span class="rst-current-version" data-toggle="rst-current-version">
+<span><a href="../manual-positioning/" style="color: #fcfcfc">« Previous</a></span>
+<span><a href="../popovers/" style="color: #fcfcfc">Next »</a></span>
+</span>
+</div>
+<script src="../js/jquery-3.6.0.min.js"></script>
+<script>var base_url = "..";</script>
+<script src="../js/theme_extra.js"></script>
+<script src="../js/theme.js"></script>
+<script src="../playground-links.js"></script>
+<script>
         jQuery(function () {
             SphinxRtdTheme.Navigation.enable(true);
         });
     </script>
-
 </body>
 </html>

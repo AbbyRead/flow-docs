@@ -1,155 +1,144 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+
+<html class="writer-html5" lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>Styling forms - Flow Unofficial Docs</title>
-    <link rel="stylesheet" href="../css/theme.css" />
-    <link rel="stylesheet" href="../css/theme_extra.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
-        <link href="../extra.css" rel="stylesheet" />
-    
-      <script>
+<meta charset="utf-8"/>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="../img/favicon.ico" rel="shortcut icon"/>
+<title>Styling forms - Flow Unofficial Docs</title>
+<link href="../css/theme.css" rel="stylesheet"/>
+<link href="../css/theme_extra.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" rel="stylesheet"/>
+<link href="../extra.css" rel="stylesheet"/>
+<script>
         // Current page data
         var mkdocs_page_name = "Styling forms";
         var mkdocs_page_input_path = "styling.md";
         var mkdocs_page_url = null;
       </script>
-    
-    <!--[if lt IE 9]>
+<!--[if lt IE 9]>
       <script src="../js/html5shiv.min.js"></script>
     <![endif]-->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
-      <script>hljs.highlightAll();</script> 
-</head>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+<link href="../pdf/document.pdf" rel="alternate" title="PDF" type="application/pdf"/></head>
 <body class="wy-body-for-nav" role="document">
-
-  <div class="wy-grid-for-nav">
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
-    <div class="wy-side-scroll">
-      <div class="wy-side-nav-search">
-          <a href=".." class="icon icon-home"> Flow Unofficial Docs
-        </a><div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
-      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
-  </form>
+<div class="wy-grid-for-nav">
+<nav class="wy-nav-side stickynav" data-toggle="wy-nav-shift">
+<div class="wy-side-scroll">
+<div class="wy-side-nav-search">
+<a class="icon icon-home" href=".."> Flow Unofficial Docs
+        </a>
 </div>
-      </div>
-
-      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="..">Introduction</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../getting-started/">Getting started</a>
-                </li>
-              </ul>
-              <p class="caption"><span class="caption-text">Elements/widgets</span></p>
-              <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../layout-elements/">Layouting elements</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../elements/">All other elements</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../hypertext/">Hypertext markup</a>
-                  </li>
-              </ul>
-              <p class="caption"><span class="caption-text">Other features</span></p>
-              <ul class="current">
-                  <li class="toctree-l1"><a class="reference internal" href="../not-supported/">Features flow does not have</a>
-                  </li>
-                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Styling forms</a>
-    <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#inline-syntax">Inline syntax</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#separate-style-elements">Separate style elements</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#selectors-and-states">Selectors and states</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#states">States</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#element-types">Element types</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#property-reference">Property reference</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#all-elements">All elements</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#text-properties">Text properties</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#buttons">Buttons</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#fields-and-text-areas">Fields and text areas</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#labels">Labels</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#lists">Lists</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#boxes">Boxes</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#models">Models</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#read-only-elements-editable">Read-only elements (editable)</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#other-elements">Other elements</a>
-    </li>
-        </ul>
-    </li>
-    </ul>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../padding/">Padding, spacing, and backgrounds</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../tooltips/">Tooltips</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../hiding-elements/">Hiding elements</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../inventory/">Using a form as an inventory</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../manual-positioning/">Manual positioning</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../experimental/">Experimental features</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../popovers/">Popovers (highly experimental)</a>
-                  </li>
-              </ul>
-              <p class="caption"><span class="caption-text">Development tools</span></p>
-              <ul>
-                  <li class="toctree-l1"><a class="" href="https://content.luanti.org/packages/luk3yx/flow_inspector/">Flow Inspector</a>
-                  </li>
-                  <li class="toctree-l1"><a class="" href="https://luk3yx.gitlab.io/minetest-flow-playground/">Flow Playground / Tutorial</a>
-                  </li>
-                  <li class="toctree-l1"><a class="" href="https://content.luanti.org/packages/luk3yx/snippets/">Snippets</a>
-                  </li>
-              </ul>
-      </div>
-    </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="..">Flow Unofficial Docs</a>
-        
-      </nav>
-      <div class="wy-nav-content">
-        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
-  <ul class="wy-breadcrumbs">
-    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
-          <li class="breadcrumb-item">Other features</li>
-      <li class="breadcrumb-item active">Styling forms</li>
-    <li class="wy-breadcrumbs-aside">
-    </li>
-  </ul>
-  <hr/>
+<div aria-label="Navigation menu" class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="..">Introduction</a>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/">Getting started</a>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Elements/widgets</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../layout-elements/">Layouting elements</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../elements/">All other elements</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../hypertext/">Hypertext markup</a>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Other features</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../not-supported/">Features flow does not have</a>
+</li>
+<li class="toctree-l1 current"><a class="reference internal current" href="#">Styling forms</a>
+<ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="#inline-syntax">Inline syntax</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#separate-style-elements">Separate style elements</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#selectors-and-states">Selectors and states</a>
+<ul>
+<li class="toctree-l3"><a class="reference internal" href="#states">States</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#element-types">Element types</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#property-reference">Property reference</a>
+<ul>
+<li class="toctree-l3"><a class="reference internal" href="#all-elements">All elements</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#text-properties">Text properties</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#buttons">Buttons</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#fields-and-text-areas">Fields and text areas</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#labels">Labels</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#lists">Lists</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#boxes">Boxes</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#models">Models</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#read-only-elements-editable">Read-only elements (editable)</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#other-elements">Other elements</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../padding/">Padding, spacing, and backgrounds</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tooltips/">Tooltips</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../hiding-elements/">Hiding elements</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../inventory/">Using a form as an inventory</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../manual-positioning/">Manual positioning</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../experimental/">Experimental features</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../popovers/">Popovers (highly experimental)</a>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Development tools</span></p>
+<ul>
+<li class="toctree-l1"><a class="" href="https://content.luanti.org/packages/luk3yx/flow_inspector/">Flow Inspector</a>
+</li>
+<li class="toctree-l1"><a class="" href="https://luk3yx.gitlab.io/minetest-flow-playground/">Flow Playground / Tutorial</a>
+</li>
+<li class="toctree-l1"><a class="" href="https://content.luanti.org/packages/luk3yx/snippets/">Snippets</a>
+</li>
+</ul>
 </div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-            <div class="section" itemprop="articleBody">
-              
-                <h1 id="styling-forms">Styling forms</h1>
+</div>
+</nav>
+<section class="wy-nav-content-wrap" data-toggle="wy-nav-shift">
+<nav aria-label="Mobile navigation menu" class="wy-nav-top" role="navigation">
+<i class="fa fa-bars" data-toggle="wy-nav-top"></i>
+<a href="..">Flow Unofficial Docs</a>
+</nav>
+<div class="wy-nav-content">
+<div class="rst-content"><div aria-label="breadcrumbs navigation" role="navigation">
+<ul class="wy-breadcrumbs">
+<li><a aria-label="Docs" class="icon icon-home" href=".."></a></li>
+<li class="breadcrumb-item">Other features</li>
+<li class="breadcrumb-item active">Styling forms</li>
+<li class="wy-breadcrumbs-aside">
+</li>
+</ul>
+<hr/>
+</div>
+<div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
+<div class="section" itemprop="articleBody">
+<h1 id="styling-forms">Styling forms</h1>
 <p>Styles change how elements look: their colors, images, fonts, and so on.
 A style is a set of properties such as <code>bgcolor = "red"</code>, and which
 properties exist depends on the type of element. All of them are listed in the
@@ -164,16 +153,16 @@ without the style - older versions of flow don't support this syntax, and I may
 make breaking changes to the sub-style syntax in the future.</p>
 <p>You can add inline styles to elements with the <code>style</code> field:</p>
 <pre><code class="language-lua">gui.Button{
-    label = &quot;Test&quot;,
+    label = "Test",
     style = {
-        bgcolor = &quot;red&quot;,
+        bgcolor = "red",
 
         -- You can style specific states of elements:
-        {sel = &quot;$hovered&quot;, bgcolor = &quot;green&quot;},
+        {sel = "$hovered", bgcolor = "green"},
 
         -- Or a combination of states:
-        {sel = &quot;$hovered, $pressed&quot;, bgcolor = &quot;blue&quot;},
-        {sel = &quot;$hovered+pressed&quot;, bgcolor = &quot;white&quot;},
+        {sel = "$hovered, $pressed", bgcolor = "blue"},
+        {sel = "$hovered+pressed", bgcolor = "white"},
     },
 }
 </code></pre>
@@ -183,13 +172,13 @@ states with a comma to apply the style when <em>any</em> of them is active
 (<code>"$hovered, $pressed"</code>), or join them with <code>+</code> to apply it only when <em>all</em> of
 them are active at once (<code>"$hovered+pressed"</code>).</p>
 <p>If you need to style multiple elements, you can reuse the <code>style</code> table:</p>
-<pre><code class="language-lua">local my_style = {bgcolor = &quot;red&quot;, {sel = &quot;$hovered&quot;, bgcolor = &quot;green&quot;}}
+<pre><code class="language-lua">local my_style = {bgcolor = "red", {sel = "$hovered", bgcolor = "green"}}
 
 local gui = flow.make_gui(function(player, ctx)
     return gui.VBox{
-        gui.Button{label = &quot;Styled button&quot;, style = my_style},
-        gui.Button{label = &quot;Unstyled button&quot;},
-        gui.Button{label = &quot;Second styled button&quot;, style = my_style},
+        gui.Button{label = "Styled button", style = my_style},
+        gui.Button{label = "Unstyled button"},
+        gui.Button{label = "Second styled button", style = my_style},
     }
 end)
 </code></pre>
@@ -207,16 +196,16 @@ booleans where a property needs one. Setting a property to an empty string
 need to style a large group of elements or need to support older versions of
 flow:</p>
 <pre><code class="language-lua">gui.Style{
-    selectors = {&quot;btn1&quot;},
+    selectors = {"btn1"},
     props = {
-        bgimg = &quot;button.png&quot;,
+        bgimg = "button.png",
         border = false,
     }
 },
 
 gui.Button{
-    name = &quot;btn1&quot;,
-    label = &quot;Button&quot;,
+    name = "btn1",
+    label = "Button",
 },
 </code></pre>
 <p>The <code>Style</code> and <code>StyleType</code> elements are invisible and won't affect padding.
@@ -242,12 +231,12 @@ syntax, so use that for them.</p>
 the element while it is in that state, such as <code>"btn1:hovered"</code> or
 <code>"button:hovered+pressed"</code> (<code>+</code> means all of the states have to be active).</p>
 <pre><code class="language-lua">gui.StyleType{
-    selectors = {&quot;button&quot;, &quot;image_button&quot;},
-    props = {textcolor = &quot;yellow&quot;},
+    selectors = {"button", "image_button"},
+    props = {textcolor = "yellow"},
 },
 gui.StyleType{
-    selectors = {&quot;button:hovered&quot;},
-    props = {bgcolor = &quot;#336699&quot;},
+    selectors = {"button:hovered"},
+    props = {bgcolor = "#336699"},
 },
 </code></pre>
 <h3 id="states">States</h3>
@@ -663,52 +652,38 @@ code, for example by ignoring changes to it. See also
 </tr>
 </tbody>
 </table>
-              
-            </div>
-          </div><footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../not-supported/" class="btn btn-neutral float-left" title="Features flow does not have"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../padding/" class="btn btn-neutral float-right" title="Padding, spacing, and backgrounds">Next <span class="icon icon-circle-arrow-right"></span></a>
-    </div>
-
-  <hr/>
-
-  <div role="contentinfo">
-    <!-- Copyright etc -->
-  </div>
+</div>
+</div><footer>
+<div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
+<a class="btn btn-neutral float-left" href="../not-supported/" title="Features flow does not have"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+<a class="btn btn-neutral float-right" href="../padding/" title="Padding, spacing, and backgrounds">Next <span class="icon icon-circle-arrow-right"></span></a>
+</div>
+<hr/>
+<div role="contentinfo">
+<!-- Copyright etc -->
+</div>
 
   Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
-          
-        </div>
-      </div>
-
-    </section>
-
-  </div>
-
-  <div class="rst-versions" role="note" aria-label="Versions">
-  <span class="rst-current-version" data-toggle="rst-current-version">
-    
-    
-      <span><a href="../not-supported/" style="color: #fcfcfc">&laquo; Previous</a></span>
-    
-    
-      <span><a href="../padding/" style="color: #fcfcfc">Next &raquo;</a></span>
-    
-  </span>
 </div>
-    <script src="../js/jquery-3.6.0.min.js"></script>
-    <script>var base_url = "..";</script>
-    <script src="../js/theme_extra.js"></script>
-    <script src="../js/theme.js"></script>
-      <script src="../playground-links.js"></script>
-      <script src="../search/main.js"></script>
-    <script>
+</div>
+</section>
+</div>
+<div aria-label="Versions" class="rst-versions" role="note">
+<span class="rst-current-version" data-toggle="rst-current-version">
+<span><a href="../not-supported/" style="color: #fcfcfc">« Previous</a></span>
+<span><a href="../padding/" style="color: #fcfcfc">Next »</a></span>
+</span>
+</div>
+<script src="../js/jquery-3.6.0.min.js"></script>
+<script>var base_url = "..";</script>
+<script src="../js/theme_extra.js"></script>
+<script src="../js/theme.js"></script>
+<script src="../playground-links.js"></script>
+<script>
         jQuery(function () {
             SphinxRtdTheme.Navigation.enable(true);
         });
     </script>
-
 </body>
 </html>

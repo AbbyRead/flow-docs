@@ -9,3 +9,28 @@
     white-space: normal;
     overflow-wrap: break-word;
 }
+
+/* PDF/print only: keep newlines in code blocks, wrap long lines. */
+@media print {
+    pre {
+        white-space: pre-wrap;
+        overflow-wrap: break-word;
+        margin: 0 0 1em;
+        padding: 8px 10px;
+        background: #f8f8f8;
+        border: 1px solid #e1e4e5;
+        font-size: 8.5pt;
+    }
+
+    /* Undo the theme inline-code look inside blocks. */
+    pre code {
+        white-space: inherit;
+        overflow-wrap: inherit;
+        max-width: none;
+        padding: 0;
+        border: 0;
+        background: none;
+        color: #000;
+        font-size: inherit;
+    }
+}
