@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Using a form as an inventory - Flow Unofficial</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Using a form as an inventory";
+        var mkdocs_page_input_path = "inventory.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Flow Unofficial
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Introduction</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../getting-started/">Getting started</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Elements/widgets</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../layout-elements/">Layouting elements</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../elements/">All other elements</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../hypertext/">Hypertext markup</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Other features</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../not-supported/">Features flow does not have</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../styling/">Styling forms</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../padding/">Padding, spacing, and backgrounds</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../tooltips/">Tooltips</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../hiding-elements/">Hiding elements</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Using a form as an inventory</a>
+    <ul class="current">
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../manual-positioning/">Manual positioning</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../experimental/">Experimental features</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../popovers/">Popovers (highly experimental)</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Development tools</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="" href="https://content.luanti.org/packages/luk3yx/flow_inspector/">Flow Inspector</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="https://luk3yx.gitlab.io/minetest-flow-playground/">Flow Playground / Tutorial</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="https://content.luanti.org/packages/luk3yx/snippets/">Snippets</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Flow Unofficial</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Other features</li>
+      <li class="breadcrumb-item active">Using a form as an inventory</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="using-a-form-as-an-inventory">Using a form as an inventory</h1>
+<blockquote>
+<p>Consider using <a href="https://content.luanti.org/packages/lazerbeak12345/sway/">Sway</a>
+instead if you want to use flow as an inventory replacement while still
+having some way for other mods to extend the inventory.</p>
+</blockquote>
+<p>A form can be set as the player inventory, which is the screen the player sees
+when they open their inventory. Flow internally generates the formspec (the
+text Luanti uses to describe a menu) and passes it to
+<code>player:set_inventory_formspec()</code>. This will completely replace your inventory
+and isn't compatible with inventory mods like sfinv (the inventory in Minetest
+Game, which lets mods add tabs).</p>
+<pre><code class="language-lua">local example_inventory = flow.make_gui(function (player, context)
+    return gui.Label{ label = &quot;Inventory goes here!&quot; }
+end)
+core.register_on_joinplayer(function(player)
+    example_inventory:set_as_inventory_for(player)
+end)
+</code></pre>
+<p>Like with the <code>show_hud</code> function, <code>update*</code> functions don't do anything, so to
+update it, call <code>set_as_inventory_for</code> again with the new context. If the
+context is not provided, it will reuse the existing context.</p>
+<pre><code class="language-lua">example_inventory:set_as_inventory_for(player, new_context)
+</code></pre>
+<p>While the form will of course be cleared when the player leaves, if you'd like
+to unset the inventory manually, call <code>:unset_as_inventory_for(player)</code>,
+analogue to <code>close_hud</code>:</p>
+<pre><code class="language-lua">example_inventory:unset_as_inventory_for(player)
+</code></pre>
+<p>This will set the inventory formspec string to <code>""</code> and stop flow from
+processing inventory formspec input.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../hiding-elements/" class="btn btn-neutral float-left" title="Hiding elements"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../manual-positioning/" class="btn btn-neutral float-right" title="Manual positioning">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../hiding-elements/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../manual-positioning/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../playground-links.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

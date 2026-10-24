@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Styling forms - Flow Unofficial</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Styling forms";
+        var mkdocs_page_input_path = "styling.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Flow Unofficial
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Introduction</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../getting-started/">Getting started</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Elements/widgets</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../layout-elements/">Layouting elements</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../elements/">All other elements</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../hypertext/">Hypertext markup</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Other features</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../not-supported/">Features flow does not have</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Styling forms</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#inline-syntax">Inline syntax</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#separate-style-elements">Separate style elements</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#selectors-and-states">Selectors and states</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#states">States</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#element-types">Element types</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#property-reference">Property reference</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#all-elements">All elements</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#text-properties">Text properties</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#buttons">Buttons</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#fields-and-text-areas">Fields and text areas</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#labels">Labels</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#lists">Lists</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#boxes">Boxes</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#models">Models</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#other-elements">Other elements</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../padding/">Padding, spacing, and backgrounds</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../tooltips/">Tooltips</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../hiding-elements/">Hiding elements</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../inventory/">Using a form as an inventory</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../manual-positioning/">Manual positioning</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../experimental/">Experimental features</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../popovers/">Popovers (highly experimental)</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Development tools</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="" href="https://content.luanti.org/packages/luk3yx/flow_inspector/">Flow Inspector</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="https://luk3yx.gitlab.io/minetest-flow-playground/">Flow Playground / Tutorial</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="https://content.luanti.org/packages/luk3yx/snippets/">Snippets</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Flow Unofficial</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Other features</li>
+      <li class="breadcrumb-item active">Styling forms</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="styling-forms">Styling forms</h1>
+<p>Styles change how elements look: their colors, images, fonts, and so on.
+A style is a set of properties such as <code>bgcolor = "red"</code>, and which
+properties exist depends on the type of element. All of them are listed in the
+<a href="#property-reference">property reference</a> below.</p>
+<p>You can style a single element with the <code>style</code> field (the
+<a href="#inline-syntax">inline syntax</a>), or style many elements at once with the
+<code>gui.Style</code> and <code>gui.StyleType</code> elements (see
+<a href="#separate-style-elements">separate style elements</a>).</p>
+<h2 id="inline-syntax">Inline syntax</h2>
+<p>At the moment I suggest only using this syntax if your form won't look broken
+without the style - older versions of flow don't support this syntax, and I may
+make breaking changes to the sub-style syntax in the future.</p>
+<p>You can add inline styles to elements with the <code>style</code> field:</p>
+<pre><code class="language-lua">gui.Button{
+    label = &quot;Test&quot;,
+    style = {
+        bgcolor = &quot;red&quot;,
+
+        -- You can style specific states of elements:
+        {sel = &quot;$hovered&quot;, bgcolor = &quot;green&quot;},
+
+        -- Or a combination of states:
+        {sel = &quot;$hovered, $pressed&quot;, bgcolor = &quot;blue&quot;},
+        {sel = &quot;$hovered+pressed&quot;, bgcolor = &quot;white&quot;},
+    },
+}
+</code></pre>
+<p>The properties directly inside <code>style</code> always apply. A <code>sel</code> entry only
+applies while the element is in one of the listed <a href="#states">states</a>. Separate
+states with a comma to apply the style when <em>any</em> of them is active
+(<code>"$hovered, $pressed"</code>), or join them with <code>+</code> to apply it only when <em>all</em> of
+them are active at once (<code>"$hovered+pressed"</code>).</p>
+<p>If you need to style multiple elements, you can reuse the <code>style</code> table:</p>
+<pre><code class="language-lua">local my_style = {bgcolor = &quot;red&quot;, {sel = &quot;$hovered&quot;, bgcolor = &quot;green&quot;}}
+
+local gui = flow.make_gui(function(player, ctx)
+    return gui.VBox{
+        gui.Button{label = &quot;Styled button&quot;, style = my_style},
+        gui.Button{label = &quot;Unstyled button&quot;},
+        gui.Button{label = &quot;Second styled button&quot;, style = my_style},
+    }
+end)
+</code></pre>
+<p>Note that this may inadvertently reset styles on subsequent elements if used on
+elements without a name. Luanti can only style unnamed elements by their type,
+so flow applies the style to every element of that type and then resets those
+properties straight after the element. Give the element a <code>name</code> to avoid this.</p>
+<p>Property values are normally strings, but flow also accepts numbers and
+booleans where a property needs one. Setting a property to an empty string
+(<code>bgimg = ""</code>) resets it to its default value.</p>
+<h2 id="separate-style-elements">Separate style elements</h2>
+<p>Alternatively, you can use the <code>gui.Style</code> and <code>gui.StyleType</code> elements if you
+need to style a large group of elements or need to support older versions of
+flow:</p>
+<pre><code class="language-lua">gui.Style{
+    selectors = {&quot;btn1&quot;},
+    props = {
+        bgimg = &quot;button.png&quot;,
+        border = false,
+    }
+},
+
+gui.Button{
+    name = &quot;btn1&quot;,
+    label = &quot;Button&quot;,
+},
+</code></pre>
+<p>The <code>Style</code> and <code>StyleType</code> elements are invisible and won't affect padding.
+They only affect the elements that come after them, so put them before the
+elements you want to style.</p>
+<p><strong>Warning:</strong> <code>gui.Style</code> and <code>gui.StyleType</code> do not support styles that change
+the element size, such as <code>font_size</code> for labels and <code>size</code>/<code>spacing</code> for
+lists. Use the inline syntax instead for these styles.</p>
+<h2 id="selectors-and-states">Selectors and states</h2>
+<p><code>selectors</code> is a list that says which elements the style applies to:</p>
+<ul>
+<li><code>gui.Style</code> selects elements by their <code>name</code>, so <code>{"btn1"}</code> styles the
+   element with <code>name = "btn1"</code>.</li>
+<li><code>gui.StyleType</code> selects elements by their type, so <code>{"button"}</code> styles every
+   button that comes after it. The type is the element's name in lowercase with
+   underscores between words, for example <code>item_image_button</code> for
+   <code>gui.ItemImageButton</code>. Some types also style other types, see
+   <a href="#element-types">element types</a>.</li>
+<li>In both, <code>"*"</code> selects every element.</li>
+</ul>
+<p>A selector can end with a colon and one or more <a href="#states">states</a> to only style
+the element while it is in that state, such as <code>"btn1:hovered"</code> or
+<code>"button:hovered+pressed"</code> (<code>+</code> means all of the states have to be active).</p>
+<pre><code class="language-lua">gui.StyleType{
+    selectors = {&quot;button&quot;, &quot;image_button&quot;},
+    props = {textcolor = &quot;yellow&quot;},
+},
+gui.StyleType{
+    selectors = {&quot;button:hovered&quot;},
+    props = {bgcolor = &quot;#336699&quot;},
+},
+</code></pre>
+<h3 id="states">States</h3>
+<p>Every element has the <code>default</code> state, which is the same as not giving any
+state. Buttons (<code>gui.Button</code>, <code>gui.ButtonExit</code>, <code>gui.ImageButton</code>,
+<code>gui.ItemImageButton</code>) also have these states:</p>
+<table>
+<thead>
+<tr>
+<th>State</th>
+<th>Active when</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>focused</code></td>
+<td>The button has keyboard focus</td>
+</tr>
+<tr>
+<td><code>hovered</code></td>
+<td>The mouse is over the button</td>
+</tr>
+<tr>
+<td><code>pressed</code></td>
+<td>The button is being pressed</td>
+</tr>
+</tbody>
+</table>
+<h3 id="element-types">Element types</h3>
+<p>These are the types that can be styled. A type that "inherits" from another
+also uses the styles set for the other type, for example a style set on
+<code>image</code> also applies to <code>animated_image</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Element</th>
+<th>Inherits from</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>animated_image</code></td>
+<td><code>gui.AnimatedImage</code></td>
+<td><code>image</code></td>
+</tr>
+<tr>
+<td><code>box</code></td>
+<td><code>gui.Box</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>button</code></td>
+<td><code>gui.Button</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>button_exit</code></td>
+<td><code>gui.ButtonExit</code></td>
+<td><code>button</code></td>
+</tr>
+<tr>
+<td><code>checkbox</code></td>
+<td><code>gui.Checkbox</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>dropdown</code></td>
+<td><code>gui.Dropdown</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>field</code></td>
+<td><code>gui.Field</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>image</code></td>
+<td><code>gui.Image</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>image_button</code></td>
+<td><code>gui.ImageButton</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>item_image_button</code></td>
+<td><code>gui.ItemImageButton</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>label</code></td>
+<td><code>gui.Label</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>list</code></td>
+<td><code>gui.List</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>model</code></td>
+<td><code>gui.Model</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>pwdfield</code></td>
+<td><code>gui.Pwdfield</code></td>
+<td><code>field</code></td>
+</tr>
+<tr>
+<td><code>scrollbar</code></td>
+<td><code>gui.Scrollbar</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>tabheader</code></td>
+<td><code>gui.Tabheader</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>table</code></td>
+<td><code>gui.Table</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>textarea</code></td>
+<td><code>gui.Textarea</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>textlist</code></td>
+<td><code>gui.Textlist</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>vertlabel</code></td>
+<td><code>gui.Vertlabel</code></td>
+<td><code>label</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="property-reference">Property reference</h2>
+<p>Colors are described in <a href="../elements/#colors">Elements</a>, and textures are
+image file names. A "2D vector" is written as a string such
+as <code>"1,2"</code>. Properties that only list a type of element are not valid on other
+elements, and an unknown property is ignored.</p>
+<h3 id="all-elements">All elements</h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>noclip</code></td>
+<td>Boolean. Set to <code>true</code> to let the element be drawn outside the area of the form. Default <code>false</code>.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="text-properties">Text properties</h3>
+<p>These properties change how text looks. They are valid on buttons, labels,
+fields, tables, and text lists (and <code>textcolor</code> also on tab headers), as shown in
+the sections below.</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>font</code></td>
+<td>Font type, a comma-separated list. Use at most one of <code>normal</code> (the default font) and <code>mono</code> (a font where every letter is the same width), and any of <code>bold</code> and <code>italic</code>. For example <code>"mono,bold"</code>. If you only give <code>bold</code> or <code>italic</code>, <code>normal</code> is used. Default <code>normal</code>.</td>
+</tr>
+<tr>
+<td><code>font_size</code></td>
+<td>Text size. <code>"16"</code> sets an absolute size, <code>"+2"</code> and <code>"-2"</code> make the text 2 points larger or smaller than the default, and <code>"*1.5"</code> multiplies the default size by 1.5 (like <code>em</code> in CSS). The default is the size the player has chosen in their settings.</td>
+</tr>
+<tr>
+<td><code>textcolor</code></td>
+<td>Color of the text. Default white.</td>
+</tr>
+</tbody>
+</table>
+<p>Flow can make room for bigger text in <code>gui.Label</code>s, but only if <code>font_size</code>
+starts with <code>*</code> (<code>style = {font_size = "*2"}</code>).</p>
+<h3 id="buttons">Buttons</h3>
+<p>For <code>gui.Button</code>, <code>gui.ButtonExit</code>, <code>gui.ImageButton</code>, and
+<code>gui.ItemImageButton</code>. Buttons also support <code>font</code>, <code>font_size</code>, and
+<code>textcolor</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>alpha</code></td>
+<td>Boolean. Whether to draw the transparent parts of <code>bgimg</code>. Default <code>true</code>.</td>
+</tr>
+<tr>
+<td><code>bgcolor</code></td>
+<td>Color that tints the button.</td>
+</tr>
+<tr>
+<td><code>bgimg</code></td>
+<td>Texture to use as the background of the button. Default none.</td>
+</tr>
+<tr>
+<td><code>bgimg_middle</code></td>
+<td>Draws <code>bgimg</code> as a <a href="../elements/#nine-slice-images">nine-slice</a>. Written as a string in one of the formats <code>"x"</code>, <code>"x,y"</code>, or <code>"x,y,x2,y2"</code>, which have the same meaning as <code>middle_x</code>, <code>middle_y</code>, <code>middle_x2</code>, and <code>middle_y2</code>. Also adds padding around the content of the button.</td>
+</tr>
+<tr>
+<td><code>border</code></td>
+<td>Boolean. Whether to draw the bevelled button border. Set to <code>false</code> to hide it. Default <code>true</code>.</td>
+</tr>
+<tr>
+<td><code>content_offset</code></td>
+<td>2D vector that moves the content (text and image) of the button without resizing the button.</td>
+</tr>
+<tr>
+<td><code>padding</code></td>
+<td>Space between the edges of the button and its content, as a rectangle written in the same formats as <code>bgimg_middle</code>. This value is relative to <code>bgimg_middle</code>.</td>
+</tr>
+<tr>
+<td><code>sound</code></td>
+<td>A sound to play when the button is triggered.</td>
+</tr>
+</tbody>
+</table>
+<p><code>gui.ImageButton</code> has some more properties for the picture drawn on top of the
+button:</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>fgimg</code></td>
+<td>The picture to draw. Default none. The <code>texture_name</code> and <code>pressed_texture_name</code> you give to the element take precedence over this.</td>
+</tr>
+<tr>
+<td><code>fgimg_middle</code></td>
+<td>Draws <code>fgimg</code> as a nine-slice, like <code>bgimg_middle</code>.</td>
+</tr>
+</tbody>
+</table>
+<p>Some older properties still work but are deprecated. Use
+<a href="#states">states</a> instead: <code>bgcolor_hovered</code>, <code>bgcolor_pressed</code>,
+<code>bgimg_hovered</code>, <code>bgimg_pressed</code>, <code>fgimg_hovered</code>, and <code>fgimg_pressed</code>. They
+work like <code>bgcolor</code> and <code>bgimg</code> but only apply while the button is hovered or
+pressed.</p>
+<h3 id="fields-and-text-areas">Fields and text areas</h3>
+<p>For <code>gui.Field</code>, <code>gui.Pwdfield</code>, and <code>gui.Textarea</code>. They also support
+<code>font</code>, <code>font_size</code>, and <code>textcolor</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>border</code></td>
+<td>Boolean. Set to <code>false</code> to hide the background and border of the text box. Default <code>true</code>.</td>
+</tr>
+<tr>
+<td><code>halign</code></td>
+<td>Horizontal alignment of the text: <code>left</code> (default), <code>center</code>, or <code>right</code>. Needs a recent version of Luanti (5.17 or newer), and flow may not be able to use it, see <a href="../not-supported/#newer-luanti-features">Features flow does not have</a>.</td>
+</tr>
+<tr>
+<td><code>valign</code></td>
+<td>Vertical alignment of the text: <code>top</code> (default), <code>center</code>, or <code>bottom</code>. Needs a recent version of Luanti (5.17 or newer). Only has an effect when all of the text fits inside the element. If the text is too long (and a <code>gui.Textarea</code> gets a scrollbar), it is always aligned to the top so that no text is cut off. It also does not work in <code>gui.Field</code>, but <code>halign</code> does.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="labels">Labels</h3>
+<p>For <code>gui.Label</code> and <code>gui.Vertlabel</code>: <code>font</code>, <code>font_size</code>, and <code>textcolor</code>.</p>
+<h3 id="lists">Lists</h3>
+<p>For <code>gui.List</code>:</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>size</code></td>
+<td>2D vector. The size of each slot. Default <code>"1,1"</code>.</td>
+</tr>
+<tr>
+<td><code>spacing</code></td>
+<td>2D vector. The space between slots. Default <code>"0.25,0.25"</code>.</td>
+</tr>
+</tbody>
+</table>
+<p>Flow uses these values to work out how big a list is, but it only understands
+whole numbers in them (such as <code>"2,2"</code> or <code>"0,0"</code>).</p>
+<h3 id="boxes">Boxes</h3>
+<p>For <code>gui.Box</code>. These properties only take effect when the box has no <code>color</code>
+of its own. The <code>colors</code>, <code>bordercolors</code>, and <code>borderwidths</code> properties can
+have one, two, or four values separated by commas (like CSS borders):</p>
+<ul>
+<li>One value, such as <code>"#FF0"</code>: used for all corners or borders.</li>
+<li>Two values, such as <code>"red,#FFAAFF"</code>: for the colors, the top-left and
+   bottom-right corners, then the top-right and bottom-left corners. For the
+   widths, the top and bottom borders, then the left and right borders.</li>
+<li>Four values, such as <code>"blue,#A0F,green,#FFFA"</code>: starting with the top-left
+   corner (or the top border) and going clockwise.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>colors</code></td>
+<td>Color of the corners of the box. Default <code>black</code>.</td>
+</tr>
+<tr>
+<td><code>bordercolors</code></td>
+<td>Color of the borders of the box. Default <code>black</code>.</td>
+</tr>
+<tr>
+<td><code>borderwidths</code></td>
+<td>Width of the borders in pixels, as a whole number. A negative width puts the border inside the box, a positive width puts it outside the box, and <code>0</code> draws no border. Default <code>0</code>.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="models">Models</h3>
+<p>For <code>gui.Model</code>:</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>bgcolor</code></td>
+<td>Background color of the model area.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="other-elements">Other elements</h3>
+<table>
+<thead>
+<tr>
+<th>Element</th>
+<th>Properties</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>gui.Checkbox</code></td>
+<td><code>sound</code>: A sound to play when the box is ticked or unticked.</td>
+</tr>
+<tr>
+<td><code>gui.Dropdown</code></td>
+<td><code>sound</code>: A sound to play when a different item is selected.</td>
+</tr>
+<tr>
+<td><code>gui.Tabheader</code></td>
+<td><code>sound</code>: A sound to play when a different tab is selected. <code>textcolor</code>: Color of the tab text, default white.</td>
+</tr>
+<tr>
+<td><code>gui.Table</code>, <code>gui.Textlist</code></td>
+<td><code>font</code> and <code>font_size</code>. The colors of a table are set with <a href="../elements/#guitableoptions"><code>gui.TableOptions</code></a>.</td>
+</tr>
+<tr>
+<td><code>gui.Image</code>, <code>gui.AnimatedImage</code>, <code>gui.ItemImage</code>, <code>gui.Scrollbar</code></td>
+<td>Only <code>noclip</code>.</td>
+</tr>
+</tbody>
+</table>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../not-supported/" class="btn btn-neutral float-left" title="Features flow does not have"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../padding/" class="btn btn-neutral float-right" title="Padding, spacing, and backgrounds">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../not-supported/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../padding/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../playground-links.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,1276 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>All other elements - Flow Unofficial</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "All other elements";
+        var mkdocs_page_input_path = "elements.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Flow Unofficial
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Introduction</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../getting-started/">Getting started</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Elements/widgets</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../layout-elements/">Layouting elements</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">All other elements</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#concepts-used-on-this-page">Concepts used on this page</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#sizes">Sizes</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#names-and-values">Names and values</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#events">Events</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#colors">Colors</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#textures-and-items">Textures and items</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#parameters-shared-by-all-elements">Parameters shared by all elements</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#nine-slice-images">Nine-slice images</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#elements_1">Elements</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#guianimatedimage">gui.AnimatedImage</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#guibackground">gui.Background</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#guibackground9">gui.Background9</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#guibgcolor">gui.Bgcolor</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#guibox">gui.Box</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#guibutton">gui.Button</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#guibuttonexit">gui.ButtonExit</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#guibuttonurl">gui.ButtonURL</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#guibuttonurlexit">gui.ButtonUrlExit</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#guicheckbox">gui.Checkbox</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#guicontainer">gui.Container</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#guidropdown">gui.Dropdown</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#guifield">gui.Field</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#guifieldcloseonenter">gui.FieldCloseOnEnter</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#guifieldenterafteredit">gui.FieldEnterAfterEdit</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#guihypertext">gui.Hypertext</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#guiimage">gui.Image</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#guiimagebutton">gui.ImageButton</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#guiimagebuttonexit">gui.ImageButtonExit</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#guiitemimage">gui.ItemImage</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#guiitemimagebutton">gui.ItemImageButton</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#guilabel">gui.Label</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#guilist">gui.List</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#guilistcolors">gui.Listcolors</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#guilistring">gui.Listring</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#guimodel">gui.Model</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#guipwdfield">gui.Pwdfield</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#guiscrollcontainer">gui.ScrollContainer</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#guiscrollbar">gui.Scrollbar</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#guiscrollbaroptions">gui.ScrollbarOptions</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#guisetfocus">gui.SetFocus</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#guistyle">gui.Style</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#guistyletype">gui.StyleType</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#guitabheader">gui.Tabheader</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#guitable">gui.Table</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#guitablecolumns">gui.TableColumns</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#guitableoptions">gui.TableOptions</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#guitextarea">gui.Textarea</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#guitextlist">gui.Textlist</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#guitooltip">gui.Tooltip</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#guivertlabel">gui.Vertlabel</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../hypertext/">Hypertext markup</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Other features</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../not-supported/">Features flow does not have</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../styling/">Styling forms</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../padding/">Padding, spacing, and backgrounds</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../tooltips/">Tooltips</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../hiding-elements/">Hiding elements</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../inventory/">Using a form as an inventory</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../manual-positioning/">Manual positioning</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../experimental/">Experimental features</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../popovers/">Popovers (highly experimental)</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Development tools</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="" href="https://content.luanti.org/packages/luk3yx/flow_inspector/">Flow Inspector</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="https://luk3yx.gitlab.io/minetest-flow-playground/">Flow Playground / Tutorial</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="https://content.luanti.org/packages/luk3yx/snippets/">Snippets</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Flow Unofficial</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Elements/widgets</li>
+      <li class="breadcrumb-item active">All other elements</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="elements">Elements</h1>
+<p>This page describes the elements (widgets) that draw something or accept
+input. Elements that only arrange other elements (<code>gui.VBox</code>, <code>gui.HBox</code>,
+<code>gui.Stack</code>, ...) are described in <a href="../layout-elements/">Layouting elements</a>.</p>
+<p>Every element is a function in <code>flow.widgets</code> that takes a table of
+parameters:</p>
+<pre><code class="language-lua">local gui = flow.widgets
+
+gui.Label{label = &quot;Hello world!&quot;}
+</code></pre>
+<p>The parameter lists below are generated automatically. Parameters marked
+<code>-- Optional</code> can be left out.</p>
+<h2 id="concepts-used-on-this-page">Concepts used on this page</h2>
+<h3 id="sizes">Sizes</h3>
+<p>Sizes are measured in inventory slots: <code>1</code> is the width and height
+of one item slot. There is no hidden padding or spacing, so two boxes that are
+<code>1</code> wide and placed next to each other with <code>spacing = 0</code> touch. You never
+give an element a position, boxes place their children and flow works out the
+total size of the form.</p>
+<p>Elements that show text, such as labels, buttons, and fields, are sized to
+fit their text unless you give them a <code>w</code> and <code>h</code>. Elements that show
+something without a natural size, such as images, boxes, models, and tables,
+need an explicit <code>w</code> and <code>h</code> (their parameter lists below do not say
+<code>-- Optional</code>). Flow can only estimate the width of text because the real
+width depends on the player's font, screen size, and scaling settings, so
+avoid layouts that rely on exact text widths.</p>
+<h3 id="names-and-values">Names and values</h3>
+<p>Many elements take a <code>name</code>. Input elements (fields,
+checkboxes, dropdowns, lists of text, tables, ...) with a <code>name</code> have their
+current value stored in <code>ctx.form[name]</code> and flow remembers it when the form
+is redrawn:</p>
+<table>
+<thead>
+<tr>
+<th>Element</th>
+<th>Value in <code>ctx.form[name]</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>gui.Field</code>, <code>gui.Pwdfield</code>, <code>gui.Textarea</code></td>
+<td>Text (string)</td>
+</tr>
+<tr>
+<td><code>gui.Checkbox</code></td>
+<td><code>true</code> or <code>false</code></td>
+</tr>
+<tr>
+<td><code>gui.Dropdown</code></td>
+<td>Text of the selected item, or its number if <code>index_event = true</code></td>
+</tr>
+<tr>
+<td><code>gui.Textlist</code>, <code>gui.Table</code></td>
+<td>Number of the selected row (first row is <code>1</code>)</td>
+</tr>
+</tbody>
+</table>
+<p>Until the player changes something, the value is the element's initial value
+(<code>default</code>, <code>selected</code>, <code>selected_idx</code>), or <code>""</code>, <code>false</code>, or <code>1</code> if you did
+not give one. Text fields only send their text to the server when the player
+presses a button or Enter, so <code>ctx.form</code> can be out of date until then.</p>
+<p>If your build function reads <code>ctx.form.some_name</code>, flow redraws the form
+automatically whenever the player changes that value (unless the element has
+its own <code>on_event</code>). Buttons do not store a value.</p>
+<h3 id="events">Events</h3>
+<p>Elements that the player can use accept an <code>on_event</code> function,
+which is called with the player and <code>ctx</code>. Return <code>true</code> from it to redraw
+the form. A <code>name</code> is optional if you use <code>on_event</code>, flow makes one up.</p>
+<h3 id="colors">Colors</h3>
+<p>Colors are strings. <code>"#RGB"</code> and <code>"#RRGGBB"</code> are fully opaque, while
+<code>"#RGBA"</code> and <code>"#RRGGBBAA"</code> end with an alpha value, where <code>00</code> is fully
+transparent and <code>FF</code> is fully opaque. Color names also work (all the names
+from CSS, such as <code>"red"</code> and <code>"darkgreen"</code>), and you can add an alpha value
+after a <code>#</code>, for example <code>"darkgreen#08"</code>.</p>
+<p>Most text can also be coloured by putting color escape sequences in it, such
+as the ones made by <code>core.colorize()</code>. Dropdown items and tab captions are an
+exception, they cannot be coloured.</p>
+<h3 id="textures-and-items">Textures and items</h3>
+<p>A texture name is the file name of an image from the
+<code>textures</code> folder of any loaded mod, such as <code>"default_dirt.png"</code>. An item
+name is the registered name of an item or node, such as <code>"default:dirt"</code>.</p>
+<h3 id="parameters-shared-by-all-elements">Parameters shared by all elements</h3>
+<p>Every element, including <a href="../layout-elements/">layouting elements</a>, accepts
+these parameters in addition to its own:</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>padding</code></td>
+<td>Space around the element, see <a href="../padding/">Padding</a>.</td>
+</tr>
+<tr>
+<td><code>visible</code></td>
+<td>Set to <code>false</code> to hide the element but keep its space, see <a href="../hiding-elements/">Hiding elements</a>.</td>
+</tr>
+<tr>
+<td><code>expand</code></td>
+<td>Set to <code>true</code> to make the element grow to fill spare space in the <code>gui.HBox</code> or <code>gui.VBox</code> it is in. If several elements expand, they share the spare space equally.</td>
+</tr>
+<tr>
+<td><code>align_h</code>, <code>align_v</code></td>
+<td>Where the element goes when there is more room than it needs: <code>"start"</code>, <code>"end"</code>, <code>"center"</code>, <code>"fill"</code> (stretch), or <code>"auto"</code> (the default, flow picks one). <code>"left"</code> and <code>"top"</code> mean <code>"start"</code>, <code>"right"</code> and <code>"bottom"</code> mean <code>"end"</code>, and <code>"center"</code> means <code>"center"</code>.</td>
+</tr>
+<tr>
+<td><code>min_w</code>, <code>min_h</code></td>
+<td>The smallest size of the element, for elements that size themselves.</td>
+</tr>
+<tr>
+<td><code>tooltip</code></td>
+<td>Text to show when the player hovers over the element, see <a href="../tooltips/">Tooltips</a>.</td>
+</tr>
+<tr>
+<td><code>style</code></td>
+<td>Inline styles, see <a href="../styling/">Styling</a>.</td>
+</tr>
+<tr>
+<td><code>on_event</code></td>
+<td>A function to call when the player uses the element, see Events above.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="nine-slice-images">Nine-slice images</h3>
+<p>Images and image-like backgrounds can optionally be
+drawn as a "nine-slice". The picture is cut into a 3x3 grid, where the
+corners keep their size, the edges are stretched in one direction, and the
+middle is stretched in both. This lets one small texture make a panel or
+border of any size without distorting its corners. The <code>middle_*</code> parameters
+describe where the cuts are, in texture pixels (whole numbers):</p>
+<ul>
+<li><code>middle_x</code> only: the cuts are <code>middle_x</code> pixels from every side.</li>
+<li><code>middle_x</code> and <code>middle_y</code>: <code>middle_x</code> pixels from the left and right
+   sides and <code>middle_y</code> pixels from the top and bottom.</li>
+<li>All four: the middle rectangle starts at <code>middle_x, middle_y</code> and ends at
+   <code>middle_x2, middle_y2</code>. Negative <code>middle_x2</code> and <code>middle_y2</code> values are
+   measured from the far (right/bottom) edge of the texture.</li>
+</ul>
+<h2 id="elements_1">Elements</h2>
+<h3 id="guianimatedimage"><code>gui.AnimatedImage</code></h3>
+<p>Shows an image that plays an animation. The texture must contain every frame
+stacked on top of each other (the first frame at the top), with all frames
+the same size. <code>w</code> and <code>h</code> are the size of one displayed frame.</p>
+<p><code>middle_*</code> parameters turn on nine-slice drawing, see
+<a href="#nine-slice-images">Nine-slice images</a>.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-lua">gui.AnimatedImage{
+    w = 1,
+    h = 2,
+
+    -- Only useful for styling.
+    name = &quot;my_animated_image&quot;, -- Optional
+
+    -- Texture that contains all frames.
+    texture_name = &quot;texture.png&quot;,
+
+    -- Number of frames in the texture.
+    frame_count = 3,
+
+    -- Milliseconds each frame is shown for. 0 means no animation.
+    frame_duration = 4,
+
+    -- Frame to start on, the first frame is 1. Default 1.
+    frame_start = 5, -- Optional
+    middle_x = 6, -- Optional
+    middle_y = 7, -- Optional
+    middle_x2 = 8, -- Optional
+    middle_y2 = 9, -- Optional
+}
+</code></pre>
+<h3 id="guibackground"><code>gui.Background</code></h3>
+<p>Draws a picture behind everything else in the form: all backgrounds are drawn
+before any other element, whatever order they are in. The picture
+(<code>texture_name</code>) is stretched to <code>w</code> by <code>h</code>. If <code>auto_clip</code> is <code>true</code>, it is
+cut off at the edge of the form instead and <code>w</code> and <code>h</code> are ignored.</p>
+<p>You usually do not need this element, set <code>bgimg</code> on a container or the root
+element instead (see <a href="../padding/">Padding</a>). Inside a <code>gui.Stack</code>, a
+<code>gui.ScrollableVBox</code>, or an embedded form, flow draws backgrounds without
+<code>auto_clip</code> as ordinary images.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-lua">gui.Background{
+    w = 1,
+    h = 2,
+
+    -- Picture to draw.
+    texture_name = &quot;texture.png&quot;,
+
+    -- Cut off at the form edge, ignore w and h.
+    auto_clip = false, -- Optional
+}
+</code></pre>
+<h3 id="guibackground9"><code>gui.Background9</code></h3>
+<p>Like <code>gui.Background</code>, but the picture is drawn as a
+<a href="#nine-slice-images">nine-slice</a> so that it can be stretched to any size
+without distorting its corners.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-lua">gui.Background9{
+    w = 1,
+    h = 2,
+
+    -- Picture to draw.
+    texture_name = &quot;texture.png&quot;,
+
+    -- Cut off at the form edge, ignore w and h.
+    auto_clip = false,
+
+    -- Nine-slice cut, see &quot;Nine-slice images&quot;.
+    middle_x = 3,
+    middle_y = 4, -- Optional
+    middle_x2 = 5, -- Optional
+    middle_y2 = 6, -- Optional
+}
+</code></pre>
+<h3 id="guibgcolor"><code>gui.Bgcolor</code></h3>
+<p>Sets the colors behind the form. This does the same thing as the <code>bgcolor</code>,
+<code>fbgcolor</code>, and <code>bg_fullscreen</code> options of the root element, which are
+explained in <a href="../experimental/#bgcolor">Experimental features</a> and are easier
+to use. <code>fullscreen</code> can be <code>false</code>, <code>true</code>, <code>"both"</code>, or <code>"neither"</code>.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-lua">gui.Bgcolor{
+    -- Background color of the form.
+    bgcolor = &quot;#FF0000&quot;,
+
+    -- false, true, &quot;both&quot;, or &quot;neither&quot;.
+    fullscreen = false, -- Optional
+
+    -- Color of the area behind the form.
+    fbgcolor = &quot;#FF0000&quot;, -- Optional
+}
+</code></pre>
+<h3 id="guibox"><code>gui.Box</code></h3>
+<p>Draws a solid rectangle of one color. Boxes have no natural size, so
+give them a <code>w</code> and <code>h</code>.</p>
+<p>Unlike everywhere else, a hexadecimal color without an alpha value, such as
+<code>"#FF0000"</code>, is drawn semi-transparent here. Add the alpha value
+(<code>"#FF0000FF"</code>) to make it opaque.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-lua">gui.Box{
+    w = 1,
+    h = 2,
+
+    -- Fill color.
+    color = &quot;#FF0000&quot;,
+}
+</code></pre>
+<h3 id="guibutton"><code>gui.Button</code></h3>
+<p>A clickable button showing <code>label</code>. Your <code>on_event</code> function is called when it
+is clicked. If you do not set <code>w</code> and <code>h</code>, the button is sized to fit the label
+(but never smaller than 1.6 by 0.8).</p>
+<p>Buttons do not store a value in <code>ctx.form</code>.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-lua">gui.Button{
+    w = 1, -- Optional
+    h = 2, -- Optional
+    name = &quot;my_button&quot;, -- Optional
+    label = &quot;Hello world!&quot;, -- Optional
+}
+</code></pre>
+<h3 id="guibuttonexit"><code>gui.ButtonExit</code></h3>
+<p>A button that closes the form when it is clicked. Your <code>on_event</code> function is
+still called before the form closes. In all other respects it works like
+<code>gui.Button</code>.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-lua">gui.ButtonExit{
+    w = 1, -- Optional
+    h = 2, -- Optional
+    name = &quot;my_button_exit&quot;, -- Optional
+    label = &quot;Hello world!&quot;, -- Optional
+}
+</code></pre>
+<h3 id="guibuttonurl"><code>gui.ButtonURL</code></h3>
+<p>A button that, when clicked, offers the player the choice of opening <code>url</code>
+in their web browser. <code>url</code> must start with <code>http://</code> or <code>https://</code>. Your
+<code>on_event</code> function is also called. In all other respects it works like
+<code>gui.Button</code>.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-lua">gui.ButtonURL{
+    w = 1, -- Optional
+    h = 2, -- Optional
+    name = &quot;my_button_url&quot;, -- Optional
+    label = &quot;Hello world!&quot;, -- Optional
+
+    -- Web address to offer to open.
+    url = &quot;Hello world!&quot;,
+}
+</code></pre>
+<h3 id="guibuttonurlexit"><code>gui.ButtonUrlExit</code></h3>
+<p>Like <code>gui.ButtonURL</code>, but the form also closes when the button is clicked.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-lua">gui.ButtonUrlExit{
+    w = 1, -- Optional
+    h = 2, -- Optional
+    name = &quot;my_button_url_exit&quot;, -- Optional
+    label = &quot;Hello world!&quot;, -- Optional
+
+    -- Web address to offer to open.
+    url = &quot;Hello world!&quot;,
+}
+</code></pre>
+<h3 id="guicheckbox"><code>gui.Checkbox</code></h3>
+<p>A tick box with a text <code>label</code>. <code>selected</code> sets whether it starts ticked. If
+you give it a <code>name</code>, <code>ctx.form[name]</code> is <code>true</code> or <code>false</code> and is updated as
+soon as the player ticks or unticks it.</p>
+<p>Checkboxes are sized automatically and do not accept <code>w</code> or <code>h</code>.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-lua">gui.Checkbox{
+    name = &quot;my_checkbox&quot;, -- Optional
+    label = &quot;Hello world!&quot;, -- Optional
+    selected = false, -- Optional
+}
+</code></pre>
+<h3 id="guicontainer"><code>gui.Container</code></h3>
+<p>A group of elements that you position yourself with <code>x</code> and <code>y</code> instead of
+letting flow lay them out. See <a href="../manual-positioning/">Manual positioning</a>.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-lua">gui.Container{
+    w = 3, h = 2, -- Optional
+    {type = &quot;box&quot;, x = 0, y = 0, w = 1, h = 1, color = &quot;red&quot;},
+    {type = &quot;label&quot;, x = 1, y = 1.5, label = &quot;Hello world!&quot;},
+}
+</code></pre>
+<h3 id="guidropdown"><code>gui.Dropdown</code></h3>
+<p>A drop-down list that shows the currently selected item and lets the player
+pick another one from <code>items</code> (a list of strings). <code>selected_idx</code> is the
+number of the item that is selected at first (the first item is <code>1</code>).</p>
+<p><code>ctx.form[name]</code> is the text of the selected item. If <code>index_event = true</code>
+it is the number of the selected item instead, which is easier to work with
+when two items have the same text or when the text is translated.</p>
+<p>If you do not set <code>w</code> and <code>h</code>, the dropdown is sized to fit its longest
+item (but never smaller than 2 by 0.8). Item text cannot be coloured.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-lua">gui.Dropdown{
+    w = 1, -- Optional
+    h = 2, -- Optional
+    name = &quot;my_dropdown&quot;, -- Optional
+
+    -- List of choices.
+    items = {&quot;Hello world!&quot;, ...},
+
+    -- Number of the item selected at first.
+    selected_idx = 3, -- Optional
+
+    -- Store the item number in ctx.form instead of its text.
+    index_event = false, -- Optional
+}
+</code></pre>
+<h3 id="guifield"><code>gui.Field</code></h3>
+<p>A single-line text box. <code>label</code>, if set, is shown above the box (flow
+leaves room for it automatically). <code>default</code> is the text it starts with.</p>
+<p><code>ctx.form[name]</code> is the text in the box. Newlines and other control
+characters are removed from it (a player can only get them into a field by
+pasting). The text is sent to the server when the player presses a button or
+Enter. To react to Enter, see <a href="../experimental/#handling-enter-keypresses-in-fields">Handling enter keypresses in fields</a>.</p>
+<p>If you do not set <code>w</code> and <code>h</code>, the field is sized to fit its default text and
+label (but never smaller than 3 by 0.8).</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-lua">gui.Field{
+    w = 1, -- Optional
+    h = 2, -- Optional
+    name = &quot;my_field&quot;, -- Optional
+    label = &quot;Hello world!&quot;, -- Optional
+
+    -- Text the field starts with.
+    default = &quot;Hello world!&quot;, -- Optional
+
+    -- Called when the player presses Enter.
+    on_key_enter = function(player, ctx) end, -- Optional
+
+    -- Close the form on Enter. Default false.
+    close_on_enter = false, -- Optional
+
+    -- Make &quot;Done&quot; on the mobile on-screen keyboard act like Enter.
+    enter_after_edit = false, -- Optional
+}
+</code></pre>
+<h3 id="guifieldcloseonenter"><code>gui.FieldCloseOnEnter</code></h3>
+<p>Sets whether pressing Enter in the field with this <code>name</code> closes the form.
+You normally do not need this element, as <code>gui.Field</code> has a <code>close_on_enter</code>
+parameter (and by default Enter does not close the form).</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-lua">gui.FieldCloseOnEnter{
+    -- Name of the field.
+    name = &quot;my_field_close_on_enter&quot;,
+    close_on_enter = false,
+}
+</code></pre>
+<h3 id="guifieldenterafteredit"><code>gui.FieldEnterAfterEdit</code></h3>
+<p>Experimental, and only affects Android. If <code>enter_after_edit</code> is <code>true</code>,
+pressing "Done" in the text input dialog of the field with this <code>name</code> counts
+as pressing Enter. You normally do not need this element, as <code>gui.Field</code> has an
+<code>enter_after_edit</code> parameter.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-lua">gui.FieldEnterAfterEdit{
+    -- Name of the field.
+    name = &quot;my_field_enter_after_edit&quot;,
+    enter_after_edit = false,
+}
+</code></pre>
+<h3 id="guihypertext"><code>gui.Hypertext</code></h3>
+<p>Shows text that can be formatted (bold, colors, different sizes, images,
+...) and can contain clickable links. The text is written in a small
+HTML-like language, which is described in <a href="../hypertext/">Hypertext markup</a>.
+<code>w</code> and <code>h</code> are the size of the area that the text is wrapped to fit in.</p>
+<p>If the markup contains <code>&lt;action name=...&gt;</code> links, <code>ctx.form[name]</code> is set to
+<code>"action:"</code> followed by the action name when the player clicks one. This
+behaviour is experimental and may change.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-lua">gui.Hypertext{
+    w = 1,
+    h = 2,
+
+    -- Receives the clicked action, see above.
+    name = &quot;my_hypertext&quot;, -- Optional
+
+    -- Formatted text, see &quot;Hypertext markup&quot;.
+    text = &quot;Hello world!&quot;,
+}
+</code></pre>
+<h3 id="guiimage"><code>gui.Image</code></h3>
+<p>Shows a picture, stretched to fit <code>w</code> by <code>h</code>. If you want to use one small
+texture for pictures of many sizes, use the <code>middle_*</code> parameters, see
+<a href="#nine-slice-images">Nine-slice images</a>.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-lua">gui.Image{
+    w = 1,
+    h = 2,
+
+    -- Texture to draw.
+    texture_name = &quot;texture.png&quot;,
+    middle_x = 3, -- Optional
+    middle_y = 4, -- Optional
+    middle_x2 = 5, -- Optional
+    middle_y2 = 6, -- Optional
+}
+</code></pre>
+<h3 id="guiimagebutton"><code>gui.ImageButton</code></h3>
+<p>A button that is drawn as a picture instead of the usual button face. The
+picture (<code>texture_name</code>) is stretched to <code>w</code> by <code>h</code>, and <code>label</code> is drawn on
+top of it. It works like <code>gui.Button</code> otherwise.</p>
+<ul>
+<li><code>noclip</code>: Allow the button to be drawn outside the form's area.</li>
+<li><code>drawborder</code>: Draw the normal button border around the picture.</li>
+<li><code>pressed_texture_name</code>: Picture to show while the button is held down.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-lua">gui.ImageButton{
+    w = 1,
+    h = 2,
+
+    -- Picture to draw as the button.
+    texture_name = &quot;texture.png&quot;,
+    name = &quot;my_image_button&quot;, -- Optional
+    label = &quot;Hello world!&quot;, -- Optional
+    noclip = false, -- Optional
+    drawborder = false, -- Optional
+    pressed_texture_name = &quot;texture.png&quot;, -- Optional
+}
+</code></pre>
+<h3 id="guiimagebuttonexit"><code>gui.ImageButtonExit</code></h3>
+<p>Like <code>gui.ImageButton</code>, but the form also closes when the button is clicked.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-lua">gui.ImageButtonExit{
+    w = 1,
+    h = 2,
+
+    -- Picture to draw as the button.
+    texture_name = &quot;texture.png&quot;,
+    name = &quot;my_image_button_exit&quot;, -- Optional
+    label = &quot;Hello world!&quot;, -- Optional
+    noclip = false, -- Optional
+    drawborder = false, -- Optional
+    pressed_texture_name = &quot;texture.png&quot;, -- Optional
+}
+</code></pre>
+<h3 id="guiitemimage"><code>gui.ItemImage</code></h3>
+<p>Shows the picture that is used for an item or node in inventories
+(<code>item_name</code>, such as <code>"default:dirt"</code>), stretched to fit <code>w</code> by <code>h</code>.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-lua">gui.ItemImage{
+    w = 1,
+    h = 2,
+
+    -- Registered item or node name.
+    item_name = &quot;Hello world!&quot;,
+}
+</code></pre>
+<h3 id="guiitemimagebutton"><code>gui.ItemImageButton</code></h3>
+<p>A button that shows the inventory picture of an item or node (<code>item_name</code>).
+By default, the item's description is shown as a tooltip when the player
+hovers over the button, which you can replace with the <code>tooltip</code> parameter.
+It works like <code>gui.Button</code> otherwise.</p>
+<p>Give every item image button its own unique <code>name</code>, otherwise its tooltip may
+not work.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-lua">gui.ItemImageButton{
+    w = 1,
+    h = 2,
+
+    -- Registered item or node name.
+    item_name = &quot;Hello world!&quot;,
+    name = &quot;my_item_image_button&quot;, -- Optional
+    label = &quot;Hello world!&quot;, -- Optional
+}
+</code></pre>
+<h3 id="guilabel"><code>gui.Label</code></h3>
+<p>Shows text. Labels do not wrap long lines automatically: use <code>\n</code> to start
+a new line and do not use labels for long paragraphs. For those, use
+<code>gui.Hypertext</code>, or a <code>gui.Textarea</code> without a <code>name</code> (which wraps its text
+and gets a scrollbar if the text is too long).</p>
+<p>Labels are sized to fit their text, and flow ignores color escape sequences
+when it estimates the width. To make the text bigger or smaller, use
+the <code>font_size</code> style (for example <code>style = {font_size = "*2"}</code>), see
+<a href="../styling/">Styling</a>.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-lua">gui.Label{
+    label = &quot;Hello world!&quot;,
+}
+</code></pre>
+<h3 id="guilist"><code>gui.List</code></h3>
+<p>Shows a grid of inventory slots, with the items of one inventory list in it.
+This is how you show the player's inventory, a chest, a furnace's input slots,
+and so on.</p>
+<ul>
+<li><code>inventory_location</code>: Which inventory to show. Common values are
+   <code>"current_player"</code> (the inventory of the player who has the form open),
+   <code>"nodemeta:X,Y,Z"</code> (the inventory of the node at that position, for
+   example <code>"nodemeta:10,5,-3"</code>), and <code>"detached:name"</code> (a detached
+   inventory). <code>"player:name"</code> is the inventory of a specific player and is
+   only ever sent to that player.</li>
+<li><code>list_name</code>: The name of the list inside that inventory, such as <code>"main"</code>
+   or <code>"craft"</code>.</li>
+<li><code>w</code> and <code>h</code>: How many slots wide and high to draw (whole numbers).</li>
+</ul>
+<p>Slots are filled from left to right, then top to bottom, and the player can
+move items in and out of them. The list is only shown if the inventory has
+been sent to the player's client. Only as many slots as the inventory list
+has are drawn, even if <code>w</code> times <code>h</code> is larger.</p>
+<p>Each slot is 1 by 1, with 0.25 between slots, so a list that is 8 slots wide
+and 4 high is 9.75 by 4.75 big. To change the slot size or spacing, use the
+<code>size</code> and <code>spacing</code> styles, see <a href="../styling/">Styling</a>.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-lua">gui.List{
+    -- Which inventory to show.
+    inventory_location = &quot;Hello world!&quot;,
+
+    -- Which list in that inventory to show.
+    list_name = &quot;Hello world!&quot;,
+    w = 1,
+    h = 2,
+
+    -- Index of the first slot to draw. Unlike most numbers here, this starts
+    -- at 0. Default 0.
+    starting_item_index = 3, -- Optional
+}
+</code></pre>
+<h3 id="guilistcolors"><code>gui.Listcolors</code></h3>
+<p>Sets the colors of inventory slots. It is invisible, takes up no space, and
+should come before the <code>gui.List</code> elements it is for.</p>
+<ul>
+<li><code>slot_bg_normal</code>: Background color of a slot.</li>
+<li><code>slot_bg_hover</code>: Background color of a slot while the mouse is over it.</li>
+<li><code>slot_border</code>: Color of the border of the slots.</li>
+<li><code>tooltip_bgcolor</code>: Default background color of item tooltips.</li>
+<li><code>tooltip_fontcolor</code>: Default text color of item tooltips.</li>
+</ul>
+<p>Only the first two are required. To use pictures instead of colors for slots,
+see <a href="../not-supported/">Features flow does not have</a>.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-lua">gui.Listcolors{
+    -- Slot background color.
+    slot_bg_normal = &quot;#FF0000&quot;,
+
+    -- Slot background color when hovered.
+    slot_bg_hover = &quot;#FF0000&quot;,
+
+    -- Slot border color.
+    slot_border = &quot;#FF0000&quot;, -- Optional
+
+    -- Default tooltip background color.
+    tooltip_bgcolor = &quot;#FF0000&quot;, -- Optional
+
+    -- Default tooltip text color.
+    tooltip_fontcolor = &quot;#FF0000&quot;, -- Optional
+}
+</code></pre>
+<h3 id="guilistring"><code>gui.Listring</code></h3>
+<p>Sets where items go when the player shift-clicks them. Every
+<code>gui.Listring{inventory_location = ..., list_name = ...}</code> adds a list to a
+ring, and shift-clicking an item in one list of the ring moves it to the next
+list in the ring. The first time a list appears in the ring decides which
+inventory the items are sent to.</p>
+<p><code>gui.Listring{}</code> with no parameters adds the last two <code>gui.List</code> elements that
+came before it. It is invisible and takes up no space.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-lua">gui.Listring{
+    -- Same as for gui.List.
+    inventory_location = &quot;Hello world!&quot;, -- Optional
+
+    -- Same as for gui.List.
+    list_name = &quot;Hello world!&quot;, -- Optional
+}
+</code></pre>
+<h3 id="guimodel"><code>gui.Model</code></h3>
+<p>Shows a 3D model that the player can turn around with their mouse.</p>
+<ul>
+<li><code>mesh</code>: File name of the model, from the <code>models</code> folder of any loaded mod.</li>
+<li><code>textures</code>: The textures for the model, one for each of the model's
+   materials in order.</li>
+<li><code>rotation_x</code> and <code>rotation_y</code>: How far the model is turned at first, in
+   degrees.</li>
+<li><code>continuous</code>: Keep the model rotating by itself.</li>
+<li><code>mouse_control</code>: Whether the player can rotate the model with their mouse.
+   Defaults to <code>true</code>.</li>
+<li><code>frame_loop_begin</code> and <code>frame_loop_end</code>: The range of animation frames to
+   play. Defaults to all frames.</li>
+<li><code>animation_speed</code>: Frames per second to play the animation at. Defaults to
+   <code>0</code> (no animation).</li>
+</ul>
+<p><code>name</code> is optional and only useful for <a href="../styling/">styling</a>.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-lua">gui.Model{
+    w = 1,
+    h = 2,
+
+    -- Only useful for styling.
+    name = &quot;my_model&quot;, -- Optional
+
+    -- Model file name.
+    mesh = &quot;Hello world!&quot;,
+
+    -- One texture for each material of the model.
+    textures = {&quot;texture.png&quot;, ...},
+
+    -- Starting rotation in degrees.
+    rotation_x = 3, -- Optional
+
+    -- Starting rotation in degrees.
+    rotation_y = 4, -- Optional
+
+    -- Keep rotating by itself. Default false.
+    continuous = false, -- Optional
+
+    -- Let the player rotate the model. Default true.
+    mouse_control = false, -- Optional
+
+    -- First animation frame to play.
+    frame_loop_begin = 5, -- Optional
+
+    -- Last animation frame to play.
+    frame_loop_end = 6, -- Optional
+
+    -- Frames per second. Default 0.
+    animation_speed = 7, -- Optional
+}
+</code></pre>
+<h3 id="guipwdfield"><code>gui.Pwdfield</code></h3>
+<p>A single-line text box for passwords: what the player types is hidden. It
+works like <code>gui.Field</code>, apart from not having a <code>default</code>. <code>ctx.form[name]</code>
+is the text that was typed. <code>on_key_enter</code> is supported, see
+<a href="../experimental/#handling-enter-keypresses-in-fields">Handling enter keypresses in fields</a>.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-lua">gui.Pwdfield{
+    w = 1, -- Optional
+    h = 2, -- Optional
+    name = &quot;my_pwdfield&quot;, -- Optional
+    label = &quot;Hello world!&quot;, -- Optional
+
+    -- Called when the player presses Enter.
+    on_key_enter = function(player, ctx) end, -- Optional
+}
+</code></pre>
+<h3 id="guiscrollcontainer"><code>gui.ScrollContainer</code></h3>
+<p>An area of a fixed size that clips the elements inside it and moves them when a
+scrollbar is moved. You usually want <code>gui.ScrollableVBox</code> instead, which does
+all of this for you. The elements inside are positioned by hand with <code>x</code> and
+<code>y</code>, like in <code>gui.Container</code>.</p>
+<ul>
+<li><code>w</code> and <code>h</code>: The size of the visible area.</li>
+<li><code>scrollbar_name</code>: The <code>name</code> of the <code>gui.Scrollbar</code> that controls the area.
+   You need to add that scrollbar yourself.</li>
+<li><code>orientation</code>: <code>"vertical"</code> (the default) or <code>"horizontal"</code>.</li>
+<li><code>scroll_factor</code>: How far the contents move for each step of the scrollbar's
+   value. Default <code>0.1</code>. It cannot be negative.</li>
+</ul>
+<p>Flow cannot work out the range of the scrollbar for you here. Set <code>max</code> and
+<code>thumbsize</code> with <code>gui.ScrollbarOptions</code> before the scrollbar, where <code>max</code> is
+the height that is hidden divided by <code>scroll_factor</code>.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-lua">gui.HBox{
+    gui.ScrollContainer{
+        w = 4, h = 3,
+        scrollbar_name = &quot;my_scrollbar&quot;,
+        orientation = &quot;vertical&quot;,
+        {type = &quot;label&quot;, x = 0, y = 0.5, label = &quot;Top&quot;},
+        {type = &quot;label&quot;, x = 0, y = 7.5, label = &quot;Bottom&quot;},
+    },
+
+    -- The contents are 8 high and 3 are visible, so 5 are hidden. This
+    -- is 50 scroll steps of 0.1 each.
+    gui.ScrollbarOptions{opts = {max = &quot;50&quot;, thumbsize = &quot;19&quot;}},
+    gui.Scrollbar{
+        w = 0.5, h = 3,
+        orientation = &quot;vertical&quot;,
+        name = &quot;my_scrollbar&quot;,
+    },
+}
+</code></pre>
+<h3 id="guiscrollbar"><code>gui.Scrollbar</code></h3>
+<p>A slider that the player can drag. <code>ctx.form[name]</code> is its position, a whole
+number from <code>min</code> to <code>max</code> (by default <code>0</code> to <code>1000</code>, change them with
+<a href="#guiscrollbaroptions"><code>gui.ScrollbarOptions</code></a> before the scrollbar). <code>value</code>
+is the position it starts at, and <code>orientation</code> is <code>"vertical"</code> or
+<code>"horizontal"</code>. Use it with a <code>gui.ScrollContainer</code>, or by itself as a slider.</p>
+<p><code>scrollbar_bg</code>, <code>slider</code>, <code>arrow_up</code>, and <code>arrow_down</code> are textures that
+replace the parts of the scrollbar. They are not described in the Luanti
+documentation and may be ignored.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-lua">gui.Scrollbar{
+    w = 1,
+    h = 2,
+
+    -- &quot;vertical&quot; or &quot;horizontal&quot;.
+    orientation = &quot;vertical&quot;,
+    name = &quot;my_scrollbar&quot;, -- Optional
+
+    -- Starting position.
+    value = 3, -- Optional
+
+    -- Texture. Optional, see above.
+    scrollbar_bg = &quot;texture.png&quot;, -- Optional
+
+    -- Texture. Optional, see above.
+    slider = &quot;texture.png&quot;, -- Optional
+
+    -- Texture. Optional, see above.
+    arrow_up = &quot;texture.png&quot;, -- Optional
+
+    -- Texture. Optional, see above.
+    arrow_down = &quot;texture.png&quot;, -- Optional
+}
+</code></pre>
+<h3 id="guiscrollbaroptions"><code>gui.ScrollbarOptions</code></h3>
+<p>Sets the options of the <code>gui.Scrollbar</code> elements that come after it. It is
+invisible and takes up no space. <code>opts</code> is a table with any of these options,
+all values are strings that contain whole numbers (except <code>arrows</code>):</p>
+<ul>
+<li><code>min</code>: The smallest value (default <code>0</code>).</li>
+<li><code>max</code>: The largest value (default <code>1000</code>). If it is the same as <code>min</code>, the
+   scrollbar is disabled.</li>
+<li><code>smallstep</code>: How much the value changes when an arrow is clicked or the
+   mouse wheel is scrolled (default <code>10</code>). A negative number resets it to <code>10</code>.</li>
+<li><code>largestep</code>: How much the value changes for Page Up and Page Down (default
+   <code>100</code>). A negative number resets it to <code>100</code>.</li>
+<li><code>thumbsize</code>: The size of the thumb (the part that is dragged), counted in
+   values out of the range of the scrollbar. For a scrollbar from 1 to 100, a
+   <code>thumbsize</code> of <code>10</code> makes the thumb a tenth of the scrollbar long. If it is
+   zero or less, it is reset to <code>1</code>.</li>
+<li><code>arrows</code>: <code>"show"</code> or <code>"hide"</code> the arrow buttons. <code>"default"</code> hides them if
+   the scrollbar gets too small, and shows them otherwise.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-lua">gui.ScrollbarOptions{
+    opts = {min = &quot;0&quot;, max = &quot;100&quot;, smallstep = &quot;5&quot;, arrows = &quot;hide&quot;},
+}
+</code></pre>
+<h3 id="guisetfocus"><code>gui.SetFocus</code></h3>
+<p>Gives keyboard focus to the element with this <code>name</code>. Put it before that
+element. Normally the focus is not changed when the form is shown again (for
+example by <code>form:update()</code>), so that the focus the player chose is kept. Set
+<code>force</code> to <code>true</code> to move the focus every time.</p>
+<p>Checkboxes, buttons (of all kinds), tables, text lists, dropdowns, fields,
+password fields, text areas, and scrollbars can be focused.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-lua">gui.SetFocus{
+    -- Name of the element to focus.
+    name = &quot;my_set_focus&quot;,
+
+    -- Move the focus every time. Default false.
+    force = false, -- Optional
+}
+</code></pre>
+<h3 id="guistyle"><code>gui.Style</code></h3>
+<p>Sets style properties of elements by their <code>name</code>. See
+<a href="../styling/#separate-style-elements">Styling</a>. It is invisible and takes up no
+space.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-lua">gui.Style{
+    selectors = {&quot;my_button&quot;},
+    props = {bgcolor = &quot;red&quot;, textcolor = &quot;yellow&quot;},
+}
+</code></pre>
+<h3 id="guistyletype"><code>gui.StyleType</code></h3>
+<p>Sets style properties of every element of a type. See
+<a href="../styling/#separate-style-elements">Styling</a>. It is invisible and takes up no
+space.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-lua">gui.StyleType{
+    selectors = {&quot;button&quot;, &quot;image_button&quot;},
+    props = {textcolor = &quot;yellow&quot;},
+}
+</code></pre>
+<h3 id="guitabheader"><code>gui.Tabheader</code></h3>
+<p>A row of tabs. <code>captions</code> is the text of each tab, <code>ctx.form[name]</code> is the
+number of the selected tab (the first tab is <code>1</code>), and <code>current_tab</code> is the tab
+that is selected at first. Showing the right contents for the selected tab is
+up to you, usually by reading <code>ctx.form[name]</code> in your build function.</p>
+<p>Give it both a <code>w</code> and an <code>h</code>: flow cannot work out how much space it needs.
+If <code>transparent</code> is <code>true</code> the tabs are semi-transparent, and <code>draw_border</code>
+draws a thin line along the bottom of the tabs.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-lua">gui.Tabheader{
+    h = 1,
+    name = &quot;my_tabheader&quot;, -- Optional
+
+    -- Text of each tab.
+    captions = {&quot;Hello world!&quot;, ...},
+
+    -- Tab selected at first, the first is 1.
+    current_tab = 2, -- Optional
+
+    -- Draw semi-transparent. Default false.
+    transparent = false, -- Optional
+
+    -- Draw a line along the tabs. Default false.
+    draw_border = false, -- Optional
+    w = 3,
+}
+</code></pre>
+<h3 id="guitable"><code>gui.Table</code></h3>
+<p>A table with rows and columns that scrolls if it has too many rows. The
+player can select one row, and <code>ctx.form[name]</code> is the number of the
+selected row (the first row is <code>1</code>). <code>selected_idx</code> is the row that is
+selected at first.</p>
+<p><code>cells</code> is one flat list with the text of every cell, going left to right
+along each row and then down to the next row. The number of columns comes
+from <a href="#guitablecolumns"><code>gui.TableColumns</code></a> (the default is one text column).
+Put <code>gui.TableColumns</code> and <a href="#guitableoptions"><code>gui.TableOptions</code></a> before the
+table, as they only affect the table that comes after them. They do not take
+up any space.</p>
+<p>Tables have no natural size, so you must give them a <code>w</code> and <code>h</code>.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-lua">gui.Table{
+    w = 1,
+    h = 2,
+    name = &quot;my_table&quot;, -- Optional
+
+    -- Text of every cell, row by row.
+    cells = {&quot;Hello world!&quot;, ...},
+
+    -- Row selected at first, the first row is 1.
+    selected_idx = 3, -- Optional
+}
+</code></pre>
+<p><strong>Example with columns and options</strong></p>
+<pre><code class="language-lua">gui.VBox{
+    gui.TableColumns{
+        tablecolumns = {
+            {type = &quot;text&quot;, opts = {width = &quot;8&quot;}},
+            {type = &quot;text&quot;, opts = {align = &quot;right&quot;}},
+        },
+    },
+    gui.TableOptions{
+        opts = {highlight = &quot;#335577&quot;},
+    },
+    gui.Table{
+        w = 10, h = 4,
+        name = &quot;scores&quot;,
+        cells = {
+            &quot;Alice&quot;, &quot;10&quot;,
+            &quot;Bob&quot;, &quot;7&quot;,
+        },
+    },
+}
+</code></pre>
+<h3 id="guitablecolumns"><code>gui.TableColumns</code></h3>
+<p>Sets the columns of the <code>gui.Table</code> that follows it. <code>tablecolumns</code> is a list
+with one <code>{type = ..., opts = {...}}</code> entry for each column, from left to
+right. <code>type</code> is one of:</p>
+<ul>
+<li><code>"text"</code>: Show the cell contents as text.</li>
+<li><code>"image"</code>: The cell contents are a number that picks an image, which you
+   set with the options <code>["0"] = "texture.png"</code>, <code>["1"] = "other.png"</code>, and
+   so on (the numbers do not have to be consecutive). Empty cells and cells
+   that are not numbers use image <code>0</code>. Images are scaled down to fit the
+   height of the row if necessary.</li>
+<li><code>"color"</code>: The cell contents are a color that is used for the text of the
+   next column(s). Use the <code>span</code> option to set how many columns it
+   affects (default: all remaining columns).</li>
+<li><code>"indent"</code>: The cell contents are a number that sets how far the next
+   column is indented.</li>
+<li><code>"tree"</code>: Like <code>"indent"</code>, but the player can open and close the
+   indented rows, like in a file browser.</li>
+</ul>
+<p><code>opts</code> is a table of options, all values are strings:</p>
+<ul>
+<li><code>align</code>: For text and image columns, where the content goes in the
+   cell: <code>"left"</code> (default), <code>"center"</code>, <code>"right"</code>, or <code>"inline"</code>.</li>
+<li><code>width</code>: For text and image columns, the minimum width, in "em" units
+   (relative to the font size, default <code>0</code>). For indent and tree
+   columns, how far each level is indented (default <code>1.5</code>).</li>
+<li><code>padding</code>: Space to the left of the column, in "em" units (default <code>0.5</code>,
+   or <code>0</code> for indent columns).</li>
+<li><code>tooltip</code>: Text to show when hovering over the column.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-lua">gui.TableColumns{
+    tablecolumns = {
+        {type = &quot;text&quot;, opts = {width = &quot;8&quot;}},
+        {type = &quot;text&quot;, opts = {align = &quot;right&quot;}},
+    },
+}
+</code></pre>
+<h3 id="guitableoptions"><code>gui.TableOptions</code></h3>
+<p>Sets the appearance of the <code>gui.Table</code> that follows it. <code>opts</code> is a table
+with any of these options, all values are strings:</p>
+<ul>
+<li><code>color</code>: Default text color (default <code>"#FFFFFF"</code>).</li>
+<li><code>background</code>: Background color of the table (default <code>"#000000"</code>).</li>
+<li><code>border</code>: <code>"true"</code> or <code>"false"</code>, whether to draw a border (default
+   <code>"true"</code>).</li>
+<li><code>highlight</code>: Background color of the selected row (default <code>"#466432"</code>).</li>
+<li><code>highlight_text</code>: Text color of the selected row (default <code>"#FFFFFF"</code>).</li>
+<li><code>opendepth</code>: How many levels of <code>"tree"</code> column rows are open at first.
+   Rows deeper than this are collapsed (default <code>"0"</code>).</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="language-lua">gui.TableOptions{
+    opts = {
+        background = &quot;#222222&quot;,
+        highlight = &quot;#335577&quot;,
+        border = &quot;false&quot;,
+    },
+}
+</code></pre>
+<h3 id="guitextarea"><code>gui.Textarea</code></h3>
+<p>A multi-line text box. Long lines are wrapped to fit the width, and a
+scrollbar is added if the text is too tall. <code>label</code>, if set, is shown above
+the box and <code>default</code> is the text it starts with. <code>ctx.form[name]</code> is the
+text in the box, including its newlines.</p>
+<p>If you leave out <code>name</code>, the text cannot be edited and no box is drawn,
+which makes it a label that wraps text and scrolls. Because it wraps, you
+should set a <code>w</code> and <code>h</code> for this.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-lua">gui.Textarea{
+    w = 1, -- Optional
+    h = 2, -- Optional
+    name = &quot;my_textarea&quot;, -- Optional
+    label = &quot;Hello world!&quot;, -- Optional
+
+    -- Text the box starts with.
+    default = &quot;Hello world!&quot;, -- Optional
+}
+</code></pre>
+<h3 id="guitextlist"><code>gui.Textlist</code></h3>
+<p>A list of text rows that scrolls if there are too many to fit. The player can
+select a row, and <code>ctx.form[name]</code> is the number of the selected row (the
+first row is <code>1</code>). <code>selected_idx</code> is the row that is selected at first.</p>
+<p><code>listelems</code> is the text of each row. To color a row, start it with
+<code>#RRGGBB</code> (six hexadecimal digits). To start a row with a literal <code>#</code>,
+write <code>##</code>. If <code>transparent</code> is <code>true</code>, no background is drawn behind the
+list.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-lua">gui.Textlist{
+    w = 1, -- Optional
+    h = 2, -- Optional
+    name = &quot;my_textlist&quot;, -- Optional
+
+    -- Text of each row.
+    listelems = {&quot;Hello world!&quot;, ...},
+
+    -- Row selected at first, the first row is 1.
+    selected_idx = 3, -- Optional
+
+    -- Do not draw a background. Default false.
+    transparent = false, -- Optional
+}
+</code></pre>
+<h3 id="guitooltip"><code>gui.Tooltip</code></h3>
+<p>Sets the text that is shown when the player hovers over another element, and
+optionally the colors of that tooltip. <code>gui_element_name</code> is the <code>name</code> of
+that element. Put the tooltip after the element it belongs to. It is
+invisible and does not take up any space.</p>
+<p>If you only need to add some text, use the <code>tooltip</code> parameter on the element
+itself, see <a href="../tooltips/">Tooltips</a>.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-lua">gui.Tooltip{
+    -- Text to show.
+    tooltip_text = &quot;Hello world!&quot;,
+
+    -- Background color of the tooltip.
+    bgcolor = &quot;#FF0000&quot;, -- Optional
+
+    -- Text color of the tooltip.
+    fontcolor = &quot;#FF0000&quot;, -- Optional
+
+    -- Name of the element to attach to.
+    gui_element_name = &quot;my_button&quot;,
+}
+</code></pre>
+<h3 id="guivertlabel"><code>gui.Vertlabel</code></h3>
+<p>Shows text vertically, with one letter below the other, from top to bottom.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-lua">gui.Vertlabel{
+    label = &quot;Hello world!&quot;,
+}
+</code></pre>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../layout-elements/" class="btn btn-neutral float-left" title="Layouting elements"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../hypertext/" class="btn btn-neutral float-right" title="Hypertext markup">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../layout-elements/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../hypertext/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../playground-links.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Hypertext markup - Flow Unofficial</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Hypertext markup";
+        var mkdocs_page_input_path = "hypertext.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Flow Unofficial
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Introduction</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../getting-started/">Getting started</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Elements/widgets</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../layout-elements/">Layouting elements</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../elements/">All other elements</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Hypertext markup</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#syntax">Syntax</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#basic-tags">Basic tags</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#style-color-font-sizestyle">&lt;style color=... font=... size=...&gt;...&lt;/style&gt;</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#global">&lt;global ...&gt;</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#tag-name-color-hovercolor-font-size">&lt;tag name=... color=... hovercolor=... font=... size=...&gt;</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#layout-tags">Layout tags</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#links">Links</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#action-nameaction">&lt;action name=...&gt;...&lt;/action&gt;</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#pictures">Pictures</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#img-name-float-width-height">&lt;img name=... float=... width=... height=...&gt;</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#item-name-float-width-height-rotate-angle">&lt;item name=... float=... width=... height=... rotate=... angle=...&gt;</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Other features</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../not-supported/">Features flow does not have</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../styling/">Styling forms</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../padding/">Padding, spacing, and backgrounds</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../tooltips/">Tooltips</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../hiding-elements/">Hiding elements</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../inventory/">Using a form as an inventory</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../manual-positioning/">Manual positioning</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../experimental/">Experimental features</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../popovers/">Popovers (highly experimental)</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Development tools</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="" href="https://content.luanti.org/packages/luk3yx/flow_inspector/">Flow Inspector</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="https://luk3yx.gitlab.io/minetest-flow-playground/">Flow Playground / Tutorial</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="https://content.luanti.org/packages/luk3yx/snippets/">Snippets</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Flow Unofficial</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Elements/widgets</li>
+      <li class="breadcrumb-item active">Hypertext markup</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="hypertext-markup">Hypertext markup</h1>
+<p><a href="../elements/#guihypertext"><code>gui.Hypertext</code></a> shows text that is written in a
+small markup language with tags that look like HTML tags. It can be used to
+make text bold, coloured, bigger, or centred, to add pictures, and to add
+clickable links.</p>
+<p><strong>Warning:</strong> The markup language is currently unstable and may change. Use it
+with caution. Flow passes the text to Luanti without looking at it, so
+everything on this page is handled by the player's Luanti client, not by flow.</p>
+<pre><code class="language-lua">gui.Hypertext{
+    w = 8, h = 3,
+    text = &quot;&lt;center&gt;&lt;big&gt;Welcome!&lt;/big&gt;&lt;/center&gt;&quot; ..
+        &quot;This is &lt;b&gt;bold&lt;/b&gt;, &lt;i&gt;italic&lt;/i&gt;, and &quot; ..
+        &quot;&lt;style color='red'&gt;red&lt;/style&gt; text.&quot;,
+}
+</code></pre>
+<p><strong>What flow does not have:</strong> the markup can only be used in <code>gui.Hypertext</code>.
+Luanti can also show it in a tooltip (<code>hypertip[]</code>), but flow has no element
+for that, see <a href="../not-supported/">Features flow does not have</a>. Colors in
+the markup are written like colors everywhere else, see
+<a href="../elements/#colors">Colors</a>.</p>
+<h2 id="syntax">Syntax</h2>
+<p>Some tags enclose text: they open with <code>&lt;tagname&gt;</code> and close with
+<code>&lt;/tagname&gt;</code>. Tags can have attributes, which are written in the opening tag as
+<code>key=value</code>. Attribute values should be quoted with either <code>"</code> or <code>'</code>. Inside a
+Lua string that is already in double quotes, use single quotes, as in
+<code>&lt;style color='red'&gt;</code>.</p>
+<p>To write a literal <code>&lt;</code>, <code>&gt;</code>, or <code>\</code> in the text, put a backslash before it. In
+a quoted attribute value, put a backslash before a literal quote mark. In Lua
+code, each backslash has to be written twice (<code>"\\&lt;"</code>), or you can use a long
+string (<code>[[\&lt;]]</code>).</p>
+<h2 id="basic-tags">Basic tags</h2>
+<h3 id="style-color-font-sizestyle"><code>&lt;style color=... font=... size=...&gt;...&lt;/style&gt;</code></h3>
+<p>Changes the style of the text inside it.</p>
+<ul>
+<li><code>color</code>: Text color.</li>
+<li><code>size</code>: Text size.</li>
+<li><code>font</code>: Text font, <code>mono</code> or <code>normal</code>.</li>
+</ul>
+<h3 id="global"><code>&lt;global ...&gt;</code></h3>
+<p>Sets the style of the whole text. You only need to use it once. If you put
+several in the text, their changes are made in the order the tags appear.</p>
+<p>Attributes that only apply to the whole text:</p>
+<ul>
+<li><code>background</code>: Background of the text, a color or <code>none</code>.</li>
+<li><code>margin</code>: Space around the edge of the text, in pixels.</li>
+<li><code>valign</code>: Vertical alignment of the text: <code>top</code>, <code>middle</code>, or <code>bottom</code>.</li>
+</ul>
+<p>Attributes that are inherited by everything inside the text:</p>
+<ul>
+<li><code>color</code>: Default text color.</li>
+<li><code>hovercolor</code>: Color of <code>&lt;action&gt;</code> links while the mouse is over them.</li>
+<li><code>size</code>: Default text size.</li>
+<li><code>font</code>: Default font, <code>mono</code> or <code>normal</code>.</li>
+<li><code>halign</code>: Default horizontal alignment: <code>left</code>, <code>right</code>, <code>center</code>, or
+   <code>justify</code>.</li>
+</ul>
+<h3 id="tag-name-color-hovercolor-font-size"><code>&lt;tag name=... color=... hovercolor=... font=... size=...&gt;</code></h3>
+<p>Defines a new tag, or changes the style of an existing one.</p>
+<ul>
+<li><code>name</code>: The name of the tag to define or change.</li>
+<li><code>color</code>: Text color.</li>
+<li><code>hovercolor</code>: Text color while the mouse is over it (only for <code>action</code>
+   tags).</li>
+<li><code>size</code>: Text size.</li>
+<li><code>font</code>: Text font, <code>mono</code> or <code>normal</code>.</li>
+</ul>
+<h2 id="layout-tags">Layout tags</h2>
+<p>These tags are always available. You can add more with <code>&lt;tag ...&gt;</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Tag</th>
+<th>Effect</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;normal&gt;...&lt;/normal&gt;</code></td>
+<td>Normal size text</td>
+</tr>
+<tr>
+<td><code>&lt;big&gt;...&lt;/big&gt;</code></td>
+<td>Big text</td>
+</tr>
+<tr>
+<td><code>&lt;bigger&gt;...&lt;/bigger&gt;</code></td>
+<td>Bigger text</td>
+</tr>
+<tr>
+<td><code>&lt;center&gt;...&lt;/center&gt;</code></td>
+<td>Centred text</td>
+</tr>
+<tr>
+<td><code>&lt;left&gt;...&lt;/left&gt;</code></td>
+<td>Left-aligned text</td>
+</tr>
+<tr>
+<td><code>&lt;right&gt;...&lt;/right&gt;</code></td>
+<td>Right-aligned text</td>
+</tr>
+<tr>
+<td><code>&lt;justify&gt;...&lt;/justify&gt;</code></td>
+<td>Justified text</td>
+</tr>
+<tr>
+<td><code>&lt;mono&gt;...&lt;/mono&gt;</code></td>
+<td>Monospaced font</td>
+</tr>
+<tr>
+<td><code>&lt;b&gt;...&lt;/b&gt;</code>, <code>&lt;i&gt;...&lt;/i&gt;</code>, <code>&lt;u&gt;...&lt;/u&gt;</code></td>
+<td>Bold, italic, and underlined text</td>
+</tr>
+</tbody>
+</table>
+<h2 id="links">Links</h2>
+<h3 id="action-nameaction"><code>&lt;action name=...&gt;...&lt;/action&gt;</code></h3>
+<p>Makes the text inside it clickable. <code>name</code> is required. An optional <code>url</code>
+attribute is a web address to open when the text is clicked.</p>
+<p>When the player clicks it, the form is sent to the server and the value of the
+<code>gui.Hypertext</code> element is <code>"action:"</code> followed by the action name. In flow,
+give the element a <code>name</code> and an <code>on_event</code> function, and read the value from
+<code>ctx.form</code>. This is experimental and may change.</p>
+<pre><code class="language-lua">gui.Hypertext{
+    w = 6, h = 1,
+    name = &quot;help&quot;,
+    text = &quot;Read the &lt;action name='rules'&gt;rules&lt;/action&gt;.&quot;,
+    on_event = function(player, ctx)
+        if ctx.form.help == &quot;action:rules&quot; then
+            core.chat_send_player(player:get_player_name(), &quot;No rules!&quot;)
+        end
+    end,
+}
+</code></pre>
+<h2 id="pictures">Pictures</h2>
+<h3 id="img-name-float-width-height"><code>&lt;img name=... float=... width=... height=...&gt;</code></h3>
+<p>Draws a texture that is in the client's media cache.</p>
+<ul>
+<li><code>name</code>: The name of the texture (required).</li>
+<li><code>float</code>: If present, the picture floats to the <code>left</code> or <code>right</code> and the
+   text flows around it.</li>
+<li><code>width</code>, <code>height</code>: Force a size instead of using the size of the texture. If
+   you only give one of them, the shape of the texture is kept.</li>
+</ul>
+<h3 id="item-name-float-width-height-rotate-angle"><code>&lt;item name=... float=... width=... height=... rotate=... angle=...&gt;</code></h3>
+<p>Draws the inventory picture of an item.</p>
+<ul>
+<li><code>name</code>: The item name (required), such as <code>default:dirt</code>.</li>
+<li><code>float</code>, <code>width</code>, <code>height</code>: Like for <code>&lt;img&gt;</code>.</li>
+<li><code>rotate</code>: Make the item turn. Either <code>yes</code> or <code>X,Y,Z</code>, the rotation speeds
+   around each axis as percentages of the standard speed (-1000 to 1000).</li>
+<li><code>angle</code>: The angle the item is shown at, as <code>X,Y,Z</code>, the angles around each
+   of the three axes.</li>
+</ul>
+<p><code>rotate</code> and <code>angle</code> only work if the player has the <code>inventory_items_animations</code>
+setting turned on.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../elements/" class="btn btn-neutral float-left" title="All other elements"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../not-supported/" class="btn btn-neutral float-right" title="Features flow does not have">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../elements/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../not-supported/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../playground-links.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

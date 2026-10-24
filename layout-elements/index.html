@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Layouting elements - Flow Unofficial</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Layouting elements";
+        var mkdocs_page_input_path = "layout-elements.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Flow Unofficial
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Introduction</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../getting-started/">Getting started</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Elements/widgets</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Layouting elements</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#guivbox">gui.VBox</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#guihbox">gui.HBox</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#guiscrollablevbox">gui.ScrollableVBox</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#guispacer">gui.Spacer</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#guinil">gui.Nil</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#guistack">gui.Stack</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#example">Example</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#guipaginatedvbox">gui.PaginatedVBox</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#guipadding-deprecated">gui.Padding (deprecated)</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../elements/">All other elements</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../hypertext/">Hypertext markup</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Other features</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../not-supported/">Features flow does not have</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../styling/">Styling forms</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../padding/">Padding, spacing, and backgrounds</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../tooltips/">Tooltips</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../hiding-elements/">Hiding elements</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../inventory/">Using a form as an inventory</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../manual-positioning/">Manual positioning</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../experimental/">Experimental features</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../popovers/">Popovers (highly experimental)</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Development tools</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="" href="https://content.luanti.org/packages/luk3yx/flow_inspector/">Flow Inspector</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="https://luk3yx.gitlab.io/minetest-flow-playground/">Flow Playground / Tutorial</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="https://content.luanti.org/packages/luk3yx/snippets/">Snippets</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Flow Unofficial</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Elements/widgets</li>
+      <li class="breadcrumb-item active">Layouting elements</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="layouting-elements">Layouting elements</h1>
+<p>You should do <code>local gui = flow.widgets</code> in your code to improve readability.
+All examples will assume that this line exists.</p>
+<p>These elements control how other elements are arranged. Most of them draw
+nothing themselves: they place the elements inside them, work out how big
+everything is, and share out any spare space. Elements that draw something or
+accept input (labels, buttons, fields, ...) are described in
+<a href="../elements/">Elements</a>. To place elements at exact coordinates instead, see
+<a href="../manual-positioning/">Manual positioning</a>.</p>
+<p><strong>Warning:</strong> The below elements (except <code>gui.Spacer</code>) do not support <code>w</code> and
+<code>h</code> properties and will break in weird ways if you try and use them. Use
+<code>min_w</code> and <code>min_h</code> instead.</p>
+<h2 id="guivbox"><code>gui.VBox</code></h2>
+<p>A vertical box, similar to a VBox in GTK. Elements inside a VBox are stacked
+vertically.</p>
+<pre><code class="language-lua">gui.VBox{
+    -- These elements are documented later on.
+    gui.Label{label=&quot;I am a label!&quot;},
+
+    -- The second label will be positioned underneath the first one.
+    gui.Label{label=&quot;I am a second label!&quot;},
+}
+</code></pre>
+<p>Elements inside boxes have a spacing of 0.2 between them. To change this, you
+can add <code>spacing = &lt;number&gt;</code> to the box definition. For example, <code>spacing = 0</code>
+will remove all spacing between the elements.</p>
+<h2 id="guihbox"><code>gui.HBox</code></h2>
+<p>Like <code>gui.VBox</code> but stacks elements horizontally instead.</p>
+<pre><code class="language-lua">gui.HBox{
+    -- These elements are documented later on.
+    gui.Label{label=&quot;I am a label!&quot;},
+
+    -- The second label will be positioned to the right of first one.
+    gui.Label{label=&quot;I am a second label!&quot;},
+
+    -- You can nest HBox and VBox elements
+    gui.VBox{
+        gui.Image{w=1, h=1, texture_name=&quot;default_dirt.png&quot;, align_h=&quot;center&quot;},
+        gui.Label{label=&quot;Dirt&quot;, expand=true, align_h=&quot;center&quot;},
+    }
+}
+</code></pre>
+<h2 id="guiscrollablevbox"><code>gui.ScrollableVBox</code></h2>
+<p>Similar to <code>gui.VBox</code>, but shows its contents in an area of a fixed size
+that the player can scroll, and automatically adds a scrollbar next to it.
+Anything outside the area is hidden until it is scrolled into view. The area is
+<code>w</code> by <code>h</code>, both are optional: the width defaults to the width of the contents
+and the height defaults to the height of the contents, up to a maximum of 5.</p>
+<p>On clients too old to support scrolling areas (before Luanti 5.4), flow shows
+one page of the contents at a time instead, with <code>&lt;</code> and <code>&gt;</code> buttons to change
+page.</p>
+<p>To change how the scrollbar looks, set <code>custom_scrollbar</code> to a table of
+parameters for <a href="../elements/#guiscrollbar"><code>gui.Scrollbar</code></a>, for example
+<code>custom_scrollbar = {w = 0.8}</code> to make it wider.</p>
+<pre><code class="language-lua">gui.ScrollableVBox{
+    -- A name must be provided for ScrollableVBox elements. You don't
+    -- have to use this name anywhere else, it just makes sure flow
+    -- doesn't mix up scrollbar states if one gets removed or if the
+    -- order changes.
+    name = &quot;vbox1&quot;,
+
+    -- Specifying a height is optional but is probably a good idea.
+    -- If you don't specify a height, it will default to
+    -- min(height_of_content, 5).
+    h = 10,
+
+    -- These elements are documented later on.
+    gui.Label{label=&quot;I am a label!&quot;},
+
+    -- The second label will be positioned underneath the first one.
+    gui.Label{label=&quot;I am a second label!&quot;},
+}
+</code></pre>
+<h2 id="guispacer"><code>gui.Spacer</code></h2>
+<p>A "flexible space" element that expands by default. Example usage:</p>
+<pre><code class="language-lua">gui.HBox{
+    -- These buttons will be on the left-hand side of the screen
+    gui.Button{label = &quot;Cancel&quot;},
+    gui.Button{label = &quot;&lt; Back&quot;},
+
+    gui.Spacer{},
+
+    -- These buttons will be on the right-hand side of the screen
+    gui.Button{label = &quot;Next &gt;&quot;},
+    gui.Button{label = &quot;Confirm&quot;},
+}
+</code></pre>
+<p>I advise against using spacers when <code>expand = true</code> and <code>align = ...</code> would
+work just as well since spacers are implemented hackily and won't account for
+some special cases.</p>
+<p>You can replicate the above example without spacers, however the code doesn't
+look as clean:</p>
+<pre><code class="language-lua">gui.HBox{
+    -- These buttons will be on the left-hand side of the screen
+    gui.Button{label = &quot;Cancel&quot;},
+    gui.Button{label = &quot;&lt; Back&quot;, expand = true, align_h = &quot;left&quot;},
+
+    -- These buttons will be on the right-hand side of the screen
+    gui.Button{label = &quot;Next &gt;&quot;},
+    gui.Button{label = &quot;Confirm&quot;},
+}
+</code></pre>
+<p>You should not use spacers to center elements as it creates unnecessary boxes,
+and labels may be slightly off-center (because label widths depend on screen
+size, DPI, etc and this code doesn't trigger the centering hack):</p>
+<pre><code class="language-lua">-- This is bad!
+gui.HBox{
+    gui.Spacer{},
+    gui.Label{label=&quot;I am not properly centered!&quot;},
+    gui.Spacer{},
+}
+</code></pre>
+<p>You should do this instead:</p>
+<pre><code class="language-lua">gui.Label{label=&quot;I am centered!&quot;, align_h = &quot;center&quot;},
+</code></pre>
+<p>This applies to other elements as well, because using HBox and Spacer to center
+elements creates unnecessary containers.</p>
+<h2 id="guinil"><code>gui.Nil</code></h2>
+<p>A tool to allow for ternary-ish conditional widgets:</p>
+<pre><code class="language-lua">local form = flow.make_gui(function(player, ctx)
+    local the_boolean = false
+    return gui.VBox{
+        gui.Label{label = &quot;The box below is only present if the boolean is truthy&quot;},
+        the_boolean and gui.Box{w = 1, h = 1, color = &quot;#FF0000&quot;} or gui.Nil{},
+    }
+end)
+</code></pre>
+<p>Use sparingly, flow still has to process each <code>Nil</code> object to be able to know to
+remove it, and thus could still slow things down. The fastest element is one
+that doesn't exist, and thus doesn't need processing.</p>
+<h2 id="guistack"><code>gui.Stack</code></h2>
+<p>This container element places its children on top of each other. All child
+elements are expanded in both directions.</p>
+<p>Note that some elements (such as centred labels) won't pass clicks through to
+the element below them.</p>
+<h3 id="example">Example</h3>
+<pre><code class="language-lua">gui.Stack{
+    min_w = 10,
+    gui.Button{label = &quot;Hello world!&quot;},
+    gui.Image{w = 1, h = 1, texture_name = &quot;air.png&quot;, padding = 0.2, align_h = &quot;left&quot;},
+}
+</code></pre>
+<p><img alt="Screenshot" src="https://user-images.githubusercontent.com/3182651/215946217-3705dbd1-4ec8-4aed-a9eb-381fecb2d8f2.png" /></p>
+<h2 id="guipaginatedvbox"><code>gui.PaginatedVBox</code></h2>
+<p>Like <code>gui.ScrollableVBox</code>, but splits the contents into pages instead of
+scrolling. Only one page is shown at a time, with a <code>&lt;</code> button, a "Page 1 of 3"
+label, and a <code>&gt;</code> button underneath to change page. It needs a unique <code>name</code>,
+and <code>w</code> and <code>h</code> work the same way as for <code>gui.ScrollableVBox</code>. Elements are
+never cut in half: an element that does not fit on a page starts the next one.</p>
+<p><code>gui.ScrollableVBox</code> uses this automatically on clients that cannot scroll.</p>
+<h2 id="guipadding-deprecated"><code>gui.Padding</code> (deprecated)</h2>
+<p>Wraps a single element to add padding around it. It is deprecated and logs a
+warning, use the <code>padding</code> parameter of the element itself instead, see
+<a href="../padding/">Padding</a>.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../getting-started/" class="btn btn-neutral float-left" title="Getting started"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../elements/" class="btn btn-neutral float-right" title="All other elements">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../getting-started/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../elements/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../playground-links.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

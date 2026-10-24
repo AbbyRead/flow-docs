@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Manual positioning - Flow Unofficial</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Manual positioning";
+        var mkdocs_page_input_path = "manual-positioning.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Flow Unofficial
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Introduction</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../getting-started/">Getting started</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Elements/widgets</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../layout-elements/">Layouting elements</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../elements/">All other elements</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../hypertext/">Hypertext markup</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Other features</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../not-supported/">Features flow does not have</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../styling/">Styling forms</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../padding/">Padding, spacing, and backgrounds</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../tooltips/">Tooltips</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../hiding-elements/">Hiding elements</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../inventory/">Using a form as an inventory</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Manual positioning</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#dynamic-element-types">Dynamic element types</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#manual-positioning-of-elements">Manual positioning of elements</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../experimental/">Experimental features</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../popovers/">Popovers (highly experimental)</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Development tools</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="" href="https://content.luanti.org/packages/luk3yx/flow_inspector/">Flow Inspector</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="https://luk3yx.gitlab.io/minetest-flow-playground/">Flow Playground / Tutorial</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="https://content.luanti.org/packages/luk3yx/snippets/">Snippets</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Flow Unofficial</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Other features</li>
+      <li class="breadcrumb-item active">Manual positioning</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="manual-positioning">Manual positioning</h1>
+<h2 id="dynamic-element-types">Dynamic element types</h2>
+<p>This is only recommended for elements inside <code>gui.Container</code> (see below)
+outside of some rare use cases that need it, as it does not support flow's
+layouting elements.</p>
+<p>If you want to generate element types from a variable, you can use
+<code>{type = "label", label = "Hello world!"}</code> instead of
+<code>gui.Label{label="Hello world!"}</code>. The <code>type</code> is the name of the <code>gui</code>
+function in lowercase with underscores between words, for example
+<code>"item_image_button"</code> for <code>gui.ItemImageButton</code>. HBoxes and VBoxes can be created
+this way as well (with <code>type = "hbox"</code> and <code>type = "vbox"</code>), however other
+layouting elements (such as ScrollableVBox and Spacer) won't work correctly.</p>
+<p>An example of this is in <code>example.lua</code>.</p>
+<h2 id="manual-positioning-of-elements">Manual positioning of elements</h2>
+<p>You can use <code>gui.Container</code> elements to contain manually positioned elements.
+Every element inside a container has an <code>x</code> and <code>y</code>, which is the distance of
+its top-left corner from the top-left corner of the container, in the same
+units as <code>w</code> and <code>h</code>. Containers can be nested, in which case the offsets add
+up. If you do not give a <code>w</code> and <code>h</code>, flow uses the smallest size that fits
+all the elements inside.</p>
+<pre><code class="language-lua">gui.VBox{
+    gui.Label{label = &quot;Automatically positioned&quot;},
+    gui.Container{
+        -- You can specify a width and height if you don't want flow to try and
+        -- guess at the size of the container.
+        -- w = 3, h = 2,
+
+        -- You may embed most plain element tables (a `type`, an `x` and `y`,
+        -- and the same parameters as the matching gui function) in a container
+        {type = &quot;box&quot;, x = 0, y = 0, w = 1, h = 1, color = &quot;red&quot;},
+        {type = &quot;box&quot;, x = 0.3, y = 0.3, w = 1, h = 1, color = &quot;green&quot;},
+        {type = &quot;box&quot;, x = 0.6, y = 0.6, w = 1, h = 1, color = &quot;blue&quot;},
+
+        {type = &quot;label&quot;, x = 2, y = 1.1, label = &quot;Manually positioned&quot;}
+    },
+}
+</code></pre>
+<p>Note that you should not nest layouted elements (like <code>gui.VBox</code>) inside
+<code>gui.Container</code>.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../inventory/" class="btn btn-neutral float-left" title="Using a form as an inventory"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../experimental/" class="btn btn-neutral float-right" title="Experimental features">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../inventory/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../experimental/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../playground-links.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
