@@ -1854,9 +1854,9 @@ gui.Label { label = &quot;Hello world!&quot; }
 <li><code>tooltip_bgcolor</code>: Default background color of item tooltips.</li>
 <li><code>tooltip_fontcolor</code>: Default text color of item tooltips.</li>
 </ul>
-<!-- TODO(P3,link): link text "Features flow does not have" does not match the page title "Unsupported Features" (also elements.md, hypertext.md, styling.md x3). -->
+<!-- TODO(P3,link): link text "Unsupported Features" does not match the page title "Unsupported Features" (also elements.md, hypertext.md, styling.md x3). -->
 
-<p>Only the first two are required. To use pictures instead of colors for slots, see <a href="#not-supported">Features flow does not have</a>.</p>
+<p>Only the first two are required. To use pictures instead of colors for slots, see <a href="#not-supported">Unsupported Features</a>.</p>
 <p><strong>Example</strong></p>
 <pre><code class="language-lua">gui.Listcolors {
     -- Slot background color.
@@ -2222,11 +2222,11 @@ gui.Label { label = &quot;Hello world!&quot; }
         &quot;&lt;style color='red'&gt;red&lt;/style&gt; text.&quot;,
 }
 </code></pre>
-<!-- TODO(P3,link): link text "Features flow does not have" does not match the page title "Unsupported Features" (also elements.md, hypertext.md, styling.md x3). -->
+<!-- TODO(P3,link): link text "Unsupported Features" does not match the page title "Unsupported Features" (also elements.md, hypertext.md, styling.md x3). -->
 
 <!-- TODO(P2,clarify): hypertext colors are parsed by the client; confirm color names and alpha forms from elements.md#colors are accepted. -->
 
-<p><strong>What flow does not have:</strong> the markup can only be used in <code>gui.Hypertext</code>. Luanti can also show it in a tooltip (<code>hypertip[]</code>), but flow has no element for that, see <a href="#not-supported">Features flow does not have</a>. Colors in the markup are written like colors everywhere else, see <a href="#elements-colors">Colors</a>.</p>
+<p><strong>What flow does not have:</strong> the markup can only be used in <code>gui.Hypertext</code>. Luanti can also show it in a tooltip (<code>hypertip[]</code>), but flow has no element for that, see <a href="#not-supported">Unsupported Features</a>. Colors in the markup are written like colors everywhere else, see <a href="#elements-colors">Colors</a>.</p>
 <h2 id="hypertext-syntax">Syntax</h2>
 <p>Some tags enclose text: they open with <code>&lt;tagname&gt;</code> and close with <code>&lt;/tagname&gt;</code>. Tags can have attributes, which are written in the opening tag as <code>key=value</code>. Attribute values should be quoted with either <code>"</code> or <code>'</code>. Inside a Lua string that is already in double quotes, use single quotes, as in <code>&lt;style color='red'&gt;</code>.</p>
 <p>To write a literal <code>&lt;</code>, <code>&gt;</code>, or <code>\</code> in the text, put a backslash before it. In a quoted attribute value, put a backslash before a literal quote mark. In Lua code, each backslash has to be written twice (<code>"\\&lt;"</code>), or you can use a long string (<code>[[\&lt;]]</code>).</p>
@@ -2629,9 +2629,9 @@ gui.StyleType {
 </tr>
 </tbody>
 </table>
-<!-- TODO(P3,link): link text "Features flow does not have" does not match the page title "Unsupported Features" (also elements.md, hypertext.md, styling.md x3). -->
+<!-- TODO(P3,link): link text "Unsupported Features" does not match the page title "Unsupported Features" (also elements.md, hypertext.md, styling.md x3). -->
 
-<p>Luanti also lists <code>hypertip</code>, but flow has no element for it, see <a href="#not-supported-missing-elements">Features flow does not have</a>. <code>gui.ItemImage</code> has the <code>item_image</code> type, which only supports <code>noclip</code> (see <a href="#styling-other-elements">Other elements</a>). <code>gui.ImageButtonExit</code> and <code>gui.ButtonURL</code> are not in Luanti's list of types, so give them a <code>name</code> and style them with <code>gui.Style</code> or the inline syntax.</p>
+<p>Luanti also lists <code>hypertip</code>, but flow has no element for it, see <a href="#not-supported-missing-elements">Unsupported Features</a>. <code>gui.ItemImage</code> has the <code>item_image</code> type, which only supports <code>noclip</code> (see <a href="#styling-other-elements">Other elements</a>). <code>gui.ImageButtonExit</code> and <code>gui.ButtonURL</code> are not in Luanti's list of types, so give them a <code>name</code> and style them with <code>gui.Style</code> or the inline syntax.</p>
 <h2 id="styling-property-reference">Property reference</h2>
 <p>Colors are described in <a href="#elements-colors">Elements</a>, and textures are image file names. A "2D vector" is written as a string such as <code>"1,2"</code>. Properties that only list a type of element are not valid on other elements, and an unknown property is ignored.</p>
 <h3 id="styling-all-elements">All elements</h3>
@@ -2760,7 +2760,7 @@ gui.StyleType {
 </tr>
 <tr>
 <td><code>halign</code></td>
-<td>Horizontal alignment of the text: <code>left</code> (default), <code>center</code>, or <code>right</code>. Needs a recent version of Luanti (5.17 or newer), and flow may not be able to use it, see <a href="#not-supported-newer-luanti-features">Features flow does not have</a>.</td>
+<td>Horizontal alignment of the text: <code>left</code> (default), <code>center</code>, or <code>right</code>. Needs a recent version of Luanti (5.17 or newer), and flow may not be able to use it, see <a href="#not-supported-newer-luanti-features">Unsupported Features</a>.</td>
 </tr>
 <tr>
 <td><code>valign</code></td>
@@ -2770,7 +2770,7 @@ gui.StyleType {
 </table>
 <h3 id="styling-labels">Labels</h3>
 <p>For <code>gui.Label</code> and <code>gui.Vertlabel</code>: <code>font</code>, <code>font_size</code>, and <code>textcolor</code>.</p>
-<p>Luanti also has <code>halign</code> and <code>valign</code> for labels, but they only apply to the area label, which flow does not have, so they do nothing here (see <a href="#not-supported-missing-elements">Features flow does not have</a>).</p>
+<p>Luanti also has <code>halign</code> and <code>valign</code> for labels, but they only apply to the area label, which flow does not have, so they do nothing here (see <a href="#not-supported-missing-elements">Unsupported Features</a>).</p>
 <h3 id="styling-lists">Lists</h3>
 <p>For <code>gui.List</code>:</p>
 <table>

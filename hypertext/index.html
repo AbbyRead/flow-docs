@@ -681,9 +681,9 @@
         "&lt;style color='red'&gt;red&lt;/style&gt; text.",
 }
 </code></pre>
-<!-- TODO(P3,link): link text "Features flow does not have" does not match the page title "Unsupported Features" (also elements.md, hypertext.md, styling.md x3). -->
+<!-- TODO(P3,link): link text "Unsupported Features" does not match the page title "Unsupported Features" (also elements.md, hypertext.md, styling.md x3). -->
 <!-- TODO(P2,clarify): hypertext colors are parsed by the client; confirm color names and alpha forms from elements.md#colors are accepted. -->
-<p><strong>What flow does not have:</strong> the markup can only be used in <code>gui.Hypertext</code>. Luanti can also show it in a tooltip (<code>hypertip[]</code>), but flow has no element for that, see <a href="../not-supported/">Features flow does not have</a>. Colors in the markup are written like colors everywhere else, see <a href="../elements/#colors">Colors</a>.</p>
+<p><strong>What flow does not have:</strong> the markup can only be used in <code>gui.Hypertext</code>. Luanti can also show it in a tooltip (<code>hypertip[]</code>), but flow has no element for that, see <a href="../not-supported/">Unsupported Features</a>. Colors in the markup are written like colors everywhere else, see <a href="../elements/#colors">Colors</a>.</p>
 <h2 id="syntax">Syntax</h2>
 <p>Some tags enclose text: they open with <code>&lt;tagname&gt;</code> and close with <code>&lt;/tagname&gt;</code>. Tags can have attributes, which are written in the opening tag as <code>key=value</code>. Attribute values should be quoted with either <code>"</code> or <code>'</code>. Inside a Lua string that is already in double quotes, use single quotes, as in <code>&lt;style color='red'&gt;</code>.</p>
 <p>To write a literal <code>&lt;</code>, <code>&gt;</code>, or <code>\</code> in the text, put a backslash before it. In a quoted attribute value, put a backslash before a literal quote mark. In Lua code, each backslash has to be written twice (<code>"\\&lt;"</code>), or you can use a long string (<code>[[\&lt;]]</code>).</p>
