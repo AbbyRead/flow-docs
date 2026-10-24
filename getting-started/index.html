@@ -125,59 +125,6 @@ each element does.</p>
 <h2 id="basic-example">Basic example</h2>
 <p>See <code>example.lua</code> for a more comprehensive example which demonstrates how
 layouting and alignment works.</p>
-<pre><code class="language-lua">-- GUI elements are accessible with flow.widgets. Using
--- `local gui = flow.widgets` is recommended to reduce typing.
-local gui = flow.widgets
-
--- GUIs are created with flow.make_gui(build_func).
-local my_gui = flow.make_gui(function(player, ctx)
-    -- The build function should return a GUI element such as gui.VBox.
-    -- `ctx` can be used to store context. `ctx.form` is reserved for storing
-    -- the state of elements in the form. For example, you can use
-    -- `ctx.form.my_checkbox` to check whether `my_checkbox` is checked. Note
-    -- that ctx.form.element may be nil instead of its default value.
-
-    -- This function may be called at any time by flow.
-
-    -- gui.VBox is a &quot;container element&quot; added by this mod.
-    return gui.VBox {
-        gui.Label {label = &quot;Here is a dropdown:&quot;},
-        gui.Dropdown {
-            -- The value of this dropdown will be accessible from ctx.form.my_dropdown
-            name = &quot;my_dropdown&quot;,
-            items = {'First item', 'Second item', 'Third item'},
-
-            -- Make ctx.form.my_dropdown the number of the selected item
-            -- instead of its text.
-            index_event = true,
-        },
-        gui.Button {
-            label = &quot;Get dropdown index&quot;,
-            on_event = function(player, ctx)
-                -- flow should guarantee that `ctx.form.my_dropdown` exists, even if the client doesn't send my_dropdown to the server.
-                local selected_idx = ctx.form.my_dropdown
-                core.chat_send_player(player:get_player_name(), &quot;You have selected item #&quot; .. selected_idx .. &quot;!&quot;)
-            end,
-        }
-    }
-end)
-
--- Show the GUI to player as an interactive form
--- Note that `player` is a player object and not a player name.
-my_gui:show(player)
-
--- You can provide an initial value for `ctx` by adding a second parameter to
--- show(). In the below example, `ctx.value` will be &quot;test&quot;.
-my_gui:show(player, {value = &quot;test&quot;})
-
--- Close the form
-my_gui:close(player)
-
--- Alternatively, the GUI can be shown as a non-interactive HUD (requires
--- hud_fs to be installed).
-my_gui:show_hud(player)
-my_gui:close_hud(player)
-</code></pre>
 <pre><code class="language-lua">local gui = flow.widgets -- local recommended for direct referencing
 local STARTING_SELECTION = 3 -- change and rerun to see the difference
 
