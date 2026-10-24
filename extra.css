@@ -30,37 +30,94 @@
 
 /* PDF/print only styles */
 @media print {
+
     /* Title page elements */
-    .pdf-title, h1.title, .print-site-page-title, title {
+    .pdf-title,
+    h1.title,
+    .print-site-page-title,
+    title {
         font-size: 64pt !important;
     }
-    
-    .pdf-subtitle, .print-site-page-subtitle {
+
+    .pdf-subtitle,
+    .print-site-page-subtitle {
         font-size: 48pt !important;
     }
 
     /* Change regular body text font size */
-    body, p, li, span, div {
+    body,
+    p,
+    li,
+    span,
+    div {
         font-size: 10pt !important;
         line-height: 1.5 !important;
     }
 
+    /* Change mkdocs-to-pdf header underlines to gray */
+    article h1,
+    article h2,
+    article h3 {
+        border-bottom-color: #667788 !important;
+    }
+
     /* Headings hierarchy */
-    h1, .md-typeset h1 { font-size: 20pt }
-    h2, .md-typeset h2 { font-size: 16pt }
-    h3, .md-typeset h3 { font-size: 13pt }
-    h4, h5, h6, .md-typeset h4, .md-typeset h5, .md-typeset h6 { font-size: 11.5pt !important; }
+    h1,
+    .md-typeset h1 {
+        font-size: 20pt
+    }
+
+    h2,
+    .md-typeset h2 {
+        font-size: 16pt
+    }
+
+    h3,
+    .md-typeset h3 {
+        font-size: 13pt
+    }
+
+    h4,
+    h5,
+    h6,
+    .md-typeset h4,
+    .md-typeset h5,
+    .md-typeset h6 {
+        font-size: 11.5pt !important;
+    }
 
     /* Title page elements (placed after general h1 rules so !important wins) */
-    .pdf-title, h1.title, .print-site-page-title, title {
+    .pdf-title,
+    h1.title,
+    .print-site-page-title,
+    title {
         font-size: 64pt !important;
     }
 
     /* Heading numbers (child spans/elements) set 2pt smaller */
-    h1 *, .md-typeset h1 * { font-size: 16pt !important; }
-    h2 *, .md-typeset h2 * { font-size: 13pt !important; }
-    h3 *, .md-typeset h3 * { font-size: 11pt !important; }
-    h4 *, h5 *, h6 *, .md-typeset h4 *, .md-typeset h5 *, .md-typeset h6 * { font-size: 9.5pt !important; }
+    h1 *,
+    .md-typeset h1 * {
+        font-size: 16pt !important;
+    }
+
+    h2 *,
+    .md-typeset h2 * {
+        font-size: 13pt !important;
+    }
+
+    h3 *,
+    .md-typeset h3 * {
+        font-size: 11pt !important;
+    }
+
+    h4 *,
+    h5 *,
+    h6 *,
+    .md-typeset h4 *,
+    .md-typeset h5 *,
+    .md-typeset h6 * {
+        font-size: 9.5pt !important;
+    }
 
     /* Table headers and cells */
     table th,
