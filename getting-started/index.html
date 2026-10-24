@@ -178,6 +178,35 @@ my_gui:close(player)
 my_gui:show_hud(player)
 my_gui:close_hud(player)
 </code></pre>
+<pre><code class="language-lua">local gui = flow.widgets -- local recommended for direct referencing
+local STARTING_SELECTION = 3 -- change and rerun to see the difference
+
+local function build_vbox(player_obj, ctx)
+    local selection_str = (&quot;You have selected item #%d!&quot;):format(selected_idx)
+    local player_name = player_obj:get_player_name()
+
+    return gui.VBox {
+        gui.Label {label = &quot;Here is a dropdown:&quot;},
+        gui.Dropdown {
+            name = &quot;cool_dropdown&quot;,
+            items = {'First item', 'Second item', 'Third item'},
+            index_event = true,
+            selected_idx = ctx.value or 1 -- taken from form:show's optional argument
+        },
+        gui.Button {
+            label = &quot;Get dropdown index&quot;,
+            on_event = function(player, ctx)
+                core.chat_send_player(player_name, selection_str)
+            end,
+        }
+    }
+end
+
+local form = flow.make_gui(build_vbox)
+local player_obj = core.get_player_by_name(&quot;playground&quot;)
+
+form:show(player_obj, {value = STARTING_SELECTION})
+</code></pre>
 <h2 id="updating-forms">Updating forms</h2>
 <p>If some data displayed inside a form changes (for example a timer or progress
 indicator), you can use <code>form:update</code> to update the form without resetting
