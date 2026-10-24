@@ -1139,32 +1139,32 @@
             </div>
         </section>
         <section class="print-page" id="index" heading-number="1"><h1 id="index-flow-unofficial-documentation">Flow Unofficial Documentation</h1>
-<p>TODO(P2): reword for slightly more sizzle
-An experimental layout manager and formspec API replacement for Luanti (formerly Minetest).
+<p>Flow is an experimental layout manager and formspec API replacement for Luanti (formerly Minetest): describe the menu, and flow handles the rest.
 Vaguely inspired by Flutter and GTK.</p>
-<p>TODO(P3): reword with subtle snark about formspec (web search complaints and compare to flow api)
-Luanti's built-in way of describing menus (inventories, chests, dialogs, ...) is called a <em>formspec</em>. A formspec is a long string made of elements such as buttons, text fields, and inventory slots, and you have to give every element its exact position and size by hand. Flow lets you describe a menu with Lua tables instead, positions and sizes everything for you, and generates the formspec itself, so you never have to write one.</p>
+<!-- TODO(P4,reword): add subtle snark about formspec (web search complaints and compare to flow api). -->
+
+<p>Luanti's built-in way of describing menus (inventories, chests, dialogs, ...) is called a <em>formspec</em>. A formspec is a long string made of elements such as buttons, text fields, and inventory slots, and you have to give every element its exact position and size by hand. Flow lets you describe a menu with Lua tables instead, positions and sizes everything for you, and generates the formspec itself, so you never have to write one.</p>
 <p><a href="https://luk3yx.gitlab.io/minetest-flow-playground/">Online tutorial/demo</a>
 (<a href="https://gitlab.com/luk3yx/minetest-flow-playground">source</a>)</p>
 <h2 id="index-features">Features</h2>
 <h3 id="index-layouting">Layouting</h3>
 <ul>
-<li>No manual positioning of elements. TODO(P2): make positive</li>
+<li>Place elements without coordinates: flow works out every position for you.</li>
 <li>Automatic layouting using <code>HBox</code> and <code>VBox</code> containers</li>
-<li>Some elements have an automatic size. TODO(P1): which ones? Reword for concise specifics.</li>
-<li>The size of elements can optionally expand to fit larger spaces TODO(P2): reword</li>
+<li>Some elements have an automatic size. <!-- TODO(P2,clarify): list which ones, concisely; elements.md has the answer, link it. --></li>
+<li>Elements can grow to fill spare space when you set <code>expand = true</code>.</li>
 <li>Elements which get their size based on their label length automatically become larger/smaller to fit long translations<sup id="fnref:label-size"><a class="footnote-ref" href="#index-fn:label-size">1</a></sup>.</li>
 </ul>
 <h3 id="index-other-features">Other features</h3>
 <ul>
-<li>No form names. Form names are still used internally, however they are
-   hidden from the API. TODO(P2): make into a positive statement</li>
-<li>No having to worry about state. TODO(P2): make into a positive statement</li>
+<li>Form names are handled for you. They are still used internally, however they are
+   hidden from the API.</li>
+<li>Form state is tracked for you.</li>
 <li>Values of fields, scrollbars, checkboxes, etc are remembered when
    redrawing a form and are automatically applied.</li>
 <li>Includes an <a href="https://content.luanti.org/packages/luk3yx/flow_inspector/">inspector mod</a>
    to help with developing and debugging forms.</li>
-<li>Some common security issues with formspec input handling are mitigated. TODO(P1): Clarify with a reference to a section. Add the section if not present.</li>
+<li>Some common security issues with formspec input handling are mitigated. <!-- TODO(P3,link): reference the Security section below. --></li>
 </ul>
 <h2 id="index-limitations">Limitations</h2>
 <ul>
@@ -1172,28 +1172,29 @@ Luanti's built-in way of describing menus (inventories, chests, dialogs, ...) is
    See <a href="#not-supported">Unsupported Features</a> for a list.</li>
 </ul>
 <h2 id="index-security">Security</h2>
-<p>TODO(P1): research the specifics of this and expand to a new page we can simply reference
-Flow ignores potentially malicious formspec input from clients, such as buttons or fields that haven't been shown to the client, out-of-bounds dropdown selections, and newlines in <code>Field</code> elements (where it's impossible to enter a newline without pasting it in).</p>
+<!-- TODO(P3,research): research the specifics and expand into a new page to reference. -->
+
+<p>Flow ignores potentially malicious formspec input from clients, such as buttons or fields that haven't been shown to the client, out-of-bounds dropdown selections, and newlines in <code>Field</code> elements (where it's impossible to enter a newline without pasting it in).</p>
 <h2 id="index-other-documentation">Other Documentation</h2>
 <p>The official documentation is available at <a href="https://luk3yx.gitlab.io/minetest-flow/">https://luk3yx.gitlab.io/minetest-flow/</a>. Some code snippets have a "run" button which will open them in a web-based playground, not all of these will work properly as the playground doesn't support all formspec elements.</p>
 <div class="footnote">
 <hr />
 <ol>
 <li id="index-fn:label-size">
-<p>This isn't perfect, the actual size of labels depends on the client's font, DPI, window size, and formspec-related scaling settings. TODO(P4): research and add a section about getting the sizing perfect for the most common fonts. May need to look up Luanti API and/or source code.&#160;<a class="footnote-backref" href="#index-fnref:label-size" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+<p>This isn't perfect, the actual size of labels depends on the client's font, DPI, window size, and formspec-related scaling settings. <!-- TODO(P4,research): add a section on getting sizing perfect for common fonts (Luanti API/source). -->&#160;<a class="footnote-backref" href="#index-fnref:label-size" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div></section><section class="print-page" id="getting-started" heading-number="2"><h1 id="getting-started-getting-started">Getting started</h1>
-<!-- TODO(link): link gui.VBox to layout-elements.md#guivbox on first mention. -->
+<!-- TODO(P3,link): link gui.VBox to layout-elements.md#guivbox on first mention. -->
 
-<!-- TODO(clarify): "build function" here vs build_func in padding.md; pick one term and define it. -->
+<!-- TODO(P2,clarify): "build function" here vs build_func in padding.md; pick one term and define it. -->
 
 <p>A <em>form</em> is a menu that is shown to a player. It is made of <em>elements</em> (also called widgets), such as labels, buttons, text fields, and inventory slots, which are arranged by layout elements like <code>gui.VBox</code>. You describe a form with a <em>build function</em> that returns the elements, and flow works out the positions and sizes and shows the form for you. See <a href="#elements">Elements</a> for what each element does.</p>
 <h2 id="getting-started-basic-example">Basic example</h2>
-<!-- TODO(link): example.lua has no link or location (also in manual-positioning.md); link it in the flow repo. -->
+<!-- TODO(P2,link): example.lua has no link or location (also in manual-positioning.md); link it in the flow repo. -->
 
 <p>See <code>example.lua</code> for a more comprehensive example which demonstrates how layouting and alignment works.</p>
-<!-- TODO(clarify): "playground" is the web playground player name; tell mod authors to use a real player. Say what the 2nd arg of form:show() is (initial ctx) and define ctx (see elements.md#names-and-values). -->
+<!-- TODO(P1,clarify): "playground" is the web playground player name; tell mod authors to use a real player. Say what the 2nd arg of form:show() is (initial ctx) and define ctx (see elements.md#names-and-values). -->
 
 <pre><code class="language-lua">local gui = flow.widgets -- local recommended for direct referencing
 local STARTING_SELECTION = 3 -- change and rerun to see the difference
@@ -1224,7 +1225,7 @@ local player_obj = core.get_player_by_name(&quot;playground&quot;)
 form:show(player_obj, { value = STARTING_SELECTION }) -- second argument is optional
 </code></pre>
 <h2 id="getting-started-updating-forms">Updating forms</h2>
-<!-- TODO(clarify): prose says form:update but the API is my_gui:update(player) / update_where(); make the names match. -->
+<!-- TODO(P1,clarify): prose says form:update but the API is my_gui:update(player) / update_where(); make the names match. -->
 
 <p>If some data displayed inside a form changes (for example a timer or progress indicator), you can use <code>form:update</code> to update the form without resetting <code>ctx</code> or showing the form again if the player has closed it.</p>
 <p>Luanti has no way to change a form that is already open, so flow has to show the whole form again. Because of this, players may lose text typed into fields that hasn't been sent to the server (which happens when they press a button or Enter) when <code>form:update</code> is called.</p>
@@ -1245,7 +1246,7 @@ end)
 -- Re-shows the form for all players with the form open
 my_gui:update_where(function() return true end)
 </code></pre>
-<!-- TODO(link): link on_event / return true to elements.md#events. -->
+<!-- TODO(P3,link): link on_event / return true to elements.md#events. -->
 
 <p>Inside an <code>on_event</code> handler, you can use <code>return true</code> instead.</p>
 <pre><code class="language-lua">gui.Button {
@@ -1255,7 +1256,7 @@ my_gui:update_where(function() return true end)
     end,
 }
 </code></pre>
-<!-- TODO(link): no page documents show_hud / close_hud; add one and link experimental.md#putting-the-form-somewhere-else-on-the-screen-likely-required-for-most-huds and inventory.md. -->
+<!-- TODO(P2,link): no page documents show_hud / close_hud; add one and link experimental.md#putting-the-form-somewhere-else-on-the-screen-likely-required-for-most-huds and inventory.md. -->
 
 <p>If you're using a form as a HUD, you must call <code>form:show_hud</code> to update it.</p></section>
                     <section class='print-page md-section' id='section-3' heading-number='3'>
@@ -1264,7 +1265,7 @@ my_gui:update_where(function() return true end)
                     <section class="print-page" id="layout-elements" heading-number="3.1"><h1 id="layout-elements-layouting-elements">Layouting elements</h1>
 <p>You should do <code>local gui = flow.widgets</code> in your code to improve readability. All examples will assume that this line exists.</p>
 <p>These elements control how other elements are arranged. Most of them draw nothing themselves: they place the elements inside them, work out how big everything is, and share out any spare space. Elements that draw something or accept input (labels, buttons, fields, ...) are described in <a href="#elements">Elements</a>. To place elements at exact coordinates instead, see <a href="#manual-positioning">Manual positioning</a>.</p>
-<!-- TODO(clarify): contradicts gui.ScrollableVBox and gui.PaginatedVBox below, which take w and h; list which elements accept them. -->
+<!-- TODO(P1,clarify): contradicts gui.ScrollableVBox and gui.PaginatedVBox below, which take w and h; list which elements accept them. -->
 
 <p><strong>Warning:</strong> The below elements (except <code>gui.Spacer</code>) do not support <code>w</code> and <code>h</code> properties and will break in weird ways if you try and use them. Use <code>min_w</code> and <code>min_h</code> instead.</p>
 <h2 id="layout-elements-guivbox"><code>gui.VBox</code></h2>
@@ -1278,7 +1279,7 @@ vertically.</p>
     gui.Label { label = &quot;I am a second label!&quot; },
 }
 </code></pre>
-<!-- TODO(link): spacing is also described in padding.md; cross-link. -->
+<!-- TODO(P3,link): spacing is also described in padding.md; cross-link. -->
 
 <p>Elements inside boxes have a spacing of 0.2 between them. To change this, you can add <code>spacing = &lt;number&gt;</code> to the box definition. For example, <code>spacing = 0</code> will remove all spacing between the elements.</p>
 <h2 id="layout-elements-guihbox"><code>gui.HBox</code></h2>
@@ -1334,7 +1335,7 @@ vertically.</p>
     gui.Button { label = &quot;Confirm&quot; },
 }
 </code></pre>
-<!-- TODO(clarify): first person is the flow author's voice; reword for an unofficial doc. "align = ..." should be align_h / align_v (no align parameter exists). -->
+<!-- TODO(P2,clarify): first person is the flow author's voice; reword for an unofficial doc. "align = ..." should be align_h / align_v (no align parameter exists). -->
 
 <p>I advise against using spacers when <code>expand = true</code> and <code>align = ...</code> would work just as well since spacers are implemented hackily and won't account for some special cases.</p>
 <p>You can replicate the above example without spacers, however the code doesn't look as clean:</p>
@@ -1361,7 +1362,7 @@ gui.HBox {
 </code></pre>
 <p>This applies to other elements as well, because using HBox and Spacer to center elements creates unnecessary containers.</p>
 <h2 id="layout-elements-guinil"><code>gui.Nil</code></h2>
-<!-- TODO(link): cross-link hiding-elements.md (visible = false keeps space, gui.Nil removes it). -->
+<!-- TODO(P3,link): cross-link hiding-elements.md (visible = false keeps space, gui.Nil removes it). -->
 
 <p>A tool to allow for ternary-ish conditional widgets:</p>
 <pre><code class="language-lua">local form = flow.make_gui(function(player, ctx)
@@ -1383,13 +1384,13 @@ end)
     gui.Image { w = 1, h = 1, texture_name = &quot;air.png&quot;, padding = 0.2, align_h = &quot;left&quot; },
 }
 </code></pre>
-<!-- TODO(clarify): screenshot is hotlinked from user-images.githubusercontent.com; copy it into docs/ so it cannot break. -->
+<!-- TODO(P2,clarify): screenshot is hotlinked from user-images.githubusercontent.com; copy it into docs/ so it cannot break. -->
 
 <p><img alt="Screenshot" src="https://user-images.githubusercontent.com/3182651/215946217-3705dbd1-4ec8-4aed-a9eb-381fecb2d8f2.png" /></p>
 <h2 id="layout-elements-guipaginatedvbox"><code>gui.PaginatedVBox</code></h2>
 <p>Like <code>gui.ScrollableVBox</code>, but splits the contents into pages instead of scrolling. Only one page is shown at a time, with a <code>&lt;</code> button, a "Page 1 of 3" label, and a <code>&gt;</code> button underneath to change page. It needs a unique <code>name</code>, and <code>w</code> and <code>h</code> work the same way as for <code>gui.ScrollableVBox</code>. Elements are never cut in half: an element that does not fit on a page starts the next one.</p>
 <p><code>gui.ScrollableVBox</code> uses this automatically on clients that cannot scroll.</p>
-<!-- TODO(link): gui.Flow (experimental.md#guiflow-container) is missing from this page; add an entry. -->
+<!-- TODO(P2,link): gui.Flow (experimental.md#guiflow-container) is missing from this page; add an entry. -->
 
 <h2 id="layout-elements-guipadding-deprecated"><code>gui.Padding</code> (deprecated)</h2>
 <p>Wraps a single element to add padding around it. It is deprecated and logs a warning, use the <code>padding</code> parameter of the element itself instead, see <a href="#padding">Padding</a>.</p></section><section class="print-page" id="elements" heading-number="3.2"><h1 id="elements-elements">Elements</h1>
@@ -1399,18 +1400,18 @@ end)
 
 gui.Label { label = &quot;Hello world!&quot; }
 </code></pre>
-<!-- TODO(clarify): say what generates them; hand edits (including spacing) may be overwritten. Placeholder values mislead: url = "Hello world!" (ButtonURL, ButtonUrlExit), frame_duration = 4, item_name / inventory_location / mesh = "Hello world!"; Tabheader lists w last. -->
+<!-- TODO(P1,clarify): say what generates them; hand edits (including spacing) may be overwritten. Placeholder values mislead: url = "Hello world!" (ButtonURL, ButtonUrlExit), frame_duration = 4, item_name / inventory_location / mesh = "Hello world!"; Tabheader lists w last. -->
 
 <p>The parameter lists below are generated automatically. Parameters marked <code>-- Optional</code> can be left out.</p>
 <h2 id="elements-concepts-used-on-this-page">Concepts used on this page</h2>
 <h3 id="elements-sizes">Sizes</h3>
 <p>Sizes are measured in inventory slots: <code>1</code> is the width and height of one item slot. There is no hidden padding or spacing, so two boxes that are <code>1</code> wide and placed next to each other with <code>spacing = 0</code> touch. You never give an element a position, boxes place their children and flow works out the total size of the form.</p>
-<!-- TODO(link): link to the label-size footnote in index.md (index.md#fn:label-size). -->
+<!-- TODO(P3,link): link to the label-size footnote in index.md (index.md#fn:label-size). -->
 
 <p>Elements that show text, such as labels, buttons, and fields, are sized to fit their text unless you give them a <code>w</code> and <code>h</code>. Elements that show something without a natural size, such as images, boxes, models, and tables, need an explicit <code>w</code> and <code>h</code> (their parameter lists below do not say <code>-- Optional</code>). Flow can only estimate the width of text because the real width depends on the player's font, screen size, and scaling settings, so avoid layouts that rely on exact text widths.</p>
 <h3 id="elements-names-and-values">Names and values</h3>
 <p>Many elements take a <code>name</code>. Input elements (fields, checkboxes, dropdowns, lists of text, tables, ...) with a <code>name</code> have their current value stored in <code>ctx.form[name]</code> and flow remembers it when the form is redrawn:</p>
-<!-- TODO(clarify): table is incomplete: gui.Scrollbar (number), gui.Tabheader (tab number) and gui.Hypertext (action string) also store values. -->
+<!-- TODO(P2,clarify): table is incomplete: gui.Scrollbar (number), gui.Tabheader (tab number) and gui.Hypertext (action string) also store values. -->
 
 <table>
 <thead>
@@ -1439,7 +1440,7 @@ gui.Label { label = &quot;Hello world!&quot; }
 </tbody>
 </table>
 <p>Until the player changes something, the value is the element's initial value (<code>default</code>, <code>selected</code>, <code>selected_idx</code>), or <code>""</code>, <code>false</code>, or <code>1</code> if you did not give one. Text fields only send their text to the server when the player presses a button or Enter, so <code>ctx.form</code> can be out of date until then.</p>
-<!-- TODO(link): this auto-redraw rule is not in getting-started.md#updating-forms; document it there and cross-link. -->
+<!-- TODO(P2,link): this auto-redraw rule is not in getting-started.md#updating-forms; document it there and cross-link. -->
 
 <p>If your build function reads <code>ctx.form.some_name</code>, flow redraws the form automatically whenever the player changes that value (unless the element has its own <code>on_event</code>). Buttons do not store a value.</p>
 <h3 id="elements-events">Events</h3>
@@ -1580,7 +1581,7 @@ gui.Label { label = &quot;Hello world!&quot; }
 </code></pre>
 <h3 id="elements-guibox"><code>gui.Box</code></h3>
 <p>Draws a solid rectangle of one color. Boxes have no natural size, so give them a <code>w</code> and <code>h</code>.</p>
-<!-- TODO(clarify): state the actual default alpha for gui.Box colors without one. -->
+<!-- TODO(P2,clarify): state the actual default alpha for gui.Box colors without one. -->
 
 <p>Unlike everywhere else, a hexadecimal color without an alpha value, such as <code>"#FF0000"</code>, is drawn semi-transparent here. Add the alpha value (<code>"#FF0000FF"</code>) to make it opaque.</p>
 <p><strong>Example</strong></p>
@@ -1853,7 +1854,7 @@ gui.Label { label = &quot;Hello world!&quot; }
 <li><code>tooltip_bgcolor</code>: Default background color of item tooltips.</li>
 <li><code>tooltip_fontcolor</code>: Default text color of item tooltips.</li>
 </ul>
-<!-- TODO(link): link text "Features flow does not have" does not match the page title "Unsupported Features" (also elements.md, hypertext.md, styling.md x3). -->
+<!-- TODO(P3,link): link text "Features flow does not have" does not match the page title "Unsupported Features" (also elements.md, hypertext.md, styling.md x3). -->
 
 <p>Only the first two are required. To use pictures instead of colors for slots, see <a href="#not-supported">Features flow does not have</a>.</p>
 <p><strong>Example</strong></p>
@@ -1978,7 +1979,7 @@ gui.Label { label = &quot;Hello world!&quot; }
 </code></pre>
 <h3 id="elements-guiscrollbar"><code>gui.Scrollbar</code></h3>
 <p>A slider that the player can drag. <code>ctx.form[name]</code> is its position, a whole number from <code>min</code> to <code>max</code> (by default <code>0</code> to <code>1000</code>, change them with <a href="#elements-guiscrollbaroptions"><code>gui.ScrollbarOptions</code></a> before the scrollbar). <code>value</code> is the position it starts at, and <code>orientation</code> is <code>"vertical"</code> or <code>"horizontal"</code>. Use it with a <code>gui.ScrollContainer</code>, or by itself as a slider.</p>
-<!-- TODO(clarify): confirm in the Luanti source which versions use these textures. -->
+<!-- TODO(P4,clarify): confirm in the Luanti source which versions use these textures. -->
 
 <p><code>scrollbar_bg</code>, <code>slider</code>, <code>arrow_up</code>, and <code>arrow_down</code> are textures that replace the parts of the scrollbar. They are not described in the Luanti documentation and may be ignored.</p>
 <p><strong>Example</strong></p>
@@ -2211,7 +2212,7 @@ gui.Label { label = &quot;Hello world!&quot; }
 }
 </code></pre></section><section class="print-page" id="hypertext" heading-number="3.3"><h1 id="hypertext-hypertext-markup">Hypertext markup</h1>
 <p><a href="#elements-guihypertext"><code>gui.Hypertext</code></a> shows text that is written in a small markup language with tags that look like HTML tags. It can be used to make text bold, coloured, bigger, or centred, to add pictures, and to add clickable links.</p>
-<!-- TODO(link): link the upstream Luanti hypertext documentation (lua_api.md). -->
+<!-- TODO(P3,link): link the upstream Luanti hypertext documentation (lua_api.md). -->
 
 <p><strong>Warning:</strong> The markup language is currently unstable and may change. Use it with caution. Flow passes the text to Luanti without looking at it, so everything on this page is handled by the player's Luanti client, not by flow.</p>
 <pre><code class="language-lua">gui.Hypertext {
@@ -2221,16 +2222,16 @@ gui.Label { label = &quot;Hello world!&quot; }
         &quot;&lt;style color='red'&gt;red&lt;/style&gt; text.&quot;,
 }
 </code></pre>
-<!-- TODO(link): link text "Features flow does not have" does not match the page title "Unsupported Features" (also elements.md, hypertext.md, styling.md x3). -->
+<!-- TODO(P3,link): link text "Features flow does not have" does not match the page title "Unsupported Features" (also elements.md, hypertext.md, styling.md x3). -->
 
-<!-- TODO(clarify): hypertext colors are parsed by the client; confirm color names and alpha forms from elements.md#colors are accepted. -->
+<!-- TODO(P2,clarify): hypertext colors are parsed by the client; confirm color names and alpha forms from elements.md#colors are accepted. -->
 
 <p><strong>What flow does not have:</strong> the markup can only be used in <code>gui.Hypertext</code>. Luanti can also show it in a tooltip (<code>hypertip[]</code>), but flow has no element for that, see <a href="#not-supported">Features flow does not have</a>. Colors in the markup are written like colors everywhere else, see <a href="#elements-colors">Colors</a>.</p>
 <h2 id="hypertext-syntax">Syntax</h2>
 <p>Some tags enclose text: they open with <code>&lt;tagname&gt;</code> and close with <code>&lt;/tagname&gt;</code>. Tags can have attributes, which are written in the opening tag as <code>key=value</code>. Attribute values should be quoted with either <code>"</code> or <code>'</code>. Inside a Lua string that is already in double quotes, use single quotes, as in <code>&lt;style color='red'&gt;</code>.</p>
 <p>To write a literal <code>&lt;</code>, <code>&gt;</code>, or <code>\</code> in the text, put a backslash before it. In a quoted attribute value, put a backslash before a literal quote mark. In Lua code, each backslash has to be written twice (<code>"\\&lt;"</code>), or you can use a long string (<code>[[\&lt;]]</code>).</p>
 <h2 id="hypertext-basic-tags">Basic tags</h2>
-<!-- TODO(clarify): "size" format and units are not given (absolute, or relative like +2 / *1.5 as in styling.md?). -->
+<!-- TODO(P2,clarify): "size" format and units are not given (absolute, or relative like +2 / *1.5 as in styling.md?). -->
 
 <h3 id="hypertext-style-color-font-sizestyle"><code>&lt;style color=... font=... size=...&gt;...&lt;/style&gt;</code></h3>
 <p>Changes the style of the text inside it.</p>
@@ -2315,7 +2316,7 @@ gui.Label { label = &quot;Hello world!&quot; }
 <h2 id="hypertext-links">Links</h2>
 <h3 id="hypertext-action-nameaction"><code>&lt;action name=...&gt;...&lt;/action&gt;</code></h3>
 <p>Makes the text inside it clickable. <code>name</code> is required. An optional <code>url</code> attribute is a web address to open when the text is clicked.</p>
-<!-- TODO(link): link ctx.form and on_event to elements.md#names-and-values and elements.md#events. -->
+<!-- TODO(P3,link): link ctx.form and on_event to elements.md#names-and-values and elements.md#events. -->
 
 <p>When the player clicks it, the form is sent to the server and the value of the <code>gui.Hypertext</code> element is <code>"action:"</code> followed by the action name. In flow, give the element a <code>name</code> and an <code>on_event</code> function, and read the value from <code>ctx.form</code>. This is experimental and may change.</p>
 <pre><code class="language-lua">gui.Hypertext {
@@ -2350,7 +2351,7 @@ gui.Label { label = &quot;Hello world!&quot; }
                         <h1>Other features<a class='headerlink' href='#section-4' title='Permanent link'></a>
                         </h1>
                     <section class="print-page" id="not-supported" heading-number="4.1"><h1 id="not-supported-unsupported-features">Unsupported Features</h1>
-<!-- TODO(link): link each formspec element named below to the Luanti formspec docs (lua_api.md). -->
+<!-- TODO(P3,link): link each formspec element named below to the Luanti formspec docs (lua_api.md). -->
 
 <p>Flow does not support everything that Luanti formspecs can do. This page lists what is missing, so you know before you look for it. Where there is a way to get a similar result, it is mentioned.</p>
 <h2 id="not-supported-missing-elements">Missing elements</h2>
@@ -2396,7 +2397,7 @@ gui.Label { label = &quot;Hello world!&quot; }
 </tbody>
 </table>
 <h2 id="not-supported-missing-parameters">Missing parameters</h2>
-<!-- TODO(link): link gui.ScrollbarOptions to elements.md#guiscrollbaroptions. -->
+<!-- TODO(P3,link): link gui.ScrollbarOptions to elements.md#guiscrollbaroptions. -->
 
 <ul>
 <li><strong>Content padding of scroll containers.</strong> Luanti can work out the range of a scroll container's scrollbar for you, but flow's <a href="#elements-guiscrollcontainer"><code>gui.ScrollContainer</code></a> does not expose this, so you have to set the range yourself with <code>gui.ScrollbarOptions</code>. <a href="#layout-elements-guiscrollablevbox"><code>gui.ScrollableVBox</code></a> already does this for you.</li>
@@ -2404,7 +2405,7 @@ gui.Label { label = &quot;Hello world!&quot; }
 </ul>
 <h2 id="not-supported-things-flow-does-for-you">Things flow does for you</h2>
 <p>These formspec elements exist, but flow generates them itself and you cannot write them:</p>
-<!-- TODO(link): link no_prepend and bgcolor to experimental.md#no_prepend and experimental.md#bgcolor. -->
+<!-- TODO(P3,link): link no_prepend and bgcolor to experimental.md#no_prepend and experimental.md#bgcolor. -->
 
 <ul>
 <li><code>size[]</code>: The size of the form is worked out from the elements in it.</li>
@@ -2415,13 +2416,13 @@ gui.Label { label = &quot;Hello world!&quot; }
 <li><code>formspec_version[]</code>: Flow always uses formspec version 7.</li>
 </ul>
 <h2 id="not-supported-newer-luanti-features">Newer Luanti features</h2>
-<!-- TODO(clarify): styling.md gives Luanti releases (5.17, 5.18) where this page gives formspec versions (11, 12); add a version -> release table and link it from both. -->
+<!-- TODO(P2,clarify): styling.md gives Luanti releases (5.17, 5.18) where this page gives formspec versions (11, 12); add a version -> release table and link it from both. -->
 
 <p>Because flow always uses formspec version 7 (Luanti 5.8), features that were added in newer versions may not work, even if the missing element or parameter is not listed above. This includes the area label (version 9), floating-point animation frames in <code>gui.Model</code> (version 10), and the <code>halign</code> and <code>valign</code> styles of fields and text areas (version 11), and the <code>editable</code> style of checkboxes, dropdowns, and fields (version 12, the only addition in that version). Formspec versions are described in the "Formspec Version History" section of the Luanti API documentation.</p></section><section class="print-page" id="styling" heading-number="4.2"><h1 id="styling-styling-forms">Styling forms</h1>
 <p>Styles change how elements look: their colors, images, fonts, and so on. A style is a set of properties such as <code>bgcolor = "red"</code>, and which properties exist depends on the type of element. All of them are listed in the <a href="#styling-property-reference">property reference</a> below.</p>
 <p>You can style a single element with the <code>style</code> field (the <a href="#styling-inline-syntax">inline syntax</a>), or style many elements at once with the <code>gui.Style</code> and <code>gui.StyleType</code> elements (see <a href="#styling-separate-style-elements">separate style elements</a>).</p>
 <h2 id="styling-inline-syntax">Inline syntax</h2>
-<!-- TODO(clarify): first person is the flow author's voice; reword for an unofficial doc. Give the flow version or date that added inline styles. -->
+<!-- TODO(P3,clarify): first person is the flow author's voice; reword for an unofficial doc. Give the flow version or date that added inline styles. -->
 
 <p>At the moment I suggest only using this syntax if your form won't look broken without the style - older versions of flow don't support this syntax, and I may make breaking changes to the sub-style syntax in the future.</p>
 <p>You can add inline styles to elements with the <code>style</code> field:</p>
@@ -2439,11 +2440,11 @@ gui.Label { label = &quot;Hello world!&quot; }
     },
 }
 </code></pre>
-<!-- TODO(clarify): explain the "$" prefix: sel uses "$hovered+pressed" but selectors use "button:hovered+pressed". -->
+<!-- TODO(P2,clarify): explain the "$" prefix: sel uses "$hovered+pressed" but selectors use "button:hovered+pressed". -->
 
 <p>The properties directly inside <code>style</code> always apply. A <code>sel</code> entry only applies while the element is in one of the listed <a href="#styling-states">states</a>. Separate states with a comma to apply the style when <em>any</em> of them is active (<code>"$hovered, $pressed"</code>), or join them with <code>+</code> to apply it only when <em>all</em> of them are active at once (<code>"$hovered+pressed"</code>).</p>
 <p>If you need to style multiple elements, you can reuse the <code>style</code> table:</p>
-<!-- TODO(clarify): this variable shadows the gui table; rename it to form as on other pages. -->
+<!-- TODO(P2,clarify): this variable shadows the gui table; rename it to form as on other pages. -->
 
 <pre><code class="language-lua">local my_style = { bgcolor = &quot;red&quot;, { sel = &quot;$hovered&quot;, bgcolor = &quot;green&quot; } }
 
@@ -2628,7 +2629,7 @@ gui.StyleType {
 </tr>
 </tbody>
 </table>
-<!-- TODO(link): link text "Features flow does not have" does not match the page title "Unsupported Features" (also elements.md, hypertext.md, styling.md x3). -->
+<!-- TODO(P3,link): link text "Features flow does not have" does not match the page title "Unsupported Features" (also elements.md, hypertext.md, styling.md x3). -->
 
 <p>Luanti also lists <code>hypertip</code>, but flow has no element for it, see <a href="#not-supported-missing-elements">Features flow does not have</a>. <code>gui.ItemImage</code> has the <code>item_image</code> type, which only supports <code>noclip</code> (see <a href="#styling-other-elements">Other elements</a>). <code>gui.ImageButtonExit</code> and <code>gui.ButtonURL</code> are not in Luanti's list of types, so give them a <code>name</code> and style them with <code>gui.Style</code> or the inline syntax.</p>
 <h2 id="styling-property-reference">Property reference</h2>
@@ -2672,12 +2673,12 @@ gui.StyleType {
 </tr>
 </tbody>
 </table>
-<!-- TODO(clarify): "(this is deprecated)" is ambiguous: the fixed h on labels, or the positioning behaviour? -->
+<!-- TODO(P2,clarify): "(this is deprecated)" is ambiguous: the fixed h on labels, or the positioning behaviour? -->
 
 <p>Flow can make room for bigger text in <code>gui.Label</code>s, buttons, and the default text of fields, but only if <code>font_size</code> starts with <code>*</code> and is set with the inline syntax (<code>style = {font_size = "*2"}</code>). Other values still change the text but not the size of the element. The labels above fields and checkboxes ignore <code>font_size</code>, and a <code>gui.Label</code> with a fixed <code>h</code> is positioned as if <code>font_size</code> was not set (this is deprecated).</p>
 <h3 id="styling-buttons">Buttons</h3>
 <p>For <code>gui.Button</code>, <code>gui.ButtonExit</code>, <code>gui.ImageButton</code>, and <code>gui.ItemImageButton</code>. Buttons also support <code>font</code>, <code>font_size</code>, and <code>textcolor</code>.</p>
-<!-- TODO(clarify): the style property padding shares its name with the element parameter padding (padding.md); explain the difference. Also say what format sound takes. -->
+<!-- TODO(P2,clarify): the style property padding shares its name with the element parameter padding (padding.md); explain the difference. Also say what format sound takes. -->
 
 <table>
 <thead>
@@ -2743,7 +2744,7 @@ gui.StyleType {
 <p>Some older properties still work but are deprecated. Use <a href="#styling-states">states</a> instead: <code>bgcolor_hovered</code>, <code>bgcolor_pressed</code>, <code>bgimg_hovered</code>, <code>bgimg_pressed</code>, <code>fgimg_hovered</code>, and <code>fgimg_pressed</code>. They work like <code>bgcolor</code> and <code>bgimg</code> but only apply while the button is hovered or pressed.</p>
 <h3 id="styling-fields-and-text-areas">Fields and text areas</h3>
 <p>For <code>gui.Field</code>, <code>gui.Pwdfield</code>, and <code>gui.Textarea</code>. They also support <code>font</code>, <code>font_size</code>, and <code>textcolor</code>.</p>
-<!-- TODO(clarify): "5.17 or newer" here vs "version 11" in not-supported.md; add a formspec version -> Luanti release table and link it. -->
+<!-- TODO(P2,clarify): "5.17 or newer" here vs "version 11" in not-supported.md; add a formspec version -> Luanti release table and link it. -->
 
 <table>
 <thead>
@@ -2869,16 +2870,16 @@ gui.StyleType {
 </tr>
 </tbody>
 </table></section><section class="print-page" id="padding" heading-number="4.3"><h1 id="padding-padding-spacing-and-backgrounds">Padding, spacing, and backgrounds</h1>
-<!-- TODO(clarify): conflicts with experimental.md (gui.Flow ignores padding); list the elements that do not support it. -->
+<!-- TODO(P1,clarify): conflicts with experimental.md (gui.Flow ignores padding); list the elements that do not support it. -->
 
-<!-- TODO(link): link build_func to getting-started.md, units to elements.md#sizes, and gui.Padding to layout-elements.md. -->
+<!-- TODO(P3,link): link build_func to getting-started.md, units to elements.md#sizes, and gui.Padding to layout-elements.md. -->
 
 <p>All elements can have a <code>padding</code> value, which will add the specified amount of padding around the element. The "root" element of the form (the one returned by <code>build_func</code>) has a default padding of 0.3, everything else has a default padding of 0.</p>
-<!-- TODO(link): spacing is also described in layout-elements.md (gui.VBox); keep the 0.2 default in one place and cross-link. -->
+<!-- TODO(P3,link): spacing is also described in layout-elements.md (gui.VBox); keep the 0.2 default in one place and cross-link. -->
 
 <p><code>HBox</code> and <code>VBox</code> have a <code>spacing</code> field which specifies how much spacing there is between elements inside the box. If unspecified, <code>spacing</code> will default to 0.2.</p>
 <p>Container elements (HBox and VBox) can optionally have <code>bgimg</code> and <code>bgimg_middle</code> parameters that specify a background for the container. <code>bgimg</code> is the name of a texture. If <code>bgimg_middle</code> is set, the texture is drawn as a <a href="#elements-nine-slice-images">nine-slice</a> whose corners are <code>bgimg_middle</code> pixels big, so one small texture can make a background of any size. The background will be drawn behind any padding that the container has.</p>
-<!-- TODO(clarify): code comment says bgimg works without bgimg_middle but the example sets both; show the plain bgimg case or reword. -->
+<!-- TODO(P3,clarify): code comment says bgimg works without bgimg_middle but the example sets both; show the plain bgimg case or reword. -->
 
 <p>Example:</p>
 <pre><code class="language-lua">gui.VBox {
@@ -2893,7 +2894,7 @@ gui.StyleType {
     gui.Button { label = &quot;Button 2&quot; },
 }
 </code></pre>
-<!-- TODO(clarify): screenshot is hotlinked from user-images.githubusercontent.com; copy it into docs/ so it cannot break. -->
+<!-- TODO(P2,clarify): screenshot is hotlinked from user-images.githubusercontent.com; copy it into docs/ so it cannot break. -->
 
 <p><img alt="Screenshot" src="https://user-images.githubusercontent.com/3182651/198194381-4812c0fa-1909-48f8-b50d-6713c4c126ec.png" /></p>
 <p>The padding around the VBox is 0.5 and the spacing between the buttons inside it is 0.1.</p></section><section class="print-page" id="tooltips" heading-number="4.4"><h1 id="tooltips-tooltips">Tooltips</h1>
@@ -2905,12 +2906,12 @@ gui.StyleType {
     tooltip = &quot;Air&quot;,
 }
 </code></pre>
-<!-- TODO(clarify): say how overlapping tooltips are prioritised beyond "named wins" (document order?). -->
+<!-- TODO(P3,clarify): say how overlapping tooltips are prioritised beyond "named wins" (document order?). -->
 
 <p>This works on elements without a <code>name</code> as well. In that case the tooltip covers the area of the element, and the tooltip of a named element that overlaps it takes priority.</p>
-<!-- TODO(clarify): prose says it refers to the element "by name" but the parameter is gui_element_name. -->
+<!-- TODO(P1,clarify): prose says it refers to the element "by name" but the parameter is gui_element_name. -->
 
-<!-- TODO(link): link gui.Style to elements.md#guistyle; link not-supported.md#missing-elements for hypertip[] and area tooltips. -->
+<!-- TODO(P3,link): link gui.Style to elements.md#guistyle; link not-supported.md#missing-elements for hypertip[] and area tooltips. -->
 
 <p>There is also a <a href="#elements-guitooltip"><code>gui.Tooltip</code></a> element which lets you change the background and text color of the tooltip. It refers to the element it belongs to by <code>name</code>, and should come after that element. As with <code>gui.Style</code>, it is invisible and won't affect padding.</p>
 <pre><code class="language-lua">gui.VBox {
@@ -2923,9 +2924,9 @@ gui.StyleType {
     },
 }
 </code></pre></section><section class="print-page" id="hiding-elements" heading-number="4.5"><h1 id="hiding-elements-hiding-elements">Hiding elements</h1>
-<!-- TODO(clarify): does visible = false work outside HBox/VBox (Stack, Container, root)? Are hidden buttons still focusable or clickable? -->
+<!-- TODO(P2,clarify): does visible = false work outside HBox/VBox (Stack, Container, root)? Are hidden buttons still focusable or clickable? -->
 
-<!-- TODO(link): link visible to elements.md#parameters-shared-by-all-elements. -->
+<!-- TODO(P3,link): link visible to elements.md#parameters-shared-by-all-elements. -->
 
 <p>Elements inside boxes can have <code>visible = false</code> set to hide them from the player. Elements hidden this way will still take up space like with <code>visibility: hidden;</code> in CSS.</p>
 <h2 id="hiding-elements-example">Example</h2>
@@ -2940,10 +2941,10 @@ gui.StyleType {
 <blockquote>
 <p>Consider using <a href="https://content.luanti.org/packages/lazerbeak12345/sway/">Sway</a> instead if you want to use flow as an inventory replacement while still having some way for other mods to extend the inventory.</p>
 </blockquote>
-<!-- TODO(link): link "formspec" to index.md, player:set_inventory_formspec() to the Luanti API docs, and sfinv-style embedding to experimental.md#rendering-to-a-formspec. -->
+<!-- TODO(P3,link): link "formspec" to index.md, player:set_inventory_formspec() to the Luanti API docs, and sfinv-style embedding to experimental.md#rendering-to-a-formspec. -->
 
 <p>A form can be set as the player inventory, which is the screen the player sees when they open their inventory. Flow internally generates the formspec (the text Luanti uses to describe a menu) and passes it to <code>player:set_inventory_formspec()</code>. This will completely replace your inventory and isn't compatible with inventory mods like sfinv (the inventory in Minetest Game, which lets mods add tabs).</p>
-<!-- TODO(clarify): snippet uses gui without "local gui = flow.widgets"; it names the context "context" where other pages use ctx. -->
+<!-- TODO(P1,clarify): snippet uses gui without "local gui = flow.widgets"; it names the context "context" where other pages use ctx. -->
 
 <pre><code class="language-lua">local example_inventory = flow.make_gui(function(player, context)
     return gui.Label { label = &quot;Inventory goes here!&quot; }
@@ -2952,9 +2953,9 @@ core.register_on_joinplayer(function(player)
     example_inventory:set_as_inventory_for(player)
 end)
 </code></pre>
-<!-- TODO(link): show_hud and close_hud are not documented anywhere (see getting-started.md). -->
+<!-- TODO(P2,link): show_hud and close_hud are not documented anywhere (see getting-started.md). -->
 
-<!-- TODO(clarify): what happens if the inventory is open when set_as_inventory_for is called again: redraw now, or next open? -->
+<!-- TODO(P2,clarify): what happens if the inventory is open when set_as_inventory_for is called again: redraw now, or next open? -->
 
 <p>Like with the <code>show_hud</code> function, <code>update*</code> functions don't do anything, so to update it, call <code>set_as_inventory_for</code> again with the new context. If the context is not provided, it will reuse the existing context.</p>
 <pre><code class="language-lua">example_inventory:set_as_inventory_for(player, new_context)
@@ -2964,13 +2965,13 @@ end)
 </code></pre>
 <p>This will set the inventory formspec string to <code>""</code> and stop flow from processing inventory formspec input.</p></section><section class="print-page" id="manual-positioning" heading-number="4.7"><h1 id="manual-positioning-manual-positioning">Manual positioning</h1>
 <h2 id="manual-positioning-dynamic-element-types">Dynamic element types</h2>
-<!-- TODO(clarify): first paragraph is hard to parse; state when type tables are fine. "won't work correctly" for ScrollableVBox/Spacer: error or wrong layout? -->
+<!-- TODO(P2,clarify): first paragraph is hard to parse; state when type tables are fine. "won't work correctly" for ScrollableVBox/Spacer: error or wrong layout? -->
 
-<!-- TODO(link): link gui.Container to elements.md#guicontainer, ScrollableVBox/Spacer to layout-elements.md, type names to styling.md#element-types. -->
+<!-- TODO(P3,link): link gui.Container to elements.md#guicontainer, ScrollableVBox/Spacer to layout-elements.md, type names to styling.md#element-types. -->
 
 <p>This is only recommended for elements inside <code>gui.Container</code> (see below) outside of some rare use cases that need it, as it does not support flow's layouting elements.</p>
 <p>If you want to generate element types from a variable, you can use <code>{type = "label", label = "Hello world!"}</code> instead of <code>gui.Label{label="Hello world!"}</code>. The <code>type</code> is the name of the <code>gui</code> function in lowercase with underscores between words, for example <code>"item_image_button"</code> for <code>gui.ItemImageButton</code>. HBoxes and VBoxes can be created this way as well (with <code>type = "hbox"</code> and <code>type = "vbox"</code>), however other layouting elements (such as ScrollableVBox and Spacer) won't work correctly.</p>
-<!-- TODO(link): example.lua has no link or location (also in getting-started.md). -->
+<!-- TODO(P2,link): example.lua has no link or location (also in getting-started.md). -->
 
 <p>An example of this is in <code>example.lua</code>.</p>
 <h2 id="manual-positioning-manual-positioning-of-elements">Manual positioning of elements</h2>
@@ -2992,17 +2993,17 @@ end)
     },
 }
 </code></pre>
-<!-- TODO(clarify): contradicts the section above, which says type = "hbox" / "vbox" tables work; are HBox/VBox allowed inside gui.Container? -->
+<!-- TODO(P1,clarify): contradicts the section above, which says type = "hbox" / "vbox" tables work; are HBox/VBox allowed inside gui.Container? -->
 
 <p>Note that you should not nest layouted elements (like <code>gui.VBox</code>) inside <code>gui.Container</code>.</p></section><section class="print-page" id="experimental" heading-number="4.8"><h1 id="experimental-experimental-features">Experimental features</h1>
-<!-- TODO(link): popovers.md is also experimental and is not linked from here; add it. -->
+<!-- TODO(P3,link): popovers.md is also experimental and is not linked from here; add it. -->
 
 <p>These features might be broken in the future.</p>
 <h2 id="experimental-no_prepend"><code>no_prepend</code></h2>
 <p>Games and mods can add extra content to the start of every form shown to a player with <code>player:set_formspec_prepend()</code>, for example to give all forms the same background or style. This is called a "prepend", and it can be why a form has a background or style you did not expect.</p>
 <p>You can set <code>no_prepend = true</code> on the "root" element to stop prepends from being applied to a form.</p>
 <p>Example:</p>
-<!-- TODO(clarify): the visible = false button is unrelated to no_prepend; drop it or link hiding-elements.md. -->
+<!-- TODO(P3,clarify): the visible = false button is unrelated to no_prepend; drop it or link hiding-elements.md. -->
 
 <pre><code class="language-lua">local my_gui = flow.make_gui(function(player, ctx)
     return gui.VBox {
@@ -3017,11 +3018,11 @@ end)
     }
 end)
 </code></pre>
-<!-- TODO(clarify): screenshot is hotlinked from user-images.githubusercontent.com; copy it into docs/ so it cannot break. -->
+<!-- TODO(P2,clarify): screenshot is hotlinked from user-images.githubusercontent.com; copy it into docs/ so it cannot break. -->
 
 <p><img alt="Screenshot" src="https://user-images.githubusercontent.com/3182651/212222545-baee3669-15cd-410d-a638-c63b65a8811b.png" /></p>
 <h2 id="experimental-bgcolor"><code>bgcolor</code></h2>
-<!-- TODO(clarify): bg_fullscreen = true drawing only fbgcolor reads backwards; verify against the flow source and add an example. -->
+<!-- TODO(P1,clarify): bg_fullscreen = true drawing only fbgcolor reads backwards; verify against the flow source and add an example. -->
 
 <p>You can set <code>bgcolor = "#123"</code>, <code>fbgcolor = "#123"</code>, and <code>bg_fullscreen = true</code> on the root element to set background colors:</p>
 <ul>
@@ -3030,7 +3031,7 @@ end)
 <li><code>bg_fullscreen</code>: Which of the two colors to draw. <code>false</code> (the default) only draws <code>bgcolor</code>, <code>true</code> only draws <code>fbgcolor</code>, <code>"both"</code> draws both, and <code>"neither"</code> draws neither.</li>
 </ul>
 <p>Colors that you leave out are not changed. See <a href="#elements-colors">Elements</a> for how colors are written.</p>
-<!-- TODO(clarify): this long heading is also a URL anchor (used in not-supported.md); a short heading would be easier to link. No page documents HUDs. -->
+<!-- TODO(P3,clarify): this long heading is also a URL anchor (used in not-supported.md); a short heading would be easier to link. No page documents HUDs. -->
 
 <h2 id="experimental-putting-the-form-somewhere-else-on-the-screen-likely-required-for-most-huds">Putting the form somewhere else on the screen (likely required for most HUDs)</h2>
 <p>These values allow the position of the displayed form to be moved around and adjust how it is scaled.</p>
@@ -3063,10 +3064,10 @@ end)
 </code></pre>
 <h2 id="experimental-rendering-to-a-formspec">Rendering to a formspec</h2>
 <p>This API should only be used when necessary and may have breaking changes in the future.</p>
-<!-- TODO(link): link "formspec" to index.md, sfinv to inventory.md, and units to elements.md#sizes. -->
+<!-- TODO(P3,link): link "formspec" to index.md, sfinv to inventory.md, and units to elements.md#sizes. -->
 
 <p>Luanti describes menus with formspec strings, which flow normally generates and shows for you. Some APIs in other mods, such as sfinv, expect formspec strings instead. You can use this API to embed flow forms inside them. To use flow with these mods, you can call <code>form:render_to_formspec_string(player, ctx, standalone)</code>.</p>
-<!-- TODO(clarify): define "fields" (the raw formspec fields table?) and when process_event returns true. Is info.formspec_version always 7 (see not-supported.md#newer-luanti-features)? -->
+<!-- TODO(P2,clarify): define "fields" (the raw formspec fields table?) and when process_event returns true. Is info.formspec_version always 7 (see not-supported.md#newer-luanti-features)? -->
 
 <ul>
 <li>A complete formspec starts with a <code>formspec_version[]</code> element (the version of the formspec language it uses) and a <code>size[]</code> element (the size of the form). By default these aren't included in the returned formspec, and are returned in a third value instead: a table <code>info</code> with <code>w</code> and <code>h</code> (the size of the form, in the units described in <a href="#elements">Elements</a>) and <code>formspec_version</code> (the version number). Set <code>standalone</code> to include them in the returned formspec string. The third return value will not be returned.</li>
@@ -3077,7 +3078,7 @@ end)
 <p><strong>Warning:</strong> Do not use this API with node meta formspecs (formspecs that are stored in the metadata of a node), it can and will break!</p>
 </blockquote>
 <h2 id="experimental-embedding-a-form-into-another-form">Embedding a form into another form</h2>
-<!-- TODO(clarify): other_form and gui are not defined in the snippet; "before 2025-06-17" should be a flow version or tag. -->
+<!-- TODO(P2,clarify): other_form and gui are not defined in the snippet; "before 2025-06-17" should be a flow version or tag. -->
 
 <p>You can embed form objects inside others like this:</p>
 <pre><code class="language-lua">local parent_form = flow.make_gui(function(player, ctx)
@@ -3101,12 +3102,12 @@ end)
 </code></pre>
 <p>Special characters (excluding <code>-</code> and <code>_</code>) are not allowed in embed names.</p>
 <h2 id="experimental-running-code-when-a-form-is-closed">Running code when a form is closed</h2>
-<!-- TODO(link): link gui.Container, gui.HBox, gui.VBox and gui.Stack to elements.md / layout-elements.md. -->
+<!-- TODO(P3,link): link gui.Container, gui.HBox, gui.VBox and gui.Stack to elements.md / layout-elements.md. -->
 
 <p><code>gui.Container</code>, <code>gui.HBox</code>, <code>gui.VBox</code>, and <code>gui.Stack</code> elements support an <code>on_quit</code> callback which gets run when a player closes a form (for example by pressing Escape or clicking an exit button).</p>
 <p>Note that this function is not called in some cases, such as when the player leaves without closing the form or when another form/formspec is shown.</p>
 <p>This function must not return anything, behaviour may get added to return values in the future.</p>
-<!-- TODO(clarify): example is named parent_form (copied from the embed example); rename to my_gui. -->
+<!-- TODO(P3,clarify): example is named parent_form (copied from the embed example); rename to my_gui. -->
 
 <pre><code class="language-lua">local parent_form = flow.make_gui(function(player, ctx)
     return gui.VBox {
@@ -3138,9 +3139,9 @@ end)
 end)
 </code></pre>
 <p>Notes:</p>
-<!-- TODO(clarify): first person is the flow author's voice; reword for an unofficial doc. -->
+<!-- TODO(P3,clarify): first person is the flow author's voice; reword for an unofficial doc. -->
 
-<!-- TODO(link): link on_event to elements.md#events. -->
+<!-- TODO(P3,link): link on_event to elements.md#events. -->
 
 <ul>
 <li>If you're using this callback, please make sure there's some other way to trigger the enter action (like a button) to support older flow versions and in case I replace this API with a better one in the future.</li>
@@ -3165,9 +3166,9 @@ end)
 </code></pre>
 <p><code>flow.get_context()</code> will error when called outside a build function (as you should not normally do this).</p>
 <h2 id="experimental-guiflow-container"><code>gui.Flow</code> container</h2>
-<!-- TODO(link): gui.Flow is missing from layout-elements.md; add an entry there that links here. -->
+<!-- TODO(P2,link): gui.Flow is missing from layout-elements.md; add an entry there that links here. -->
 
-<!-- TODO(clarify): "w = 3 * (1 + 0.2)" relies on the default spacing 0.2 (padding.md); say so. -->
+<!-- TODO(P3,clarify): "w = 3 * (1 + 0.2)" relies on the default spacing 0.2 (padding.md); say so. -->
 
 <p><code>gui.Flow</code> is a fixed-width container that wraps items around if they don't fit. Unlike other elements, you must specify a width, and some options like <code>min_w</code> and <code>padding</code> aren't supported.</p>
 <p>This is similar to GTK's <code>FlowBox</code>, but with a lot fewer features.</p>
@@ -3186,7 +3187,7 @@ end)
 <p>Flow supports a highly experimental low-level API for defining popovers. Popovers appear over top of all other elements and are anchored to their parent.</p>
 <p>This API is intended to be used for creating themed widgets like dropdowns, or for a higher level popover API that adds styling and is easier to use.</p>
 <p>You add a <code>popover</code> attribute to any container element to define a popover. Flow does not manage the lifecycle (opening/closing) of popovers, you must ensure that you do this yourself like in the example.</p>
-<!-- TODO(clarify): snippet uses ctx outside a build function, and ctx.form.side is nil on first draw; show the flow.make_gui wrapper. on_close_popover is documented only in this example. -->
+<!-- TODO(P1,clarify): snippet uses ctx outside a build function, and ctx.form.side is nil on first draw; show the flow.make_gui wrapper. on_close_popover is documented only in this example. -->
 
 <p>See the below example for details on how to use the API:</p>
 <pre><code class="language-lua">gui.VBox {
@@ -3252,7 +3253,7 @@ end)
 }
 </code></pre>
 <p>There are some restrictions on popovers:</p>
-<!-- TODO(link): link noclip to styling.md#all-elements, align_h/align_v to elements.md#parameters-shared-by-all-elements, gui.Stack/HBox/VBox to layout-elements.md. -->
+<!-- TODO(P3,link): link noclip to styling.md#all-elements, align_h/align_v to elements.md#parameters-shared-by-all-elements, gui.Stack/HBox/VBox to layout-elements.md. -->
 
 <ul>
 <li>They must not extend outside the form, otherwise they'll only be partially visible (unless everything is styled with <code>noclip = true</code>, see <a href="#styling">Styling</a>). Flow does not attempt to detect this.</li>

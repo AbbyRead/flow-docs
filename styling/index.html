@@ -756,7 +756,7 @@
 <p>Styles change how elements look: their colors, images, fonts, and so on. A style is a set of properties such as <code>bgcolor = "red"</code>, and which properties exist depends on the type of element. All of them are listed in the <a href="#property-reference">property reference</a> below.</p>
 <p>You can style a single element with the <code>style</code> field (the <a href="#inline-syntax">inline syntax</a>), or style many elements at once with the <code>gui.Style</code> and <code>gui.StyleType</code> elements (see <a href="#separate-style-elements">separate style elements</a>).</p>
 <h2 id="inline-syntax">Inline syntax</h2>
-<!-- TODO(clarify): first person is the flow author's voice; reword for an unofficial doc. Give the flow version or date that added inline styles. -->
+<!-- TODO(P3,clarify): first person is the flow author's voice; reword for an unofficial doc. Give the flow version or date that added inline styles. -->
 <p>At the moment I suggest only using this syntax if your form won't look broken without the style - older versions of flow don't support this syntax, and I may make breaking changes to the sub-style syntax in the future.</p>
 <p>You can add inline styles to elements with the <code>style</code> field:</p>
 <pre><code class="language-lua">gui.Button {
@@ -773,10 +773,10 @@
     },
 }
 </code></pre>
-<!-- TODO(clarify): explain the "$" prefix: sel uses "$hovered+pressed" but selectors use "button:hovered+pressed". -->
+<!-- TODO(P2,clarify): explain the "$" prefix: sel uses "$hovered+pressed" but selectors use "button:hovered+pressed". -->
 <p>The properties directly inside <code>style</code> always apply. A <code>sel</code> entry only applies while the element is in one of the listed <a href="#states">states</a>. Separate states with a comma to apply the style when <em>any</em> of them is active (<code>"$hovered, $pressed"</code>), or join them with <code>+</code> to apply it only when <em>all</em> of them are active at once (<code>"$hovered+pressed"</code>).</p>
 <p>If you need to style multiple elements, you can reuse the <code>style</code> table:</p>
-<!-- TODO(clarify): this variable shadows the gui table; rename it to form as on other pages. -->
+<!-- TODO(P2,clarify): this variable shadows the gui table; rename it to form as on other pages. -->
 <pre><code class="language-lua">local my_style = { bgcolor = "red", { sel = "$hovered", bgcolor = "green" } }
 
 local gui = flow.make_gui(function(player, ctx)
@@ -960,7 +960,7 @@ gui.StyleType {
 </tr>
 </tbody>
 </table>
-<!-- TODO(link): link text "Features flow does not have" does not match the page title "Unsupported Features" (also elements.md, hypertext.md, styling.md x3). -->
+<!-- TODO(P3,link): link text "Features flow does not have" does not match the page title "Unsupported Features" (also elements.md, hypertext.md, styling.md x3). -->
 <p>Luanti also lists <code>hypertip</code>, but flow has no element for it, see <a href="../not-supported/#missing-elements">Features flow does not have</a>. <code>gui.ItemImage</code> has the <code>item_image</code> type, which only supports <code>noclip</code> (see <a href="#other-elements">Other elements</a>). <code>gui.ImageButtonExit</code> and <code>gui.ButtonURL</code> are not in Luanti's list of types, so give them a <code>name</code> and style them with <code>gui.Style</code> or the inline syntax.</p>
 <h2 id="property-reference">Property reference</h2>
 <p>Colors are described in <a href="../elements/#colors">Elements</a>, and textures are image file names. A "2D vector" is written as a string such as <code>"1,2"</code>. Properties that only list a type of element are not valid on other elements, and an unknown property is ignored.</p>
@@ -1003,11 +1003,11 @@ gui.StyleType {
 </tr>
 </tbody>
 </table>
-<!-- TODO(clarify): "(this is deprecated)" is ambiguous: the fixed h on labels, or the positioning behaviour? -->
+<!-- TODO(P2,clarify): "(this is deprecated)" is ambiguous: the fixed h on labels, or the positioning behaviour? -->
 <p>Flow can make room for bigger text in <code>gui.Label</code>s, buttons, and the default text of fields, but only if <code>font_size</code> starts with <code>*</code> and is set with the inline syntax (<code>style = {font_size = "*2"}</code>). Other values still change the text but not the size of the element. The labels above fields and checkboxes ignore <code>font_size</code>, and a <code>gui.Label</code> with a fixed <code>h</code> is positioned as if <code>font_size</code> was not set (this is deprecated).</p>
 <h3 id="buttons">Buttons</h3>
 <p>For <code>gui.Button</code>, <code>gui.ButtonExit</code>, <code>gui.ImageButton</code>, and <code>gui.ItemImageButton</code>. Buttons also support <code>font</code>, <code>font_size</code>, and <code>textcolor</code>.</p>
-<!-- TODO(clarify): the style property padding shares its name with the element parameter padding (padding.md); explain the difference. Also say what format sound takes. -->
+<!-- TODO(P2,clarify): the style property padding shares its name with the element parameter padding (padding.md); explain the difference. Also say what format sound takes. -->
 <table>
 <thead>
 <tr>
@@ -1072,7 +1072,7 @@ gui.StyleType {
 <p>Some older properties still work but are deprecated. Use <a href="#states">states</a> instead: <code>bgcolor_hovered</code>, <code>bgcolor_pressed</code>, <code>bgimg_hovered</code>, <code>bgimg_pressed</code>, <code>fgimg_hovered</code>, and <code>fgimg_pressed</code>. They work like <code>bgcolor</code> and <code>bgimg</code> but only apply while the button is hovered or pressed.</p>
 <h3 id="fields-and-text-areas">Fields and text areas</h3>
 <p>For <code>gui.Field</code>, <code>gui.Pwdfield</code>, and <code>gui.Textarea</code>. They also support <code>font</code>, <code>font_size</code>, and <code>textcolor</code>.</p>
-<!-- TODO(clarify): "5.17 or newer" here vs "version 11" in not-supported.md; add a formspec version -> Luanti release table and link it. -->
+<!-- TODO(P2,clarify): "5.17 or newer" here vs "version 11" in not-supported.md; add a formspec version -> Luanti release table and link it. -->
 <table>
 <thead>
 <tr>

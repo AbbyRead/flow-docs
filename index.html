@@ -564,32 +564,31 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1 id="flow-unofficial-documentation">Flow Unofficial Documentation</h1>
-<p>TODO(P2): reword for slightly more sizzle
-An experimental layout manager and formspec API replacement for Luanti (formerly Minetest).
+<p>Flow is an experimental layout manager and formspec API replacement for Luanti (formerly Minetest): describe the menu, and flow handles the rest.
 Vaguely inspired by Flutter and GTK.</p>
-<p>TODO(P3): reword with subtle snark about formspec (web search complaints and compare to flow api)
-Luanti's built-in way of describing menus (inventories, chests, dialogs, ...) is called a <em>formspec</em>. A formspec is a long string made of elements such as buttons, text fields, and inventory slots, and you have to give every element its exact position and size by hand. Flow lets you describe a menu with Lua tables instead, positions and sizes everything for you, and generates the formspec itself, so you never have to write one.</p>
+<!-- TODO(P4,reword): add subtle snark about formspec (web search complaints and compare to flow api). -->
+<p>Luanti's built-in way of describing menus (inventories, chests, dialogs, ...) is called a <em>formspec</em>. A formspec is a long string made of elements such as buttons, text fields, and inventory slots, and you have to give every element its exact position and size by hand. Flow lets you describe a menu with Lua tables instead, positions and sizes everything for you, and generates the formspec itself, so you never have to write one.</p>
 <p><a href="https://luk3yx.gitlab.io/minetest-flow-playground/">Online tutorial/demo</a>
 (<a href="https://gitlab.com/luk3yx/minetest-flow-playground">source</a>)</p>
 <h2 id="features">Features</h2>
 <h3 id="layouting">Layouting</h3>
 <ul>
-<li>No manual positioning of elements. TODO(P2): make positive</li>
+<li>Place elements without coordinates: flow works out every position for you.</li>
 <li>Automatic layouting using <code>HBox</code> and <code>VBox</code> containers</li>
-<li>Some elements have an automatic size. TODO(P1): which ones? Reword for concise specifics.</li>
-<li>The size of elements can optionally expand to fit larger spaces TODO(P2): reword</li>
+<li>Some elements have an automatic size. <!-- TODO(P2,clarify): list which ones, concisely; elements.md has the answer, link it. --></li>
+<li>Elements can grow to fill spare space when you set <code>expand = true</code>.</li>
 <li>Elements which get their size based on their label length automatically become larger/smaller to fit long translations<sup id="fnref:label-size"><a class="footnote-ref" href="#fn:label-size">1</a></sup>.</li>
 </ul>
 <h3 id="other-features">Other features</h3>
 <ul>
-<li>No form names. Form names are still used internally, however they are
-   hidden from the API. TODO(P2): make into a positive statement</li>
-<li>No having to worry about state. TODO(P2): make into a positive statement</li>
+<li>Form names are handled for you. They are still used internally, however they are
+   hidden from the API.</li>
+<li>Form state is tracked for you.</li>
 <li>Values of fields, scrollbars, checkboxes, etc are remembered when
    redrawing a form and are automatically applied.</li>
 <li>Includes an <a href="https://content.luanti.org/packages/luk3yx/flow_inspector/">inspector mod</a>
    to help with developing and debugging forms.</li>
-<li>Some common security issues with formspec input handling are mitigated. TODO(P1): Clarify with a reference to a section. Add the section if not present.</li>
+<li>Some common security issues with formspec input handling are mitigated. <!-- TODO(P3,link): reference the Security section below. --></li>
 </ul>
 <h2 id="limitations">Limitations</h2>
 <ul>
@@ -597,15 +596,15 @@ Luanti's built-in way of describing menus (inventories, chests, dialogs, ...) is
    See <a href="not-supported/">Unsupported Features</a> for a list.</li>
 </ul>
 <h2 id="security">Security</h2>
-<p>TODO(P1): research the specifics of this and expand to a new page we can simply reference
-Flow ignores potentially malicious formspec input from clients, such as buttons or fields that haven't been shown to the client, out-of-bounds dropdown selections, and newlines in <code>Field</code> elements (where it's impossible to enter a newline without pasting it in).</p>
+<!-- TODO(P3,research): research the specifics and expand into a new page to reference. -->
+<p>Flow ignores potentially malicious formspec input from clients, such as buttons or fields that haven't been shown to the client, out-of-bounds dropdown selections, and newlines in <code>Field</code> elements (where it's impossible to enter a newline without pasting it in).</p>
 <h2 id="other-documentation">Other Documentation</h2>
 <p>The official documentation is available at <a href="https://luk3yx.gitlab.io/minetest-flow/">https://luk3yx.gitlab.io/minetest-flow/</a>. Some code snippets have a "run" button which will open them in a web-based playground, not all of these will work properly as the playground doesn't support all formspec elements.</p>
 <div class="footnote">
 <hr/>
 <ol>
 <li id="fn:label-size">
-<p>This isn't perfect, the actual size of labels depends on the client's font, DPI, window size, and formspec-related scaling settings. TODO(P4): research and add a section about getting the sizing perfect for the most common fonts. May need to look up Luanti API and/or source code. <a class="footnote-backref" href="#fnref:label-size" title="Jump back to footnote 1 in the text">↩</a></p>
+<p>This isn't perfect, the actual size of labels depends on the client's font, DPI, window size, and formspec-related scaling settings. <!-- TODO(P4,research): add a section on getting sizing perfect for common fonts (Luanti API/source). --> <a class="footnote-backref" href="#fnref:label-size" title="Jump back to footnote 1 in the text">↩</a></p>
 </li>
 </ol>
 </div>

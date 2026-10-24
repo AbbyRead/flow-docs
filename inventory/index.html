@@ -427,9 +427,9 @@
 <blockquote>
 <p>Consider using <a href="https://content.luanti.org/packages/lazerbeak12345/sway/">Sway</a> instead if you want to use flow as an inventory replacement while still having some way for other mods to extend the inventory.</p>
 </blockquote>
-<!-- TODO(link): link "formspec" to index.md, player:set_inventory_formspec() to the Luanti API docs, and sfinv-style embedding to experimental.md#rendering-to-a-formspec. -->
+<!-- TODO(P3,link): link "formspec" to index.md, player:set_inventory_formspec() to the Luanti API docs, and sfinv-style embedding to experimental.md#rendering-to-a-formspec. -->
 <p>A form can be set as the player inventory, which is the screen the player sees when they open their inventory. Flow internally generates the formspec (the text Luanti uses to describe a menu) and passes it to <code>player:set_inventory_formspec()</code>. This will completely replace your inventory and isn't compatible with inventory mods like sfinv (the inventory in Minetest Game, which lets mods add tabs).</p>
-<!-- TODO(clarify): snippet uses gui without "local gui = flow.widgets"; it names the context "context" where other pages use ctx. -->
+<!-- TODO(P1,clarify): snippet uses gui without "local gui = flow.widgets"; it names the context "context" where other pages use ctx. -->
 <pre><code class="language-lua">local example_inventory = flow.make_gui(function(player, context)
     return gui.Label { label = "Inventory goes here!" }
 end)
@@ -437,8 +437,8 @@ core.register_on_joinplayer(function(player)
     example_inventory:set_as_inventory_for(player)
 end)
 </code></pre>
-<!-- TODO(link): show_hud and close_hud are not documented anywhere (see getting-started.md). -->
-<!-- TODO(clarify): what happens if the inventory is open when set_as_inventory_for is called again: redraw now, or next open? -->
+<!-- TODO(P2,link): show_hud and close_hud are not documented anywhere (see getting-started.md). -->
+<!-- TODO(P2,clarify): what happens if the inventory is open when set_as_inventory_for is called again: redraw now, or next open? -->
 <p>Like with the <code>show_hud</code> function, <code>update*</code> functions don't do anything, so to update it, call <code>set_as_inventory_for</code> again with the new context. If the context is not provided, it will reuse the existing context.</p>
 <pre><code class="language-lua">example_inventory:set_as_inventory_for(player, new_context)
 </code></pre>

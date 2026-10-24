@@ -427,7 +427,7 @@
 <p>Flow supports a highly experimental low-level API for defining popovers. Popovers appear over top of all other elements and are anchored to their parent.</p>
 <p>This API is intended to be used for creating themed widgets like dropdowns, or for a higher level popover API that adds styling and is easier to use.</p>
 <p>You add a <code>popover</code> attribute to any container element to define a popover. Flow does not manage the lifecycle (opening/closing) of popovers, you must ensure that you do this yourself like in the example.</p>
-<!-- TODO(clarify): snippet uses ctx outside a build function, and ctx.form.side is nil on first draw; show the flow.make_gui wrapper. on_close_popover is documented only in this example. -->
+<!-- TODO(P1,clarify): snippet uses ctx outside a build function, and ctx.form.side is nil on first draw; show the flow.make_gui wrapper. on_close_popover is documented only in this example. -->
 <p>See the below example for details on how to use the API:</p>
 <pre><code class="language-lua">gui.VBox {
     -- Some padding is added for the purposes of the demo so that the popup
@@ -492,7 +492,7 @@
 }
 </code></pre>
 <p>There are some restrictions on popovers:</p>
-<!-- TODO(link): link noclip to styling.md#all-elements, align_h/align_v to elements.md#parameters-shared-by-all-elements, gui.Stack/HBox/VBox to layout-elements.md. -->
+<!-- TODO(P3,link): link noclip to styling.md#all-elements, align_h/align_v to elements.md#parameters-shared-by-all-elements, gui.Stack/HBox/VBox to layout-elements.md. -->
 <ul>
 <li>They must not extend outside the form, otherwise they'll only be partially visible (unless everything is styled with <code>noclip = true</code>, see <a href="../styling/">Styling</a>). Flow does not attempt to detect this.</li>
 <li>You can only define <code>popover</code> on container elements, like gui.Stack, gui.HBox, and gui.VBox.</li>

@@ -1371,16 +1371,16 @@
 
 gui.Label { label = "Hello world!" }
 </code></pre>
-<!-- TODO(clarify): say what generates them; hand edits (including spacing) may be overwritten. Placeholder values mislead: url = "Hello world!" (ButtonURL, ButtonUrlExit), frame_duration = 4, item_name / inventory_location / mesh = "Hello world!"; Tabheader lists w last. -->
+<!-- TODO(P1,clarify): say what generates them; hand edits (including spacing) may be overwritten. Placeholder values mislead: url = "Hello world!" (ButtonURL, ButtonUrlExit), frame_duration = 4, item_name / inventory_location / mesh = "Hello world!"; Tabheader lists w last. -->
 <p>The parameter lists below are generated automatically. Parameters marked <code>-- Optional</code> can be left out.</p>
 <h2 id="concepts-used-on-this-page">Concepts used on this page</h2>
 <h3 id="sizes">Sizes</h3>
 <p>Sizes are measured in inventory slots: <code>1</code> is the width and height of one item slot. There is no hidden padding or spacing, so two boxes that are <code>1</code> wide and placed next to each other with <code>spacing = 0</code> touch. You never give an element a position, boxes place their children and flow works out the total size of the form.</p>
-<!-- TODO(link): link to the label-size footnote in index.md (index.md#fn:label-size). -->
+<!-- TODO(P3,link): link to the label-size footnote in index.md (index.md#fn:label-size). -->
 <p>Elements that show text, such as labels, buttons, and fields, are sized to fit their text unless you give them a <code>w</code> and <code>h</code>. Elements that show something without a natural size, such as images, boxes, models, and tables, need an explicit <code>w</code> and <code>h</code> (their parameter lists below do not say <code>-- Optional</code>). Flow can only estimate the width of text because the real width depends on the player's font, screen size, and scaling settings, so avoid layouts that rely on exact text widths.</p>
 <h3 id="names-and-values">Names and values</h3>
 <p>Many elements take a <code>name</code>. Input elements (fields, checkboxes, dropdowns, lists of text, tables, ...) with a <code>name</code> have their current value stored in <code>ctx.form[name]</code> and flow remembers it when the form is redrawn:</p>
-<!-- TODO(clarify): table is incomplete: gui.Scrollbar (number), gui.Tabheader (tab number) and gui.Hypertext (action string) also store values. -->
+<!-- TODO(P2,clarify): table is incomplete: gui.Scrollbar (number), gui.Tabheader (tab number) and gui.Hypertext (action string) also store values. -->
 <table>
 <thead>
 <tr>
@@ -1408,7 +1408,7 @@ gui.Label { label = "Hello world!" }
 </tbody>
 </table>
 <p>Until the player changes something, the value is the element's initial value (<code>default</code>, <code>selected</code>, <code>selected_idx</code>), or <code>""</code>, <code>false</code>, or <code>1</code> if you did not give one. Text fields only send their text to the server when the player presses a button or Enter, so <code>ctx.form</code> can be out of date until then.</p>
-<!-- TODO(link): this auto-redraw rule is not in getting-started.md#updating-forms; document it there and cross-link. -->
+<!-- TODO(P2,link): this auto-redraw rule is not in getting-started.md#updating-forms; document it there and cross-link. -->
 <p>If your build function reads <code>ctx.form.some_name</code>, flow redraws the form automatically whenever the player changes that value (unless the element has its own <code>on_event</code>). Buttons do not store a value.</p>
 <h3 id="events">Events</h3>
 <p>Elements that the player can use accept an <code>on_event</code> function, which is called with the player and <code>ctx</code>. Return <code>true</code> from it to redraw the form. A <code>name</code> is optional if you use <code>on_event</code>, flow makes one up.</p>
@@ -1548,7 +1548,7 @@ gui.Label { label = "Hello world!" }
 </code></pre>
 <h3 id="guibox"><code>gui.Box</code></h3>
 <p>Draws a solid rectangle of one color. Boxes have no natural size, so give them a <code>w</code> and <code>h</code>.</p>
-<!-- TODO(clarify): state the actual default alpha for gui.Box colors without one. -->
+<!-- TODO(P2,clarify): state the actual default alpha for gui.Box colors without one. -->
 <p>Unlike everywhere else, a hexadecimal color without an alpha value, such as <code>"#FF0000"</code>, is drawn semi-transparent here. Add the alpha value (<code>"#FF0000FF"</code>) to make it opaque.</p>
 <p><strong>Example</strong></p>
 <pre><code class="language-lua">gui.Box {
@@ -1820,7 +1820,7 @@ gui.Label { label = "Hello world!" }
 <li><code>tooltip_bgcolor</code>: Default background color of item tooltips.</li>
 <li><code>tooltip_fontcolor</code>: Default text color of item tooltips.</li>
 </ul>
-<!-- TODO(link): link text "Features flow does not have" does not match the page title "Unsupported Features" (also elements.md, hypertext.md, styling.md x3). -->
+<!-- TODO(P3,link): link text "Features flow does not have" does not match the page title "Unsupported Features" (also elements.md, hypertext.md, styling.md x3). -->
 <p>Only the first two are required. To use pictures instead of colors for slots, see <a href="../not-supported/">Features flow does not have</a>.</p>
 <p><strong>Example</strong></p>
 <pre><code class="language-lua">gui.Listcolors {
@@ -1944,7 +1944,7 @@ gui.Label { label = "Hello world!" }
 </code></pre>
 <h3 id="guiscrollbar"><code>gui.Scrollbar</code></h3>
 <p>A slider that the player can drag. <code>ctx.form[name]</code> is its position, a whole number from <code>min</code> to <code>max</code> (by default <code>0</code> to <code>1000</code>, change them with <a href="#guiscrollbaroptions"><code>gui.ScrollbarOptions</code></a> before the scrollbar). <code>value</code> is the position it starts at, and <code>orientation</code> is <code>"vertical"</code> or <code>"horizontal"</code>. Use it with a <code>gui.ScrollContainer</code>, or by itself as a slider.</p>
-<!-- TODO(clarify): confirm in the Luanti source which versions use these textures. -->
+<!-- TODO(P4,clarify): confirm in the Luanti source which versions use these textures. -->
 <p><code>scrollbar_bg</code>, <code>slider</code>, <code>arrow_up</code>, and <code>arrow_down</code> are textures that replace the parts of the scrollbar. They are not described in the Luanti documentation and may be ignored.</p>
 <p><strong>Example</strong></p>
 <pre><code class="language-lua">gui.Scrollbar {

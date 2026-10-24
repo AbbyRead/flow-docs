@@ -424,13 +424,13 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1 id="padding-spacing-and-backgrounds">Padding, spacing, and backgrounds</h1>
-<!-- TODO(clarify): conflicts with experimental.md (gui.Flow ignores padding); list the elements that do not support it. -->
-<!-- TODO(link): link build_func to getting-started.md, units to elements.md#sizes, and gui.Padding to layout-elements.md. -->
+<!-- TODO(P1,clarify): conflicts with experimental.md (gui.Flow ignores padding); list the elements that do not support it. -->
+<!-- TODO(P3,link): link build_func to getting-started.md, units to elements.md#sizes, and gui.Padding to layout-elements.md. -->
 <p>All elements can have a <code>padding</code> value, which will add the specified amount of padding around the element. The "root" element of the form (the one returned by <code>build_func</code>) has a default padding of 0.3, everything else has a default padding of 0.</p>
-<!-- TODO(link): spacing is also described in layout-elements.md (gui.VBox); keep the 0.2 default in one place and cross-link. -->
+<!-- TODO(P3,link): spacing is also described in layout-elements.md (gui.VBox); keep the 0.2 default in one place and cross-link. -->
 <p><code>HBox</code> and <code>VBox</code> have a <code>spacing</code> field which specifies how much spacing there is between elements inside the box. If unspecified, <code>spacing</code> will default to 0.2.</p>
 <p>Container elements (HBox and VBox) can optionally have <code>bgimg</code> and <code>bgimg_middle</code> parameters that specify a background for the container. <code>bgimg</code> is the name of a texture. If <code>bgimg_middle</code> is set, the texture is drawn as a <a href="../elements/#nine-slice-images">nine-slice</a> whose corners are <code>bgimg_middle</code> pixels big, so one small texture can make a background of any size. The background will be drawn behind any padding that the container has.</p>
-<!-- TODO(clarify): code comment says bgimg works without bgimg_middle but the example sets both; show the plain bgimg case or reword. -->
+<!-- TODO(P3,clarify): code comment says bgimg works without bgimg_middle but the example sets both; show the plain bgimg case or reword. -->
 <p>Example:</p>
 <pre><code class="language-lua">gui.VBox {
     padding = 0.5,
@@ -444,7 +444,7 @@
     gui.Button { label = "Button 2" },
 }
 </code></pre>
-<!-- TODO(clarify): screenshot is hotlinked from user-images.githubusercontent.com; copy it into docs/ so it cannot break. -->
+<!-- TODO(P2,clarify): screenshot is hotlinked from user-images.githubusercontent.com; copy it into docs/ so it cannot break. -->
 <p><img alt="Screenshot" src="https://user-images.githubusercontent.com/3182651/198194381-4812c0fa-1909-48f8-b50d-6713c4c126ec.png"/></p>
 <p>The padding around the VBox is 0.5 and the spacing between the buttons inside it is 0.1.</p>
 </article>

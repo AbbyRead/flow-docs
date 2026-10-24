@@ -486,11 +486,11 @@
 <article class="md-content__inner md-typeset">
 <h1 id="manual-positioning">Manual positioning</h1>
 <h2 id="dynamic-element-types">Dynamic element types</h2>
-<!-- TODO(clarify): first paragraph is hard to parse; state when type tables are fine. "won't work correctly" for ScrollableVBox/Spacer: error or wrong layout? -->
-<!-- TODO(link): link gui.Container to elements.md#guicontainer, ScrollableVBox/Spacer to layout-elements.md, type names to styling.md#element-types. -->
+<!-- TODO(P2,clarify): first paragraph is hard to parse; state when type tables are fine. "won't work correctly" for ScrollableVBox/Spacer: error or wrong layout? -->
+<!-- TODO(P3,link): link gui.Container to elements.md#guicontainer, ScrollableVBox/Spacer to layout-elements.md, type names to styling.md#element-types. -->
 <p>This is only recommended for elements inside <code>gui.Container</code> (see below) outside of some rare use cases that need it, as it does not support flow's layouting elements.</p>
 <p>If you want to generate element types from a variable, you can use <code>{type = "label", label = "Hello world!"}</code> instead of <code>gui.Label{label="Hello world!"}</code>. The <code>type</code> is the name of the <code>gui</code> function in lowercase with underscores between words, for example <code>"item_image_button"</code> for <code>gui.ItemImageButton</code>. HBoxes and VBoxes can be created this way as well (with <code>type = "hbox"</code> and <code>type = "vbox"</code>), however other layouting elements (such as ScrollableVBox and Spacer) won't work correctly.</p>
-<!-- TODO(link): example.lua has no link or location (also in getting-started.md). -->
+<!-- TODO(P2,link): example.lua has no link or location (also in getting-started.md). -->
 <p>An example of this is in <code>example.lua</code>.</p>
 <h2 id="manual-positioning-of-elements">Manual positioning of elements</h2>
 <p>You can use <code>gui.Container</code> elements to contain manually positioned elements. Every element inside a container has an <code>x</code> and <code>y</code>, which is the distance of its top-left corner from the top-left corner of the container, in the same units as <code>w</code> and <code>h</code>. Containers can be nested, in which case the offsets add up. If you do not give a <code>w</code> and <code>h</code>, flow uses the smallest size that fits all the elements inside.</p>
@@ -511,7 +511,7 @@
     },
 }
 </code></pre>
-<!-- TODO(clarify): contradicts the section above, which says type = "hbox" / "vbox" tables work; are HBox/VBox allowed inside gui.Container? -->
+<!-- TODO(P1,clarify): contradicts the section above, which says type = "hbox" / "vbox" tables work; are HBox/VBox allowed inside gui.Container? -->
 <p>Note that you should not nest layouted elements (like <code>gui.VBox</code>) inside <code>gui.Container</code>.</p>
 </article>
 </div>

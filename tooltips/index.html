@@ -432,10 +432,10 @@
     tooltip = "Air",
 }
 </code></pre>
-<!-- TODO(clarify): say how overlapping tooltips are prioritised beyond "named wins" (document order?). -->
+<!-- TODO(P3,clarify): say how overlapping tooltips are prioritised beyond "named wins" (document order?). -->
 <p>This works on elements without a <code>name</code> as well. In that case the tooltip covers the area of the element, and the tooltip of a named element that overlaps it takes priority.</p>
-<!-- TODO(clarify): prose says it refers to the element "by name" but the parameter is gui_element_name. -->
-<!-- TODO(link): link gui.Style to elements.md#guistyle; link not-supported.md#missing-elements for hypertip[] and area tooltips. -->
+<!-- TODO(P1,clarify): prose says it refers to the element "by name" but the parameter is gui_element_name. -->
+<!-- TODO(P3,link): link gui.Style to elements.md#guistyle; link not-supported.md#missing-elements for hypertip[] and area tooltips. -->
 <p>There is also a <a href="../elements/#guitooltip"><code>gui.Tooltip</code></a> element which lets you change the background and text color of the tooltip. It refers to the element it belongs to by <code>name</code>, and should come after that element. As with <code>gui.Style</code>, it is invisible and won't affect padding.</p>
 <pre><code class="language-lua">gui.VBox {
     gui.Button { name = "my_button", label = "Hover over me" },

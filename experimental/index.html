@@ -611,13 +611,13 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1 id="experimental-features">Experimental features</h1>
-<!-- TODO(link): popovers.md is also experimental and is not linked from here; add it. -->
+<!-- TODO(P3,link): popovers.md is also experimental and is not linked from here; add it. -->
 <p>These features might be broken in the future.</p>
 <h2 id="no_prepend"><code>no_prepend</code></h2>
 <p>Games and mods can add extra content to the start of every form shown to a player with <code>player:set_formspec_prepend()</code>, for example to give all forms the same background or style. This is called a "prepend", and it can be why a form has a background or style you did not expect.</p>
 <p>You can set <code>no_prepend = true</code> on the "root" element to stop prepends from being applied to a form.</p>
 <p>Example:</p>
-<!-- TODO(clarify): the visible = false button is unrelated to no_prepend; drop it or link hiding-elements.md. -->
+<!-- TODO(P3,clarify): the visible = false button is unrelated to no_prepend; drop it or link hiding-elements.md. -->
 <pre><code class="language-lua">local my_gui = flow.make_gui(function(player, ctx)
     return gui.VBox {
         no_prepend = true,
@@ -631,10 +631,10 @@
     }
 end)
 </code></pre>
-<!-- TODO(clarify): screenshot is hotlinked from user-images.githubusercontent.com; copy it into docs/ so it cannot break. -->
+<!-- TODO(P2,clarify): screenshot is hotlinked from user-images.githubusercontent.com; copy it into docs/ so it cannot break. -->
 <p><img alt="Screenshot" src="https://user-images.githubusercontent.com/3182651/212222545-baee3669-15cd-410d-a638-c63b65a8811b.png"/></p>
 <h2 id="bgcolor"><code>bgcolor</code></h2>
-<!-- TODO(clarify): bg_fullscreen = true drawing only fbgcolor reads backwards; verify against the flow source and add an example. -->
+<!-- TODO(P1,clarify): bg_fullscreen = true drawing only fbgcolor reads backwards; verify against the flow source and add an example. -->
 <p>You can set <code>bgcolor = "#123"</code>, <code>fbgcolor = "#123"</code>, and <code>bg_fullscreen = true</code> on the root element to set background colors:</p>
 <ul>
 <li><code>bgcolor</code>: The color of the background of the form itself.</li>
@@ -642,7 +642,7 @@ end)
 <li><code>bg_fullscreen</code>: Which of the two colors to draw. <code>false</code> (the default) only draws <code>bgcolor</code>, <code>true</code> only draws <code>fbgcolor</code>, <code>"both"</code> draws both, and <code>"neither"</code> draws neither.</li>
 </ul>
 <p>Colors that you leave out are not changed. See <a href="../elements/#colors">Elements</a> for how colors are written.</p>
-<!-- TODO(clarify): this long heading is also a URL anchor (used in not-supported.md); a short heading would be easier to link. No page documents HUDs. -->
+<!-- TODO(P3,clarify): this long heading is also a URL anchor (used in not-supported.md); a short heading would be easier to link. No page documents HUDs. -->
 <h2 id="putting-the-form-somewhere-else-on-the-screen-likely-required-for-most-huds">Putting the form somewhere else on the screen (likely required for most HUDs)</h2>
 <p>These values allow the position of the displayed form to be moved around and adjust how it is scaled.</p>
 <p>Example:</p>
@@ -674,9 +674,9 @@ end)
 </code></pre>
 <h2 id="rendering-to-a-formspec">Rendering to a formspec</h2>
 <p>This API should only be used when necessary and may have breaking changes in the future.</p>
-<!-- TODO(link): link "formspec" to index.md, sfinv to inventory.md, and units to elements.md#sizes. -->
+<!-- TODO(P3,link): link "formspec" to index.md, sfinv to inventory.md, and units to elements.md#sizes. -->
 <p>Luanti describes menus with formspec strings, which flow normally generates and shows for you. Some APIs in other mods, such as sfinv, expect formspec strings instead. You can use this API to embed flow forms inside them. To use flow with these mods, you can call <code>form:render_to_formspec_string(player, ctx, standalone)</code>.</p>
-<!-- TODO(clarify): define "fields" (the raw formspec fields table?) and when process_event returns true. Is info.formspec_version always 7 (see not-supported.md#newer-luanti-features)? -->
+<!-- TODO(P2,clarify): define "fields" (the raw formspec fields table?) and when process_event returns true. Is info.formspec_version always 7 (see not-supported.md#newer-luanti-features)? -->
 <ul>
 <li>A complete formspec starts with a <code>formspec_version[]</code> element (the version of the formspec language it uses) and a <code>size[]</code> element (the size of the form). By default these aren't included in the returned formspec, and are returned in a third value instead: a table <code>info</code> with <code>w</code> and <code>h</code> (the size of the form, in the units described in <a href="../elements/">Elements</a>) and <code>formspec_version</code> (the version number). Set <code>standalone</code> to include them in the returned formspec string. The third return value will not be returned.</li>
 <li>Returns <code>formspec, process_event[, info]</code></li>
@@ -686,7 +686,7 @@ end)
 <p><strong>Warning:</strong> Do not use this API with node meta formspecs (formspecs that are stored in the metadata of a node), it can and will break!</p>
 </blockquote>
 <h2 id="embedding-a-form-into-another-form">Embedding a form into another form</h2>
-<!-- TODO(clarify): other_form and gui are not defined in the snippet; "before 2025-06-17" should be a flow version or tag. -->
+<!-- TODO(P2,clarify): other_form and gui are not defined in the snippet; "before 2025-06-17" should be a flow version or tag. -->
 <p>You can embed form objects inside others like this:</p>
 <pre><code class="language-lua">local parent_form = flow.make_gui(function(player, ctx)
     return gui.VBox {
@@ -709,11 +709,11 @@ end)
 </code></pre>
 <p>Special characters (excluding <code>-</code> and <code>_</code>) are not allowed in embed names.</p>
 <h2 id="running-code-when-a-form-is-closed">Running code when a form is closed</h2>
-<!-- TODO(link): link gui.Container, gui.HBox, gui.VBox and gui.Stack to elements.md / layout-elements.md. -->
+<!-- TODO(P3,link): link gui.Container, gui.HBox, gui.VBox and gui.Stack to elements.md / layout-elements.md. -->
 <p><code>gui.Container</code>, <code>gui.HBox</code>, <code>gui.VBox</code>, and <code>gui.Stack</code> elements support an <code>on_quit</code> callback which gets run when a player closes a form (for example by pressing Escape or clicking an exit button).</p>
 <p>Note that this function is not called in some cases, such as when the player leaves without closing the form or when another form/formspec is shown.</p>
 <p>This function must not return anything, behaviour may get added to return values in the future.</p>
-<!-- TODO(clarify): example is named parent_form (copied from the embed example); rename to my_gui. -->
+<!-- TODO(P3,clarify): example is named parent_form (copied from the embed example); rename to my_gui. -->
 <pre><code class="language-lua">local parent_form = flow.make_gui(function(player, ctx)
     return gui.VBox {
         on_quit = function(player, ctx)
@@ -744,8 +744,8 @@ end)
 end)
 </code></pre>
 <p>Notes:</p>
-<!-- TODO(clarify): first person is the flow author's voice; reword for an unofficial doc. -->
-<!-- TODO(link): link on_event to elements.md#events. -->
+<!-- TODO(P3,clarify): first person is the flow author's voice; reword for an unofficial doc. -->
+<!-- TODO(P3,link): link on_event to elements.md#events. -->
 <ul>
 <li>If you're using this callback, please make sure there's some other way to trigger the enter action (like a button) to support older flow versions and in case I replace this API with a better one in the future.</li>
 <li>If you want recent mobile clients to call this callback when editing text, add <code>enter_after_edit = true</code> to the field definition. Without it, pressing "Done" on the on-screen keyboard of an Android device does not count as pressing enter. This is experimental.</li>
@@ -769,8 +769,8 @@ end)
 </code></pre>
 <p><code>flow.get_context()</code> will error when called outside a build function (as you should not normally do this).</p>
 <h2 id="guiflow-container"><code>gui.Flow</code> container</h2>
-<!-- TODO(link): gui.Flow is missing from layout-elements.md; add an entry there that links here. -->
-<!-- TODO(clarify): "w = 3 * (1 + 0.2)" relies on the default spacing 0.2 (padding.md); say so. -->
+<!-- TODO(P2,link): gui.Flow is missing from layout-elements.md; add an entry there that links here. -->
+<!-- TODO(P3,clarify): "w = 3 * (1 + 0.2)" relies on the default spacing 0.2 (padding.md); say so. -->
 <p><code>gui.Flow</code> is a fixed-width container that wraps items around if they don't fit. Unlike other elements, you must specify a width, and some options like <code>min_w</code> and <code>padding</code> aren't supported.</p>
 <p>This is similar to GTK's <code>FlowBox</code>, but with a lot fewer features.</p>
 <pre><code class="language-lua">gui.Flow {
