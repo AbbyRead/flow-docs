@@ -42,6 +42,13 @@ const unsupported = [
     "gui.Tooltip",
 ];
 
+// Return the build function body of a top-level make_gui call, or null.
+function extractMakeGuiBody(text) {
+    const m = /^local (?:my_gui|form) = flow\.make_gui\(function\(player, ctx\)\n([\s\S]*?)\nend\)$/m
+        .exec(text);
+    return m ? m[1] : null;
+}
+
 function addPlayBtn({el, result, text}) {
     if (!el.classList.contains("language-lua"))
         return;
@@ -53,12 +60,12 @@ function addPlayBtn({el, result, text}) {
 
     if (text.startsWith("gui.") && text.trim().endsWith("}")) {
         const code = text.replace(/, ...}/g, ', "Second value", "Value 3", "..."}');
-        addPlaygroundBtn(el, TEMPLATE.replace("%",
+        addPlaygroundBtn(el, TEMPLATE.replace("%", () =>
             "    return " + code.trim().replaceAll("\n", "\n    ")));
-    } else if (/^local (my_gui|form) = flow.make_gui\(function\(player, ctx\)\n/.test(text) &&
-            text.trim().endsWith("\nend)")) {
-        addPlaygroundBtn(el, TEMPLATE.replace("%",
-            text.trim().split("\n").slice(1, -1).join("\n")));
+    } else {
+        const body = extractMakeGuiBody(text);
+        if (body !== null)
+            addPlaygroundBtn(el, TEMPLATE.replace("%", () => body));
     }
 }
 
