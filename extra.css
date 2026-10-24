@@ -1,0 +1,11 @@
+/* Wrap table text instead of scrolling horizontally. */
+.wy-table-responsive table td,
+.wy-table-responsive table th {
+    white-space: normal;
+}
+
+/* Allow long inline code to break inside cells. */
+.rst-content table.docutils code {
+    white-space: normal;
+    overflow-wrap: anywhere;
+}

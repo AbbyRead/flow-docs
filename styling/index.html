@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../extra.css" rel="stylesheet" />
     
       <script>
         // Current page data
@@ -91,6 +92,8 @@
     <li class="toctree-l3"><a class="reference internal" href="#boxes">Boxes</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#models">Models</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#read-only-elements-editable">Read-only elements (editable)</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#other-elements">Other elements</a>
     </li>
@@ -620,6 +623,15 @@ have one, two, or four values separated by commas (like CSS borders):</p>
 </tr>
 </tbody>
 </table>
+<h3 id="read-only-elements-editable">Read-only elements (<code>editable</code>)</h3>
+<p>Luanti 5.18 (formspec version 12) added an <code>editable</code> property for
+<code>gui.Checkbox</code>, <code>gui.Dropdown</code>, <code>gui.Field</code>, <code>gui.Pwdfield</code>, and
+<code>gui.Textarea</code>. Setting it to <code>false</code> makes the element read-only (default
+<code>true</code>). Flow does not support it yet, because flow always uses formspec
+version 7, so it may do nothing or be ignored depending on the player's
+version of Luanti. To make a field read-only for now, handle that in your own
+code, for example by ignoring changes to it. See also
+<a href="../not-supported/#newer-luanti-features">Newer Luanti features</a>.</p>
 <h3 id="other-elements">Other elements</h3>
 <table>
 <thead>
