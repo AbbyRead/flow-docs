@@ -193,7 +193,9 @@ end)
 <p>Note that this may inadvertently reset styles on subsequent elements if used on
 elements without a name. Luanti can only style unnamed elements by their type,
 so flow applies the style to every element of that type and then resets those
-properties straight after the element. Give the element a <code>name</code> to avoid this.</p>
+properties to their defaults straight after the element. This also undoes any
+earlier <code>gui.StyleType</code> for the same properties. Give the element a <code>name</code> to
+avoid this.</p>
 <p>Property values are normally strings, but flow also accepts numbers and
 booleans where a property needs one. Setting a property to an empty string
 (<code>bgimg = ""</code>) resets it to its default value.</p>
@@ -218,8 +220,9 @@ gui.Button{
 They only affect the elements that come after them, so put them before the
 elements you want to style.</p>
 <p><strong>Warning:</strong> <code>gui.Style</code> and <code>gui.StyleType</code> do not support styles that change
-the element size, such as <code>font_size</code> for labels and <code>size</code>/<code>spacing</code> for
-lists. Use the inline syntax instead for these styles.</p>
+the element size, such as <code>font_size</code> for labels, buttons, and fields, and
+<code>size</code>/<code>spacing</code> for lists. Flow only sees these properties in the inline
+syntax, so use that for them.</p>
 <h2 id="selectors-and-states">Selectors and states</h2>
 <p><code>selectors</code> is a list that says which elements the style applies to:</p>
 <ul>
@@ -230,7 +233,7 @@ lists. Use the inline syntax instead for these styles.</p>
    underscores between words, for example <code>item_image_button</code> for
    <code>gui.ItemImageButton</code>. Some types also style other types, see
    <a href="#element-types">element types</a>.</li>
-<li>In both, <code>"*"</code> selects every element.</li>
+<li><code>gui.StyleType</code> also accepts <code>"*"</code>, which selects every element.</li>
 </ul>
 <p>A selector can end with a colon and one or more <a href="#states">states</a> to only style
 the element while it is in that state, such as <code>"btn1:hovered"</code> or
@@ -385,6 +388,12 @@ also uses the styles set for the other type, for example a style set on
 </tr>
 </tbody>
 </table>
+<p>Luanti also lists <code>hypertip</code>, but flow has no element for it, see
+<a href="../not-supported/#missing-elements">Features flow does not have</a>.
+<code>gui.ItemImage</code> has the <code>item_image</code> type, which only supports <code>noclip</code> (see
+<a href="#other-elements">Other elements</a>). <code>gui.ImageButtonExit</code> and <code>gui.ButtonURL</code>
+are not in Luanti's list of types, so give them a <code>name</code> and style them with
+<code>gui.Style</code> or the inline syntax.</p>
 <h2 id="property-reference">Property reference</h2>
 <p>Colors are described in <a href="../elements/#colors">Elements</a>, and textures are
 image file names. A "2D vector" is written as a string such
@@ -406,9 +415,10 @@ elements, and an unknown property is ignored.</p>
 </tbody>
 </table>
 <h3 id="text-properties">Text properties</h3>
-<p>These properties change how text looks. They are valid on buttons, labels,
-fields, tables, and text lists (and <code>textcolor</code> also on tab headers), as shown in
-the sections below.</p>
+<p>These properties change how text looks. <code>font</code> and <code>font_size</code> are valid on
+buttons, labels, fields, tables, and text lists. <code>textcolor</code> is valid on
+buttons, labels, fields, and tab headers, but not on tables and text lists.
+The sections below show which applies where.</p>
 <table>
 <thead>
 <tr>
@@ -431,8 +441,12 @@ the sections below.</p>
 </tr>
 </tbody>
 </table>
-<p>Flow can make room for bigger text in <code>gui.Label</code>s, but only if <code>font_size</code>
-starts with <code>*</code> (<code>style = {font_size = "*2"}</code>).</p>
+<p>Flow can make room for bigger text in <code>gui.Label</code>s, buttons, and the default
+text of fields, but only if <code>font_size</code> starts with <code>*</code> and is set with the
+inline syntax (<code>style = {font_size = "*2"}</code>). Other values still change the text
+but not the size of the element. The labels above fields and checkboxes ignore
+<code>font_size</code>, and a <code>gui.Label</code> with a fixed <code>h</code> is positioned as if
+<code>font_size</code> was not set (this is deprecated).</p>
 <h3 id="buttons">Buttons</h3>
 <p>For <code>gui.Button</code>, <code>gui.ButtonExit</code>, <code>gui.ImageButton</code>, and
 <code>gui.ItemImageButton</code>. Buttons also support <code>font</code>, <code>font_size</code>, and
@@ -531,6 +545,9 @@ pressed.</p>
 </table>
 <h3 id="labels">Labels</h3>
 <p>For <code>gui.Label</code> and <code>gui.Vertlabel</code>: <code>font</code>, <code>font_size</code>, and <code>textcolor</code>.</p>
+<p>Luanti also has <code>halign</code> and <code>valign</code> for labels, but they only apply to the
+area label, which flow does not have, so they do nothing here (see
+<a href="../not-supported/#missing-elements">Features flow does not have</a>).</p>
 <h3 id="lists">Lists</h3>
 <p>For <code>gui.List</code>:</p>
 <table>
