@@ -10,27 +10,75 @@
     overflow-wrap: break-word;
 }
 
-/* PDF/print only: keep newlines in code blocks, wrap long lines. */
+/* PDF/print only styles */
 @media print {
-    pre {
-        white-space: pre-wrap;
-        overflow-wrap: break-word;
-        margin: 0 0 1em;
-        padding: 8px 10px;
-        background: #f8f8f8;
-        border: 1px solid #e1e4e5;
-        font-size: 8.5pt;
+    /* Title page elements */
+    .pdf-title, h1.title, .print-site-page-title, title {
+        font-size: 64pt !important;
+    }
+    
+    .pdf-subtitle, .print-site-page-subtitle {
+        font-size: 48pt !important;
     }
 
-    /* Undo the theme inline-code look inside blocks. */
-    pre code {
-        white-space: inherit;
-        overflow-wrap: inherit;
-        max-width: none;
-        padding: 0;
-        border: 0;
-        background: none;
-        color: #000;
-        font-size: inherit;
+    /* Change regular body text font size */
+    body, p, li, span, div {
+        font-size: 11pt !important;
+        line-height: 1.5 !important;
+    }
+
+    /* Headings hierarchy */
+    h1, .md-typeset h1 { font-size: 20pt }
+    h2, .md-typeset h2 { font-size: 16pt }
+    h3, .md-typeset h3 { font-size: 13pt }
+    h4, h5, h6, .md-typeset h4, .md-typeset h5, .md-typeset h6 { font-size: 11.5pt !important; }
+
+    /* Title page elements (placed after general h1 rules so !important wins) */
+    .pdf-title, h1.title, .print-site-page-title, title {
+        font-size: 64pt !important;
+    }
+
+    /* Heading numbers (child spans/elements) set 2pt smaller */
+    h1 *, .md-typeset h1 * { font-size: 16pt !important; }
+    h2 *, .md-typeset h2 * { font-size: 13pt !important; }
+    h3 *, .md-typeset h3 * { font-size: 11pt !important; }
+    h4 *, h5 *, h6 *, .md-typeset h4 *, .md-typeset h5 *, .md-typeset h6 * { font-size: 9.5pt !important; }
+
+    /* Table headers and cells */
+    table th,
+    table td,
+    .md-typeset table th,
+    .md-typeset table td {
+        font-size: 11pt !important;
+    }
+
+    /* Inline code (single backticks) */
+    code:not(pre code) {
+        font-size: 10pt !important;
+    }
+
+    /* Code blocks font size and wrapping */
+    pre {
+        white-space: pre-wrap !important;
+        overflow-wrap: break-word !important;
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
+        margin: 0 0 1em !important;
+        padding: 8px 10px !important;
+        background: #f8f8f8 !important;
+        border: 1px solid #e1e4e5 !important;
+        font-size: 10pt !important;
+    }
+
+    pre code,
+    pre code span {
+        white-space: inherit !important;
+        overflow-wrap: inherit !important;
+        max-width: none !important;
+        padding: 0 !important;
+        border: 0 !important;
+        background: none !important;
+        color: #000 !important;
+        font-size: 10pt !important;
     }
 }
