@@ -4,8 +4,8 @@
     white-space: normal;
 }
 
-/* Allow long inline code to break inside cells. */
+/* Allow long inline code to wrap at spaces; break mid-token only if needed. */
 .rst-content table.docutils code {
     white-space: normal;
-    overflow-wrap: anywhere;
+    overflow-wrap: break-word;
 }
