@@ -543,7 +543,7 @@ when two items have the same text or when the text is translated.</p>
 item (but never smaller than 2 by 0.8). Item text cannot be coloured.</p>
 <p><strong>Example</strong></p>
 <pre><code class="language-lua">gui.Dropdown{
-    w = 1, -- Optional
+    w = 2, -- Optional
     h = 2, -- Optional
     name = &quot;my_dropdown&quot;, -- Optional
 
@@ -616,7 +616,7 @@ HTML-like language, which is described in <a href="../hypertext/">Hypertext mark
 behaviour is experimental and may change.</p>
 <p><strong>Example</strong></p>
 <pre><code class="language-lua">gui.Hypertext{
-    w = 1,
+    w = 6,
     h = 2,
 
     -- Receives the clicked action, see above.
@@ -632,7 +632,7 @@ texture for pictures of many sizes, use the <code>middle_*</code> parameters, se
 <a href="#nine-slice-images">Nine-slice images</a>.</p>
 <p><strong>Example</strong></p>
 <pre><code class="language-lua">gui.Image{
-    w = 1,
+    w = 4,
     h = 2,
 
     -- Texture to draw.
@@ -654,7 +654,7 @@ top of it. It works like <code>gui.Button</code> otherwise.</p>
 </ul>
 <p><strong>Example</strong></p>
 <pre><code class="language-lua">gui.ImageButton{
-    w = 1,
+    w = 6,
     h = 2,
 
     -- Picture to draw as the button.
@@ -670,7 +670,7 @@ top of it. It works like <code>gui.Button</code> otherwise.</p>
 <p>Like <code>gui.ImageButton</code>, but the form also closes when the button is clicked.</p>
 <p><strong>Example</strong></p>
 <pre><code class="language-lua">gui.ImageButtonExit{
-    w = 1,
+    w = 6,
     h = 2,
 
     -- Picture to draw as the button.
@@ -687,7 +687,7 @@ top of it. It works like <code>gui.Button</code> otherwise.</p>
 (<code>item_name</code>, such as <code>"default:dirt"</code>), stretched to fit <code>w</code> by <code>h</code>.</p>
 <p><strong>Example</strong></p>
 <pre><code class="language-lua">gui.ItemImage{
-    w = 1,
+    w = 2,
     h = 2,
 
     -- Registered item or node name.
@@ -829,8 +829,8 @@ came before it. It is invisible and takes up no space.</p>
 <p><code>name</code> is optional and only useful for <a href="../styling/">styling</a>.</p>
 <p><strong>Example</strong></p>
 <pre><code class="language-lua">gui.Model{
-    w = 1,
-    h = 2,
+    w = 5,
+    h = 3,
 
     -- Only useful for styling.
     name = &quot;my_model&quot;, -- Optional
@@ -923,7 +923,7 @@ replace the parts of the scrollbar. They are not described in the Luanti
 documentation and may be ignored.</p>
 <p><strong>Example</strong></p>
 <pre><code class="language-lua">gui.Scrollbar{
-    w = 1,
+    w = 8,
     h = 2,
 
     -- &quot;vertical&quot; or &quot;horizontal&quot;.
@@ -1047,7 +1047,7 @@ up any space.</p>
 <p>Tables have no natural size, so you must give them a <code>w</code> and <code>h</code>.</p>
 <p><strong>Example</strong></p>
 <pre><code class="language-lua">gui.Table{
-    w = 1,
+    w = 3,
     h = 2,
     name = &quot;my_table&quot;, -- Optional
 
