@@ -125,13 +125,10 @@ each element does.</p>
 <h2 id="basic-example">Basic example</h2>
 <p>See <code>example.lua</code> for a more comprehensive example which demonstrates how
 layouting and alignment works.</p>
-<pre><code class="language-lua">local gui = flow.widgets
+<pre><code class="language-lua">local gui = flow.widgets -- local recommended for direct referencing
 local STARTING_SELECTION = 3 -- change and rerun to see the difference
 
 local function build_vbox(player_obj, ctx)
-    local selection_str = (&quot;You have selected item #%d!&quot;):format(selected_idx)
-    local player_name = player_obj:get_player_name()
-
     return gui.VBox {
         gui.Label {label = &quot;Here is a dropdown:&quot;},
         gui.Dropdown {
@@ -143,7 +140,9 @@ local function build_vbox(player_obj, ctx)
         gui.Button {
             label = &quot;Get dropdown index&quot;,
             on_event = function(player, ctx)
-                core.chat_send_player(player_name, selection_str)
+                local idx = ctx.form.cool_dropdown or ctx.value or 1
+                core.chat_send_player(player:get_player_name(),
+                    (&quot;You have selected item #%d!&quot;):format(idx))
             end,
         }
     }
@@ -152,7 +151,7 @@ end
 local form = flow.make_gui(build_vbox)
 local player_obj = core.get_player_by_name(&quot;playground&quot;)
 
-form:show(player_obj, {value = STARTING_SELECTION})
+form:show(player_obj, {value = STARTING_SELECTION}) -- second argument is optional
 </code></pre>
 <h2 id="updating-forms">Updating forms</h2>
 <p>If some data displayed inside a form changes (for example a timer or progress

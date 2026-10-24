@@ -49,6 +49,12 @@ function extractMakeGuiBody(text) {
     return m ? m[1] : null;
 }
 
+// Return true for complete scripts that already show the form to "playground".
+function isFullScript(text) {
+    return text.includes("flow.make_gui(") &&
+        text.includes('get_player_by_name("playground")');
+}
+
 function addPlayBtn({el, result, text}) {
     if (!el.classList.contains("language-lua"))
         return;
@@ -62,6 +68,8 @@ function addPlayBtn({el, result, text}) {
         const code = text.replace(/, ...}/g, ', "Second value", "Value 3", "..."}');
         addPlaygroundBtn(el, TEMPLATE.replace("%", () =>
             "    return " + code.trim().replaceAll("\n", "\n    ")));
+    } else if (isFullScript(text)) {
+        addPlaygroundBtn(el, text.trim());
     } else {
         const body = extractMakeGuiBody(text);
         if (body !== null)
