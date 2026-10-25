@@ -1194,8 +1194,9 @@ Vaguely inspired by Flutter and GTK.</p>
 <!-- TODO(P2,link): example.lua has no link or location (also in manual-positioning.md); link it in the flow repo. -->
 
 <p>See <code>example.lua</code> for a more comprehensive example which demonstrates how layouting and alignment works.</p>
-<!-- TODO(P1,clarify): "playground" is the web playground player name; tell mod authors to use a real player. Say what the 2nd arg of form:show() is (initial ctx) and define ctx (see elements.md#names-and-values). -->
-
+<p>The build function is called with the player and a context table (<code>ctx</code>) every time the form is drawn. <code>ctx</code> belongs to one player's copy of the form: flow keeps the same table for as long as the form is open, passes it to the build function and to every <code>on_event</code> function, and you can store anything in it. Flow adds a <code>ctx.form</code> table to it, which holds the current values of the form's named inputs (see <a href="#elements-names-and-values">Names and values</a>).</p>
+<p><code>form:show(player, ctx)</code> shows the form to a player. The second argument is the starting <code>ctx</code>. Flow uses that table itself instead of a copy, and uses a new empty table if you leave it out.</p>
+<p>The example below uses a player called <code>playground</code>, which only exists in the online playground. In a mod, use a real player object instead, such as the one passed to a chat command or to <code>core.register_on_joinplayer</code>.</p>
 <pre><code class="language-lua">local gui = flow.widgets -- local recommended for direct referencing
 local STARTING_SELECTION = 3 -- change and rerun to see the difference
 
@@ -1220,15 +1221,14 @@ local function build_vbox(player_obj, ctx)
 end
 
 local form = flow.make_gui(build_vbox)
+-- Use a real player in your mod, &quot;playground&quot; only exists in the playground
 local player_obj = core.get_player_by_name(&quot;playground&quot;)
 
-form:show(player_obj, { value = STARTING_SELECTION }) -- second argument is optional
+form:show(player_obj, { value = STARTING_SELECTION }) -- Starting ctx, optional
 </code></pre>
 <h2 id="getting-started-updating-forms">Updating forms</h2>
-<!-- TODO(P1,clarify): prose says form:update but the API is my_gui:update(player) / update_where(); make the names match. -->
-
-<p>If some data displayed inside a form changes (for example a timer or progress indicator), you can use <code>form:update</code> to update the form without resetting <code>ctx</code> or showing the form again if the player has closed it.</p>
-<p>Luanti has no way to change a form that is already open, so flow has to show the whole form again. Because of this, players may lose text typed into fields that hasn't been sent to the server (which happens when they press a button or Enter) when <code>form:update</code> is called.</p>
+<p>If some data displayed inside a form changes (for example a timer or progress indicator), you can use <code>my_gui:update(player)</code> or <code>my_gui:update_where(func)</code> (see below) to update the form without resetting <code>ctx</code> or showing the form again if the player has closed it.</p>
+<p>Luanti has no way to change a form that is already open, so flow has to show the whole form again. Because of this, players may lose text typed into fields that hasn't been sent to the server (which happens when they press a button or Enter) when the form is updated.</p>
 <pre><code class="language-lua">-- Re-shows the form for one player if they have the form open
 my_gui:update(player)
 
@@ -1258,19 +1258,17 @@ my_gui:update_where(function() return true end)
 </code></pre>
 <!-- TODO(P2,link): no page documents show_hud / close_hud; add one and link experimental.md#putting-the-form-somewhere-else-on-the-screen-likely-required-for-most-huds and inventory.md. -->
 
-<p>If you're using a form as a HUD, you must call <code>form:show_hud</code> to update it.</p></section>
+<p>If you're using a form as a HUD, you must call <code>my_gui:show_hud(player)</code> to update it.</p></section>
                     <section class='print-page md-section' id='section-3' heading-number='3'>
                         <h1>Elements/widgets<a class='headerlink' href='#section-3' title='Permanent link'></a>
                         </h1>
                     <section class="print-page" id="layout-elements" heading-number="3.1"><h1 id="layout-elements-layouting-elements">Layouting elements</h1>
 <p>You should do <code>local gui = flow.widgets</code> in your code to improve readability. All examples will assume that this line exists.</p>
 <p>These elements control how other elements are arranged. Most of them draw nothing themselves: they place the elements inside them, work out how big everything is, and share out any spare space. Elements that draw something or accept input (labels, buttons, fields, ...) are described in <a href="#elements">Elements</a>. To place elements at exact coordinates instead, see <a href="#manual-positioning">Manual positioning</a>.</p>
-<!-- TODO(P1,clarify): contradicts gui.ScrollableVBox and gui.PaginatedVBox below, which take w and h; list which elements accept them. -->
-
-<p><strong>Warning:</strong> The below elements (except <code>gui.Spacer</code>) do not support <code>w</code> and <code>h</code> properties and will break in weird ways if you try and use them. Use <code>min_w</code> and <code>min_h</code> instead.</p>
+<p><strong>Warning:</strong> <code>gui.VBox</code>, <code>gui.HBox</code>, and <code>gui.Stack</code> do not support <code>w</code> and <code>h</code> properties and will break in weird ways if you try and use them. Use <code>min_w</code> and <code>min_h</code> instead.</p>
+<p>The layouting elements that do take <code>w</code> and <code>h</code> are <code>gui.ScrollableVBox</code> and <code>gui.PaginatedVBox</code> (both are optional), and <code>gui.Spacer</code>. <code>gui.Flow</code> needs a <code>w</code> but does not support <code>h</code>, see <a href="#experimental">Experimental</a>.</p>
 <h2 id="layout-elements-guivbox"><code>gui.VBox</code></h2>
-<p>A vertical box, similar to a VBox in GTK. Elements inside a VBox are stacked
-vertically.</p>
+<p>A vertical box, similar to a VBox in GTK. Elements inside a VBox are stacked vertically.</p>
 <pre><code class="language-lua">gui.VBox {
     -- These elements are documented later on.
     gui.Label { label = &quot;I am a label!&quot; },
@@ -1400,9 +1398,8 @@ end)
 
 gui.Label { label = &quot;Hello world!&quot; }
 </code></pre>
-<!-- TODO(P1,clarify): say what generates them; hand edits (including spacing) may be overwritten. Placeholder values mislead: url = "Hello world!" (ButtonURL, ButtonUrlExit), frame_duration = 4, item_name / inventory_location / mesh = "Hello world!"; Tabheader lists w last. -->
-
-<p>The parameter lists below are generated automatically. Parameters marked <code>-- Optional</code> can be left out.</p>
+<p>The parameter lists below are generated by <code>generate_docs.py</code> (in the root of this documentation repository) from the formspec_ast element definitions. The descriptions and comments are written by hand in that script. Edit the script instead of this page: running it overwrites this file, including any hand edits to the text or spacing.</p>
+<p>The values in the examples are placeholders that show what type a parameter takes. Replace them with your own. Parameters marked <code>-- Optional</code> can be left out.</p>
 <h2 id="elements-concepts-used-on-this-page">Concepts used on this page</h2>
 <h3 id="elements-sizes">Sizes</h3>
 <p>Sizes are measured in inventory slots: <code>1</code> is the width and height of one item slot. There is no hidden padding or spacing, so two boxes that are <code>1</code> wide and placed next to each other with <code>spacing = 0</code> touch. You never give an element a position, boxes place their children and flow works out the total size of the form.</p>
@@ -1449,7 +1446,7 @@ gui.Label { label = &quot;Hello world!&quot; }
 <p>Colors are strings. <code>"#RGB"</code> and <code>"#RRGGBB"</code> are fully opaque, while <code>"#RGBA"</code> and <code>"#RRGGBBAA"</code> end with an alpha value, where <code>00</code> is fully transparent and <code>FF</code> is fully opaque. Color names also work (all the names from CSS, such as <code>"red"</code> and <code>"darkgreen"</code>), and you can add an alpha value after a <code>#</code>, for example <code>"darkgreen#08"</code>.</p>
 <p>Most text can also be coloured by putting color escape sequences in it, such as the ones made by <code>core.colorize()</code>. Dropdown items and tab captions are an exception, they cannot be coloured.</p>
 <h3 id="elements-textures-and-items">Textures and items</h3>
-<p>A texture name is the file name of an image from the <code>textures</code> folder of any loaded mod, such as <code>"default_dirt.png"</code>. An item name is the registered name of an item or node, such as <code>"default:dirt"</code>.</p>
+<p>A texture name is the file name of an image from the <code>textures</code> folder of any loaded mod, such as <code>"default_dirt.png"</code>. An item name is the registered name of an item or node, such as <code>"unifieddyes:colorium"</code>.</p>
 <h3 id="elements-parameters-shared-by-all-elements">Parameters shared by all elements</h3>
 <p>Every element, including <a href="#layout-elements">layouting elements</a>, accepts these parameters in addition to its own:</p>
 <table>
@@ -1520,7 +1517,7 @@ gui.Label { label = &quot;Hello world!&quot; }
     frame_count = 3,
 
     -- Milliseconds each frame is shown for. 0 means no animation.
-    frame_duration = 4,
+    frame_duration = 100,
 
     -- Frame to start on, the first frame is 1. Default 1.
     frame_start = 5, -- Optional
@@ -1624,7 +1621,7 @@ gui.Label { label = &quot;Hello world!&quot; }
     label = &quot;Hello world!&quot;, -- Optional
 
     -- Web address to offer to open.
-    url = &quot;Hello world!&quot;,
+    url = &quot;https://example.com&quot;,
 }
 </code></pre>
 <h3 id="elements-guibuttonurlexit"><code>gui.ButtonUrlExit</code></h3>
@@ -1637,7 +1634,7 @@ gui.Label { label = &quot;Hello world!&quot; }
     label = &quot;Hello world!&quot;, -- Optional
 
     -- Web address to offer to open.
-    url = &quot;Hello world!&quot;,
+    url = &quot;https://example.com&quot;,
 }
 </code></pre>
 <h3 id="elements-guicheckbox"><code>gui.Checkbox</code></h3>
@@ -1789,14 +1786,14 @@ gui.Label { label = &quot;Hello world!&quot; }
 }
 </code></pre>
 <h3 id="elements-guiitemimage"><code>gui.ItemImage</code></h3>
-<p>Shows the picture that is used for an item or node in inventories (<code>item_name</code>, such as <code>"default:dirt"</code>), stretched to fit <code>w</code> by <code>h</code>.</p>
+<p>Shows the picture that is used for an item or node in inventories (<code>item_name</code>, such as <code>"unifieddyes:colorium"</code>), stretched to fit <code>w</code> by <code>h</code>.</p>
 <p><strong>Example</strong></p>
 <pre><code class="language-lua">gui.ItemImage {
     w = 2,
     h = 3,
 
     -- Registered item or node name.
-    item_name = &quot;Hello world!&quot;,
+    item_name = &quot;unifieddyes:colorium&quot;,
 }
 </code></pre>
 <h3 id="elements-guiitemimagebutton"><code>gui.ItemImageButton</code></h3>
@@ -1808,7 +1805,7 @@ gui.Label { label = &quot;Hello world!&quot; }
     h = 2,
 
     -- Registered item or node name.
-    item_name = &quot;Hello world!&quot;,
+    item_name = &quot;unifieddyes:colorium&quot;,
     name = &quot;my_item_image_button&quot;, -- Optional
     label = &quot;Hello world!&quot;, -- Optional
 }
@@ -1833,10 +1830,10 @@ gui.Label { label = &quot;Hello world!&quot; }
 <p><strong>Example</strong></p>
 <pre><code class="language-lua">gui.List {
     -- Which inventory to show.
-    inventory_location = &quot;Hello world!&quot;,
+    inventory_location = &quot;current_player&quot;,
 
     -- Which list in that inventory to show.
-    list_name = &quot;Hello world!&quot;,
+    list_name = &quot;main&quot;,
     w = 1,
     h = 2,
 
@@ -1881,10 +1878,10 @@ gui.Label { label = &quot;Hello world!&quot; }
 <p><strong>Example</strong></p>
 <pre><code class="language-lua">gui.Listring {
     -- Same as for gui.List.
-    inventory_location = &quot;Hello world!&quot;, -- Optional
+    inventory_location = &quot;current_player&quot;, -- Optional
 
     -- Same as for gui.List.
-    list_name = &quot;Hello world!&quot;, -- Optional
+    list_name = &quot;main&quot;, -- Optional
 }
 </code></pre>
 <h3 id="elements-guimodel"><code>gui.Model</code></h3>
@@ -1908,7 +1905,7 @@ gui.Label { label = &quot;Hello world!&quot; }
     name = &quot;my_model&quot;, -- Optional
 
     -- Model file name.
-    mesh = &quot;Hello world!&quot;,
+    mesh = &quot;model.obj&quot;,
 
     -- One texture for each material of the model.
     textures = { &quot;texture.png&quot;, ... },
@@ -2055,21 +2052,21 @@ gui.Label { label = &quot;Hello world!&quot; }
 <p>Give it both a <code>w</code> and an <code>h</code>: flow cannot work out how much space it needs. If <code>transparent</code> is <code>true</code> the tabs are semi-transparent, and <code>draw_border</code> draws a thin line along the bottom of the tabs.</p>
 <p><strong>Example</strong></p>
 <pre><code class="language-lua">gui.Tabheader {
-    h = 1,
+    w = 1,
+    h = 2,
     name = &quot;my_tabheader&quot;, -- Optional
 
     -- Text of each tab.
     captions = { &quot;Hello world!&quot;, ... },
 
     -- Tab selected at first, the first is 1.
-    current_tab = 2, -- Optional
+    current_tab = 3, -- Optional
 
     -- Draw semi-transparent. Default false.
     transparent = false, -- Optional
 
     -- Draw a line along the tabs. Default false.
     draw_border = false, -- Optional
-    w = 3,
 }
 </code></pre>
 <h3 id="elements-guitable"><code>gui.Table</code></h3>
@@ -2341,7 +2338,7 @@ gui.Label { label = &quot;Hello world!&quot; }
 <h3 id="hypertext-item-name-float-width-height-rotate-angle"><code>&lt;item name=... float=... width=... height=... rotate=... angle=...&gt;</code></h3>
 <p>Draws the inventory picture of an item.</p>
 <ul>
-<li><code>name</code>: The item name (required), such as <code>default:dirt</code>.</li>
+<li><code>name</code>: The item name (required), such as <code>unifieddyes:colorium</code>.</li>
 <li><code>float</code>, <code>width</code>, <code>height</code>: Like for <code>&lt;img&gt;</code>.</li>
 <li><code>rotate</code>: Make the item turn. Either <code>yes</code> or <code>X,Y,Z</code>, the rotation speeds around each axis as percentages of the standard speed (-1000 to 1000).</li>
 <li><code>angle</code>: The angle the item is shown at, as <code>X,Y,Z</code>, the angles around each of the three axes.</li>
@@ -2870,11 +2867,15 @@ gui.StyleType {
 </tr>
 </tbody>
 </table></section><section class="print-page" id="padding" heading-number="4.3"><h1 id="padding-padding-spacing-and-backgrounds">Padding, spacing, and backgrounds</h1>
-<!-- TODO(P1,clarify): conflicts with experimental.md (gui.Flow ignores padding); list the elements that do not support it. -->
-
 <!-- TODO(P3,link): link build_func to getting-started.md, units to elements.md#sizes, and gui.Padding to layout-elements.md. -->
 
-<p>All elements can have a <code>padding</code> value, which will add the specified amount of padding around the element. The "root" element of the form (the one returned by <code>build_func</code>) has a default padding of 0.3, everything else has a default padding of 0.</p>
+<p>Most elements can have a <code>padding</code> value, which will add the specified amount of padding around the element. The "root" element of the form (the one returned by <code>build_func</code>) has a default padding of 0.3, everything else has a default padding of 0.</p>
+<p><code>padding</code> is ignored on these elements:</p>
+<ul>
+<li><code>gui.Flow</code>, <code>gui.ScrollableVBox</code>, and <code>gui.PaginatedVBox</code>. To pad one, put it inside a <code>gui.VBox</code> (or another layouting element) and set <code>padding</code> on that instead.</li>
+<li>Elements inside a <code>gui.Container</code>, which are placed at their <code>x</code> and <code>y</code> and are not padded.</li>
+<li>Invisible elements such as <code>gui.Style</code>, which take up no space.</li>
+</ul>
 <!-- TODO(P3,link): spacing is also described in layout-elements.md (gui.VBox); keep the 0.2 default in one place and cross-link. -->
 
 <p><code>HBox</code> and <code>VBox</code> have a <code>spacing</code> field which specifies how much spacing there is between elements inside the box. If unspecified, <code>spacing</code> will default to 0.2.</p>
@@ -2909,11 +2910,9 @@ gui.StyleType {
 <!-- TODO(P3,clarify): say how overlapping tooltips are prioritised beyond "named wins" (document order?). -->
 
 <p>This works on elements without a <code>name</code> as well. In that case the tooltip covers the area of the element, and the tooltip of a named element that overlaps it takes priority.</p>
-<!-- TODO(P1,clarify): prose says it refers to the element "by name" but the parameter is gui_element_name. -->
-
 <!-- TODO(P3,link): link gui.Style to elements.md#guistyle; link not-supported.md#missing-elements for hypertip[] and area tooltips. -->
 
-<p>There is also a <a href="#elements-guitooltip"><code>gui.Tooltip</code></a> element which lets you change the background and text color of the tooltip. It refers to the element it belongs to by <code>name</code>, and should come after that element. As with <code>gui.Style</code>, it is invisible and won't affect padding.</p>
+<p>There is also a <a href="#elements-guitooltip"><code>gui.Tooltip</code></a> element which lets you change the background and text color of the tooltip. It refers to the element it belongs to with <code>gui_element_name</code>, which must be the <code>name</code> of that element, and it should come after that element. As with <code>gui.Style</code>, it is invisible and won't affect padding.</p>
 <pre><code class="language-lua">gui.VBox {
     gui.Button { name = &quot;my_button&quot;, label = &quot;Hover over me&quot; },
     gui.Tooltip {
@@ -2944,9 +2943,9 @@ gui.StyleType {
 <!-- TODO(P3,link): link "formspec" to index.md, player:set_inventory_formspec() to the Luanti API docs, and sfinv-style embedding to experimental.md#rendering-to-a-formspec. -->
 
 <p>A form can be set as the player inventory, which is the screen the player sees when they open their inventory. Flow internally generates the formspec (the text Luanti uses to describe a menu) and passes it to <code>player:set_inventory_formspec()</code>. This will completely replace your inventory and isn't compatible with inventory mods like sfinv (the inventory in Minetest Game, which lets mods add tabs).</p>
-<!-- TODO(P1,clarify): snippet uses gui without "local gui = flow.widgets"; it names the context "context" where other pages use ctx. -->
+<pre><code class="language-lua">local gui = flow.widgets
 
-<pre><code class="language-lua">local example_inventory = flow.make_gui(function(player, context)
+local example_inventory = flow.make_gui(function(player, ctx)
     return gui.Label { label = &quot;Inventory goes here!&quot; }
 end)
 core.register_on_joinplayer(function(player)
@@ -2958,7 +2957,7 @@ end)
 <!-- TODO(P2,clarify): what happens if the inventory is open when set_as_inventory_for is called again: redraw now, or next open? -->
 
 <p>Like with the <code>show_hud</code> function, <code>update*</code> functions don't do anything, so to update it, call <code>set_as_inventory_for</code> again with the new context. If the context is not provided, it will reuse the existing context.</p>
-<pre><code class="language-lua">example_inventory:set_as_inventory_for(player, new_context)
+<pre><code class="language-lua">example_inventory:set_as_inventory_for(player, new_ctx)
 </code></pre>
 <p>While the form will of course be cleared when the player leaves, if you'd like to unset the inventory manually, call <code>:unset_as_inventory_for(player)</code>, analogue to <code>close_hud</code>:</p>
 <pre><code class="language-lua">example_inventory:unset_as_inventory_for(player)
@@ -2969,13 +2968,14 @@ end)
 
 <!-- TODO(P3,link): link gui.Container to elements.md#guicontainer, ScrollableVBox/Spacer to layout-elements.md, type names to styling.md#element-types. -->
 
-<p>This is only recommended for elements inside <code>gui.Container</code> (see below) outside of some rare use cases that need it, as it does not support flow's layouting elements.</p>
-<p>If you want to generate element types from a variable, you can use <code>{type = "label", label = "Hello world!"}</code> instead of <code>gui.Label{label="Hello world!"}</code>. The <code>type</code> is the name of the <code>gui</code> function in lowercase with underscores between words, for example <code>"item_image_button"</code> for <code>gui.ItemImageButton</code>. HBoxes and VBoxes can be created this way as well (with <code>type = "hbox"</code> and <code>type = "vbox"</code>), however other layouting elements (such as ScrollableVBox and Spacer) won't work correctly.</p>
+<p>A <code>gui.Label{...}</code> call just returns a table with <code>type = "label"</code> added to it, so you can write <code>{type = "label", label = "Hello world!"}</code> instead of <code>gui.Label{label="Hello world!"}</code>. This is what you need inside <code>gui.Container</code> (see below), and it is also useful if you want to choose the element type from a variable. The <code>type</code> is the name of the <code>gui</code> function in lowercase with underscores between words, for example <code>"item_image_button"</code> for <code>gui.ItemImageButton</code>.</p>
+<p>HBoxes and VBoxes can be created this way as well (with <code>type = "hbox"</code> and <code>type = "vbox"</code>) and work anywhere <code>gui.HBox</code> and <code>gui.VBox</code> do. However, <code>gui.ScrollableVBox</code>, <code>gui.PaginatedVBox</code>, <code>gui.Spacer</code>, <code>gui.Flow</code>, and <code>gui.Nil</code> are functions that build other elements instead of element types, so they cannot be created with a <code>type</code> table: flow does not recognize them and they will not work.</p>
 <!-- TODO(P2,link): example.lua has no link or location (also in getting-started.md). -->
 
 <p>An example of this is in <code>example.lua</code>.</p>
 <h2 id="manual-positioning-manual-positioning-of-elements">Manual positioning of elements</h2>
 <p>You can use <code>gui.Container</code> elements to contain manually positioned elements. Every element inside a container has an <code>x</code> and <code>y</code>, which is the distance of its top-left corner from the top-left corner of the container, in the same units as <code>w</code> and <code>h</code>. Containers can be nested, in which case the offsets add up. If you do not give a <code>w</code> and <code>h</code>, flow uses the smallest size that fits all the elements inside.</p>
+<h3 id="manual-positioning-container-vbox-example">Container: VBox Example</h3>
 <pre><code class="language-lua">gui.VBox {
     gui.Label { label = &quot;Automatically positioned&quot; },
     gui.Container {
@@ -2993,9 +2993,22 @@ end)
     },
 }
 </code></pre>
-<!-- TODO(P1,clarify): contradicts the section above, which says type = "hbox" / "vbox" tables work; are HBox/VBox allowed inside gui.Container? -->
-
-<p>Note that you should not nest layouted elements (like <code>gui.VBox</code>) inside <code>gui.Container</code>.</p></section><section class="print-page" id="experimental" heading-number="4.8"><h1 id="experimental-experimental-features">Experimental features</h1>
+<h3 id="manual-positioning-container-stack-example">Container: Stack Example</h3>
+<pre><code class="language-lua">gui.Stack {
+    min_w = 10,
+    gui.Button { label = &quot;Hello world!&quot; },
+    gui.Container {
+        w = 1, h = 1, padding = 0.2, align_h = &quot;center&quot;,
+        { 
+            type = &quot;image&quot;, 
+            x = 1, y = 0, w = 1, h = 1, 
+            texture_name = &quot;air.png&quot;,
+        }
+    }
+}
+</code></pre>
+<p>Do not put layouting elements (like <code>gui.VBox</code>, <code>gui.HBox</code>, and <code>gui.Stack</code>) inside <code>gui.Container</code>, whether you write them with <code>gui.VBox</code> or with <code>type = "vbox"</code>. A container never lays out its children, it only places them at their <code>x</code> and <code>y</code>. It only works out the size of a box inside it when neither the container nor the box has both a <code>w</code> and a <code>h</code>. If one of them does, flow either fails with an error or draws the box's contents wrongly. Even when it works, <code>padding</code>, <code>align_h</code>, and <code>align_v</code> on the box are not applied.</p>
+<p>This does not stop you from using a <code>gui.Container</code> inside a layouting element, as in the example above. To get the same effect inside a container, put the elements at exact <code>x</code> and <code>y</code> positions yourself.</p></section><section class="print-page" id="experimental" heading-number="4.8"><h1 id="experimental-experimental-features">Experimental features</h1>
 <!-- TODO(P3,link): popovers.md is also experimental and is not linked from here; add it. -->
 
 <p>These features might be broken in the future.</p>
@@ -3022,15 +3035,22 @@ end)
 
 <p><img alt="Screenshot" src="https://user-images.githubusercontent.com/3182651/212222545-baee3669-15cd-410d-a638-c63b65a8811b.png" /></p>
 <h2 id="experimental-bgcolor"><code>bgcolor</code></h2>
-<!-- TODO(P1,clarify): bg_fullscreen = true drawing only fbgcolor reads backwards; verify against the flow source and add an example. -->
-
 <p>You can set <code>bgcolor = "#123"</code>, <code>fbgcolor = "#123"</code>, and <code>bg_fullscreen = true</code> on the root element to set background colors:</p>
 <ul>
 <li><code>bgcolor</code>: The color of the background of the form itself.</li>
 <li><code>fbgcolor</code>: The color of the fullscreen background, which covers the whole screen behind the form.</li>
 <li><code>bg_fullscreen</code>: Which of the two colors to draw. <code>false</code> (the default) only draws <code>bgcolor</code>, <code>true</code> only draws <code>fbgcolor</code>, <code>"both"</code> draws both, and <code>"neither"</code> draws neither.</li>
 </ul>
+<p><code>bg_fullscreen = true</code> can look backwards: it does not add the fullscreen background to the form's own one, it switches to the fullscreen one. Flow passes these three values straight to Luanti's <code>bgcolor[]</code> formspec element, so Luanti decides what is drawn. This also means that <code>fbgcolor</code> is not drawn unless you set <code>bg_fullscreen</code> to <code>true</code> or <code>"both"</code>.</p>
 <p>Colors that you leave out are not changed. See <a href="#elements-colors">Elements</a> for how colors are written.</p>
+<pre><code class="language-lua">gui.VBox {
+    -- Draw a dark form on a dimmed screen
+    bgcolor = &quot;#222222&quot;,
+    fbgcolor = &quot;#00000080&quot;,
+    bg_fullscreen = &quot;both&quot;,
+    gui.Label { label = &quot;Hello world!&quot; },
+}
+</code></pre>
 <!-- TODO(P3,clarify): this long heading is also a URL anchor (used in not-supported.md); a short heading would be easier to link. No page documents HUDs. -->
 
 <h2 id="experimental-putting-the-form-somewhere-else-on-the-screen-likely-required-for-most-huds">Putting the form somewhere else on the screen (likely required for most HUDs)</h2>
@@ -3187,71 +3207,81 @@ end)
 <p>Flow supports a highly experimental low-level API for defining popovers. Popovers appear over top of all other elements and are anchored to their parent.</p>
 <p>This API is intended to be used for creating themed widgets like dropdowns, or for a higher level popover API that adds styling and is easier to use.</p>
 <p>You add a <code>popover</code> attribute to any container element to define a popover. Flow does not manage the lifecycle (opening/closing) of popovers, you must ensure that you do this yourself like in the example.</p>
-<!-- TODO(P1,clarify): snippet uses ctx outside a build function, and ctx.form.side is nil on first draw; show the flow.make_gui wrapper. on_close_popover is documented only in this example. -->
+<p>Two parameters go on the container that owns the popover:</p>
+<ul>
+<li><code>popover</code>: the element to show over the container, or <code>nil</code> for no popover.</li>
+<li><code>on_close_popover</code>: a function that flow calls with <code>(player, ctx)</code> when the player clicks anywhere outside the popover. Like an <code>on_event</code> function, it can return <code>true</code> to redraw the form. Flow only adds this click catcher while a popover is shown.</li>
+</ul>
+<p>See the below example for details on how to use the API. The popover is drawn from the build function, so it can depend on <code>ctx</code>:</p>
+<pre><code class="language-lua">local gui = flow.widgets
 
-<p>See the below example for details on how to use the API:</p>
-<pre><code class="language-lua">gui.VBox {
-    -- Some padding is added for the purposes of the demo so that the popup
-    -- isn't off-screen
-    padding = 3,
-    gui.Label { label = &quot;Popover demo:&quot; },
+local my_gui = flow.make_gui(function(player, ctx)
+    return gui.VBox {
+        -- Some padding is added for the purposes of the demo so that the popup
+        -- isn't off-screen
+        padding = 3,
+        gui.Label { label = &quot;Popover demo:&quot; },
 
-    gui.Stack {
-        gui.Button {
-            label = &quot;Open popover&quot;,
+        gui.Stack {
+            gui.Button {
+                label = &quot;Open popover&quot;,
 
-            -- When the popover button is clicked, open the popover
-            on_event = function(player, ctx)
-                ctx.show_popover = true
+                -- When the popover button is clicked, open the popover
+                on_event = function(player, ctx)
+                    ctx.show_popover = true
+                    return true
+                end,
+            },
+
+            -- The actual element to overlay
+            -- &quot;popover&quot; is set to the gui.VBox element if (and only if)
+            -- ctx.show_popover is true, otherwise it's nil so no popover is
+            -- shown.
+            popover = ctx.show_popover and gui.VBox {
+                -- Specifying padding and bgcolor is optional, but is probably
+                -- a good idea since flow doesn't do any styling on its own.
+                padding = 0.2,
+                bgcolor = &quot;#222e&quot;,
+
+                -- &quot;side&quot; specifies how the popover is positioned relative to
+                -- the parent, and can be &quot;bottom&quot; (default), &quot;top&quot;, &quot;left&quot;, or
+                -- &quot;right&quot;. It is nil on the first draw, which means &quot;bottom&quot;.
+                side = ctx.form.side,
+
+                -- align_h and align_v align the popover according to its
+                -- parent element. You only need to specify align_h for
+                -- side = &quot;top&quot;/&quot;bottom&quot; or align_v for side = &quot;left&quot;/&quot;right&quot;,
+                -- this example specifies both so that it can demonstrate
+                -- switching between different sides.
+                align_h = &quot;fill&quot;,
+                align_v = &quot;center&quot;,
+
+                -- Popover contents
+                gui.Label { label = &quot;Hi there!&quot; },
+                gui.Dropdown {
+                    name = &quot;side&quot;,
+                    items = {
+                        &quot;bottom&quot;,
+                        &quot;top&quot;,
+                        &quot;left&quot;,
+                        &quot;right&quot;,
+                    },
+                },
+            } or nil,
+
+            -- Clicking outside the popover will call this function, which
+            -- should probably close the popover.
+            on_close_popover = function(player, ctx)
+                ctx.show_popover = false
                 return true
             end,
         },
 
-        -- The actual element to overlay
-        -- &quot;popover&quot; is set to the gui.VBox element if (and only if)
-        -- ctx.show_popover is true, otherwise it's nil so no popover is shown.
-        popover = ctx.show_popover and gui.VBox {
-            -- Specifying padding and bgcolor is optional, but is probably a
-            -- good idea since flow doesn't do any styling on its own.
-            padding = 0.2,
-            bgcolor = &quot;#222e&quot;,
-
-            -- &quot;side&quot; specifies how the popover is positioned relative to the
-            -- parent, and can be &quot;bottom&quot; (default), &quot;top&quot;, &quot;left&quot;, or &quot;right&quot;.
-            side = ctx.form.side,
-
-            -- align_h and align_v align the popover according to its parent
-            -- element. You only need to specify align_h for
-            -- side = &quot;top&quot;/&quot;bottom&quot; or align_v for side = &quot;left&quot;/&quot;right&quot;,
-            -- this example specifies both so that it can demonstrate switching
-            -- between different sides.
-            align_h = &quot;fill&quot;,
-            align_v = &quot;center&quot;,
-
-            -- Popover contents
-            gui.Label { label = &quot;Hi there!&quot; },
-            gui.Dropdown {
-                name = &quot;side&quot;,
-                items = {
-                    &quot;bottom&quot;,
-                    &quot;top&quot;,
-                    &quot;left&quot;,
-                    &quot;right&quot;,
-                },
-            },
-        } or nil,
-
-        -- Clicking outside the popover will call this function, which should
-        -- probably close the popover.
-        on_close_popover = function(player, ctx)
-            ctx.show_popover = false
-            return true
-        end,
-    },
-
-    gui.Label { label = &quot;After popover button&quot; },
-}
+        gui.Label { label = &quot;After popover button&quot; },
+    }
+end)
 </code></pre>
+<p>Show the form with <code>my_gui:show(player)</code> as usual.</p>
 <p>There are some restrictions on popovers:</p>
 <!-- TODO(P3,link): link noclip to styling.md#all-elements, align_h/align_v to elements.md#parameters-shared-by-all-elements, gui.Stack/HBox/VBox to layout-elements.md. -->
 

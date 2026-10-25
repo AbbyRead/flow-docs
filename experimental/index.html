@@ -634,14 +634,22 @@ end)
 <!-- TODO(P2,clarify): screenshot is hotlinked from user-images.githubusercontent.com; copy it into docs/ so it cannot break. -->
 <p><img alt="Screenshot" src="https://user-images.githubusercontent.com/3182651/212222545-baee3669-15cd-410d-a638-c63b65a8811b.png"/></p>
 <h2 id="bgcolor"><code>bgcolor</code></h2>
-<!-- TODO(P1,clarify): bg_fullscreen = true drawing only fbgcolor reads backwards; verify against the flow source and add an example. -->
 <p>You can set <code>bgcolor = "#123"</code>, <code>fbgcolor = "#123"</code>, and <code>bg_fullscreen = true</code> on the root element to set background colors:</p>
 <ul>
 <li><code>bgcolor</code>: The color of the background of the form itself.</li>
 <li><code>fbgcolor</code>: The color of the fullscreen background, which covers the whole screen behind the form.</li>
 <li><code>bg_fullscreen</code>: Which of the two colors to draw. <code>false</code> (the default) only draws <code>bgcolor</code>, <code>true</code> only draws <code>fbgcolor</code>, <code>"both"</code> draws both, and <code>"neither"</code> draws neither.</li>
 </ul>
+<p><code>bg_fullscreen = true</code> can look backwards: it does not add the fullscreen background to the form's own one, it switches to the fullscreen one. Flow passes these three values straight to Luanti's <code>bgcolor[]</code> formspec element, so Luanti decides what is drawn. This also means that <code>fbgcolor</code> is not drawn unless you set <code>bg_fullscreen</code> to <code>true</code> or <code>"both"</code>.</p>
 <p>Colors that you leave out are not changed. See <a href="../elements/#colors">Elements</a> for how colors are written.</p>
+<pre><code class="language-lua">gui.VBox {
+    -- Draw a dark form on a dimmed screen
+    bgcolor = "#222222",
+    fbgcolor = "#00000080",
+    bg_fullscreen = "both",
+    gui.Label { label = "Hello world!" },
+}
+</code></pre>
 <!-- TODO(P3,clarify): this long heading is also a URL anchor (used in not-supported.md); a short heading would be easier to link. No page documents HUDs. -->
 <h2 id="putting-the-form-somewhere-else-on-the-screen-likely-required-for-most-huds">Putting the form somewhere else on the screen (likely required for most HUDs)</h2>
 <p>These values allow the position of the displayed form to be moved around and adjust how it is scaled.</p>

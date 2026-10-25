@@ -427,70 +427,81 @@
 <p>Flow supports a highly experimental low-level API for defining popovers. Popovers appear over top of all other elements and are anchored to their parent.</p>
 <p>This API is intended to be used for creating themed widgets like dropdowns, or for a higher level popover API that adds styling and is easier to use.</p>
 <p>You add a <code>popover</code> attribute to any container element to define a popover. Flow does not manage the lifecycle (opening/closing) of popovers, you must ensure that you do this yourself like in the example.</p>
-<!-- TODO(P1,clarify): snippet uses ctx outside a build function, and ctx.form.side is nil on first draw; show the flow.make_gui wrapper. on_close_popover is documented only in this example. -->
-<p>See the below example for details on how to use the API:</p>
-<pre><code class="language-lua">gui.VBox {
-    -- Some padding is added for the purposes of the demo so that the popup
-    -- isn't off-screen
-    padding = 3,
-    gui.Label { label = "Popover demo:" },
+<p>Two parameters go on the container that owns the popover:</p>
+<ul>
+<li><code>popover</code>: the element to show over the container, or <code>nil</code> for no popover.</li>
+<li><code>on_close_popover</code>: a function that flow calls with <code>(player, ctx)</code> when the player clicks anywhere outside the popover. Like an <code>on_event</code> function, it can return <code>true</code> to redraw the form. Flow only adds this click catcher while a popover is shown.</li>
+</ul>
+<p>See the below example for details on how to use the API. The popover is drawn from the build function, so it can depend on <code>ctx</code>:</p>
+<pre><code class="language-lua">local gui = flow.widgets
 
-    gui.Stack {
-        gui.Button {
-            label = "Open popover",
+local my_gui = flow.make_gui(function(player, ctx)
+    return gui.VBox {
+        -- Some padding is added for the purposes of the demo so that the popup
+        -- isn't off-screen
+        padding = 3,
+        gui.Label { label = "Popover demo:" },
 
-            -- When the popover button is clicked, open the popover
-            on_event = function(player, ctx)
-                ctx.show_popover = true
+        gui.Stack {
+            gui.Button {
+                label = "Open popover",
+
+                -- When the popover button is clicked, open the popover
+                on_event = function(player, ctx)
+                    ctx.show_popover = true
+                    return true
+                end,
+            },
+
+            -- The actual element to overlay
+            -- "popover" is set to the gui.VBox element if (and only if)
+            -- ctx.show_popover is true, otherwise it's nil so no popover is
+            -- shown.
+            popover = ctx.show_popover and gui.VBox {
+                -- Specifying padding and bgcolor is optional, but is probably
+                -- a good idea since flow doesn't do any styling on its own.
+                padding = 0.2,
+                bgcolor = "#222e",
+
+                -- "side" specifies how the popover is positioned relative to
+                -- the parent, and can be "bottom" (default), "top", "left", or
+                -- "right". It is nil on the first draw, which means "bottom".
+                side = ctx.form.side,
+
+                -- align_h and align_v align the popover according to its
+                -- parent element. You only need to specify align_h for
+                -- side = "top"/"bottom" or align_v for side = "left"/"right",
+                -- this example specifies both so that it can demonstrate
+                -- switching between different sides.
+                align_h = "fill",
+                align_v = "center",
+
+                -- Popover contents
+                gui.Label { label = "Hi there!" },
+                gui.Dropdown {
+                    name = "side",
+                    items = {
+                        "bottom",
+                        "top",
+                        "left",
+                        "right",
+                    },
+                },
+            } or nil,
+
+            -- Clicking outside the popover will call this function, which
+            -- should probably close the popover.
+            on_close_popover = function(player, ctx)
+                ctx.show_popover = false
                 return true
             end,
         },
 
-        -- The actual element to overlay
-        -- "popover" is set to the gui.VBox element if (and only if)
-        -- ctx.show_popover is true, otherwise it's nil so no popover is shown.
-        popover = ctx.show_popover and gui.VBox {
-            -- Specifying padding and bgcolor is optional, but is probably a
-            -- good idea since flow doesn't do any styling on its own.
-            padding = 0.2,
-            bgcolor = "#222e",
-
-            -- "side" specifies how the popover is positioned relative to the
-            -- parent, and can be "bottom" (default), "top", "left", or "right".
-            side = ctx.form.side,
-
-            -- align_h and align_v align the popover according to its parent
-            -- element. You only need to specify align_h for
-            -- side = "top"/"bottom" or align_v for side = "left"/"right",
-            -- this example specifies both so that it can demonstrate switching
-            -- between different sides.
-            align_h = "fill",
-            align_v = "center",
-
-            -- Popover contents
-            gui.Label { label = "Hi there!" },
-            gui.Dropdown {
-                name = "side",
-                items = {
-                    "bottom",
-                    "top",
-                    "left",
-                    "right",
-                },
-            },
-        } or nil,
-
-        -- Clicking outside the popover will call this function, which should
-        -- probably close the popover.
-        on_close_popover = function(player, ctx)
-            ctx.show_popover = false
-            return true
-        end,
-    },
-
-    gui.Label { label = "After popover button" },
-}
+        gui.Label { label = "After popover button" },
+    }
+end)
 </code></pre>
+<p>Show the form with <code>my_gui:show(player)</code> as usual.</p>
 <p>There are some restrictions on popovers:</p>
 <!-- TODO(P3,link): link noclip to styling.md#all-elements, align_h/align_v to elements.md#parameters-shared-by-all-elements, gui.Stack/HBox/VBox to layout-elements.md. -->
 <ul>

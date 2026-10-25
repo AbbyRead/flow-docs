@@ -491,7 +491,9 @@
 <h2 id="basic-example">Basic example</h2>
 <!-- TODO(P2,link): example.lua has no link or location (also in manual-positioning.md); link it in the flow repo. -->
 <p>See <code>example.lua</code> for a more comprehensive example which demonstrates how layouting and alignment works.</p>
-<!-- TODO(P1,clarify): "playground" is the web playground player name; tell mod authors to use a real player. Say what the 2nd arg of form:show() is (initial ctx) and define ctx (see elements.md#names-and-values). -->
+<p>The build function is called with the player and a context table (<code>ctx</code>) every time the form is drawn. <code>ctx</code> belongs to one player's copy of the form: flow keeps the same table for as long as the form is open, passes it to the build function and to every <code>on_event</code> function, and you can store anything in it. Flow adds a <code>ctx.form</code> table to it, which holds the current values of the form's named inputs (see <a href="../elements/#names-and-values">Names and values</a>).</p>
+<p><code>form:show(player, ctx)</code> shows the form to a player. The second argument is the starting <code>ctx</code>. Flow uses that table itself instead of a copy, and uses a new empty table if you leave it out.</p>
+<p>The example below uses a player called <code>playground</code>, which only exists in the online playground. In a mod, use a real player object instead, such as the one passed to a chat command or to <code>core.register_on_joinplayer</code>.</p>
 <pre><code class="language-lua">local gui = flow.widgets -- local recommended for direct referencing
 local STARTING_SELECTION = 3 -- change and rerun to see the difference
 
@@ -516,14 +518,14 @@ local function build_vbox(player_obj, ctx)
 end
 
 local form = flow.make_gui(build_vbox)
+-- Use a real player in your mod, "playground" only exists in the playground
 local player_obj = core.get_player_by_name("playground")
 
-form:show(player_obj, { value = STARTING_SELECTION }) -- second argument is optional
+form:show(player_obj, { value = STARTING_SELECTION }) -- Starting ctx, optional
 </code></pre>
 <h2 id="updating-forms">Updating forms</h2>
-<!-- TODO(P1,clarify): prose says form:update but the API is my_gui:update(player) / update_where(); make the names match. -->
-<p>If some data displayed inside a form changes (for example a timer or progress indicator), you can use <code>form:update</code> to update the form without resetting <code>ctx</code> or showing the form again if the player has closed it.</p>
-<p>Luanti has no way to change a form that is already open, so flow has to show the whole form again. Because of this, players may lose text typed into fields that hasn't been sent to the server (which happens when they press a button or Enter) when <code>form:update</code> is called.</p>
+<p>If some data displayed inside a form changes (for example a timer or progress indicator), you can use <code>my_gui:update(player)</code> or <code>my_gui:update_where(func)</code> (see below) to update the form without resetting <code>ctx</code> or showing the form again if the player has closed it.</p>
+<p>Luanti has no way to change a form that is already open, so flow has to show the whole form again. Because of this, players may lose text typed into fields that hasn't been sent to the server (which happens when they press a button or Enter) when the form is updated.</p>
 <pre><code class="language-lua">-- Re-shows the form for one player if they have the form open
 my_gui:update(player)
 
@@ -551,7 +553,7 @@ my_gui:update_where(function() return true end)
 }
 </code></pre>
 <!-- TODO(P2,link): no page documents show_hud / close_hud; add one and link experimental.md#putting-the-form-somewhere-else-on-the-screen-likely-required-for-most-huds and inventory.md. -->
-<p>If you're using a form as a HUD, you must call <code>form:show_hud</code> to update it.</p>
+<p>If you're using a form as a HUD, you must call <code>my_gui:show_hud(player)</code> to update it.</p>
 </article>
 </div>
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>

@@ -621,11 +621,10 @@
 <h1 id="layouting-elements">Layouting elements</h1>
 <p>You should do <code>local gui = flow.widgets</code> in your code to improve readability. All examples will assume that this line exists.</p>
 <p>These elements control how other elements are arranged. Most of them draw nothing themselves: they place the elements inside them, work out how big everything is, and share out any spare space. Elements that draw something or accept input (labels, buttons, fields, ...) are described in <a href="../elements/">Elements</a>. To place elements at exact coordinates instead, see <a href="../manual-positioning/">Manual positioning</a>.</p>
-<!-- TODO(P1,clarify): contradicts gui.ScrollableVBox and gui.PaginatedVBox below, which take w and h; list which elements accept them. -->
-<p><strong>Warning:</strong> The below elements (except <code>gui.Spacer</code>) do not support <code>w</code> and <code>h</code> properties and will break in weird ways if you try and use them. Use <code>min_w</code> and <code>min_h</code> instead.</p>
+<p><strong>Warning:</strong> <code>gui.VBox</code>, <code>gui.HBox</code>, and <code>gui.Stack</code> do not support <code>w</code> and <code>h</code> properties and will break in weird ways if you try and use them. Use <code>min_w</code> and <code>min_h</code> instead.</p>
+<p>The layouting elements that do take <code>w</code> and <code>h</code> are <code>gui.ScrollableVBox</code> and <code>gui.PaginatedVBox</code> (both are optional), and <code>gui.Spacer</code>. <code>gui.Flow</code> needs a <code>w</code> but does not support <code>h</code>, see <a href="../experimental/">Experimental</a>.</p>
 <h2 id="guivbox"><code>gui.VBox</code></h2>
-<p>A vertical box, similar to a VBox in GTK. Elements inside a VBox are stacked
-vertically.</p>
+<p>A vertical box, similar to a VBox in GTK. Elements inside a VBox are stacked vertically.</p>
 <pre><code class="language-lua">gui.VBox {
     -- These elements are documented later on.
     gui.Label { label = "I am a label!" },
