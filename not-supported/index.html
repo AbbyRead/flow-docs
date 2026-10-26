@@ -9,7 +9,7 @@
 <link href="../security/" rel="next"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.6.1, mkdocs-material-9.8.0" name="generator"/>
-<title>Unsupported Features - Flow Unofficial Docs</title>
+<title>Unsupported Features - Flow Unofficial Documentation</title>
 <link href="../assets/stylesheets/main.57a0d79d.min.css" rel="stylesheet"/>
 <link href="../assets/stylesheets/palette.fb2fffe2.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -33,7 +33,7 @@
 </div>
 <header class="md-header md-header--shadow" data-md-component="header">
 <nav aria-label="Header" class="md-header__inner md-grid">
-<a aria-label="Flow Unofficial Docs" class="md-header__button md-logo" data-md-component="logo" href=".." title="Flow Unofficial Docs">
+<a aria-label="Flow Unofficial Documentation" class="md-header__button md-logo" data-md-component="logo" href=".." title="Flow Unofficial Documentation">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
 </a>
 <label class="md-header__button md-icon" for="__drawer">
@@ -43,7 +43,7 @@
 <div class="md-header__ellipsis">
 <div class="md-header__topic">
 <span class="md-ellipsis">
-            Flow Unofficial Docs
+            Flow Unofficial Documentation
           </span>
 </div>
 <div class="md-header__topic" data-md-component="header-topic">
@@ -119,10 +119,10 @@
 <div class="md-sidebar__inner">
 <nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
 <label class="md-nav__title" for="__drawer">
-<a aria-label="Flow Unofficial Docs" class="md-nav__button md-logo" data-md-component="logo" href=".." title="Flow Unofficial Docs">
+<a aria-label="Flow Unofficial Documentation" class="md-nav__button md-logo" data-md-component="logo" href=".." title="Flow Unofficial Documentation">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
 </a>
-    Flow Unofficial Docs
+    Flow Unofficial Documentation
   </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -173,11 +173,11 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../layout-elements/">
+<a class="md-nav__link" href="../intro-to-elements.md">
 <span class="md-ellipsis">
     
   
-    Layouting elements
+    None
   
 
     
@@ -185,7 +185,19 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../elements/">
+<a class="md-nav__link" href="../layout-elements/">
+<span class="md-ellipsis">
+    
+  
+    Layout elements
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../functional-elements/">
 <span class="md-ellipsis">
     
   
@@ -585,7 +597,7 @@
 <tr>
 <td><a href="https://api.luanti.org/formspec/#hypertipgui_element_namestaticposwidthnametext"><code>hypertip[]</code></a></td>
 <td>A tooltip that shows formatted text (see <a href="../hypertext/">Hypertext markup</a>).</td>
-<td>Flow tooltips only show plain text with the <code>tooltip</code> parameter or <a href="../elements/#guitooltip"><code>gui.Tooltip</code></a>. The markup language can only be used in <a href="../elements/#guihypertext"><code>gui.Hypertext</code></a>.</td>
+<td>Flow tooltips only show plain text with the <code>tooltip</code> parameter or <a href="elements.md#guitooltip"><code>gui.Tooltip</code></a>. The markup language can only be used in <a href="elements.md#guihypertext"><code>gui.Hypertext</code></a>.</td>
 </tr>
 <tr>
 <td><a href="https://api.luanti.org/formspec/#allow_closebool"><code>allow_close[]</code></a></td>
@@ -595,12 +607,12 @@
 <tr>
 <td><a href="https://api.luanti.org/formspec/#listimagesslot_bgimg_normalslot_bgimg_hover"><code>listimages[]</code></a></td>
 <td>Pictures for the background of inventory slots.</td>
-<td><a href="../elements/#guilistcolors"><code>gui.Listcolors</code></a> only sets colors.</td>
+<td><a href="elements.md#guilistcolors"><code>gui.Listcolors</code></a> only sets colors.</td>
 </tr>
 <tr>
 <td><a href="https://api.luanti.org/formspec/#labelxywhlabel"><code>label[x,y;w,h;text]</code></a></td>
 <td>A label that wraps long text inside a given size (an "area label").</td>
-<td><a href="../elements/#guitextarea"><code>gui.Textarea</code></a> without a <code>name</code>, or <a href="../elements/#guihypertext"><code>gui.Hypertext</code></a>. Because of this, the <code>halign</code> and <code>valign</code> styles do not do anything for <code>gui.Label</code>.</td>
+<td><a href="elements.md#guitextarea"><code>gui.Textarea</code></a> without a <code>name</code>, or <a href="elements.md#guihypertext"><code>gui.Hypertext</code></a>. Because of this, the <code>halign</code> and <code>valign</code> styles do not do anything for <code>gui.Label</code>.</td>
 </tr>
 <tr>
 <td><a href="https://api.luanti.org/formspec/#tooltipxywhtooltip_textbgcolorfontcolor"><code>tooltip[x,y;w,h;...]</code></a></td>
@@ -616,7 +628,7 @@
 </table>
 <h2 id="missing-parameters">Missing parameters</h2>
 <ul>
-<li><strong>Content padding of scroll containers.</strong> Luanti can work out the range of a scroll container's scrollbar for you, but flow's <a href="../elements/#guiscrollcontainer"><code>gui.ScrollContainer</code></a> does not expose this, so you have to set the range yourself with <a href="../elements/#guiscrollbaroptions"><code>gui.ScrollbarOptions</code></a>. <a href="../layout-elements/#guiscrollablevbox"><code>gui.ScrollableVBox</code></a> already does this for you.</li>
+<li><strong>Content padding of scroll containers.</strong> Luanti can work out the range of a scroll container's scrollbar for you, but flow's <a href="elements.md#guiscrollcontainer"><code>gui.ScrollContainer</code></a> does not expose this, so you have to set the range yourself with <a href="elements.md#guiscrollbaroptions"><code>gui.ScrollbarOptions</code></a>. <a href="../layout-elements/#guiscrollablevbox"><code>gui.ScrollableVBox</code></a> already does this for you.</li>
 <li><strong>Node formspec inventory locations.</strong> The <code>"current_node"</code> inventory location refers to the node whose formspec is open. A flow form cannot be the formspec of a node, so use <code>"nodemeta:X,Y,Z"</code> to show a node's inventory instead.</li>
 </ul>
 <h2 id="things-flow-does-for-you">Things flow does for you</h2>

@@ -5,11 +5,11 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<link href="../elements/" rel="prev"/>
+<link href="../functional-elements/" rel="prev"/>
 <link href="../not-supported/" rel="next"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.6.1, mkdocs-material-9.8.0" name="generator"/>
-<title>Hypertext markup - Flow Unofficial Docs</title>
+<title>Hypertext markup - Flow Unofficial Documentation</title>
 <link href="../assets/stylesheets/main.57a0d79d.min.css" rel="stylesheet"/>
 <link href="../assets/stylesheets/palette.fb2fffe2.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -33,7 +33,7 @@
 </div>
 <header class="md-header md-header--shadow" data-md-component="header">
 <nav aria-label="Header" class="md-header__inner md-grid">
-<a aria-label="Flow Unofficial Docs" class="md-header__button md-logo" data-md-component="logo" href=".." title="Flow Unofficial Docs">
+<a aria-label="Flow Unofficial Documentation" class="md-header__button md-logo" data-md-component="logo" href=".." title="Flow Unofficial Documentation">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
 </a>
 <label class="md-header__button md-icon" for="__drawer">
@@ -43,7 +43,7 @@
 <div class="md-header__ellipsis">
 <div class="md-header__topic">
 <span class="md-ellipsis">
-            Flow Unofficial Docs
+            Flow Unofficial Documentation
           </span>
 </div>
 <div class="md-header__topic" data-md-component="header-topic">
@@ -119,10 +119,10 @@
 <div class="md-sidebar__inner">
 <nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
 <label class="md-nav__title" for="__drawer">
-<a aria-label="Flow Unofficial Docs" class="md-nav__button md-logo" data-md-component="logo" href=".." title="Flow Unofficial Docs">
+<a aria-label="Flow Unofficial Documentation" class="md-nav__button md-logo" data-md-component="logo" href=".." title="Flow Unofficial Documentation">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
 </a>
-    Flow Unofficial Docs
+    Flow Unofficial Documentation
   </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -173,11 +173,11 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../layout-elements/">
+<a class="md-nav__link" href="../intro-to-elements.md">
 <span class="md-ellipsis">
     
   
-    Layouting elements
+    None
   
 
     
@@ -185,7 +185,19 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../elements/">
+<a class="md-nav__link" href="../layout-elements/">
+<span class="md-ellipsis">
+    
+  
+    Layout elements
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../functional-elements/">
 <span class="md-ellipsis">
     
   
@@ -695,7 +707,7 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1 id="hypertext-markup">Hypertext markup</h1>
-<p><a href="../elements/#guihypertext"><code>gui.Hypertext</code></a> shows text that is written in a small markup language with tags that look like HTML tags. It can be used to make text bold, coloured, bigger, or centred, to add pictures, and to add clickable links.</p>
+<p><a href="elements.md#guihypertext"><code>gui.Hypertext</code></a> shows text that is written in a small markup language with tags that look like HTML tags. It can be used to make text bold, coloured, bigger, or centred, to add pictures, and to add clickable links.</p>
 <p>The markup language is defined by Luanti, see <a href="https://api.luanti.org/formspec/#markup-language">Markup Language</a> in the Luanti API documentation.</p>
 <p><strong>Warning:</strong> The markup language is currently unstable and may change. Use it with caution. Flow passes the text to Luanti without looking at it, so everything on this page is handled by the player's Luanti client, not by flow.</p>
 <div class="language-lua highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nv">gui</span><span class="p">.</span><span class="py">Hypertext</span><span class="w"> </span><span class="p">{</span>
@@ -705,7 +717,7 @@
 </span><span id="__span-0-5"><a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="w">        </span><span class="s2">"&lt;style color='red'&gt;red&lt;/style&gt; text."</span><span class="p">,</span>
 </span><span id="__span-0-6"><a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="p">}</span>
 </span></code></pre></div>
-<p><strong>What flow does not have:</strong> the markup can only be used in <code>gui.Hypertext</code>. Luanti can also show it in a tooltip (<code>hypertip[]</code>), but flow has no element for that, see <a href="../not-supported/">Unsupported Features</a>. Colors in the markup are written like colors everywhere else, see <a href="../elements/#colors">Colors</a>: the client reads them with the same code, so <code>#RGB</code>, <code>#RRGGBB</code>, <code>#RGBA</code>, <code>#RRGGBBAA</code>, color names, and a name with an alpha value (<code>red#80</code>) all work. A color without an alpha value is fully opaque, and a color the client cannot read is ignored.</p>
+<p><strong>What flow does not have:</strong> the markup can only be used in <code>gui.Hypertext</code>. Luanti can also show it in a tooltip (<code>hypertip[]</code>), but flow has no element for that, see <a href="../not-supported/">Unsupported Features</a>. Colors in the markup are written like colors everywhere else, see <a href="elements.md#colors">Colors</a>: the client reads them with the same code, so <code>#RGB</code>, <code>#RRGGBB</code>, <code>#RGBA</code>, <code>#RRGGBBAA</code>, color names, and a name with an alpha value (<code>red#80</code>) all work. A color without an alpha value is fully opaque, and a color the client cannot read is ignored.</p>
 <h2 id="syntax">Syntax</h2>
 <p>Some tags enclose text: they open with <code>&lt;tagname&gt;</code> and close with <code>&lt;/tagname&gt;</code>. Tags can have attributes, which are written in the opening tag as <code>key=value</code>. Attribute values should be quoted with either <code>"</code> or <code>'</code>. Inside a Lua string that is already in double quotes, use single quotes, as in <code>&lt;style color='red'&gt;</code>.</p>
 <p>To write a literal <code>&lt;</code>, <code>&gt;</code>, or <code>\</code> in the text, put a backslash before it. In a quoted attribute value, put a backslash before a literal quote mark. In Lua code, each backslash has to be written twice (<code>"\\&lt;"</code>), or you can use a long string (<code>[[\&lt;]]</code>).</p>
@@ -793,7 +805,7 @@
 <h2 id="links">Links</h2>
 <h3 id="action-nameaction"><code>&lt;action name=...&gt;...&lt;/action&gt;</code></h3>
 <p>Makes the text inside it clickable. <code>name</code> is required. An optional <code>url</code> attribute is a web address to open when the text is clicked.</p>
-<p>When the player clicks it, the form is sent to the server and the value of the <code>gui.Hypertext</code> element is <code>"action:"</code> followed by the action name. In flow, give the element a <code>name</code> and an <a href="../elements/#events"><code>on_event</code></a> function, and read the value from <a href="../elements/#names-and-values"><code>ctx.form</code></a>. This is experimental and may change.</p>
+<p>When the player clicks it, the form is sent to the server and the value of the <code>gui.Hypertext</code> element is <code>"action:"</code> followed by the action name. In flow, give the element a <code>name</code> and an <a href="elements.md#events"><code>on_event</code></a> function, and read the value from <a href="elements.md#names-and-values"><code>ctx.form</code></a>. This is experimental and may change.</p>
 <div class="language-lua highlight"><pre><span></span><code><span id="__span-1-1"><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="nv">gui</span><span class="p">.</span><span class="py">Hypertext</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-1-2"><a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="w">    </span><span class="nv">w</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="nv">h</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
 </span><span id="__span-1-3"><a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="w">    </span><span class="nv">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"help"</span><span class="p">,</span>

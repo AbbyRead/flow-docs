@@ -9,7 +9,7 @@
 <link href="../experimental/" rel="next"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.6.1, mkdocs-material-9.8.0" name="generator"/>
-<title>Manual positioning - Flow Unofficial Docs</title>
+<title>Manual positioning - Flow Unofficial Documentation</title>
 <link href="../assets/stylesheets/main.57a0d79d.min.css" rel="stylesheet"/>
 <link href="../assets/stylesheets/palette.fb2fffe2.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -33,7 +33,7 @@
 </div>
 <header class="md-header md-header--shadow" data-md-component="header">
 <nav aria-label="Header" class="md-header__inner md-grid">
-<a aria-label="Flow Unofficial Docs" class="md-header__button md-logo" data-md-component="logo" href=".." title="Flow Unofficial Docs">
+<a aria-label="Flow Unofficial Documentation" class="md-header__button md-logo" data-md-component="logo" href=".." title="Flow Unofficial Documentation">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
 </a>
 <label class="md-header__button md-icon" for="__drawer">
@@ -43,7 +43,7 @@
 <div class="md-header__ellipsis">
 <div class="md-header__topic">
 <span class="md-ellipsis">
-            Flow Unofficial Docs
+            Flow Unofficial Documentation
           </span>
 </div>
 <div class="md-header__topic" data-md-component="header-topic">
@@ -119,10 +119,10 @@
 <div class="md-sidebar__inner">
 <nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
 <label class="md-nav__title" for="__drawer">
-<a aria-label="Flow Unofficial Docs" class="md-nav__button md-logo" data-md-component="logo" href=".." title="Flow Unofficial Docs">
+<a aria-label="Flow Unofficial Documentation" class="md-nav__button md-logo" data-md-component="logo" href=".." title="Flow Unofficial Documentation">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
 </a>
-    Flow Unofficial Docs
+    Flow Unofficial Documentation
   </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -173,11 +173,11 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../layout-elements/">
+<a class="md-nav__link" href="../intro-to-elements.md">
 <span class="md-ellipsis">
     
   
-    Layouting elements
+    None
   
 
     
@@ -185,7 +185,19 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../elements/">
+<a class="md-nav__link" href="../layout-elements/">
+<span class="md-ellipsis">
+    
+  
+    Layout elements
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../functional-elements/">
 <span class="md-ellipsis">
     
   
@@ -554,11 +566,11 @@
 <article class="md-content__inner md-typeset">
 <h1 id="manual-positioning">Manual positioning</h1>
 <h2 id="dynamic-element-types">Dynamic element types</h2>
-<p>A <code>gui.Label{...}</code> call just returns a table with <code>type = "label"</code> added to it, so you can write <code>{type = "label", label = "Hello world!"}</code> instead of <code>gui.Label{label="Hello world!"}</code>. This is what you need inside <a href="../elements/#guicontainer"><code>gui.Container</code></a> (see below), and it is also useful if you want to choose the element type from a variable. The <code>type</code> is the name of the <code>gui</code> function in lowercase with underscores between words, for example <code>"item_image_button"</code> for <code>gui.ItemImageButton</code>. The <a href="../styling/#element-types">element types table</a> in Styling lists many of them.</p>
+<p>A <code>gui.Label{...}</code> call just returns a table with <code>type = "label"</code> added to it, so you can write <code>{type = "label", label = "Hello world!"}</code> instead of <code>gui.Label{label="Hello world!"}</code>. This is what you need inside <a href="elements.md#guicontainer"><code>gui.Container</code></a> (see below), and it is also useful if you want to choose the element type from a variable. The <code>type</code> is the name of the <code>gui</code> function in lowercase with underscores between words, for example <code>"item_image_button"</code> for <code>gui.ItemImageButton</code>. The <a href="../styling/#element-types">element types table</a> in Styling lists many of them.</p>
 <p>HBoxes and VBoxes can be created this way as well (with <code>type = "hbox"</code> and <code>type = "vbox"</code>) and work anywhere <a href="../layout-elements/#guihbox"><code>gui.HBox</code></a> and <a href="../layout-elements/#guivbox"><code>gui.VBox</code></a> do. However, <a href="../layout-elements/#guiscrollablevbox"><code>gui.ScrollableVBox</code></a>, <a href="../layout-elements/#guipaginatedvbox"><code>gui.PaginatedVBox</code></a>, <a href="../layout-elements/#guispacer"><code>gui.Spacer</code></a>, <a href="../layout-elements/#guiflow"><code>gui.Flow</code></a>, and <a href="../layout-elements/#guinil"><code>gui.Nil</code></a> are functions that build other elements instead of element types, so they cannot be created with a <code>type</code> table. Flow does not know those types, and showing the form fails with an <code>Unknown element</code> error.</p>
 <p>An example of this is in <a href="https://gitlab.com/luk3yx/minetest-flow/-/blob/main/example.lua"><code>example.lua</code></a> in the flow repository.</p>
 <h2 id="manual-positioning-of-elements">Manual positioning of elements</h2>
-<p>You can use <a href="../elements/#guicontainer"><code>gui.Container</code></a> elements to contain manually positioned elements. Every element inside a container has an <code>x</code> and <code>y</code>, which is the distance of its top-left corner from the top-left corner of the container, in the same units as <code>w</code> and <code>h</code>. Containers can be nested, in which case the offsets add up. If you do not give a <code>w</code> and <code>h</code>, flow uses the smallest size that fits all the elements inside.</p>
+<p>You can use <a href="elements.md#guicontainer"><code>gui.Container</code></a> elements to contain manually positioned elements. Every element inside a container has an <code>x</code> and <code>y</code>, which is the distance of its top-left corner from the top-left corner of the container, in the same units as <code>w</code> and <code>h</code>. Containers can be nested, in which case the offsets add up. If you do not give a <code>w</code> and <code>h</code>, flow uses the smallest size that fits all the elements inside.</p>
 <h3 id="container-vbox-example">Container: VBox Example</h3>
 <div class="language-lua highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nv">gui</span><span class="p">.</span><span class="py">VBox</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-0-2"><a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="w">    </span><span class="nv">gui</span><span class="p">.</span><span class="py">Label</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Automatically positioned"</span><span class="w"> </span><span class="p">},</span>
@@ -591,7 +603,7 @@
 </span><span id="__span-1-11"><a href="#__codelineno-1-11" id="__codelineno-1-11" name="__codelineno-1-11"></a><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-1-12"><a href="#__codelineno-1-12" id="__codelineno-1-12" name="__codelineno-1-12"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>Do not put layouting elements (like <a href="../layout-elements/#guivbox"><code>gui.VBox</code></a>, <a href="../layout-elements/#guihbox"><code>gui.HBox</code></a>, and <a href="../layout-elements/#guistack"><code>gui.Stack</code></a>) inside <code>gui.Container</code>, whether you write them with <code>gui.VBox</code> or with <code>type = "vbox"</code>. A container never lays out its children, it only places them at their <code>x</code> and <code>y</code>. It only works out the size of a box inside it when neither the container nor the box has both a <code>w</code> and a <code>h</code>. If one of them does, flow either fails with an error or draws the box's contents wrongly. Even when it works, <code>padding</code>, <code>align_h</code>, and <code>align_v</code> on the box are not applied.</p>
+<p>Do not put Layout elements (like <a href="../layout-elements/#guivbox"><code>gui.VBox</code></a>, <a href="../layout-elements/#guihbox"><code>gui.HBox</code></a>, and <a href="../layout-elements/#guistack"><code>gui.Stack</code></a>) inside <code>gui.Container</code>, whether you write them with <code>gui.VBox</code> or with <code>type = "vbox"</code>. A container never lays out its children, it only places them at their <code>x</code> and <code>y</code>. It only works out the size of a box inside it when neither the container nor the box has both a <code>w</code> and a <code>h</code>. If one of them does, flow either fails with an error or draws the box's contents wrongly. Even when it works, <code>padding</code>, <code>align_h</code>, and <code>align_v</code> on the box are not applied.</p>
 <p>This does not stop you from using a <code>gui.Container</code> inside a layouting element, as in the example above. To get the same effect inside a container, put the elements at exact <code>x</code> and <code>y</code> positions yourself.</p>
 </article>
 </div>

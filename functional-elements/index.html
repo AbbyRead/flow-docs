@@ -1,0 +1,3028 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="../layout-elements/" rel="prev"/>
+<link href="../hypertext/" rel="next"/>
+<link href="../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.8.0" name="generator"/>
+<title>All other elements - Flow Unofficial Documentation</title>
+<link href="../assets/stylesheets/main.57a0d79d.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/palette.fb2fffe2.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<link href="../css/print-site.css" rel="stylesheet"/>
+<link href="../css/print-site-material.css" rel="stylesheet"/>
+<link href="../extra.css" rel="stylesheet"/>
+<script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<link href="../pdf/document.pdf" rel="alternate" title="PDF" type="application/pdf"/></head>
+<body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#functional-elements">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header md-header--shadow" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="Flow Unofficial Documentation" class="md-header__button md-logo" data-md-component="logo" href=".." title="Flow Unofficial Documentation">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            Flow Unofficial Documentation
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              All other elements
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme: light)" data-md-color-primary="indigo" data-md-color-scheme="default" id="__palette_0" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"></path></svg>
+</label>
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary="indigo" data-md-color-scheme="slate" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_0" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"></path></svg>
+</label>
+</form>
+<script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" title="Clear" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="" tabindex="0">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list" role="presentation"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<a class="md-header-nav__button md-icon" href="../pdf/document.pdf" title="PDF">
+<svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+<path d="M128,0c-17.6,0-32,14.4-32,32v448c0,17.6,14.4,32,32,32h320c17.6,0,32-14.4,32-32V128L352,0H128z" fill="#E2E5E7"></path>
+<path d="m384 128h96l-128-128v96c0 17.6 14.4 32 32 32z" fill="#B0B7BD"></path>
+<polygon fill="#CAD1D8" points="480 224 384 128 480 128"></polygon>
+<path d="M416,416c0,8.8-7.2,16-16,16H48c-8.8,0-16-7.2-16-16V256c0-8.8,7.2-16,16-16h352c8.8,0,16,7.2,16,16  V416z" fill="#F15642"></path>
+<g fill="#fff">
+<path d="m101.74 303.15c0-4.224 3.328-8.832 8.688-8.832h29.552c16.64 0 31.616 11.136 31.616 32.48 0 20.224-14.976 31.488-31.616 31.488h-21.36v16.896c0 5.632-3.584 8.816-8.192 8.816-4.224 0-8.688-3.184-8.688-8.816v-72.032zm16.88 7.28v31.872h21.36c8.576 0 15.36-7.568 15.36-15.504 0-8.944-6.784-16.368-15.36-16.368h-21.36z"></path>
+<path d="m196.66 384c-4.224 0-8.832-2.304-8.832-7.92v-72.672c0-4.592 4.608-7.936 8.832-7.936h29.296c58.464 0 57.184 88.528 1.152 88.528h-30.448zm8.064-72.912v57.312h21.232c34.544 0 36.08-57.312 0-57.312h-21.232z"></path>
+<path d="m303.87 312.11v20.336h32.624c4.608 0 9.216 4.608 9.216 9.072 0 4.224-4.608 7.68-9.216 7.68h-32.624v26.864c0 4.48-3.184 7.92-7.664 7.92-5.632 0-9.072-3.44-9.072-7.92v-72.672c0-4.592 3.456-7.936 9.072-7.936h44.912c5.632 0 8.96 3.344 8.96 7.936 0 4.096-3.328 8.704-8.96 8.704h-37.248v0.016z"></path>
+</g>
+<path d="m400 432h-304v16h304c8.8 0 16-7.2 16-16v-16c0 8.8-7.2 16-16 16z" fill="#CAD1D8"></path>
+</svg>
+</a></nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="Flow Unofficial Documentation" class="md-nav__button md-logo" data-md-component="logo" href=".." title="Flow Unofficial Documentation">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+</a>
+    Flow Unofficial Documentation
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="..">
+<span class="md-ellipsis">
+    
+  
+    Introduction
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../getting-started/">
+<span class="md-ellipsis">
+    
+  
+    Getting started
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+<span class="md-ellipsis">
+    
+  
+    Elements/widgets
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Elements/widgets
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../intro-to-elements.md">
+<span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../layout-elements/">
+<span class="md-ellipsis">
+    
+  
+    Layout elements
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    
+  
+    All other elements
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+<span class="md-ellipsis">
+    
+  
+    All other elements
+  
+
+    
+  </span>
+</a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#guianimatedimage">
+<span class="md-ellipsis">
+      
+        gui.AnimatedImage
+      
+    </span>
+</a>
+<nav aria-label="gui.AnimatedImage" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example">
+<span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#guibackground">
+<span class="md-ellipsis">
+      
+        gui.Background
+      
+    </span>
+</a>
+<nav aria-label="gui.Background" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example_1">
+<span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#guibackground9">
+<span class="md-ellipsis">
+      
+        gui.Background9
+      
+    </span>
+</a>
+<nav aria-label="gui.Background9" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example_2">
+<span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#guibgcolor">
+<span class="md-ellipsis">
+      
+        gui.Bgcolor
+      
+    </span>
+</a>
+<nav aria-label="gui.Bgcolor" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example_3">
+<span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#guibox">
+<span class="md-ellipsis">
+      
+        gui.Box
+      
+    </span>
+</a>
+<nav aria-label="gui.Box" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example_4">
+<span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#guibutton">
+<span class="md-ellipsis">
+      
+        gui.Button
+      
+    </span>
+</a>
+<nav aria-label="gui.Button" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example_5">
+<span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#guibuttonexit">
+<span class="md-ellipsis">
+      
+        gui.ButtonExit
+      
+    </span>
+</a>
+<nav aria-label="gui.ButtonExit" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example_6">
+<span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#guibuttonurl">
+<span class="md-ellipsis">
+      
+        gui.ButtonURL
+      
+    </span>
+</a>
+<nav aria-label="gui.ButtonURL" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example_7">
+<span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#guibuttonurlexit">
+<span class="md-ellipsis">
+      
+        gui.ButtonUrlExit
+      
+    </span>
+</a>
+<nav aria-label="gui.ButtonUrlExit" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example_8">
+<span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#guicheckbox">
+<span class="md-ellipsis">
+      
+        gui.Checkbox
+      
+    </span>
+</a>
+<nav aria-label="gui.Checkbox" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example_9">
+<span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#guidropdown">
+<span class="md-ellipsis">
+      
+        gui.Dropdown
+      
+    </span>
+</a>
+<nav aria-label="gui.Dropdown" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example_10">
+<span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#guifield">
+<span class="md-ellipsis">
+      
+        gui.Field
+      
+    </span>
+</a>
+<nav aria-label="gui.Field" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example_11">
+<span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#guifieldcloseonenter">
+<span class="md-ellipsis">
+      
+        gui.FieldCloseOnEnter
+      
+    </span>
+</a>
+<nav aria-label="gui.FieldCloseOnEnter" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example_12">
+<span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#guifieldenterafteredit">
+<span class="md-ellipsis">
+      
+        gui.FieldEnterAfterEdit
+      
+    </span>
+</a>
+<nav aria-label="gui.FieldEnterAfterEdit" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example_13">
+<span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#guihypertext">
+<span class="md-ellipsis">
+      
+        gui.Hypertext
+      
+    </span>
+</a>
+<nav aria-label="gui.Hypertext" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example_14">
+<span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#guiimage">
+<span class="md-ellipsis">
+      
+        gui.Image
+      
+    </span>
+</a>
+<nav aria-label="gui.Image" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example_15">
+<span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#guiimagebutton">
+<span class="md-ellipsis">
+      
+        gui.ImageButton
+      
+    </span>
+</a>
+<nav aria-label="gui.ImageButton" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example_16">
+<span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#guiimagebuttonexit">
+<span class="md-ellipsis">
+      
+        gui.ImageButtonExit
+      
+    </span>
+</a>
+<nav aria-label="gui.ImageButtonExit" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example_17">
+<span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#guiitemimage">
+<span class="md-ellipsis">
+      
+        gui.ItemImage
+      
+    </span>
+</a>
+<nav aria-label="gui.ItemImage" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example_18">
+<span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#guiitemimagebutton">
+<span class="md-ellipsis">
+      
+        gui.ItemImageButton
+      
+    </span>
+</a>
+<nav aria-label="gui.ItemImageButton" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example_19">
+<span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#guilabel">
+<span class="md-ellipsis">
+      
+        gui.Label
+      
+    </span>
+</a>
+<nav aria-label="gui.Label" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example_20">
+<span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#guilist">
+<span class="md-ellipsis">
+      
+        gui.List
+      
+    </span>
+</a>
+<nav aria-label="gui.List" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example_21">
+<span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#guilistcolors">
+<span class="md-ellipsis">
+      
+        gui.Listcolors
+      
+    </span>
+</a>
+<nav aria-label="gui.Listcolors" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example_22">
+<span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#guilistring">
+<span class="md-ellipsis">
+      
+        gui.Listring
+      
+    </span>
+</a>
+<nav aria-label="gui.Listring" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example_23">
+<span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#guimodel">
+<span class="md-ellipsis">
+      
+        gui.Model
+      
+    </span>
+</a>
+<nav aria-label="gui.Model" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example_24">
+<span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#guipwdfield">
+<span class="md-ellipsis">
+      
+        gui.Pwdfield
+      
+    </span>
+</a>
+<nav aria-label="gui.Pwdfield" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example_25">
+<span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#guiscrollcontainer">
+<span class="md-ellipsis">
+      
+        gui.ScrollContainer
+      
+    </span>
+</a>
+<nav aria-label="gui.ScrollContainer" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example_26">
+<span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#guiscrollbar">
+<span class="md-ellipsis">
+      
+        gui.Scrollbar
+      
+    </span>
+</a>
+<nav aria-label="gui.Scrollbar" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example_27">
+<span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#scrollbar-textures-do-not-work">
+<span class="md-ellipsis">
+      
+        Scrollbar textures do not work
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#guiscrollbaroptions">
+<span class="md-ellipsis">
+      
+        gui.ScrollbarOptions
+      
+    </span>
+</a>
+<nav aria-label="gui.ScrollbarOptions" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example_28">
+<span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#guisetfocus">
+<span class="md-ellipsis">
+      
+        gui.SetFocus
+      
+    </span>
+</a>
+<nav aria-label="gui.SetFocus" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example_29">
+<span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#guistyle">
+<span class="md-ellipsis">
+      
+        gui.Style
+      
+    </span>
+</a>
+<nav aria-label="gui.Style" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example_30">
+<span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#guistyletype">
+<span class="md-ellipsis">
+      
+        gui.StyleType
+      
+    </span>
+</a>
+<nav aria-label="gui.StyleType" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example_31">
+<span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#guitabheader">
+<span class="md-ellipsis">
+      
+        gui.Tabheader
+      
+    </span>
+</a>
+<nav aria-label="gui.Tabheader" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example_32">
+<span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#guitable">
+<span class="md-ellipsis">
+      
+        gui.Table
+      
+    </span>
+</a>
+<nav aria-label="gui.Table" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example_33">
+<span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example-with-columns-and-options">
+<span class="md-ellipsis">
+      
+        Example with columns and options
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#guitablecolumns">
+<span class="md-ellipsis">
+      
+        gui.TableColumns
+      
+    </span>
+</a>
+<nav aria-label="gui.TableColumns" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example_34">
+<span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#guitableoptions">
+<span class="md-ellipsis">
+      
+        gui.TableOptions
+      
+    </span>
+</a>
+<nav aria-label="gui.TableOptions" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example_35">
+<span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#guitextarea">
+<span class="md-ellipsis">
+      
+        gui.Textarea
+      
+    </span>
+</a>
+<nav aria-label="gui.Textarea" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example_36">
+<span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#guitextlist">
+<span class="md-ellipsis">
+      
+        gui.Textlist
+      
+    </span>
+</a>
+<nav aria-label="gui.Textlist" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example_37">
+<span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#guitooltip">
+<span class="md-ellipsis">
+      
+        gui.Tooltip
+      
+    </span>
+</a>
+<nav aria-label="gui.Tooltip" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example_38">
+<span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#guivertlabel">
+<span class="md-ellipsis">
+      
+        gui.Vertlabel
+      
+    </span>
+</a>
+<nav aria-label="gui.Vertlabel" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example_39">
+<span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../hypertext/">
+<span class="md-ellipsis">
+    
+  
+    Hypertext markup
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+<span class="md-ellipsis">
+    
+  
+    Other features
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Other features
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../not-supported/">
+<span class="md-ellipsis">
+    
+  
+    Unsupported Features
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../security/">
+<span class="md-ellipsis">
+    
+  
+    Security
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../styling/">
+<span class="md-ellipsis">
+    
+  
+    Styling forms
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../padding/">
+<span class="md-ellipsis">
+    
+  
+    Padding, spacing, and backgrounds
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../tooltips/">
+<span class="md-ellipsis">
+    
+  
+    Tooltips
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../hiding-elements/">
+<span class="md-ellipsis">
+    
+  
+    Hiding elements
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../inventory/">
+<span class="md-ellipsis">
+    
+  
+    Using a form as an inventory
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../huds/">
+<span class="md-ellipsis">
+    
+  
+    Using a form as a HUD
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../manual-positioning/">
+<span class="md-ellipsis">
+    
+  
+    Manual positioning
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../experimental/">
+<span class="md-ellipsis">
+    
+  
+    Experimental features
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../popovers/">
+<span class="md-ellipsis">
+    
+  
+    Popovers (highly experimental)
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+<span class="md-ellipsis">
+    
+  
+    Development tools
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_5_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Development tools
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="https://content.luanti.org/packages/luk3yx/flow_inspector/">
+<span class="md-ellipsis">
+    
+  
+    Flow Inspector
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="https://luk3yx.gitlab.io/minetest-flow-playground/">
+<span class="md-ellipsis">
+    
+  
+    Flow Playground / Tutorial
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="https://content.luanti.org/packages/luk3yx/snippets/">
+<span class="md-ellipsis">
+    
+  
+    Snippets
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#guianimatedimage">
+<span class="md-ellipsis">
+      
+        gui.AnimatedImage
+      
+    </span>
+</a>
+<nav aria-label="gui.AnimatedImage" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example">
+<span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#guibackground">
+<span class="md-ellipsis">
+      
+        gui.Background
+      
+    </span>
+</a>
+<nav aria-label="gui.Background" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example_1">
+<span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#guibackground9">
+<span class="md-ellipsis">
+      
+        gui.Background9
+      
+    </span>
+</a>
+<nav aria-label="gui.Background9" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example_2">
+<span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#guibgcolor">
+<span class="md-ellipsis">
+      
+        gui.Bgcolor
+      
+    </span>
+</a>
+<nav aria-label="gui.Bgcolor" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example_3">
+<span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#guibox">
+<span class="md-ellipsis">
+      
+        gui.Box
+      
+    </span>
+</a>
+<nav aria-label="gui.Box" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example_4">
+<span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#guibutton">
+<span class="md-ellipsis">
+      
+        gui.Button
+      
+    </span>
+</a>
+<nav aria-label="gui.Button" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example_5">
+<span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#guibuttonexit">
+<span class="md-ellipsis">
+      
+        gui.ButtonExit
+      
+    </span>
+</a>
+<nav aria-label="gui.ButtonExit" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example_6">
+<span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#guibuttonurl">
+<span class="md-ellipsis">
+      
+        gui.ButtonURL
+      
+    </span>
+</a>
+<nav aria-label="gui.ButtonURL" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example_7">
+<span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#guibuttonurlexit">
+<span class="md-ellipsis">
+      
+        gui.ButtonUrlExit
+      
+    </span>
+</a>
+<nav aria-label="gui.ButtonUrlExit" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example_8">
+<span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#guicheckbox">
+<span class="md-ellipsis">
+      
+        gui.Checkbox
+      
+    </span>
+</a>
+<nav aria-label="gui.Checkbox" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example_9">
+<span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#guidropdown">
+<span class="md-ellipsis">
+      
+        gui.Dropdown
+      
+    </span>
+</a>
+<nav aria-label="gui.Dropdown" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example_10">
+<span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#guifield">
+<span class="md-ellipsis">
+      
+        gui.Field
+      
+    </span>
+</a>
+<nav aria-label="gui.Field" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example_11">
+<span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#guifieldcloseonenter">
+<span class="md-ellipsis">
+      
+        gui.FieldCloseOnEnter
+      
+    </span>
+</a>
+<nav aria-label="gui.FieldCloseOnEnter" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example_12">
+<span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#guifieldenterafteredit">
+<span class="md-ellipsis">
+      
+        gui.FieldEnterAfterEdit
+      
+    </span>
+</a>
+<nav aria-label="gui.FieldEnterAfterEdit" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example_13">
+<span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#guihypertext">
+<span class="md-ellipsis">
+      
+        gui.Hypertext
+      
+    </span>
+</a>
+<nav aria-label="gui.Hypertext" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example_14">
+<span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#guiimage">
+<span class="md-ellipsis">
+      
+        gui.Image
+      
+    </span>
+</a>
+<nav aria-label="gui.Image" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example_15">
+<span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#guiimagebutton">
+<span class="md-ellipsis">
+      
+        gui.ImageButton
+      
+    </span>
+</a>
+<nav aria-label="gui.ImageButton" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example_16">
+<span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#guiimagebuttonexit">
+<span class="md-ellipsis">
+      
+        gui.ImageButtonExit
+      
+    </span>
+</a>
+<nav aria-label="gui.ImageButtonExit" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example_17">
+<span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#guiitemimage">
+<span class="md-ellipsis">
+      
+        gui.ItemImage
+      
+    </span>
+</a>
+<nav aria-label="gui.ItemImage" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example_18">
+<span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#guiitemimagebutton">
+<span class="md-ellipsis">
+      
+        gui.ItemImageButton
+      
+    </span>
+</a>
+<nav aria-label="gui.ItemImageButton" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example_19">
+<span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#guilabel">
+<span class="md-ellipsis">
+      
+        gui.Label
+      
+    </span>
+</a>
+<nav aria-label="gui.Label" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example_20">
+<span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#guilist">
+<span class="md-ellipsis">
+      
+        gui.List
+      
+    </span>
+</a>
+<nav aria-label="gui.List" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example_21">
+<span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#guilistcolors">
+<span class="md-ellipsis">
+      
+        gui.Listcolors
+      
+    </span>
+</a>
+<nav aria-label="gui.Listcolors" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example_22">
+<span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#guilistring">
+<span class="md-ellipsis">
+      
+        gui.Listring
+      
+    </span>
+</a>
+<nav aria-label="gui.Listring" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example_23">
+<span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#guimodel">
+<span class="md-ellipsis">
+      
+        gui.Model
+      
+    </span>
+</a>
+<nav aria-label="gui.Model" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example_24">
+<span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#guipwdfield">
+<span class="md-ellipsis">
+      
+        gui.Pwdfield
+      
+    </span>
+</a>
+<nav aria-label="gui.Pwdfield" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example_25">
+<span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#guiscrollcontainer">
+<span class="md-ellipsis">
+      
+        gui.ScrollContainer
+      
+    </span>
+</a>
+<nav aria-label="gui.ScrollContainer" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example_26">
+<span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#guiscrollbar">
+<span class="md-ellipsis">
+      
+        gui.Scrollbar
+      
+    </span>
+</a>
+<nav aria-label="gui.Scrollbar" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example_27">
+<span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#scrollbar-textures-do-not-work">
+<span class="md-ellipsis">
+      
+        Scrollbar textures do not work
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#guiscrollbaroptions">
+<span class="md-ellipsis">
+      
+        gui.ScrollbarOptions
+      
+    </span>
+</a>
+<nav aria-label="gui.ScrollbarOptions" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example_28">
+<span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#guisetfocus">
+<span class="md-ellipsis">
+      
+        gui.SetFocus
+      
+    </span>
+</a>
+<nav aria-label="gui.SetFocus" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example_29">
+<span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#guistyle">
+<span class="md-ellipsis">
+      
+        gui.Style
+      
+    </span>
+</a>
+<nav aria-label="gui.Style" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example_30">
+<span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#guistyletype">
+<span class="md-ellipsis">
+      
+        gui.StyleType
+      
+    </span>
+</a>
+<nav aria-label="gui.StyleType" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example_31">
+<span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#guitabheader">
+<span class="md-ellipsis">
+      
+        gui.Tabheader
+      
+    </span>
+</a>
+<nav aria-label="gui.Tabheader" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example_32">
+<span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#guitable">
+<span class="md-ellipsis">
+      
+        gui.Table
+      
+    </span>
+</a>
+<nav aria-label="gui.Table" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example_33">
+<span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example-with-columns-and-options">
+<span class="md-ellipsis">
+      
+        Example with columns and options
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#guitablecolumns">
+<span class="md-ellipsis">
+      
+        gui.TableColumns
+      
+    </span>
+</a>
+<nav aria-label="gui.TableColumns" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example_34">
+<span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#guitableoptions">
+<span class="md-ellipsis">
+      
+        gui.TableOptions
+      
+    </span>
+</a>
+<nav aria-label="gui.TableOptions" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example_35">
+<span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#guitextarea">
+<span class="md-ellipsis">
+      
+        gui.Textarea
+      
+    </span>
+</a>
+<nav aria-label="gui.Textarea" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example_36">
+<span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#guitextlist">
+<span class="md-ellipsis">
+      
+        gui.Textlist
+      
+    </span>
+</a>
+<nav aria-label="gui.Textlist" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example_37">
+<span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#guitooltip">
+<span class="md-ellipsis">
+      
+        gui.Tooltip
+      
+    </span>
+</a>
+<nav aria-label="gui.Tooltip" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example_38">
+<span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#guivertlabel">
+<span class="md-ellipsis">
+      
+        gui.Vertlabel
+      
+    </span>
+</a>
+<nav aria-label="gui.Vertlabel" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example_39">
+<span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="functional-elements">Functional Elements</h1>
+<h2 id="guianimatedimage"><code>gui.AnimatedImage</code></h2>
+<p>Shows an image that plays an animation. The texture must contain every frame stacked on top of each other (the first frame at the top), with all frames the same size. <code>w</code> and <code>h</code> are the size of one displayed frame.</p>
+<p><code>middle_*</code> parameters turn on nine-slice drawing, see <a href="intro-to-elements.md#nine-slice-images">Nine-slice images</a>.</p>
+<h3 id="example">Example</h3>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nv">gui</span><span class="p">.</span><span class="py">AnimatedImage</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-2"><a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="w">    </span><span class="nv">w</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+</span><span id="__span-0-3"><a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="w">    </span><span class="nv">h</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+</span><span id="__span-0-4"><a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a>
+</span><span id="__span-0-5"><a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="w">    </span><span class="c1">-- Only useful for styling.</span>
+</span><span id="__span-0-6"><a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="w">    </span><span class="nv">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"my_animated_image"</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
+</span><span id="__span-0-7"><a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a>
+</span><span id="__span-0-8"><a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="w">    </span><span class="c1">-- Texture that contains all frames.</span>
+</span><span id="__span-0-9"><a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="w">    </span><span class="nv">texture_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"texture.png"</span><span class="p">,</span>
+</span><span id="__span-0-10"><a href="#__codelineno-0-10" id="__codelineno-0-10" name="__codelineno-0-10"></a>
+</span><span id="__span-0-11"><a href="#__codelineno-0-11" id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="w">    </span><span class="c1">-- Number of frames in the texture.</span>
+</span><span id="__span-0-12"><a href="#__codelineno-0-12" id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="w">    </span><span class="nv">frame_count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span>
+</span><span id="__span-0-13"><a href="#__codelineno-0-13" id="__codelineno-0-13" name="__codelineno-0-13"></a>
+</span><span id="__span-0-14"><a href="#__codelineno-0-14" id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="w">    </span><span class="c1">-- Milliseconds each frame is shown for. 0 means no animation.</span>
+</span><span id="__span-0-15"><a href="#__codelineno-0-15" id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="w">    </span><span class="nv">frame_duration</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span>
+</span><span id="__span-0-16"><a href="#__codelineno-0-16" id="__codelineno-0-16" name="__codelineno-0-16"></a>
+</span><span id="__span-0-17"><a href="#__codelineno-0-17" id="__codelineno-0-17" name="__codelineno-0-17"></a><span class="w">    </span><span class="c1">-- Frame to start on, the first frame is 1. Default 1.</span>
+</span><span id="__span-0-18"><a href="#__codelineno-0-18" id="__codelineno-0-18" name="__codelineno-0-18"></a><span class="w">    </span><span class="nv">frame_start</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
+</span><span id="__span-0-19"><a href="#__codelineno-0-19" id="__codelineno-0-19" name="__codelineno-0-19"></a><span class="w">    </span><span class="nv">middle_x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
+</span><span id="__span-0-20"><a href="#__codelineno-0-20" id="__codelineno-0-20" name="__codelineno-0-20"></a><span class="w">    </span><span class="nv">middle_y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
+</span><span id="__span-0-21"><a href="#__codelineno-0-21" id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="w">    </span><span class="nv">middle_x2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
+</span><span id="__span-0-22"><a href="#__codelineno-0-22" id="__codelineno-0-22" name="__codelineno-0-22"></a><span class="w">    </span><span class="nv">middle_y2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
+</span><span id="__span-0-23"><a href="#__codelineno-0-23" id="__codelineno-0-23" name="__codelineno-0-23"></a><span class="p">}</span>
+</span></code></pre></div>
+<h2 id="guibackground"><code>gui.Background</code></h2>
+<p>Draws a picture behind everything else in the form: all backgrounds are drawn before any other element, whatever order they are in. The picture (<code>texture_name</code>) is stretched to <code>w</code> by <code>h</code>. If <code>auto_clip</code> is <code>true</code>, it is cut off at the edge of the form instead and <code>w</code> and <code>h</code> are ignored.</p>
+<p>You usually do not need this element, set <code>bgimg</code> on a container or the root element instead (see <a href="../padding/">Padding</a>). Inside a <code>gui.Stack</code>, a <code>gui.ScrollableVBox</code>, or an embedded form, flow draws backgrounds without <code>auto_clip</code> as ordinary images.</p>
+<h3 id="example_1">Example</h3>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-1-1"><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="nv">gui</span><span class="p">.</span><span class="py">Background</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-2"><a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="w">    </span><span class="nv">w</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+</span><span id="__span-1-3"><a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="w">    </span><span class="nv">h</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+</span><span id="__span-1-4"><a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a>
+</span><span id="__span-1-5"><a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="w">    </span><span class="c1">-- Picture to draw.</span>
+</span><span id="__span-1-6"><a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="w">    </span><span class="nv">texture_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"texture.png"</span><span class="p">,</span>
+</span><span id="__span-1-7"><a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a>
+</span><span id="__span-1-8"><a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="w">    </span><span class="c1">-- Cut off at the form edge, ignore w and h.</span>
+</span><span id="__span-1-9"><a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="w">    </span><span class="nv">auto_clip</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
+</span><span id="__span-1-10"><a href="#__codelineno-1-10" id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="p">}</span>
+</span></code></pre></div>
+<h2 id="guibackground9"><code>gui.Background9</code></h2>
+<p>Like <code>gui.Background</code>, but the picture is drawn as a <a href="intro-to-elements.md#nine-slice-images">nine-slice</a> so that it can be stretched to any size without distorting its corners.</p>
+<h3 id="example_2">Example</h3>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-2-1"><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="nv">gui</span><span class="p">.</span><span class="py">Background9</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-2"><a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="w">    </span><span class="nv">w</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+</span><span id="__span-2-3"><a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="w">    </span><span class="nv">h</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+</span><span id="__span-2-4"><a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a>
+</span><span id="__span-2-5"><a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="w">    </span><span class="c1">-- Picture to draw.</span>
+</span><span id="__span-2-6"><a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="w">    </span><span class="nv">texture_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"texture.png"</span><span class="p">,</span>
+</span><span id="__span-2-7"><a href="#__codelineno-2-7" id="__codelineno-2-7" name="__codelineno-2-7"></a>
+</span><span id="__span-2-8"><a href="#__codelineno-2-8" id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="w">    </span><span class="c1">-- Cut off at the form edge, ignore w and h.</span>
+</span><span id="__span-2-9"><a href="#__codelineno-2-9" id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="w">    </span><span class="nv">auto_clip</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+</span><span id="__span-2-10"><a href="#__codelineno-2-10" id="__codelineno-2-10" name="__codelineno-2-10"></a>
+</span><span id="__span-2-11"><a href="#__codelineno-2-11" id="__codelineno-2-11" name="__codelineno-2-11"></a><span class="w">    </span><span class="c1">-- Nine-slice cut, see "Nine-slice images".</span>
+</span><span id="__span-2-12"><a href="#__codelineno-2-12" id="__codelineno-2-12" name="__codelineno-2-12"></a><span class="w">    </span><span class="nv">middle_x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span>
+</span><span id="__span-2-13"><a href="#__codelineno-2-13" id="__codelineno-2-13" name="__codelineno-2-13"></a><span class="w">    </span><span class="nv">middle_y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
+</span><span id="__span-2-14"><a href="#__codelineno-2-14" id="__codelineno-2-14" name="__codelineno-2-14"></a><span class="w">    </span><span class="nv">middle_x2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
+</span><span id="__span-2-15"><a href="#__codelineno-2-15" id="__codelineno-2-15" name="__codelineno-2-15"></a><span class="w">    </span><span class="nv">middle_y2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
+</span><span id="__span-2-16"><a href="#__codelineno-2-16" id="__codelineno-2-16" name="__codelineno-2-16"></a><span class="p">}</span>
+</span></code></pre></div>
+<h2 id="guibgcolor"><code>gui.Bgcolor</code></h2>
+<p>Sets the colors behind the form. This does the same thing as the <code>bgcolor</code>, <code>fbgcolor</code>, and <code>bg_fullscreen</code> options of the root element, which are explained in <a href="../experimental/#bgcolor">Experimental features</a> and are easier to use. <code>fullscreen</code> can be <code>false</code>, <code>true</code>, <code>"both"</code>, or <code>"neither"</code>.</p>
+<h3 id="example_3">Example</h3>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-3-1"><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="nv">gui</span><span class="p">.</span><span class="py">Bgcolor</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-2"><a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="w">    </span><span class="c1">-- Background color of the form.</span>
+</span><span id="__span-3-3"><a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="w">    </span><span class="nv">bgcolor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"#FF0000"</span><span class="p">,</span>
+</span><span id="__span-3-4"><a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a>
+</span><span id="__span-3-5"><a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="w">    </span><span class="c1">-- false, true, "both", or "neither".</span>
+</span><span id="__span-3-6"><a href="#__codelineno-3-6" id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="w">    </span><span class="nv">fullscreen</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
+</span><span id="__span-3-7"><a href="#__codelineno-3-7" id="__codelineno-3-7" name="__codelineno-3-7"></a>
+</span><span id="__span-3-8"><a href="#__codelineno-3-8" id="__codelineno-3-8" name="__codelineno-3-8"></a><span class="w">    </span><span class="c1">-- Color of the area behind the form.</span>
+</span><span id="__span-3-9"><a href="#__codelineno-3-9" id="__codelineno-3-9" name="__codelineno-3-9"></a><span class="w">    </span><span class="nv">fbgcolor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"#FF0000"</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
+</span><span id="__span-3-10"><a href="#__codelineno-3-10" id="__codelineno-3-10" name="__codelineno-3-10"></a><span class="p">}</span>
+</span></code></pre></div>
+<h2 id="guibox"><code>gui.Box</code></h2>
+<p>Draws a solid rectangle of one color. Boxes have no natural size, so give them a <code>w</code> and <code>h</code>.</p>
+<p>Unlike everywhere else, a hexadecimal color without an alpha value (<code>"#RGB"</code> or <code>"#RRGGBB"</code>) is drawn with an alpha of <code>8C</code> (140 out of 255, about 55% opaque) here. Add the alpha value (<code>"#FF0000FF"</code>) to make it opaque. Color names such as <code>"red"</code> are not affected and are opaque unless you add an alpha value (<code>"red#80"</code>). Flow also draws the <code>bgcolor</code> of <code>gui.HBox</code>, <code>gui.VBox</code>, and other containers with a box, so the same applies to it.</p>
+<h3 id="example_4">Example</h3>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-4-1"><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="nv">gui</span><span class="p">.</span><span class="py">Box</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-2"><a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="w">    </span><span class="nv">w</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+</span><span id="__span-4-3"><a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="w">    </span><span class="nv">h</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+</span><span id="__span-4-4"><a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a>
+</span><span id="__span-4-5"><a href="#__codelineno-4-5" id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="w">    </span><span class="c1">-- Fill color.</span>
+</span><span id="__span-4-6"><a href="#__codelineno-4-6" id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="w">    </span><span class="nv">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"#FF0000"</span><span class="p">,</span>
+</span><span id="__span-4-7"><a href="#__codelineno-4-7" id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="p">}</span>
+</span></code></pre></div>
+<h2 id="guibutton"><code>gui.Button</code></h2>
+<p>A clickable button showing <code>label</code>. Your <code>on_event</code> function is called when it is clicked. If you do not set <code>w</code> and <code>h</code>, the button is sized to fit the label (but never smaller than 1.6 by 0.8).</p>
+<p>Buttons do not store a value in <code>ctx.form</code>.</p>
+<h3 id="example_5">Example</h3>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-5-1"><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="nv">gui</span><span class="p">.</span><span class="py">Button</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-2"><a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="w">    </span><span class="nv">w</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
+</span><span id="__span-5-3"><a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="w">    </span><span class="nv">h</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
+</span><span id="__span-5-4"><a href="#__codelineno-5-4" id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="w">    </span><span class="nv">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"my_button"</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
+</span><span id="__span-5-5"><a href="#__codelineno-5-5" id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="w">    </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Hello world!"</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
+</span><span id="__span-5-6"><a href="#__codelineno-5-6" id="__codelineno-5-6" name="__codelineno-5-6"></a><span class="p">}</span>
+</span></code></pre></div>
+<h2 id="guibuttonexit"><code>gui.ButtonExit</code></h2>
+<p>A button that closes the form when it is clicked. Your <code>on_event</code> function is still called before the form closes. In all other respects it works like <code>gui.Button</code>.</p>
+<h3 id="example_6">Example</h3>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-6-1"><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="nv">gui</span><span class="p">.</span><span class="py">ButtonExit</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-2"><a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="w">    </span><span class="nv">w</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
+</span><span id="__span-6-3"><a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="w">    </span><span class="nv">h</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
+</span><span id="__span-6-4"><a href="#__codelineno-6-4" id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="w">    </span><span class="nv">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"my_button_exit"</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
+</span><span id="__span-6-5"><a href="#__codelineno-6-5" id="__codelineno-6-5" name="__codelineno-6-5"></a><span class="w">    </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Hello world!"</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
+</span><span id="__span-6-6"><a href="#__codelineno-6-6" id="__codelineno-6-6" name="__codelineno-6-6"></a><span class="p">}</span>
+</span></code></pre></div>
+<h2 id="guibuttonurl"><code>gui.ButtonURL</code></h2>
+<p>A button that, when clicked, offers the player the choice of opening <code>url</code> in their web browser. <code>url</code> must start with <code>http://</code> or <code>https://</code>. Your <code>on_event</code> function is also called. In all other respects it works like <code>gui.Button</code>.</p>
+<h3 id="example_7">Example</h3>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-7-1"><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="nv">gui</span><span class="p">.</span><span class="py">ButtonURL</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-2"><a href="#__codelineno-7-2" id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="w">    </span><span class="nv">w</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
+</span><span id="__span-7-3"><a href="#__codelineno-7-3" id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="w">    </span><span class="nv">h</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
+</span><span id="__span-7-4"><a href="#__codelineno-7-4" id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="w">    </span><span class="nv">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"my_button_url"</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
+</span><span id="__span-7-5"><a href="#__codelineno-7-5" id="__codelineno-7-5" name="__codelineno-7-5"></a><span class="w">    </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Hello world!"</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
+</span><span id="__span-7-6"><a href="#__codelineno-7-6" id="__codelineno-7-6" name="__codelineno-7-6"></a>
+</span><span id="__span-7-7"><a href="#__codelineno-7-7" id="__codelineno-7-7" name="__codelineno-7-7"></a><span class="w">    </span><span class="c1">-- Web address to offer to open.</span>
+</span><span id="__span-7-8"><a href="#__codelineno-7-8" id="__codelineno-7-8" name="__codelineno-7-8"></a><span class="w">    </span><span class="nv">url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"https://example.com"</span><span class="p">,</span>
+</span><span id="__span-7-9"><a href="#__codelineno-7-9" id="__codelineno-7-9" name="__codelineno-7-9"></a><span class="p">}</span>
+</span></code></pre></div>
+<h2 id="guibuttonurlexit"><code>gui.ButtonUrlExit</code></h2>
+<p>Like <code>gui.ButtonURL</code>, but the form also closes when the button is clicked.</p>
+<h3 id="example_8">Example</h3>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-8-1"><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="nv">gui</span><span class="p">.</span><span class="py">ButtonUrlExit</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-2"><a href="#__codelineno-8-2" id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="w">    </span><span class="nv">w</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
+</span><span id="__span-8-3"><a href="#__codelineno-8-3" id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="w">    </span><span class="nv">h</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
+</span><span id="__span-8-4"><a href="#__codelineno-8-4" id="__codelineno-8-4" name="__codelineno-8-4"></a><span class="w">    </span><span class="nv">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"my_button_url_exit"</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
+</span><span id="__span-8-5"><a href="#__codelineno-8-5" id="__codelineno-8-5" name="__codelineno-8-5"></a><span class="w">    </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Hello world!"</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
+</span><span id="__span-8-6"><a href="#__codelineno-8-6" id="__codelineno-8-6" name="__codelineno-8-6"></a>
+</span><span id="__span-8-7"><a href="#__codelineno-8-7" id="__codelineno-8-7" name="__codelineno-8-7"></a><span class="w">    </span><span class="c1">-- Web address to offer to open.</span>
+</span><span id="__span-8-8"><a href="#__codelineno-8-8" id="__codelineno-8-8" name="__codelineno-8-8"></a><span class="w">    </span><span class="nv">url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"https://example.com"</span><span class="p">,</span>
+</span><span id="__span-8-9"><a href="#__codelineno-8-9" id="__codelineno-8-9" name="__codelineno-8-9"></a><span class="p">}</span>
+</span></code></pre></div>
+<h2 id="guicheckbox"><code>gui.Checkbox</code></h2>
+<p>A tick box with a text <code>label</code>. <code>selected</code> sets whether it starts ticked. If you give it a <code>name</code>, <code>ctx.form[name]</code> is <code>true</code> or <code>false</code> and is updated as soon as the player ticks or unticks it.</p>
+<p>Checkboxes are sized automatically and do not accept <code>w</code> or <code>h</code>.</p>
+<h3 id="example_9">Example</h3>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-9-1"><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="nv">gui</span><span class="p">.</span><span class="py">Checkbox</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-9-2"><a href="#__codelineno-9-2" id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="w">    </span><span class="nv">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"my_checkbox"</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
+</span><span id="__span-9-3"><a href="#__codelineno-9-3" id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="w">    </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Hello world!"</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
+</span><span id="__span-9-4"><a href="#__codelineno-9-4" id="__codelineno-9-4" name="__codelineno-9-4"></a><span class="w">    </span><span class="nv">selected</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
+</span><span id="__span-9-5"><a href="#__codelineno-9-5" id="__codelineno-9-5" name="__codelineno-9-5"></a><span class="p">}</span>
+</span></code></pre></div>
+<h2 id="guidropdown"><code>gui.Dropdown</code></h2>
+<p>A drop-down list that shows the currently selected item and lets the player pick another one from <code>items</code> (a list of strings). <code>selected_idx</code> is the number of the item that is selected at first (the first item is <code>1</code>).</p>
+<p><code>ctx.form[name]</code> is the text of the selected item. If <code>index_event = true</code> it is the number of the selected item instead, which is easier to work with when two items have the same text or when the text is translated.</p>
+<p>If you do not set <code>w</code> and <code>h</code>, the dropdown is sized to fit its longest item (but never smaller than 2 by 0.8). Item text cannot be coloured.</p>
+<h3 id="example_10">Example</h3>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-10-1"><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="nv">gui</span><span class="p">.</span><span class="py">Dropdown</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-10-2"><a href="#__codelineno-10-2" id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="w">    </span><span class="nv">w</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
+</span><span id="__span-10-3"><a href="#__codelineno-10-3" id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="w">    </span><span class="nv">h</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
+</span><span id="__span-10-4"><a href="#__codelineno-10-4" id="__codelineno-10-4" name="__codelineno-10-4"></a><span class="w">    </span><span class="nv">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"my_dropdown"</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
+</span><span id="__span-10-5"><a href="#__codelineno-10-5" id="__codelineno-10-5" name="__codelineno-10-5"></a>
+</span><span id="__span-10-6"><a href="#__codelineno-10-6" id="__codelineno-10-6" name="__codelineno-10-6"></a><span class="w">    </span><span class="c1">-- List of choices.</span>
+</span><span id="__span-10-7"><a href="#__codelineno-10-7" id="__codelineno-10-7" name="__codelineno-10-7"></a><span class="w">    </span><span class="nv">items</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"Hello world!"</span><span class="p">,</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-10-8"><a href="#__codelineno-10-8" id="__codelineno-10-8" name="__codelineno-10-8"></a>
+</span><span id="__span-10-9"><a href="#__codelineno-10-9" id="__codelineno-10-9" name="__codelineno-10-9"></a><span class="w">    </span><span class="c1">-- Number of the item selected at first.</span>
+</span><span id="__span-10-10"><a href="#__codelineno-10-10" id="__codelineno-10-10" name="__codelineno-10-10"></a><span class="w">    </span><span class="nv">selected_idx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
+</span><span id="__span-10-11"><a href="#__codelineno-10-11" id="__codelineno-10-11" name="__codelineno-10-11"></a>
+</span><span id="__span-10-12"><a href="#__codelineno-10-12" id="__codelineno-10-12" name="__codelineno-10-12"></a><span class="w">    </span><span class="c1">-- Store the item number in ctx.form instead of its text.</span>
+</span><span id="__span-10-13"><a href="#__codelineno-10-13" id="__codelineno-10-13" name="__codelineno-10-13"></a><span class="w">    </span><span class="nv">index_event</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
+</span><span id="__span-10-14"><a href="#__codelineno-10-14" id="__codelineno-10-14" name="__codelineno-10-14"></a><span class="p">}</span>
+</span></code></pre></div>
+<h2 id="guifield"><code>gui.Field</code></h2>
+<p>A single-line text box. <code>label</code>, if set, is shown above the box (flow leaves room for it automatically). <code>default</code> is the text it starts with.</p>
+<p><code>ctx.form[name]</code> is the text in the box. Newlines and other control characters are removed from it (a player can only get them into a field by pasting). The text is sent to the server when the player presses a button or Enter. To react to Enter, see <a href="../experimental/#handling-enter-keypresses-in-fields">Handling enter keypresses in fields</a>.</p>
+<p>If you do not set <code>w</code> and <code>h</code>, the field is sized to fit its default text and label (but never smaller than 3 by 0.8).</p>
+<h3 id="example_11">Example</h3>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-11-1"><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="nv">gui</span><span class="p">.</span><span class="py">Field</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-11-2"><a href="#__codelineno-11-2" id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="w">    </span><span class="nv">w</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
+</span><span id="__span-11-3"><a href="#__codelineno-11-3" id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="w">    </span><span class="nv">h</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
+</span><span id="__span-11-4"><a href="#__codelineno-11-4" id="__codelineno-11-4" name="__codelineno-11-4"></a><span class="w">    </span><span class="nv">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"my_field"</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
+</span><span id="__span-11-5"><a href="#__codelineno-11-5" id="__codelineno-11-5" name="__codelineno-11-5"></a><span class="w">    </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Hello world!"</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
+</span><span id="__span-11-6"><a href="#__codelineno-11-6" id="__codelineno-11-6" name="__codelineno-11-6"></a>
+</span><span id="__span-11-7"><a href="#__codelineno-11-7" id="__codelineno-11-7" name="__codelineno-11-7"></a><span class="w">    </span><span class="c1">-- Text the field starts with.</span>
+</span><span id="__span-11-8"><a href="#__codelineno-11-8" id="__codelineno-11-8" name="__codelineno-11-8"></a><span class="w">    </span><span class="nv">default</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Hello world!"</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
+</span><span id="__span-11-9"><a href="#__codelineno-11-9" id="__codelineno-11-9" name="__codelineno-11-9"></a>
+</span><span id="__span-11-10"><a href="#__codelineno-11-10" id="__codelineno-11-10" name="__codelineno-11-10"></a><span class="w">    </span><span class="c1">-- Called when the player presses Enter.</span>
+</span><span id="__span-11-11"><a href="#__codelineno-11-11" id="__codelineno-11-11" name="__codelineno-11-11"></a><span class="w">    </span><span class="nv">on_key_enter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">function</span><span class="p">(</span><span class="nv">player</span><span class="p">,</span><span class="w"> </span><span class="nv">ctx</span><span class="p">)</span><span class="w"> </span><span class="kr">end</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
+</span><span id="__span-11-12"><a href="#__codelineno-11-12" id="__codelineno-11-12" name="__codelineno-11-12"></a>
+</span><span id="__span-11-13"><a href="#__codelineno-11-13" id="__codelineno-11-13" name="__codelineno-11-13"></a><span class="w">    </span><span class="c1">-- Close the form on Enter. Default false.</span>
+</span><span id="__span-11-14"><a href="#__codelineno-11-14" id="__codelineno-11-14" name="__codelineno-11-14"></a><span class="w">    </span><span class="nv">close_on_enter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
+</span><span id="__span-11-15"><a href="#__codelineno-11-15" id="__codelineno-11-15" name="__codelineno-11-15"></a>
+</span><span id="__span-11-16"><a href="#__codelineno-11-16" id="__codelineno-11-16" name="__codelineno-11-16"></a><span class="w">    </span><span class="c1">-- Make "Done" on the mobile on-screen keyboard act like Enter.</span>
+</span><span id="__span-11-17"><a href="#__codelineno-11-17" id="__codelineno-11-17" name="__codelineno-11-17"></a><span class="w">    </span><span class="nv">enter_after_edit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
+</span><span id="__span-11-18"><a href="#__codelineno-11-18" id="__codelineno-11-18" name="__codelineno-11-18"></a><span class="p">}</span>
+</span></code></pre></div>
+<h2 id="guifieldcloseonenter"><code>gui.FieldCloseOnEnter</code></h2>
+<p>Sets whether pressing Enter in the field with this <code>name</code> closes the form. You normally do not need this element, as <code>gui.Field</code> has a <code>close_on_enter</code> parameter (and by default Enter does not close the form).</p>
+<h3 id="example_12">Example</h3>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-12-1"><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="nv">gui</span><span class="p">.</span><span class="py">FieldCloseOnEnter</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-12-2"><a href="#__codelineno-12-2" id="__codelineno-12-2" name="__codelineno-12-2"></a><span class="w">    </span><span class="c1">-- Name of the field.</span>
+</span><span id="__span-12-3"><a href="#__codelineno-12-3" id="__codelineno-12-3" name="__codelineno-12-3"></a><span class="w">    </span><span class="nv">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"my_field_close_on_enter"</span><span class="p">,</span>
+</span><span id="__span-12-4"><a href="#__codelineno-12-4" id="__codelineno-12-4" name="__codelineno-12-4"></a><span class="w">    </span><span class="nv">close_on_enter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+</span><span id="__span-12-5"><a href="#__codelineno-12-5" id="__codelineno-12-5" name="__codelineno-12-5"></a><span class="p">}</span>
+</span></code></pre></div>
+<h2 id="guifieldenterafteredit"><code>gui.FieldEnterAfterEdit</code></h2>
+<p>Experimental, and only affects Android. If <code>enter_after_edit</code> is <code>true</code>, pressing "Done" in the text input dialog of the field with this <code>name</code> counts as pressing Enter. You normally do not need this element, as <code>gui.Field</code> has an <code>enter_after_edit</code> parameter.</p>
+<h3 id="example_13">Example</h3>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-13-1"><a href="#__codelineno-13-1" id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="nv">gui</span><span class="p">.</span><span class="py">FieldEnterAfterEdit</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-13-2"><a href="#__codelineno-13-2" id="__codelineno-13-2" name="__codelineno-13-2"></a><span class="w">    </span><span class="c1">-- Name of the field.</span>
+</span><span id="__span-13-3"><a href="#__codelineno-13-3" id="__codelineno-13-3" name="__codelineno-13-3"></a><span class="w">    </span><span class="nv">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"my_field_enter_after_edit"</span><span class="p">,</span>
+</span><span id="__span-13-4"><a href="#__codelineno-13-4" id="__codelineno-13-4" name="__codelineno-13-4"></a><span class="w">    </span><span class="nv">enter_after_edit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+</span><span id="__span-13-5"><a href="#__codelineno-13-5" id="__codelineno-13-5" name="__codelineno-13-5"></a><span class="p">}</span>
+</span></code></pre></div>
+<h2 id="guihypertext"><code>gui.Hypertext</code></h2>
+<p>Shows text that can be formatted (bold, colors, different sizes, images, ...) and can contain clickable links. The text is written in a small HTML-like language, which is described in <a href="../hypertext/">Hypertext markup</a>. <code>w</code> and <code>h</code> are the size of the area that the text is wrapped to fit in.</p>
+<p>If the markup contains <code>&lt;action name=...&gt;</code> links, <code>ctx.form[name]</code> is set to <code>"action:"</code> followed by the action name when the player clicks one. This behaviour is experimental and may change.</p>
+<h3 id="example_14">Example</h3>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-14-1"><a href="#__codelineno-14-1" id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="nv">gui</span><span class="p">.</span><span class="py">Hypertext</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-14-2"><a href="#__codelineno-14-2" id="__codelineno-14-2" name="__codelineno-14-2"></a><span class="w">    </span><span class="nv">w</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span>
+</span><span id="__span-14-3"><a href="#__codelineno-14-3" id="__codelineno-14-3" name="__codelineno-14-3"></a><span class="w">    </span><span class="nv">h</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+</span><span id="__span-14-4"><a href="#__codelineno-14-4" id="__codelineno-14-4" name="__codelineno-14-4"></a>
+</span><span id="__span-14-5"><a href="#__codelineno-14-5" id="__codelineno-14-5" name="__codelineno-14-5"></a><span class="w">    </span><span class="c1">-- Receives the clicked action, see above.</span>
+</span><span id="__span-14-6"><a href="#__codelineno-14-6" id="__codelineno-14-6" name="__codelineno-14-6"></a><span class="w">    </span><span class="nv">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"my_hypertext"</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
+</span><span id="__span-14-7"><a href="#__codelineno-14-7" id="__codelineno-14-7" name="__codelineno-14-7"></a>
+</span><span id="__span-14-8"><a href="#__codelineno-14-8" id="__codelineno-14-8" name="__codelineno-14-8"></a><span class="w">    </span><span class="c1">-- Formatted text, see "Hypertext markup".</span>
+</span><span id="__span-14-9"><a href="#__codelineno-14-9" id="__codelineno-14-9" name="__codelineno-14-9"></a><span class="w">    </span><span class="nv">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Hello world!"</span><span class="p">,</span>
+</span><span id="__span-14-10"><a href="#__codelineno-14-10" id="__codelineno-14-10" name="__codelineno-14-10"></a><span class="p">}</span>
+</span></code></pre></div>
+<h2 id="guiimage"><code>gui.Image</code></h2>
+<p>Shows a picture, stretched to fit <code>w</code> by <code>h</code>. If you want to use one small texture for pictures of many sizes, use the <code>middle_*</code> parameters, see <a href="intro-to-elements.md#nine-slice-images">Nine-slice images</a>.</p>
+<h3 id="example_15">Example</h3>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-15-1"><a href="#__codelineno-15-1" id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="nv">gui</span><span class="p">.</span><span class="py">Image</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-15-2"><a href="#__codelineno-15-2" id="__codelineno-15-2" name="__codelineno-15-2"></a><span class="w">    </span><span class="nv">w</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span>
+</span><span id="__span-15-3"><a href="#__codelineno-15-3" id="__codelineno-15-3" name="__codelineno-15-3"></a><span class="w">    </span><span class="nv">h</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+</span><span id="__span-15-4"><a href="#__codelineno-15-4" id="__codelineno-15-4" name="__codelineno-15-4"></a>
+</span><span id="__span-15-5"><a href="#__codelineno-15-5" id="__codelineno-15-5" name="__codelineno-15-5"></a><span class="w">    </span><span class="c1">-- Texture to draw.</span>
+</span><span id="__span-15-6"><a href="#__codelineno-15-6" id="__codelineno-15-6" name="__codelineno-15-6"></a><span class="w">    </span><span class="nv">texture_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"texture.png"</span><span class="p">,</span>
+</span><span id="__span-15-7"><a href="#__codelineno-15-7" id="__codelineno-15-7" name="__codelineno-15-7"></a><span class="w">    </span><span class="nv">middle_x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
+</span><span id="__span-15-8"><a href="#__codelineno-15-8" id="__codelineno-15-8" name="__codelineno-15-8"></a><span class="w">    </span><span class="nv">middle_y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
+</span><span id="__span-15-9"><a href="#__codelineno-15-9" id="__codelineno-15-9" name="__codelineno-15-9"></a><span class="w">    </span><span class="nv">middle_x2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
+</span><span id="__span-15-10"><a href="#__codelineno-15-10" id="__codelineno-15-10" name="__codelineno-15-10"></a><span class="w">    </span><span class="nv">middle_y2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
+</span><span id="__span-15-11"><a href="#__codelineno-15-11" id="__codelineno-15-11" name="__codelineno-15-11"></a><span class="p">}</span>
+</span></code></pre></div>
+<h2 id="guiimagebutton"><code>gui.ImageButton</code></h2>
+<p>A button that is drawn as a picture instead of the usual button face. The picture (<code>texture_name</code>) is stretched to <code>w</code> by <code>h</code>, and <code>label</code> is drawn on top of it. It works like <code>gui.Button</code> otherwise.</p>
+<ul>
+<li><code>noclip</code>: Allow the button to be drawn outside the form's area.</li>
+<li><code>drawborder</code>: Draw the normal button border around the picture.</li>
+<li><code>pressed_texture_name</code>: Picture to show while the button is held down.</li>
+</ul>
+<h3 id="example_16">Example</h3>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-16-1"><a href="#__codelineno-16-1" id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="nv">gui</span><span class="p">.</span><span class="py">ImageButton</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-16-2"><a href="#__codelineno-16-2" id="__codelineno-16-2" name="__codelineno-16-2"></a><span class="w">    </span><span class="nv">w</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span>
+</span><span id="__span-16-3"><a href="#__codelineno-16-3" id="__codelineno-16-3" name="__codelineno-16-3"></a><span class="w">    </span><span class="nv">h</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+</span><span id="__span-16-4"><a href="#__codelineno-16-4" id="__codelineno-16-4" name="__codelineno-16-4"></a>
+</span><span id="__span-16-5"><a href="#__codelineno-16-5" id="__codelineno-16-5" name="__codelineno-16-5"></a><span class="w">    </span><span class="c1">-- Picture to draw as the button.</span>
+</span><span id="__span-16-6"><a href="#__codelineno-16-6" id="__codelineno-16-6" name="__codelineno-16-6"></a><span class="w">    </span><span class="nv">texture_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"texture.png"</span><span class="p">,</span>
+</span><span id="__span-16-7"><a href="#__codelineno-16-7" id="__codelineno-16-7" name="__codelineno-16-7"></a><span class="w">    </span><span class="nv">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"my_image_button"</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
+</span><span id="__span-16-8"><a href="#__codelineno-16-8" id="__codelineno-16-8" name="__codelineno-16-8"></a><span class="w">    </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Hello world!"</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
+</span><span id="__span-16-9"><a href="#__codelineno-16-9" id="__codelineno-16-9" name="__codelineno-16-9"></a><span class="w">    </span><span class="nv">noclip</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
+</span><span id="__span-16-10"><a href="#__codelineno-16-10" id="__codelineno-16-10" name="__codelineno-16-10"></a><span class="w">    </span><span class="nv">drawborder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
+</span><span id="__span-16-11"><a href="#__codelineno-16-11" id="__codelineno-16-11" name="__codelineno-16-11"></a><span class="w">    </span><span class="nv">pressed_texture_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"texture.png"</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
+</span><span id="__span-16-12"><a href="#__codelineno-16-12" id="__codelineno-16-12" name="__codelineno-16-12"></a><span class="p">}</span>
+</span></code></pre></div>
+<h2 id="guiimagebuttonexit"><code>gui.ImageButtonExit</code></h2>
+<p>Like <code>gui.ImageButton</code>, but the form also closes when the button is clicked.</p>
+<h3 id="example_17">Example</h3>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-17-1"><a href="#__codelineno-17-1" id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="nv">gui</span><span class="p">.</span><span class="py">ImageButtonExit</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-17-2"><a href="#__codelineno-17-2" id="__codelineno-17-2" name="__codelineno-17-2"></a><span class="w">    </span><span class="nv">w</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span>
+</span><span id="__span-17-3"><a href="#__codelineno-17-3" id="__codelineno-17-3" name="__codelineno-17-3"></a><span class="w">    </span><span class="nv">h</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+</span><span id="__span-17-4"><a href="#__codelineno-17-4" id="__codelineno-17-4" name="__codelineno-17-4"></a>
+</span><span id="__span-17-5"><a href="#__codelineno-17-5" id="__codelineno-17-5" name="__codelineno-17-5"></a><span class="w">    </span><span class="c1">-- Picture to draw as the button.</span>
+</span><span id="__span-17-6"><a href="#__codelineno-17-6" id="__codelineno-17-6" name="__codelineno-17-6"></a><span class="w">    </span><span class="nv">texture_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"texture.png"</span><span class="p">,</span>
+</span><span id="__span-17-7"><a href="#__codelineno-17-7" id="__codelineno-17-7" name="__codelineno-17-7"></a><span class="w">    </span><span class="nv">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"my_image_button_exit"</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
+</span><span id="__span-17-8"><a href="#__codelineno-17-8" id="__codelineno-17-8" name="__codelineno-17-8"></a><span class="w">    </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Hello world!"</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
+</span><span id="__span-17-9"><a href="#__codelineno-17-9" id="__codelineno-17-9" name="__codelineno-17-9"></a><span class="w">    </span><span class="nv">noclip</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
+</span><span id="__span-17-10"><a href="#__codelineno-17-10" id="__codelineno-17-10" name="__codelineno-17-10"></a><span class="w">    </span><span class="nv">drawborder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
+</span><span id="__span-17-11"><a href="#__codelineno-17-11" id="__codelineno-17-11" name="__codelineno-17-11"></a><span class="w">    </span><span class="nv">pressed_texture_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"texture.png"</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
+</span><span id="__span-17-12"><a href="#__codelineno-17-12" id="__codelineno-17-12" name="__codelineno-17-12"></a><span class="p">}</span>
+</span></code></pre></div>
+<h2 id="guiitemimage"><code>gui.ItemImage</code></h2>
+<p>Shows the picture that is used for an item or node in inventories (<code>item_name</code>, such as <code>"unifieddyes:colorium"</code>), stretched to fit <code>w</code> by <code>h</code>.</p>
+<h3 id="example_18">Example</h3>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-18-1"><a href="#__codelineno-18-1" id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="nv">gui</span><span class="p">.</span><span class="py">ItemImage</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-18-2"><a href="#__codelineno-18-2" id="__codelineno-18-2" name="__codelineno-18-2"></a><span class="w">    </span><span class="nv">w</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+</span><span id="__span-18-3"><a href="#__codelineno-18-3" id="__codelineno-18-3" name="__codelineno-18-3"></a><span class="w">    </span><span class="nv">h</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span>
+</span><span id="__span-18-4"><a href="#__codelineno-18-4" id="__codelineno-18-4" name="__codelineno-18-4"></a>
+</span><span id="__span-18-5"><a href="#__codelineno-18-5" id="__codelineno-18-5" name="__codelineno-18-5"></a><span class="w">    </span><span class="c1">-- Registered item or node name.</span>
+</span><span id="__span-18-6"><a href="#__codelineno-18-6" id="__codelineno-18-6" name="__codelineno-18-6"></a><span class="w">    </span><span class="nv">item_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"unifieddyes:colorium"</span><span class="p">,</span>
+</span><span id="__span-18-7"><a href="#__codelineno-18-7" id="__codelineno-18-7" name="__codelineno-18-7"></a><span class="p">}</span>
+</span></code></pre></div>
+<h2 id="guiitemimagebutton"><code>gui.ItemImageButton</code></h2>
+<p>A button that shows the inventory picture of an item or node (<code>item_name</code>). By default, the item's description is shown as a tooltip when the player hovers over the button, which you can replace with the <code>tooltip</code> parameter. It works like <code>gui.Button</code> otherwise.</p>
+<p>Give every item image button its own unique <code>name</code>, otherwise its tooltip may not work.</p>
+<h3 id="example_19">Example</h3>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-19-1"><a href="#__codelineno-19-1" id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="nv">gui</span><span class="p">.</span><span class="py">ItemImageButton</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-19-2"><a href="#__codelineno-19-2" id="__codelineno-19-2" name="__codelineno-19-2"></a><span class="w">    </span><span class="nv">w</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+</span><span id="__span-19-3"><a href="#__codelineno-19-3" id="__codelineno-19-3" name="__codelineno-19-3"></a><span class="w">    </span><span class="nv">h</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+</span><span id="__span-19-4"><a href="#__codelineno-19-4" id="__codelineno-19-4" name="__codelineno-19-4"></a>
+</span><span id="__span-19-5"><a href="#__codelineno-19-5" id="__codelineno-19-5" name="__codelineno-19-5"></a><span class="w">    </span><span class="c1">-- Registered item or node name.</span>
+</span><span id="__span-19-6"><a href="#__codelineno-19-6" id="__codelineno-19-6" name="__codelineno-19-6"></a><span class="w">    </span><span class="nv">item_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"unifieddyes:colorium"</span><span class="p">,</span>
+</span><span id="__span-19-7"><a href="#__codelineno-19-7" id="__codelineno-19-7" name="__codelineno-19-7"></a><span class="w">    </span><span class="nv">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"my_item_image_button"</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
+</span><span id="__span-19-8"><a href="#__codelineno-19-8" id="__codelineno-19-8" name="__codelineno-19-8"></a><span class="w">    </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Hello world!"</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
+</span><span id="__span-19-9"><a href="#__codelineno-19-9" id="__codelineno-19-9" name="__codelineno-19-9"></a><span class="p">}</span>
+</span></code></pre></div>
+<h2 id="guilabel"><code>gui.Label</code></h2>
+<p>Shows text. Labels do not wrap long lines automatically: use <code>\n</code> to start a new line and do not use labels for long paragraphs. For those, use <code>gui.Hypertext</code>, or a <code>gui.Textarea</code> without a <code>name</code> (which wraps its text and gets a scrollbar if the text is too long).</p>
+<p>Labels are sized to fit their text, and flow ignores color escape sequences when it estimates the width. To make the text bigger or smaller, use the <code>font_size</code> style (for example <code>style = {font_size = "*2"}</code>), see <a href="../styling/">Styling</a>.</p>
+<h3 id="example_20">Example</h3>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-20-1"><a href="#__codelineno-20-1" id="__codelineno-20-1" name="__codelineno-20-1"></a><span class="nv">gui</span><span class="p">.</span><span class="py">Label</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-20-2"><a href="#__codelineno-20-2" id="__codelineno-20-2" name="__codelineno-20-2"></a><span class="w">    </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Hello world!"</span><span class="p">,</span>
+</span><span id="__span-20-3"><a href="#__codelineno-20-3" id="__codelineno-20-3" name="__codelineno-20-3"></a><span class="p">}</span>
+</span></code></pre></div>
+<h2 id="guilist"><code>gui.List</code></h2>
+<p>Shows a grid of inventory slots, with the items of one inventory list in it. This is how you show the player's inventory, a chest, a furnace's input slots, and so on.</p>
+<ul>
+<li><code>inventory_location</code>: Which inventory to show. Common values are <code>"current_player"</code> (the inventory of the player who has the form open), <code>"nodemeta:X,Y,Z"</code> (the inventory of the node at that position, for example <code>"nodemeta:10,5,-3"</code>), and <code>"detached:name"</code> (a detached inventory). <code>"player:name"</code> is the inventory of a specific player and is only ever sent to that player.</li>
+<li><code>list_name</code>: The name of the list inside that inventory, such as <code>"main"</code> or <code>"craft"</code>.</li>
+<li><code>w</code> and <code>h</code>: How many slots wide and high to draw (whole numbers).</li>
+</ul>
+<p>Slots are filled from left to right, then top to bottom, and the player can move items in and out of them. The list is only shown if the inventory has been sent to the player's client. Only as many slots as the inventory list has are drawn, even if <code>w</code> times <code>h</code> is larger.</p>
+<p>Each slot is 1 by 1, with 0.25 between slots, so a list that is 8 slots wide and 4 high is 9.75 by 4.75 big. To change the slot size or spacing, use the <code>size</code> and <code>spacing</code> styles, see <a href="../styling/">Styling</a>.</p>
+<h3 id="example_21">Example</h3>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-21-1"><a href="#__codelineno-21-1" id="__codelineno-21-1" name="__codelineno-21-1"></a><span class="nv">gui</span><span class="p">.</span><span class="py">List</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-21-2"><a href="#__codelineno-21-2" id="__codelineno-21-2" name="__codelineno-21-2"></a><span class="w">    </span><span class="c1">-- Which inventory to show.</span>
+</span><span id="__span-21-3"><a href="#__codelineno-21-3" id="__codelineno-21-3" name="__codelineno-21-3"></a><span class="w">    </span><span class="nv">inventory_location</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"current_player"</span><span class="p">,</span>
+</span><span id="__span-21-4"><a href="#__codelineno-21-4" id="__codelineno-21-4" name="__codelineno-21-4"></a>
+</span><span id="__span-21-5"><a href="#__codelineno-21-5" id="__codelineno-21-5" name="__codelineno-21-5"></a><span class="w">    </span><span class="c1">-- Which list in that inventory to show.</span>
+</span><span id="__span-21-6"><a href="#__codelineno-21-6" id="__codelineno-21-6" name="__codelineno-21-6"></a><span class="w">    </span><span class="nv">list_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"main"</span><span class="p">,</span>
+</span><span id="__span-21-7"><a href="#__codelineno-21-7" id="__codelineno-21-7" name="__codelineno-21-7"></a><span class="w">    </span><span class="nv">w</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+</span><span id="__span-21-8"><a href="#__codelineno-21-8" id="__codelineno-21-8" name="__codelineno-21-8"></a><span class="w">    </span><span class="nv">h</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+</span><span id="__span-21-9"><a href="#__codelineno-21-9" id="__codelineno-21-9" name="__codelineno-21-9"></a>
+</span><span id="__span-21-10"><a href="#__codelineno-21-10" id="__codelineno-21-10" name="__codelineno-21-10"></a><span class="w">    </span><span class="c1">-- Index of the first slot to draw. Unlike most numbers here, this starts</span>
+</span><span id="__span-21-11"><a href="#__codelineno-21-11" id="__codelineno-21-11" name="__codelineno-21-11"></a><span class="w">    </span><span class="c1">-- at 0. Default 0.</span>
+</span><span id="__span-21-12"><a href="#__codelineno-21-12" id="__codelineno-21-12" name="__codelineno-21-12"></a><span class="w">    </span><span class="nv">starting_item_index</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
+</span><span id="__span-21-13"><a href="#__codelineno-21-13" id="__codelineno-21-13" name="__codelineno-21-13"></a><span class="p">}</span>
+</span></code></pre></div>
+<h2 id="guilistcolors"><code>gui.Listcolors</code></h2>
+<p>Sets the colors of inventory slots. It is invisible, takes up no space, and should come before the <code>gui.List</code> elements it is for.</p>
+<ul>
+<li><code>slot_bg_normal</code>: Background color of a slot.</li>
+<li><code>slot_bg_hover</code>: Background color of a slot while the mouse is over it.</li>
+<li><code>slot_border</code>: Color of the border of the slots.</li>
+<li><code>tooltip_bgcolor</code>: Default background color of item tooltips.</li>
+<li><code>tooltip_fontcolor</code>: Default text color of item tooltips.</li>
+</ul>
+<p>Only the first two are required. To use pictures instead of colors for slots, see <a href="../not-supported/">Unsupported Features</a>.</p>
+<h3 id="example_22">Example</h3>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-22-1"><a href="#__codelineno-22-1" id="__codelineno-22-1" name="__codelineno-22-1"></a><span class="nv">gui</span><span class="p">.</span><span class="py">Listcolors</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-22-2"><a href="#__codelineno-22-2" id="__codelineno-22-2" name="__codelineno-22-2"></a><span class="w">    </span><span class="c1">-- Slot background color.</span>
+</span><span id="__span-22-3"><a href="#__codelineno-22-3" id="__codelineno-22-3" name="__codelineno-22-3"></a><span class="w">    </span><span class="nv">slot_bg_normal</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"#FF0000"</span><span class="p">,</span>
+</span><span id="__span-22-4"><a href="#__codelineno-22-4" id="__codelineno-22-4" name="__codelineno-22-4"></a>
+</span><span id="__span-22-5"><a href="#__codelineno-22-5" id="__codelineno-22-5" name="__codelineno-22-5"></a><span class="w">    </span><span class="c1">-- Slot background color when hovered.</span>
+</span><span id="__span-22-6"><a href="#__codelineno-22-6" id="__codelineno-22-6" name="__codelineno-22-6"></a><span class="w">    </span><span class="nv">slot_bg_hover</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"#FF0000"</span><span class="p">,</span>
+</span><span id="__span-22-7"><a href="#__codelineno-22-7" id="__codelineno-22-7" name="__codelineno-22-7"></a>
+</span><span id="__span-22-8"><a href="#__codelineno-22-8" id="__codelineno-22-8" name="__codelineno-22-8"></a><span class="w">    </span><span class="c1">-- Slot border color.</span>
+</span><span id="__span-22-9"><a href="#__codelineno-22-9" id="__codelineno-22-9" name="__codelineno-22-9"></a><span class="w">    </span><span class="nv">slot_border</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"#FF0000"</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
+</span><span id="__span-22-10"><a href="#__codelineno-22-10" id="__codelineno-22-10" name="__codelineno-22-10"></a>
+</span><span id="__span-22-11"><a href="#__codelineno-22-11" id="__codelineno-22-11" name="__codelineno-22-11"></a><span class="w">    </span><span class="c1">-- Default tooltip background color.</span>
+</span><span id="__span-22-12"><a href="#__codelineno-22-12" id="__codelineno-22-12" name="__codelineno-22-12"></a><span class="w">    </span><span class="nv">tooltip_bgcolor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"#FF0000"</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
+</span><span id="__span-22-13"><a href="#__codelineno-22-13" id="__codelineno-22-13" name="__codelineno-22-13"></a>
+</span><span id="__span-22-14"><a href="#__codelineno-22-14" id="__codelineno-22-14" name="__codelineno-22-14"></a><span class="w">    </span><span class="c1">-- Default tooltip text color.</span>
+</span><span id="__span-22-15"><a href="#__codelineno-22-15" id="__codelineno-22-15" name="__codelineno-22-15"></a><span class="w">    </span><span class="nv">tooltip_fontcolor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"#FF0000"</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
+</span><span id="__span-22-16"><a href="#__codelineno-22-16" id="__codelineno-22-16" name="__codelineno-22-16"></a><span class="p">}</span>
+</span></code></pre></div>
+<h2 id="guilistring"><code>gui.Listring</code></h2>
+<p>Sets where items go when the player shift-clicks them. Every <code>gui.Listring{inventory_location = ..., list_name = ...}</code> adds a list to a ring, and shift-clicking an item in one list of the ring moves it to the next list in the ring. The first time a list appears in the ring decides which inventory the items are sent to.</p>
+<p><code>gui.Listring{}</code> with no parameters adds the last two <code>gui.List</code> elements that came before it. It is invisible and takes up no space.</p>
+<h3 id="example_23">Example</h3>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-23-1"><a href="#__codelineno-23-1" id="__codelineno-23-1" name="__codelineno-23-1"></a><span class="nv">gui</span><span class="p">.</span><span class="py">Listring</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-23-2"><a href="#__codelineno-23-2" id="__codelineno-23-2" name="__codelineno-23-2"></a><span class="w">    </span><span class="c1">-- Same as for gui.List.</span>
+</span><span id="__span-23-3"><a href="#__codelineno-23-3" id="__codelineno-23-3" name="__codelineno-23-3"></a><span class="w">    </span><span class="nv">inventory_location</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"current_player"</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
+</span><span id="__span-23-4"><a href="#__codelineno-23-4" id="__codelineno-23-4" name="__codelineno-23-4"></a>
+</span><span id="__span-23-5"><a href="#__codelineno-23-5" id="__codelineno-23-5" name="__codelineno-23-5"></a><span class="w">    </span><span class="c1">-- Same as for gui.List.</span>
+</span><span id="__span-23-6"><a href="#__codelineno-23-6" id="__codelineno-23-6" name="__codelineno-23-6"></a><span class="w">    </span><span class="nv">list_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"main"</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
+</span><span id="__span-23-7"><a href="#__codelineno-23-7" id="__codelineno-23-7" name="__codelineno-23-7"></a><span class="p">}</span>
+</span></code></pre></div>
+<h2 id="guimodel"><code>gui.Model</code></h2>
+<p>Shows a 3D model that the player can turn around with their mouse.</p>
+<ul>
+<li><code>mesh</code>: File name of the model, from the <code>models</code> folder of any loaded mod.</li>
+<li><code>textures</code>: The textures for the model, one for each of the model's materials in order.</li>
+<li><code>rotation_x</code> and <code>rotation_y</code>: How far the model is turned at first, in degrees.</li>
+<li><code>continuous</code>: Keep the model rotating by itself.</li>
+<li><code>mouse_control</code>: Whether the player can rotate the model with their mouse. Defaults to <code>true</code>.</li>
+<li><code>frame_loop_begin</code> and <code>frame_loop_end</code>: The range of animation frames to play. Defaults to all frames.</li>
+<li><code>animation_speed</code>: Frames per second to play the animation at. Defaults to <code>0</code> (no animation).</li>
+</ul>
+<p><code>name</code> is optional and only useful for <a href="../styling/">styling</a>.</p>
+<h3 id="example_24">Example</h3>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-24-1"><a href="#__codelineno-24-1" id="__codelineno-24-1" name="__codelineno-24-1"></a><span class="nv">gui</span><span class="p">.</span><span class="py">Model</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-24-2"><a href="#__codelineno-24-2" id="__codelineno-24-2" name="__codelineno-24-2"></a><span class="w">    </span><span class="nv">w</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span>
+</span><span id="__span-24-3"><a href="#__codelineno-24-3" id="__codelineno-24-3" name="__codelineno-24-3"></a><span class="w">    </span><span class="nv">h</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span>
+</span><span id="__span-24-4"><a href="#__codelineno-24-4" id="__codelineno-24-4" name="__codelineno-24-4"></a>
+</span><span id="__span-24-5"><a href="#__codelineno-24-5" id="__codelineno-24-5" name="__codelineno-24-5"></a><span class="w">    </span><span class="c1">-- Only useful for styling.</span>
+</span><span id="__span-24-6"><a href="#__codelineno-24-6" id="__codelineno-24-6" name="__codelineno-24-6"></a><span class="w">    </span><span class="nv">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"my_model"</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
+</span><span id="__span-24-7"><a href="#__codelineno-24-7" id="__codelineno-24-7" name="__codelineno-24-7"></a>
+</span><span id="__span-24-8"><a href="#__codelineno-24-8" id="__codelineno-24-8" name="__codelineno-24-8"></a><span class="w">    </span><span class="c1">-- Model file name.</span>
+</span><span id="__span-24-9"><a href="#__codelineno-24-9" id="__codelineno-24-9" name="__codelineno-24-9"></a><span class="w">    </span><span class="nv">mesh</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"model.obj"</span><span class="p">,</span>
+</span><span id="__span-24-10"><a href="#__codelineno-24-10" id="__codelineno-24-10" name="__codelineno-24-10"></a>
+</span><span id="__span-24-11"><a href="#__codelineno-24-11" id="__codelineno-24-11" name="__codelineno-24-11"></a><span class="w">    </span><span class="c1">-- One texture for each material of the model.</span>
+</span><span id="__span-24-12"><a href="#__codelineno-24-12" id="__codelineno-24-12" name="__codelineno-24-12"></a><span class="w">    </span><span class="nv">textures</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"texture.png"</span><span class="p">,</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-24-13"><a href="#__codelineno-24-13" id="__codelineno-24-13" name="__codelineno-24-13"></a>
+</span><span id="__span-24-14"><a href="#__codelineno-24-14" id="__codelineno-24-14" name="__codelineno-24-14"></a><span class="w">    </span><span class="c1">-- Starting rotation in degrees.</span>
+</span><span id="__span-24-15"><a href="#__codelineno-24-15" id="__codelineno-24-15" name="__codelineno-24-15"></a><span class="w">    </span><span class="nv">rotation_x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
+</span><span id="__span-24-16"><a href="#__codelineno-24-16" id="__codelineno-24-16" name="__codelineno-24-16"></a>
+</span><span id="__span-24-17"><a href="#__codelineno-24-17" id="__codelineno-24-17" name="__codelineno-24-17"></a><span class="w">    </span><span class="c1">-- Starting rotation in degrees.</span>
+</span><span id="__span-24-18"><a href="#__codelineno-24-18" id="__codelineno-24-18" name="__codelineno-24-18"></a><span class="w">    </span><span class="nv">rotation_y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
+</span><span id="__span-24-19"><a href="#__codelineno-24-19" id="__codelineno-24-19" name="__codelineno-24-19"></a>
+</span><span id="__span-24-20"><a href="#__codelineno-24-20" id="__codelineno-24-20" name="__codelineno-24-20"></a><span class="w">    </span><span class="c1">-- Keep rotating by itself. Default false.</span>
+</span><span id="__span-24-21"><a href="#__codelineno-24-21" id="__codelineno-24-21" name="__codelineno-24-21"></a><span class="w">    </span><span class="nv">continuous</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
+</span><span id="__span-24-22"><a href="#__codelineno-24-22" id="__codelineno-24-22" name="__codelineno-24-22"></a>
+</span><span id="__span-24-23"><a href="#__codelineno-24-23" id="__codelineno-24-23" name="__codelineno-24-23"></a><span class="w">    </span><span class="c1">-- Let the player rotate the model. Default true.</span>
+</span><span id="__span-24-24"><a href="#__codelineno-24-24" id="__codelineno-24-24" name="__codelineno-24-24"></a><span class="w">    </span><span class="nv">mouse_control</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
+</span><span id="__span-24-25"><a href="#__codelineno-24-25" id="__codelineno-24-25" name="__codelineno-24-25"></a>
+</span><span id="__span-24-26"><a href="#__codelineno-24-26" id="__codelineno-24-26" name="__codelineno-24-26"></a><span class="w">    </span><span class="c1">-- First animation frame to play.</span>
+</span><span id="__span-24-27"><a href="#__codelineno-24-27" id="__codelineno-24-27" name="__codelineno-24-27"></a><span class="w">    </span><span class="nv">frame_loop_begin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
+</span><span id="__span-24-28"><a href="#__codelineno-24-28" id="__codelineno-24-28" name="__codelineno-24-28"></a>
+</span><span id="__span-24-29"><a href="#__codelineno-24-29" id="__codelineno-24-29" name="__codelineno-24-29"></a><span class="w">    </span><span class="c1">-- Last animation frame to play.</span>
+</span><span id="__span-24-30"><a href="#__codelineno-24-30" id="__codelineno-24-30" name="__codelineno-24-30"></a><span class="w">    </span><span class="nv">frame_loop_end</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
+</span><span id="__span-24-31"><a href="#__codelineno-24-31" id="__codelineno-24-31" name="__codelineno-24-31"></a>
+</span><span id="__span-24-32"><a href="#__codelineno-24-32" id="__codelineno-24-32" name="__codelineno-24-32"></a><span class="w">    </span><span class="c1">-- Frames per second. Default 0.</span>
+</span><span id="__span-24-33"><a href="#__codelineno-24-33" id="__codelineno-24-33" name="__codelineno-24-33"></a><span class="w">    </span><span class="nv">animation_speed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
+</span><span id="__span-24-34"><a href="#__codelineno-24-34" id="__codelineno-24-34" name="__codelineno-24-34"></a><span class="p">}</span>
+</span></code></pre></div>
+<h2 id="guipwdfield"><code>gui.Pwdfield</code></h2>
+<p>A single-line text box for passwords: what the player types is hidden. It works like <code>gui.Field</code>, apart from not having a <code>default</code>. <code>ctx.form[name]</code> is the text that was typed. <code>on_key_enter</code> is supported, see <a href="../experimental/#handling-enter-keypresses-in-fields">Handling enter keypresses in fields</a>.</p>
+<h3 id="example_25">Example</h3>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-25-1"><a href="#__codelineno-25-1" id="__codelineno-25-1" name="__codelineno-25-1"></a><span class="nv">gui</span><span class="p">.</span><span class="py">Pwdfield</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-25-2"><a href="#__codelineno-25-2" id="__codelineno-25-2" name="__codelineno-25-2"></a><span class="w">    </span><span class="nv">w</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
+</span><span id="__span-25-3"><a href="#__codelineno-25-3" id="__codelineno-25-3" name="__codelineno-25-3"></a><span class="w">    </span><span class="nv">h</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
+</span><span id="__span-25-4"><a href="#__codelineno-25-4" id="__codelineno-25-4" name="__codelineno-25-4"></a><span class="w">    </span><span class="nv">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"my_pwdfield"</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
+</span><span id="__span-25-5"><a href="#__codelineno-25-5" id="__codelineno-25-5" name="__codelineno-25-5"></a><span class="w">    </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Hello world!"</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
+</span><span id="__span-25-6"><a href="#__codelineno-25-6" id="__codelineno-25-6" name="__codelineno-25-6"></a>
+</span><span id="__span-25-7"><a href="#__codelineno-25-7" id="__codelineno-25-7" name="__codelineno-25-7"></a><span class="w">    </span><span class="c1">-- Called when the player presses Enter.</span>
+</span><span id="__span-25-8"><a href="#__codelineno-25-8" id="__codelineno-25-8" name="__codelineno-25-8"></a><span class="w">    </span><span class="nv">on_key_enter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">function</span><span class="p">(</span><span class="nv">player</span><span class="p">,</span><span class="w"> </span><span class="nv">ctx</span><span class="p">)</span><span class="w"> </span><span class="kr">end</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
+</span><span id="__span-25-9"><a href="#__codelineno-25-9" id="__codelineno-25-9" name="__codelineno-25-9"></a><span class="p">}</span>
+</span></code></pre></div>
+<h2 id="guiscrollcontainer"><code>gui.ScrollContainer</code></h2>
+<p>An area of a fixed size that clips the elements inside it and moves them when a scrollbar is moved. You usually want <code>gui.ScrollableVBox</code> instead, which does all of this for you. The elements inside are positioned by hand with <code>x</code> and <code>y</code>, like in <code>gui.Container</code>.</p>
+<ul>
+<li><code>w</code> and <code>h</code>: The size of the visible area.</li>
+<li><code>scrollbar_name</code>: The <code>name</code> of the <code>gui.Scrollbar</code> that controls the area. You need to add that scrollbar yourself.</li>
+<li><code>orientation</code>: <code>"vertical"</code> (the default) or <code>"horizontal"</code>.</li>
+<li><code>scroll_factor</code>: How far the contents move for each step of the scrollbar's value. Default <code>0.1</code>. It cannot be negative.</li>
+</ul>
+<p>Flow cannot work out the range of the scrollbar for you here. Set <code>max</code> and <code>thumbsize</code> with <code>gui.ScrollbarOptions</code> before the scrollbar, where <code>max</code> is the height that is hidden divided by <code>scroll_factor</code>.</p>
+<h3 id="example_26">Example</h3>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-26-1"><a href="#__codelineno-26-1" id="__codelineno-26-1" name="__codelineno-26-1"></a><span class="nv">gui</span><span class="p">.</span><span class="py">HBox</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-26-2"><a href="#__codelineno-26-2" id="__codelineno-26-2" name="__codelineno-26-2"></a><span class="w">    </span><span class="nv">gui</span><span class="p">.</span><span class="py">ScrollContainer</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-26-3"><a href="#__codelineno-26-3" id="__codelineno-26-3" name="__codelineno-26-3"></a><span class="w">        </span><span class="nv">w</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="nv">h</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span>
+</span><span id="__span-26-4"><a href="#__codelineno-26-4" id="__codelineno-26-4" name="__codelineno-26-4"></a><span class="w">        </span><span class="nv">scrollbar_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"my_scrollbar"</span><span class="p">,</span>
+</span><span id="__span-26-5"><a href="#__codelineno-26-5" id="__codelineno-26-5" name="__codelineno-26-5"></a><span class="w">        </span><span class="nv">orientation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"vertical"</span><span class="p">,</span>
+</span><span id="__span-26-6"><a href="#__codelineno-26-6" id="__codelineno-26-6" name="__codelineno-26-6"></a><span class="w">        </span><span class="p">{</span><span class="w"> </span><span class="nb">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"label"</span><span class="p">,</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nv">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.5</span><span class="p">,</span><span class="w"> </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Top"</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-26-7"><a href="#__codelineno-26-7" id="__codelineno-26-7" name="__codelineno-26-7"></a><span class="w">        </span><span class="p">{</span><span class="w"> </span><span class="nb">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"label"</span><span class="p">,</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nv">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">7.5</span><span class="p">,</span><span class="w"> </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Bottom"</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-26-8"><a href="#__codelineno-26-8" id="__codelineno-26-8" name="__codelineno-26-8"></a><span class="w">    </span><span class="p">},</span>
+</span><span id="__span-26-9"><a href="#__codelineno-26-9" id="__codelineno-26-9" name="__codelineno-26-9"></a>
+</span><span id="__span-26-10"><a href="#__codelineno-26-10" id="__codelineno-26-10" name="__codelineno-26-10"></a><span class="w">    </span><span class="c1">-- The contents are 8 high and 3 are visible, so 5 are hidden. This</span>
+</span><span id="__span-26-11"><a href="#__codelineno-26-11" id="__codelineno-26-11" name="__codelineno-26-11"></a><span class="w">    </span><span class="c1">-- is 50 scroll steps of 0.1 each.</span>
+</span><span id="__span-26-12"><a href="#__codelineno-26-12" id="__codelineno-26-12" name="__codelineno-26-12"></a><span class="w">    </span><span class="nv">gui</span><span class="p">.</span><span class="py">ScrollbarOptions</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">opts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"50"</span><span class="p">,</span><span class="w"> </span><span class="nv">thumbsize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"19"</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-26-13"><a href="#__codelineno-26-13" id="__codelineno-26-13" name="__codelineno-26-13"></a><span class="w">    </span><span class="nv">gui</span><span class="p">.</span><span class="py">Scrollbar</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-26-14"><a href="#__codelineno-26-14" id="__codelineno-26-14" name="__codelineno-26-14"></a><span class="w">        </span><span class="nv">w</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.5</span><span class="p">,</span><span class="w"> </span><span class="nv">h</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span>
+</span><span id="__span-26-15"><a href="#__codelineno-26-15" id="__codelineno-26-15" name="__codelineno-26-15"></a><span class="w">        </span><span class="nv">orientation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"vertical"</span><span class="p">,</span>
+</span><span id="__span-26-16"><a href="#__codelineno-26-16" id="__codelineno-26-16" name="__codelineno-26-16"></a><span class="w">        </span><span class="nv">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"my_scrollbar"</span><span class="p">,</span>
+</span><span id="__span-26-17"><a href="#__codelineno-26-17" id="__codelineno-26-17" name="__codelineno-26-17"></a><span class="w">    </span><span class="p">},</span>
+</span><span id="__span-26-18"><a href="#__codelineno-26-18" id="__codelineno-26-18" name="__codelineno-26-18"></a><span class="p">}</span>
+</span></code></pre></div>
+<h2 id="guiscrollbar"><code>gui.Scrollbar</code></h2>
+<p>A slider that the player can drag. <code>ctx.form[name]</code> is its position, a whole number from <code>min</code> to <code>max</code> (by default <code>0</code> to <code>1000</code>, change them with <a href="#guiscrollbaroptions"><code>gui.ScrollbarOptions</code></a> before the scrollbar). <code>value</code> is the position it starts at, and <code>orientation</code> is <code>"vertical"</code> or <code>"horizontal"</code>. Use it with a <code>gui.ScrollContainer</code>, or by itself as a slider.</p>
+<h3 id="example_27">Example</h3>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-27-1"><a href="#__codelineno-27-1" id="__codelineno-27-1" name="__codelineno-27-1"></a><span class="nv">gui</span><span class="p">.</span><span class="py">Scrollbar</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-27-2"><a href="#__codelineno-27-2" id="__codelineno-27-2" name="__codelineno-27-2"></a><span class="w">    </span><span class="nv">w</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span>
+</span><span id="__span-27-3"><a href="#__codelineno-27-3" id="__codelineno-27-3" name="__codelineno-27-3"></a><span class="w">    </span><span class="nv">h</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+</span><span id="__span-27-4"><a href="#__codelineno-27-4" id="__codelineno-27-4" name="__codelineno-27-4"></a>
+</span><span id="__span-27-5"><a href="#__codelineno-27-5" id="__codelineno-27-5" name="__codelineno-27-5"></a><span class="w">    </span><span class="c1">-- "vertical" or "horizontal".</span>
+</span><span id="__span-27-6"><a href="#__codelineno-27-6" id="__codelineno-27-6" name="__codelineno-27-6"></a><span class="w">    </span><span class="nv">orientation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"vertical"</span><span class="p">,</span>
+</span><span id="__span-27-7"><a href="#__codelineno-27-7" id="__codelineno-27-7" name="__codelineno-27-7"></a><span class="w">    </span><span class="nv">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"my_scrollbar"</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
+</span><span id="__span-27-8"><a href="#__codelineno-27-8" id="__codelineno-27-8" name="__codelineno-27-8"></a>
+</span><span id="__span-27-9"><a href="#__codelineno-27-9" id="__codelineno-27-9" name="__codelineno-27-9"></a><span class="w">    </span><span class="c1">-- Starting position.</span>
+</span><span id="__span-27-10"><a href="#__codelineno-27-10" id="__codelineno-27-10" name="__codelineno-27-10"></a><span class="w">    </span><span class="nv">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
+</span><span id="__span-27-11"><a href="#__codelineno-27-11" id="__codelineno-27-11" name="__codelineno-27-11"></a><span class="p">}</span>
+</span></code></pre></div>
+<h3 id="scrollbar-textures-do-not-work">Scrollbar textures do not work</h3>
+<p><code>scrollbar_bg</code>, <code>slider</code>, <code>arrow_up</code>, and <code>arrow_down</code> should not be used. Flow accepts them, but Luanti has no such parameters, and on Luanti 5.8 and newer a scrollbar that sets any of them is not shown at all.</p>
+<p>Flow (through formspec_ast) writes the four textures as one comma-separated sixth parameter after <code>value</code>, leaving the ones you did not set empty. Luanti's <code>scrollbar[]</code> takes exactly five parameters. It only tolerates extra parameters when the form's formspec version is newer than the highest version the client supports, and flow always uses version 7:</p>
+<table>
+<thead>
+<tr>
+<th>Luanti version</th>
+<th>Highest formspec version</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>5.6 and 5.7</td>
+<td>6</td>
+<td>The extra parameter is ignored and the scrollbar is shown with its normal look.</td>
+</tr>
+<tr>
+<td>5.8 and newer</td>
+<td>7 or higher</td>
+<td>The scrollbar is rejected and not shown, and an error is logged.</td>
+</tr>
+</tbody>
+</table>
+<p>The rejection was confirmed in-game with a <code>gui.Scrollbar</code> that set all four textures and one that set only <code>slider</code>. A scrollbar without textures next to them was shown normally.</p>
+<p>Sources (Luanti source code):</p>
+<ul>
+<li><code>GUIFormSpecMenu::parseScrollBar</code> requires between 5 and 5 parameters, and nothing in <code>guiFormSpecMenu.cpp</code> reads the textures: <a href="https://github.com/luanti-org/luanti/blob/5.8.0/src/gui/guiFormSpecMenu.cpp">5.8.0</a>, <a href="https://github.com/luanti-org/luanti/blob/5.7.0/src/gui/guiFormSpecMenu.cpp">5.7.0</a>, <a href="https://github.com/luanti-org/luanti/blob/master/src/gui/guiFormSpecMenu.cpp">master</a>.</li>
+<li><code>GUIFormSpecMenu::precheckElement</code> in the same file accepts extra parameters only when <code>m_formspec_version &gt; FORMSPEC_API_VERSION</code>, and otherwise logs <code>Invalid &lt;element&gt; element(&lt;count&gt;)</code> and skips the element.</li>
+<li><code>FORMSPEC_API_VERSION</code> is 6 in <a href="https://github.com/luanti-org/luanti/blob/5.7.0/src/network/networkprotocol.h">5.7.0</a>, 7 in <a href="https://github.com/luanti-org/luanti/blob/5.8.0/src/network/networkprotocol.h">5.8.0</a>, and 12 in <a href="https://github.com/luanti-org/luanti/blob/master/src/network/networkprotocol.cpp">master</a>.</li>
+<li>The <a href="https://api.luanti.org/formspec/">formspec documentation</a> lists <code>scrollbar[]</code> with five parameters: position, size, orientation, name, and value.</li>
+</ul>
+<h2 id="guiscrollbaroptions"><code>gui.ScrollbarOptions</code></h2>
+<p>Sets the options of the <code>gui.Scrollbar</code> elements that come after it. It is invisible and takes up no space. <code>opts</code> is a table with any of these options, all values are strings that contain whole numbers (except <code>arrows</code>):</p>
+<ul>
+<li><code>min</code>: The smallest value (default <code>0</code>).</li>
+<li><code>max</code>: The largest value (default <code>1000</code>). If it is the same as <code>min</code>, the scrollbar is disabled.</li>
+<li><code>smallstep</code>: How much the value changes when an arrow is clicked or the mouse wheel is scrolled (default <code>10</code>). A negative number resets it to <code>10</code>.</li>
+<li><code>largestep</code>: How much the value changes for Page Up and Page Down (default <code>100</code>). A negative number resets it to <code>100</code>.</li>
+<li><code>thumbsize</code>: The size of the thumb (the part that is dragged), counted in values out of the range of the scrollbar. For a scrollbar from 1 to 100, a <code>thumbsize</code> of <code>10</code> makes the thumb a tenth of the scrollbar long. If it is zero or less, it is reset to <code>1</code>.</li>
+<li><code>arrows</code>: <code>"show"</code> or <code>"hide"</code> the arrow buttons. <code>"default"</code> hides them if the scrollbar gets too small, and shows them otherwise.</li>
+</ul>
+<h3 id="example_28">Example</h3>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-28-1"><a href="#__codelineno-28-1" id="__codelineno-28-1" name="__codelineno-28-1"></a><span class="nv">gui</span><span class="p">.</span><span class="py">ScrollbarOptions</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-28-2"><a href="#__codelineno-28-2" id="__codelineno-28-2" name="__codelineno-28-2"></a><span class="w">    </span><span class="nv">opts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">min</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w"> </span><span class="nv">max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"100"</span><span class="p">,</span><span class="w"> </span><span class="nv">smallstep</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"5"</span><span class="p">,</span><span class="w"> </span><span class="nv">arrows</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"hide"</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-28-3"><a href="#__codelineno-28-3" id="__codelineno-28-3" name="__codelineno-28-3"></a><span class="p">}</span>
+</span></code></pre></div>
+<h2 id="guisetfocus"><code>gui.SetFocus</code></h2>
+<p>Gives keyboard focus to the element with this <code>name</code>. Put it before that element. Normally the focus is not changed when the form is shown again (for example by <code>form:update()</code>), so that the focus the player chose is kept. Set <code>force</code> to <code>true</code> to move the focus every time.</p>
+<p>Checkboxes, buttons (of all kinds), tables, text lists, dropdowns, fields, password fields, text areas, and scrollbars can be focused.</p>
+<h3 id="example_29">Example</h3>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-29-1"><a href="#__codelineno-29-1" id="__codelineno-29-1" name="__codelineno-29-1"></a><span class="nv">gui</span><span class="p">.</span><span class="py">SetFocus</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-29-2"><a href="#__codelineno-29-2" id="__codelineno-29-2" name="__codelineno-29-2"></a><span class="w">    </span><span class="c1">-- Name of the element to focus.</span>
+</span><span id="__span-29-3"><a href="#__codelineno-29-3" id="__codelineno-29-3" name="__codelineno-29-3"></a><span class="w">    </span><span class="nv">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"my_set_focus"</span><span class="p">,</span>
+</span><span id="__span-29-4"><a href="#__codelineno-29-4" id="__codelineno-29-4" name="__codelineno-29-4"></a>
+</span><span id="__span-29-5"><a href="#__codelineno-29-5" id="__codelineno-29-5" name="__codelineno-29-5"></a><span class="w">    </span><span class="c1">-- Move the focus every time. Default false.</span>
+</span><span id="__span-29-6"><a href="#__codelineno-29-6" id="__codelineno-29-6" name="__codelineno-29-6"></a><span class="w">    </span><span class="nv">force</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
+</span><span id="__span-29-7"><a href="#__codelineno-29-7" id="__codelineno-29-7" name="__codelineno-29-7"></a><span class="p">}</span>
+</span></code></pre></div>
+<h2 id="guistyle"><code>gui.Style</code></h2>
+<p>Sets style properties of elements by their <code>name</code>. See <a href="../styling/#separate-style-elements">Styling</a>. It is invisible and takes up no space.</p>
+<h3 id="example_30">Example</h3>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-30-1"><a href="#__codelineno-30-1" id="__codelineno-30-1" name="__codelineno-30-1"></a><span class="nv">gui</span><span class="p">.</span><span class="py">Style</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-30-2"><a href="#__codelineno-30-2" id="__codelineno-30-2" name="__codelineno-30-2"></a><span class="w">    </span><span class="nv">selectors</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"my_button"</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-30-3"><a href="#__codelineno-30-3" id="__codelineno-30-3" name="__codelineno-30-3"></a><span class="w">    </span><span class="nv">props</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">bgcolor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"red"</span><span class="p">,</span><span class="w"> </span><span class="nv">textcolor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"yellow"</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-30-4"><a href="#__codelineno-30-4" id="__codelineno-30-4" name="__codelineno-30-4"></a><span class="p">}</span>
+</span></code></pre></div>
+<h2 id="guistyletype"><code>gui.StyleType</code></h2>
+<p>Sets style properties of every element of a type. See <a href="../styling/#separate-style-elements">Styling</a>. It is invisible and takes up no space.</p>
+<h3 id="example_31">Example</h3>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-31-1"><a href="#__codelineno-31-1" id="__codelineno-31-1" name="__codelineno-31-1"></a><span class="nv">gui</span><span class="p">.</span><span class="py">StyleType</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-31-2"><a href="#__codelineno-31-2" id="__codelineno-31-2" name="__codelineno-31-2"></a><span class="w">    </span><span class="nv">selectors</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"button"</span><span class="p">,</span><span class="w"> </span><span class="s2">"image_button"</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-31-3"><a href="#__codelineno-31-3" id="__codelineno-31-3" name="__codelineno-31-3"></a><span class="w">    </span><span class="nv">props</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">textcolor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"yellow"</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-31-4"><a href="#__codelineno-31-4" id="__codelineno-31-4" name="__codelineno-31-4"></a><span class="p">}</span>
+</span></code></pre></div>
+<h2 id="guitabheader"><code>gui.Tabheader</code></h2>
+<p>A row of tabs. <code>captions</code> is the text of each tab, <code>ctx.form[name]</code> is the number of the selected tab (the first tab is <code>1</code>), and <code>current_tab</code> is the tab that is selected at first. Showing the right contents for the selected tab is up to you, usually by reading <code>ctx.form[name]</code> in your build function.</p>
+<p>Give it both a <code>w</code> and an <code>h</code>: flow cannot work out how much space it needs. If <code>transparent</code> is <code>true</code> the tabs are semi-transparent, and <code>draw_border</code> draws a thin line along the bottom of the tabs.</p>
+<h3 id="example_32">Example</h3>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-32-1"><a href="#__codelineno-32-1" id="__codelineno-32-1" name="__codelineno-32-1"></a><span class="nv">gui</span><span class="p">.</span><span class="py">Tabheader</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-32-2"><a href="#__codelineno-32-2" id="__codelineno-32-2" name="__codelineno-32-2"></a><span class="w">    </span><span class="nv">w</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+</span><span id="__span-32-3"><a href="#__codelineno-32-3" id="__codelineno-32-3" name="__codelineno-32-3"></a><span class="w">    </span><span class="nv">h</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+</span><span id="__span-32-4"><a href="#__codelineno-32-4" id="__codelineno-32-4" name="__codelineno-32-4"></a><span class="w">    </span><span class="nv">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"my_tabheader"</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
+</span><span id="__span-32-5"><a href="#__codelineno-32-5" id="__codelineno-32-5" name="__codelineno-32-5"></a>
+</span><span id="__span-32-6"><a href="#__codelineno-32-6" id="__codelineno-32-6" name="__codelineno-32-6"></a><span class="w">    </span><span class="c1">-- Text of each tab.</span>
+</span><span id="__span-32-7"><a href="#__codelineno-32-7" id="__codelineno-32-7" name="__codelineno-32-7"></a><span class="w">    </span><span class="nv">captions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"Hello world!"</span><span class="p">,</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-32-8"><a href="#__codelineno-32-8" id="__codelineno-32-8" name="__codelineno-32-8"></a>
+</span><span id="__span-32-9"><a href="#__codelineno-32-9" id="__codelineno-32-9" name="__codelineno-32-9"></a><span class="w">    </span><span class="c1">-- Tab selected at first, the first is 1.</span>
+</span><span id="__span-32-10"><a href="#__codelineno-32-10" id="__codelineno-32-10" name="__codelineno-32-10"></a><span class="w">    </span><span class="nv">current_tab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
+</span><span id="__span-32-11"><a href="#__codelineno-32-11" id="__codelineno-32-11" name="__codelineno-32-11"></a>
+</span><span id="__span-32-12"><a href="#__codelineno-32-12" id="__codelineno-32-12" name="__codelineno-32-12"></a><span class="w">    </span><span class="c1">-- Draw semi-transparent. Default false.</span>
+</span><span id="__span-32-13"><a href="#__codelineno-32-13" id="__codelineno-32-13" name="__codelineno-32-13"></a><span class="w">    </span><span class="nv">transparent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
+</span><span id="__span-32-14"><a href="#__codelineno-32-14" id="__codelineno-32-14" name="__codelineno-32-14"></a>
+</span><span id="__span-32-15"><a href="#__codelineno-32-15" id="__codelineno-32-15" name="__codelineno-32-15"></a><span class="w">    </span><span class="c1">-- Draw a line along the tabs. Default false.</span>
+</span><span id="__span-32-16"><a href="#__codelineno-32-16" id="__codelineno-32-16" name="__codelineno-32-16"></a><span class="w">    </span><span class="nv">draw_border</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
+</span><span id="__span-32-17"><a href="#__codelineno-32-17" id="__codelineno-32-17" name="__codelineno-32-17"></a><span class="p">}</span>
+</span></code></pre></div>
+<h2 id="guitable"><code>gui.Table</code></h2>
+<p>A table with rows and columns that scrolls if it has too many rows. The player can select one row, and <code>ctx.form[name]</code> is the number of the selected row (the first row is <code>1</code>). <code>selected_idx</code> is the row that is selected at first.</p>
+<p><code>cells</code> is one flat list with the text of every cell, going left to right along each row and then down to the next row. The number of columns comes from <a href="#guitablecolumns"><code>gui.TableColumns</code></a> (the default is one text column). Put <code>gui.TableColumns</code> and <a href="#guitableoptions"><code>gui.TableOptions</code></a> before the table, as they only affect the table that comes after them. They do not take up any space.</p>
+<p>Tables have no natural size, so you must give them a <code>w</code> and <code>h</code>.</p>
+<h3 id="example_33">Example</h3>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-33-1"><a href="#__codelineno-33-1" id="__codelineno-33-1" name="__codelineno-33-1"></a><span class="nv">gui</span><span class="p">.</span><span class="py">Table</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-33-2"><a href="#__codelineno-33-2" id="__codelineno-33-2" name="__codelineno-33-2"></a><span class="w">    </span><span class="nv">w</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span>
+</span><span id="__span-33-3"><a href="#__codelineno-33-3" id="__codelineno-33-3" name="__codelineno-33-3"></a><span class="w">    </span><span class="nv">h</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+</span><span id="__span-33-4"><a href="#__codelineno-33-4" id="__codelineno-33-4" name="__codelineno-33-4"></a><span class="w">    </span><span class="nv">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"my_table"</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
+</span><span id="__span-33-5"><a href="#__codelineno-33-5" id="__codelineno-33-5" name="__codelineno-33-5"></a>
+</span><span id="__span-33-6"><a href="#__codelineno-33-6" id="__codelineno-33-6" name="__codelineno-33-6"></a><span class="w">    </span><span class="c1">-- Text of every cell, row by row.</span>
+</span><span id="__span-33-7"><a href="#__codelineno-33-7" id="__codelineno-33-7" name="__codelineno-33-7"></a><span class="w">    </span><span class="nv">cells</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"Hello world!"</span><span class="p">,</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-33-8"><a href="#__codelineno-33-8" id="__codelineno-33-8" name="__codelineno-33-8"></a>
+</span><span id="__span-33-9"><a href="#__codelineno-33-9" id="__codelineno-33-9" name="__codelineno-33-9"></a><span class="w">    </span><span class="c1">-- Row selected at first, the first row is 1.</span>
+</span><span id="__span-33-10"><a href="#__codelineno-33-10" id="__codelineno-33-10" name="__codelineno-33-10"></a><span class="w">    </span><span class="nv">selected_idx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
+</span><span id="__span-33-11"><a href="#__codelineno-33-11" id="__codelineno-33-11" name="__codelineno-33-11"></a><span class="p">}</span>
+</span></code></pre></div>
+<h3 id="example-with-columns-and-options">Example with columns and options</h3>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-34-1"><a href="#__codelineno-34-1" id="__codelineno-34-1" name="__codelineno-34-1"></a><span class="nv">gui</span><span class="p">.</span><span class="py">VBox</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-34-2"><a href="#__codelineno-34-2" id="__codelineno-34-2" name="__codelineno-34-2"></a><span class="w">    </span><span class="nv">gui</span><span class="p">.</span><span class="py">TableColumns</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-34-3"><a href="#__codelineno-34-3" id="__codelineno-34-3" name="__codelineno-34-3"></a><span class="w">        </span><span class="nv">tablecolumns</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-34-4"><a href="#__codelineno-34-4" id="__codelineno-34-4" name="__codelineno-34-4"></a><span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nb">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"text"</span><span class="p">,</span><span class="w"> </span><span class="nv">opts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">width</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"8"</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-34-5"><a href="#__codelineno-34-5" id="__codelineno-34-5" name="__codelineno-34-5"></a><span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nb">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"text"</span><span class="p">,</span><span class="w"> </span><span class="nv">opts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">align</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"right"</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-34-6"><a href="#__codelineno-34-6" id="__codelineno-34-6" name="__codelineno-34-6"></a><span class="w">        </span><span class="p">},</span>
+</span><span id="__span-34-7"><a href="#__codelineno-34-7" id="__codelineno-34-7" name="__codelineno-34-7"></a><span class="w">    </span><span class="p">},</span>
+</span><span id="__span-34-8"><a href="#__codelineno-34-8" id="__codelineno-34-8" name="__codelineno-34-8"></a><span class="w">    </span><span class="nv">gui</span><span class="p">.</span><span class="py">TableOptions</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-34-9"><a href="#__codelineno-34-9" id="__codelineno-34-9" name="__codelineno-34-9"></a><span class="w">        </span><span class="nv">opts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">highlight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"#335577"</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-34-10"><a href="#__codelineno-34-10" id="__codelineno-34-10" name="__codelineno-34-10"></a><span class="w">    </span><span class="p">},</span>
+</span><span id="__span-34-11"><a href="#__codelineno-34-11" id="__codelineno-34-11" name="__codelineno-34-11"></a><span class="w">    </span><span class="nv">gui</span><span class="p">.</span><span class="py">Table</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-34-12"><a href="#__codelineno-34-12" id="__codelineno-34-12" name="__codelineno-34-12"></a><span class="w">        </span><span class="nv">w</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="nv">h</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span>
+</span><span id="__span-34-13"><a href="#__codelineno-34-13" id="__codelineno-34-13" name="__codelineno-34-13"></a><span class="w">        </span><span class="nv">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"scores"</span><span class="p">,</span>
+</span><span id="__span-34-14"><a href="#__codelineno-34-14" id="__codelineno-34-14" name="__codelineno-34-14"></a><span class="w">        </span><span class="nv">cells</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-34-15"><a href="#__codelineno-34-15" id="__codelineno-34-15" name="__codelineno-34-15"></a><span class="w">            </span><span class="s2">"Alice"</span><span class="p">,</span><span class="w"> </span><span class="s2">"10"</span><span class="p">,</span>
+</span><span id="__span-34-16"><a href="#__codelineno-34-16" id="__codelineno-34-16" name="__codelineno-34-16"></a><span class="w">            </span><span class="s2">"Bob"</span><span class="p">,</span><span class="w"> </span><span class="s2">"7"</span><span class="p">,</span>
+</span><span id="__span-34-17"><a href="#__codelineno-34-17" id="__codelineno-34-17" name="__codelineno-34-17"></a><span class="w">        </span><span class="p">},</span>
+</span><span id="__span-34-18"><a href="#__codelineno-34-18" id="__codelineno-34-18" name="__codelineno-34-18"></a><span class="w">    </span><span class="p">},</span>
+</span><span id="__span-34-19"><a href="#__codelineno-34-19" id="__codelineno-34-19" name="__codelineno-34-19"></a><span class="p">}</span>
+</span></code></pre></div>
+<h2 id="guitablecolumns"><code>gui.TableColumns</code></h2>
+<p>Sets the columns of the <code>gui.Table</code> that follows it. <code>tablecolumns</code> is a list with one <code>{type = ..., opts = {...}}</code> entry for each column, from left to right. <code>type</code> is one of:</p>
+<ul>
+<li><code>"text"</code>: Show the cell contents as text.</li>
+<li><code>"image"</code>: The cell contents are a number that picks an image, which you set with the options <code>["0"] = "texture.png"</code>, <code>["1"] = "other.png"</code>, and so on (the numbers do not have to be consecutive). Empty cells and cells that are not numbers use image <code>0</code>. Images are scaled down to fit the height of the row if necessary.</li>
+<li><code>"color"</code>: The cell contents are a color that is used for the text of the next column(s). Use the <code>span</code> option to set how many columns it affects (default: all remaining columns).</li>
+<li><code>"indent"</code>: The cell contents are a number that sets how far the next column is indented.</li>
+<li><code>"tree"</code>: Like <code>"indent"</code>, but the player can open and close the indented rows, like in a file browser.</li>
+</ul>
+<p><code>opts</code> is a table of options, all values are strings:</p>
+<ul>
+<li><code>align</code>: For text and image columns, where the content goes in the cell: <code>"left"</code> (default), <code>"center"</code>, <code>"right"</code>, or <code>"inline"</code>.</li>
+<li><code>width</code>: For text and image columns, the minimum width, in "em" units (relative to the font size, default <code>0</code>). For indent and tree columns, how far each level is indented (default <code>1.5</code>).</li>
+<li><code>padding</code>: Space to the left of the column, in "em" units (default <code>0.5</code>, or <code>0</code> for indent columns).</li>
+<li><code>tooltip</code>: Text to show when hovering over the column.</li>
+</ul>
+<h3 id="example_34">Example</h3>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-35-1"><a href="#__codelineno-35-1" id="__codelineno-35-1" name="__codelineno-35-1"></a><span class="nv">gui</span><span class="p">.</span><span class="py">TableColumns</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-35-2"><a href="#__codelineno-35-2" id="__codelineno-35-2" name="__codelineno-35-2"></a><span class="w">    </span><span class="nv">tablecolumns</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-35-3"><a href="#__codelineno-35-3" id="__codelineno-35-3" name="__codelineno-35-3"></a><span class="w">        </span><span class="p">{</span><span class="w"> </span><span class="nb">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"text"</span><span class="p">,</span><span class="w"> </span><span class="nv">opts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">width</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"8"</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-35-4"><a href="#__codelineno-35-4" id="__codelineno-35-4" name="__codelineno-35-4"></a><span class="w">        </span><span class="p">{</span><span class="w"> </span><span class="nb">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"text"</span><span class="p">,</span><span class="w"> </span><span class="nv">opts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">align</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"right"</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-35-5"><a href="#__codelineno-35-5" id="__codelineno-35-5" name="__codelineno-35-5"></a><span class="w">    </span><span class="p">},</span>
+</span><span id="__span-35-6"><a href="#__codelineno-35-6" id="__codelineno-35-6" name="__codelineno-35-6"></a><span class="p">}</span>
+</span></code></pre></div>
+<h2 id="guitableoptions"><code>gui.TableOptions</code></h2>
+<p>Sets the appearance of the <code>gui.Table</code> that follows it. <code>opts</code> is a table with any of these options, all values are strings:</p>
+<ul>
+<li><code>color</code>: Default text color (default <code>"#FFFFFF"</code>).</li>
+<li><code>background</code>: Background color of the table (default <code>"#000000"</code>).</li>
+<li><code>border</code>: <code>"true"</code> or <code>"false"</code>, whether to draw a border (default <code>"true"</code>).</li>
+<li><code>highlight</code>: Background color of the selected row (default <code>"#466432"</code>).</li>
+<li><code>highlight_text</code>: Text color of the selected row (default <code>"#FFFFFF"</code>).</li>
+<li><code>opendepth</code>: How many levels of <code>"tree"</code> column rows are open at first. Rows deeper than this are collapsed (default <code>"0"</code>).</li>
+</ul>
+<h3 id="example_35">Example</h3>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-36-1"><a href="#__codelineno-36-1" id="__codelineno-36-1" name="__codelineno-36-1"></a><span class="nv">gui</span><span class="p">.</span><span class="py">TableOptions</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-36-2"><a href="#__codelineno-36-2" id="__codelineno-36-2" name="__codelineno-36-2"></a><span class="w">    </span><span class="nv">opts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-36-3"><a href="#__codelineno-36-3" id="__codelineno-36-3" name="__codelineno-36-3"></a><span class="w">        </span><span class="nv">background</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"#222222"</span><span class="p">,</span>
+</span><span id="__span-36-4"><a href="#__codelineno-36-4" id="__codelineno-36-4" name="__codelineno-36-4"></a><span class="w">        </span><span class="nv">highlight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"#335577"</span><span class="p">,</span>
+</span><span id="__span-36-5"><a href="#__codelineno-36-5" id="__codelineno-36-5" name="__codelineno-36-5"></a><span class="w">        </span><span class="nv">border</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"false"</span><span class="p">,</span>
+</span><span id="__span-36-6"><a href="#__codelineno-36-6" id="__codelineno-36-6" name="__codelineno-36-6"></a><span class="w">    </span><span class="p">},</span>
+</span><span id="__span-36-7"><a href="#__codelineno-36-7" id="__codelineno-36-7" name="__codelineno-36-7"></a><span class="p">}</span>
+</span></code></pre></div>
+<h2 id="guitextarea"><code>gui.Textarea</code></h2>
+<p>A multi-line text box. Long lines are wrapped to fit the width, and a scrollbar is added if the text is too tall. <code>label</code>, if set, is shown above the box and <code>default</code> is the text it starts with. <code>ctx.form[name]</code> is the text in the box, including its newlines.</p>
+<p>If you leave out <code>name</code>, the text cannot be edited and no box is drawn, which makes it a label that wraps text and scrolls. Because it wraps, you should set a <code>w</code> and <code>h</code> for this.</p>
+<h3 id="example_36">Example</h3>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-37-1"><a href="#__codelineno-37-1" id="__codelineno-37-1" name="__codelineno-37-1"></a><span class="nv">gui</span><span class="p">.</span><span class="py">Textarea</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-37-2"><a href="#__codelineno-37-2" id="__codelineno-37-2" name="__codelineno-37-2"></a><span class="w">    </span><span class="nv">w</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
+</span><span id="__span-37-3"><a href="#__codelineno-37-3" id="__codelineno-37-3" name="__codelineno-37-3"></a><span class="w">    </span><span class="nv">h</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
+</span><span id="__span-37-4"><a href="#__codelineno-37-4" id="__codelineno-37-4" name="__codelineno-37-4"></a><span class="w">    </span><span class="nv">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"my_textarea"</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
+</span><span id="__span-37-5"><a href="#__codelineno-37-5" id="__codelineno-37-5" name="__codelineno-37-5"></a><span class="w">    </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Hello world!"</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
+</span><span id="__span-37-6"><a href="#__codelineno-37-6" id="__codelineno-37-6" name="__codelineno-37-6"></a>
+</span><span id="__span-37-7"><a href="#__codelineno-37-7" id="__codelineno-37-7" name="__codelineno-37-7"></a><span class="w">    </span><span class="c1">-- Text the box starts with.</span>
+</span><span id="__span-37-8"><a href="#__codelineno-37-8" id="__codelineno-37-8" name="__codelineno-37-8"></a><span class="w">    </span><span class="nv">default</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Hello world!"</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
+</span><span id="__span-37-9"><a href="#__codelineno-37-9" id="__codelineno-37-9" name="__codelineno-37-9"></a><span class="p">}</span>
+</span></code></pre></div>
+<h2 id="guitextlist"><code>gui.Textlist</code></h2>
+<p>A list of text rows that scrolls if there are too many to fit. The player can select a row, and <code>ctx.form[name]</code> is the number of the selected row (the first row is <code>1</code>). <code>selected_idx</code> is the row that is selected at first.</p>
+<p><code>listelems</code> is the text of each row. To color a row, start it with <code>#RRGGBB</code> (six hexadecimal digits). To start a row with a literal <code>#</code>, write <code>##</code>. If <code>transparent</code> is <code>true</code>, no background is drawn behind the list.</p>
+<h3 id="example_37">Example</h3>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-38-1"><a href="#__codelineno-38-1" id="__codelineno-38-1" name="__codelineno-38-1"></a><span class="nv">gui</span><span class="p">.</span><span class="py">Textlist</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-38-2"><a href="#__codelineno-38-2" id="__codelineno-38-2" name="__codelineno-38-2"></a><span class="w">    </span><span class="nv">w</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
+</span><span id="__span-38-3"><a href="#__codelineno-38-3" id="__codelineno-38-3" name="__codelineno-38-3"></a><span class="w">    </span><span class="nv">h</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
+</span><span id="__span-38-4"><a href="#__codelineno-38-4" id="__codelineno-38-4" name="__codelineno-38-4"></a><span class="w">    </span><span class="nv">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"my_textlist"</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
+</span><span id="__span-38-5"><a href="#__codelineno-38-5" id="__codelineno-38-5" name="__codelineno-38-5"></a>
+</span><span id="__span-38-6"><a href="#__codelineno-38-6" id="__codelineno-38-6" name="__codelineno-38-6"></a><span class="w">    </span><span class="c1">-- Text of each row.</span>
+</span><span id="__span-38-7"><a href="#__codelineno-38-7" id="__codelineno-38-7" name="__codelineno-38-7"></a><span class="w">    </span><span class="nv">listelems</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"Hello world!"</span><span class="p">,</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-38-8"><a href="#__codelineno-38-8" id="__codelineno-38-8" name="__codelineno-38-8"></a>
+</span><span id="__span-38-9"><a href="#__codelineno-38-9" id="__codelineno-38-9" name="__codelineno-38-9"></a><span class="w">    </span><span class="c1">-- Row selected at first, the first row is 1.</span>
+</span><span id="__span-38-10"><a href="#__codelineno-38-10" id="__codelineno-38-10" name="__codelineno-38-10"></a><span class="w">    </span><span class="nv">selected_idx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
+</span><span id="__span-38-11"><a href="#__codelineno-38-11" id="__codelineno-38-11" name="__codelineno-38-11"></a>
+</span><span id="__span-38-12"><a href="#__codelineno-38-12" id="__codelineno-38-12" name="__codelineno-38-12"></a><span class="w">    </span><span class="c1">-- Do not draw a background. Default false.</span>
+</span><span id="__span-38-13"><a href="#__codelineno-38-13" id="__codelineno-38-13" name="__codelineno-38-13"></a><span class="w">    </span><span class="nv">transparent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
+</span><span id="__span-38-14"><a href="#__codelineno-38-14" id="__codelineno-38-14" name="__codelineno-38-14"></a><span class="p">}</span>
+</span></code></pre></div>
+<h2 id="guitooltip"><code>gui.Tooltip</code></h2>
+<p>Sets the text that is shown when the player hovers over another element, and optionally the colors of that tooltip. <code>gui_element_name</code> is the <code>name</code> of that element. Put the tooltip after the element it belongs to. It is invisible and does not take up any space.</p>
+<p>If you only need to add some text, use the <code>tooltip</code> parameter on the element itself, see <a href="../tooltips/">Tooltips</a>.</p>
+<h3 id="example_38">Example</h3>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-39-1"><a href="#__codelineno-39-1" id="__codelineno-39-1" name="__codelineno-39-1"></a><span class="nv">gui</span><span class="p">.</span><span class="py">Tooltip</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-39-2"><a href="#__codelineno-39-2" id="__codelineno-39-2" name="__codelineno-39-2"></a><span class="w">    </span><span class="c1">-- Text to show.</span>
+</span><span id="__span-39-3"><a href="#__codelineno-39-3" id="__codelineno-39-3" name="__codelineno-39-3"></a><span class="w">    </span><span class="nv">tooltip_text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Hello world!"</span><span class="p">,</span>
+</span><span id="__span-39-4"><a href="#__codelineno-39-4" id="__codelineno-39-4" name="__codelineno-39-4"></a>
+</span><span id="__span-39-5"><a href="#__codelineno-39-5" id="__codelineno-39-5" name="__codelineno-39-5"></a><span class="w">    </span><span class="c1">-- Background color of the tooltip.</span>
+</span><span id="__span-39-6"><a href="#__codelineno-39-6" id="__codelineno-39-6" name="__codelineno-39-6"></a><span class="w">    </span><span class="nv">bgcolor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"#FF0000"</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
+</span><span id="__span-39-7"><a href="#__codelineno-39-7" id="__codelineno-39-7" name="__codelineno-39-7"></a>
+</span><span id="__span-39-8"><a href="#__codelineno-39-8" id="__codelineno-39-8" name="__codelineno-39-8"></a><span class="w">    </span><span class="c1">-- Text color of the tooltip.</span>
+</span><span id="__span-39-9"><a href="#__codelineno-39-9" id="__codelineno-39-9" name="__codelineno-39-9"></a><span class="w">    </span><span class="nv">fontcolor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"#FF0000"</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
+</span><span id="__span-39-10"><a href="#__codelineno-39-10" id="__codelineno-39-10" name="__codelineno-39-10"></a>
+</span><span id="__span-39-11"><a href="#__codelineno-39-11" id="__codelineno-39-11" name="__codelineno-39-11"></a><span class="w">    </span><span class="c1">-- Name of the element to attach to.</span>
+</span><span id="__span-39-12"><a href="#__codelineno-39-12" id="__codelineno-39-12" name="__codelineno-39-12"></a><span class="w">    </span><span class="nv">gui_element_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"my_button"</span><span class="p">,</span>
+</span><span id="__span-39-13"><a href="#__codelineno-39-13" id="__codelineno-39-13" name="__codelineno-39-13"></a><span class="p">}</span>
+</span></code></pre></div>
+<h2 id="guivertlabel"><code>gui.Vertlabel</code></h2>
+<p>Shows text vertically, with one letter below the other, from top to bottom.</p>
+<h3 id="example_39">Example</h3>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-40-1"><a href="#__codelineno-40-1" id="__codelineno-40-1" name="__codelineno-40-1"></a><span class="nv">gui</span><span class="p">.</span><span class="py">Vertlabel</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-40-2"><a href="#__codelineno-40-2" id="__codelineno-40-2" name="__codelineno-40-2"></a><span class="w">    </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Hello world!"</span><span class="p">,</span>
+</span><span id="__span-40-3"><a href="#__codelineno-40-3" id="__codelineno-40-3" name="__codelineno-40-3"></a><span class="p">}</span>
+</span></code></pre></div>
+</article>
+</div>
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+</div>
+<button class="md-top md-icon" data-md-component="top" hidden="" type="button">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.expand", "navigation.top", "content.code.copy"], "search": "../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+<script src="../assets/javascripts/bundle.c21346df.min.js"></script>
+<script src="../js/print-site.js"></script>
+</body>
+</html>

@@ -9,7 +9,7 @@
 <link href="../popovers/" rel="next"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.6.1, mkdocs-material-9.8.0" name="generator"/>
-<title>Experimental features - Flow Unofficial Docs</title>
+<title>Experimental features - Flow Unofficial Documentation</title>
 <link href="../assets/stylesheets/main.57a0d79d.min.css" rel="stylesheet"/>
 <link href="../assets/stylesheets/palette.fb2fffe2.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -33,7 +33,7 @@
 </div>
 <header class="md-header md-header--shadow" data-md-component="header">
 <nav aria-label="Header" class="md-header__inner md-grid">
-<a aria-label="Flow Unofficial Docs" class="md-header__button md-logo" data-md-component="logo" href=".." title="Flow Unofficial Docs">
+<a aria-label="Flow Unofficial Documentation" class="md-header__button md-logo" data-md-component="logo" href=".." title="Flow Unofficial Documentation">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
 </a>
 <label class="md-header__button md-icon" for="__drawer">
@@ -43,7 +43,7 @@
 <div class="md-header__ellipsis">
 <div class="md-header__topic">
 <span class="md-ellipsis">
-            Flow Unofficial Docs
+            Flow Unofficial Documentation
           </span>
 </div>
 <div class="md-header__topic" data-md-component="header-topic">
@@ -119,10 +119,10 @@
 <div class="md-sidebar__inner">
 <nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
 <label class="md-nav__title" for="__drawer">
-<a aria-label="Flow Unofficial Docs" class="md-nav__button md-logo" data-md-component="logo" href=".." title="Flow Unofficial Docs">
+<a aria-label="Flow Unofficial Documentation" class="md-nav__button md-logo" data-md-component="logo" href=".." title="Flow Unofficial Documentation">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
 </a>
-    Flow Unofficial Docs
+    Flow Unofficial Documentation
   </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -173,11 +173,11 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../layout-elements/">
+<a class="md-nav__link" href="../intro-to-elements.md">
 <span class="md-ellipsis">
     
   
-    Layouting elements
+    None
   
 
     
@@ -185,7 +185,19 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../elements/">
+<a class="md-nav__link" href="../layout-elements/">
+<span class="md-ellipsis">
+    
+  
+    Layout elements
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../functional-elements/">
 <span class="md-ellipsis">
     
   
@@ -663,7 +675,7 @@
 <li><code>bg_fullscreen</code>: Which of the two colors to draw. <code>false</code> (the default) only draws <code>bgcolor</code>, <code>true</code> only draws <code>fbgcolor</code>, <code>"both"</code> draws both, and <code>"neither"</code> draws neither.</li>
 </ul>
 <p><code>bg_fullscreen = true</code> can look backwards: it does not add the fullscreen background to the form's own one, it switches to the fullscreen one. Flow passes these three values straight to Luanti's <code>bgcolor[]</code> formspec element, so Luanti decides what is drawn. This also means that <code>fbgcolor</code> is not drawn unless you set <code>bg_fullscreen</code> to <code>true</code> or <code>"both"</code>.</p>
-<p>Colors that you leave out are not changed. See <a href="../elements/#colors">Elements</a> for how colors are written.</p>
+<p>Colors that you leave out are not changed. See <a href="elements.md#colors">Functional Elements</a> for how colors are written.</p>
 <div class="language-lua highlight"><pre><span></span><code><span id="__span-1-1"><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="nv">gui</span><span class="p">.</span><span class="py">VBox</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-1-2"><a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="w">    </span><span class="c1">-- Draw a dark form on a dimmed screen</span>
 </span><span id="__span-1-3"><a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="w">    </span><span class="nv">bgcolor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"#222222"</span><span class="p">,</span>
@@ -705,7 +717,7 @@
 <p>This API should only be used when necessary and may have breaking changes in the future.</p>
 <p>Luanti describes menus with <em>formspec</em> strings (see the <a href="../">introduction</a>), which flow normally generates and shows for you. Some APIs in other mods, such as sfinv (see <a href="../inventory/">Using a form as an inventory</a>), expect formspec strings instead. You can use this API to embed flow forms inside them. To use flow with these mods, you can call <code>form:render_to_formspec_string(player, ctx, standalone)</code>.</p>
 <ul>
-<li>A complete formspec starts with a <code>formspec_version[]</code> element (the version of the formspec language it uses) and a <code>size[]</code> element (the size of the form). By default these aren't included in the returned formspec, and are returned in a third value instead: a table <code>info</code> with <code>w</code> and <code>h</code> (the size of the form, in the units described in <a href="../elements/#sizes">Sizes</a>) and <code>formspec_version</code> (the version number). Set <code>standalone</code> to include them in the returned formspec string. The third return value will not be returned.</li>
+<li>A complete formspec starts with a <code>formspec_version[]</code> element (the version of the formspec language it uses) and a <code>size[]</code> element (the size of the form). By default these aren't included in the returned formspec, and are returned in a third value instead: a table <code>info</code> with <code>w</code> and <code>h</code> (the size of the form, in the units described in <a href="elements.md#sizes">Sizes</a>) and <code>formspec_version</code> (the version number). Set <code>standalone</code> to include them in the returned formspec string. The third return value will not be returned.</li>
 <li>Returns <code>formspec, process_event[, info]</code>. <code>info.formspec_version</code> is always 7, whatever the player's client supports. Pass the same <code>ctx</code> again when you redraw so the form keeps its values.</li>
 <li>Call <code>process_event(fields)</code> with the <code>fields</code> table that Luanti passes to <code>core.register_on_player_receive_fields</code> callbacks. It returns <code>true</code> if the formspec should be redrawn, where <code>render_to_formspec_string</code> should be called and the new <code>process_event</code> should be used in the future. This function may return true even if fields.quit is sent.</li>
 </ul>
@@ -741,7 +753,7 @@
 </span></code></pre></div>
 <p>Special characters (excluding <code>-</code> and <code>_</code>) are not allowed in embed names.</p>
 <h2 id="running-code-when-a-form-is-closed">Running code when a form is closed</h2>
-<p><a href="../elements/#guicontainer"><code>gui.Container</code></a>, <a href="../layout-elements/#guihbox"><code>gui.HBox</code></a>, <a href="../layout-elements/#guivbox"><code>gui.VBox</code></a>, and <a href="../layout-elements/#guistack"><code>gui.Stack</code></a> elements support an <code>on_quit</code> callback which gets run when a player closes a form (for example by pressing Escape or clicking an exit button).</p>
+<p><a href="elements.md#guicontainer"><code>gui.Container</code></a>, <a href="../layout-elements/#guihbox"><code>gui.HBox</code></a>, <a href="../layout-elements/#guivbox"><code>gui.VBox</code></a>, and <a href="../layout-elements/#guistack"><code>gui.Stack</code></a> elements support an <code>on_quit</code> callback which gets run when a player closes a form (for example by pressing Escape or clicking an exit button).</p>
 <p>Note that this function is not called in some cases, such as when the player leaves without closing the form or when another form/formspec is shown.</p>
 <p>This function must not return anything, behaviour may get added to return values in the future.</p>
 <div class="language-lua highlight"><pre><span></span><code><span id="__span-4-1"><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="kd">local</span><span class="w"> </span><span class="nv">my_gui</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">flow</span><span class="p">.</span><span class="nf">make_gui</span><span class="p">(</span><span class="kr">function</span><span class="p">(</span><span class="nv">player</span><span class="p">,</span><span class="w"> </span><span class="nv">ctx</span><span class="p">)</span>
@@ -777,7 +789,7 @@
 <ul>
 <li>If you're using this callback, please make sure there's some other way to trigger the enter action (like a button) so that the form works on older flow versions, and in case this API is replaced by a better one in the future.</li>
 <li>If you want recent mobile clients to call this callback when editing text, add <code>enter_after_edit = true</code> to the field definition. Without it, pressing "Done" on the on-screen keyboard of an Android device does not count as pressing enter. This is experimental.</li>
-<li>The similarly named <a href="../elements/#events"><code>on_event</code></a> gets called whenever the client submits the field to the server, which could be at any time, and is not very useful, but is still supported for compatibility (and there may be uses for it, such as sanitising field values). Be careful not to accidentally use the wrong callback.</li>
+<li>The similarly named <a href="elements.md#events"><code>on_event</code></a> gets called whenever the client submits the field to the server, which could be at any time, and is not very useful, but is still supported for compatibility (and there may be uses for it, such as sanitising field values). Be careful not to accidentally use the wrong callback.</li>
 </ul>
 <h2 id="getting-a-reference-to-the-current-player-and-context">Getting a reference to the current player and context</h2>
 <p>If you're making a custom widget, it might be useful to get a reference to <code>ctx</code> and <code>player</code> so you don't have to pass them in manually.</p>

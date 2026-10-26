@@ -9,7 +9,7 @@
 <link href="../layout-elements/" rel="next"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.6.1, mkdocs-material-9.8.0" name="generator"/>
-<title>Getting started - Flow Unofficial Docs</title>
+<title>Getting started - Flow Unofficial Documentation</title>
 <link href="../assets/stylesheets/main.57a0d79d.min.css" rel="stylesheet"/>
 <link href="../assets/stylesheets/palette.fb2fffe2.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -33,7 +33,7 @@
 </div>
 <header class="md-header md-header--shadow" data-md-component="header">
 <nav aria-label="Header" class="md-header__inner md-grid">
-<a aria-label="Flow Unofficial Docs" class="md-header__button md-logo" data-md-component="logo" href=".." title="Flow Unofficial Docs">
+<a aria-label="Flow Unofficial Documentation" class="md-header__button md-logo" data-md-component="logo" href=".." title="Flow Unofficial Documentation">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
 </a>
 <label class="md-header__button md-icon" for="__drawer">
@@ -43,7 +43,7 @@
 <div class="md-header__ellipsis">
 <div class="md-header__topic">
 <span class="md-ellipsis">
-            Flow Unofficial Docs
+            Flow Unofficial Documentation
           </span>
 </div>
 <div class="md-header__topic" data-md-component="header-topic">
@@ -119,10 +119,10 @@
 <div class="md-sidebar__inner">
 <nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
 <label class="md-nav__title" for="__drawer">
-<a aria-label="Flow Unofficial Docs" class="md-nav__button md-logo" data-md-component="logo" href=".." title="Flow Unofficial Docs">
+<a aria-label="Flow Unofficial Documentation" class="md-nav__button md-logo" data-md-component="logo" href=".." title="Flow Unofficial Documentation">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
 </a>
-    Flow Unofficial Docs
+    Flow Unofficial Documentation
   </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -224,11 +224,11 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../layout-elements/">
+<a class="md-nav__link" href="../intro-to-elements.md">
 <span class="md-ellipsis">
     
   
-    Layouting elements
+    None
   
 
     
@@ -236,7 +236,19 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../elements/">
+<a class="md-nav__link" href="../layout-elements/">
+<span class="md-ellipsis">
+    
+  
+    Layout elements
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../functional-elements/">
 <span class="md-ellipsis">
     
   
@@ -535,10 +547,10 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1 id="getting-started">Getting started</h1>
-<p>A <em>form</em> is a menu that is shown to a player. It is made of <em>elements</em> (also called widgets), such as labels, buttons, text fields, and inventory slots, which are arranged by layout elements like <a href="../layout-elements/#guivbox"><code>gui.VBox</code></a>. You describe a form with a <em>build function</em>, which is the function you pass to <code>flow.make_gui()</code>. It returns the elements, and flow works out the positions and sizes and shows the form for you. This documentation always calls it the build function. See <a href="../elements/">Elements</a> for what each element does.</p>
+<p>A <em>form</em> is a menu that is shown to a player. It is made of <em>elements</em> (also called widgets), such as labels, buttons, text fields, and inventory slots, which are arranged by layout elements like <a href="../layout-elements/#guivbox"><code>gui.VBox</code></a>. You describe a form with a <em>build function</em>, which is the function you pass to <code>flow.make_gui()</code>. It returns the elements, and flow works out the positions and sizes and shows the form for you. This documentation always calls it the build function. See <a href="../functional-elements/">Functional Elements</a> for what each element does.</p>
 <h2 id="basic-example">Basic example</h2>
 <p>See <a href="https://gitlab.com/luk3yx/minetest-flow/-/blob/main/example.lua"><code>example.lua</code></a> in the flow repository for a more comprehensive example which demonstrates how layouting and alignment works. In singleplayer, a player with the <code>server</code> privilege can also run <code>/flow-example</code> to open it in the game.</p>
-<p>The build function is called with the player and a context table (<code>ctx</code>) every time the form is drawn. <code>ctx</code> belongs to one player's copy of the form: flow keeps the same table for as long as the form is open, passes it to the build function and to every <code>on_event</code> function, and you can store anything in it. Flow adds a <code>ctx.form</code> table to it, which holds the current values of the form's named inputs (see <a href="../elements/#names-and-values">Names and values</a>).</p>
+<p>The build function is called with the player and a context table (<code>ctx</code>) every time the form is drawn. <code>ctx</code> belongs to one player's copy of the form: flow keeps the same table for as long as the form is open, passes it to the build function and to every <code>on_event</code> function, and you can store anything in it. Flow adds a <code>ctx.form</code> table to it, which holds the current values of the form's named inputs (see <a href="elements.md#names-and-values">Names and values</a>).</p>
 <p><code>form:show(player, ctx)</code> shows the form to a player. The second argument is the starting <code>ctx</code>. Flow uses that table itself instead of a copy, and uses a new empty table if you leave it out.</p>
 <p>The example below uses a player called <code>playground</code>, which only exists in the online playground. In a mod, use a real player object instead, such as the one passed to a chat command or to <code>core.register_on_joinplayer</code>.</p>
 <div class="language-lua highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kd">local</span><span class="w"> </span><span class="nv">gui</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">flow</span><span class="p">.</span><span class="py">widgets</span><span class="w"> </span><span class="c1">-- local recommended for direct referencing</span>
@@ -590,7 +602,7 @@
 </span><span id="__span-1-15"><a href="#__codelineno-1-15" id="__codelineno-1-15" name="__codelineno-1-15"></a><span class="c1">-- Re-shows the form for all players with the form open</span>
 </span><span id="__span-1-16"><a href="#__codelineno-1-16" id="__codelineno-1-16" name="__codelineno-1-16"></a><span class="nv">my_gui</span><span class="p">:</span><span class="nf">update_where</span><span class="p">(</span><span class="kr">function</span><span class="p">()</span><span class="w"> </span><span class="kr">return</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="kr">end</span><span class="p">)</span>
 </span></code></pre></div>
-<p>Inside an <a href="../elements/#events"><code>on_event</code> handler</a>, you can use <code>return true</code> instead.</p>
+<p>Inside an <a href="elements.md#events"><code>on_event</code> handler</a>, you can use <code>return true</code> instead.</p>
 <div class="language-lua highlight"><pre><span></span><code><span id="__span-2-1"><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="nv">gui</span><span class="p">.</span><span class="py">Button</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-2-2"><a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="w">    </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Update form"</span><span class="p">,</span>
 </span><span id="__span-2-3"><a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="w">    </span><span class="nv">on_event</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">function</span><span class="p">(</span><span class="nv">player</span><span class="p">,</span><span class="w"> </span><span class="nv">ctx</span><span class="p">)</span>
@@ -617,7 +629,7 @@
 <li>Only reads while the build function runs count, including reads in helper functions that it calls. Reading <code>ctx.form</code> inside an <code>on_event</code> function does not.</li>
 <li>The form is only redrawn if the value is different from the stored one.</li>
 <li>If the element has its own <code>on_event</code> function, there is no automatic redraw. That function has to <code>return true</code> instead.</li>
-<li>Text fields only send their text when the player presses a button or Enter (see <a href="../elements/#names-and-values">Names and values</a>), so the redraw happens then.</li>
+<li>Text fields only send their text when the player presses a button or Enter (see <a href="elements.md#names-and-values">Names and values</a>), so the redraw happens then.</li>
 </ul>
 </article>
 </div>
