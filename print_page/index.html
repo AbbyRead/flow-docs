@@ -1217,32 +1217,27 @@
             </div>
         </section>
         <section class="print-page" id="index" heading-number="1"><h1 id="index-flow-unofficial-documentation">Flow Unofficial Documentation</h1>
-<p>Flow is an experimental layout manager and formspec API replacement for Luanti (formerly Minetest): describe the menu, and flow handles the rest.
+<p>Flow is an experimental layout manager and formspec API replacement for Luanti (formerly Minetest). Describe your menu, and flow handles the rest.
 Vaguely inspired by Flutter and GTK.</p>
-<!-- TODO(P4,reword): add subtle snark about formspec (web search complaints and compare to flow api). -->
-
-<p>Luanti's built-in way of describing menus (inventories, chests, dialogs, ...) is called a <em>formspec</em>. A formspec is a long string made of elements such as buttons, text fields, and inventory slots, and you have to give every element its exact position and size by hand. Flow lets you describe a menu with Lua tables instead, positions and sizes everything for you, and generates the formspec itself, so you never have to write one.</p>
+<p>Luanti's built-in menu format (inventories, chests, dialogs, ...) is <em>formspec</em>, consisting of one long string of buttons, text fields, and inventory slots. With <em>formspec</em>, you have to manually place every element by position and size, consult official docs in case of the many gotchas, and there's no reasonable way to write an LSP for it.</p>
+<p>Flow lets you describe the same menu with plain Lua tables, positions and sizes everything for you, and generates the formspec behind the scenes. You never have to write one. And if you like using modern IDE features, you have access to in-code definitions through LuaCATS annotations to help you out. No more need for a two-screen setup with Luanti Formspec documentation filling one screen just to code a GUI.</p>
 <p><a href="https://luk3yx.gitlab.io/minetest-flow-playground/">Online tutorial/demo</a>
 (<a href="https://gitlab.com/luk3yx/minetest-flow-playground">source</a>)</p>
 <h2 id="index-features">Features</h2>
 <h3 id="index-layouting">Layouting</h3>
 <ul>
-<li>Place elements without coordinates: flow works out every position for you.</li>
-<li>Automatic layouting using <code>HBox</code> and <code>VBox</code> containers</li>
-<li>Some elements have an automatic size: labels, checkboxes, buttons, text fields, password fields, text areas, drop-downs, text lists, and vertical labels. See <a href="#elements-sizes">Sizes</a>.</li>
-<li>Elements can grow to fill spare space when you set <code>expand = true</code>.</li>
-<li>Elements which get their size based on their label length automatically become larger/smaller to fit long translations<sup id="fnref:label-size"><a class="footnote-ref" href="#index-fn:label-size">1</a></sup>.</li>
+<li><strong>Automatic placement.</strong> Flow works out every position, so there's no arithmetic to redo when you add one button.</li>
+<li><strong>Comprehensive layout elements.</strong> Nest <code>HBox</code> and <code>VBox</code> containers and they line up on their own. Scrolling, paging, stacking, wrapping, and flexible spacing are covered too. And yes, also manual placement using <code>Container</code>.</li>
+<li><strong>Automatic sizing.</strong> Labels, checkboxes, buttons, text fields, password fields, text areas, drop-downs, text lists, and vertical labels size themselves. See <a href="#elements-sizes">Sizes</a>.</li>
+<li><strong>Room to grow.</strong> Set <code>expand = true</code> and an element fills any spare space.</li>
+<li><strong>Translation-friendly.</strong> Elements sized from their label grow or shrink to fit longer text<sup id="fnref:label-size"><a class="footnote-ref" href="#index-fn:label-size">1</a></sup>.</li>
 </ul>
 <h3 id="index-other-features">Other features</h3>
 <ul>
-<li>Form names are handled for you. They are still used internally, however they are
-   hidden from the API.</li>
-<li>Form state is tracked for you.</li>
-<li>Values of fields, scrollbars, checkboxes, etc are remembered when
-   redrawing a form and are automatically applied.</li>
-<li>Includes an <a href="https://content.luanti.org/packages/luk3yx/flow_inspector/">inspector mod</a>
-   to help with developing and debugging forms.</li>
-<li>Some common security issues with formspec input handling are mitigated, see <a href="#index-security">Security</a>.</li>
+<li><strong>No form names.</strong> They still exist internally, but you never have to deal with them.</li>
+<li><strong>No state bookkeeping.</strong> Flow remembers the values of fields, scrollbars, checkboxes, and the like across redraws, and reapplies them for you.</li>
+<li><strong>Built-in debugging.</strong> The <a href="https://content.luanti.org/packages/luk3yx/flow_inspector/">inspector mod</a> helps you develop and debug forms.</li>
+<li><strong>Safer input handling.</strong> Flow mitigates some common formspec input security issues. See <a href="#index-security">Security</a>.</li>
 </ul>
 <h2 id="index-limitations">Limitations</h2>
 <ul>
@@ -1257,7 +1252,7 @@ Vaguely inspired by Flutter and GTK.</p>
 <hr />
 <ol>
 <li id="index-fn:label-size">
-<p>This isn't perfect, the actual size of labels depends on the client's font, DPI, window size, and formspec-related scaling settings. Luanti gives mods no way to measure text, so flow estimates the width as 0.21 slots per character (counting UTF-8 characters, not bytes, for the longest line) and the height as 0.4 slots per line, scaled by a <code>*1.5</code>-style <code>font_size</code> style. The font is not taken into account. If the estimate is wrong for your text, set <code>w</code>, <code>h</code>, or <code>min_w</code> yourself.&#160;<a class="footnote-backref" href="#index-fnref:label-size" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+<p>This is an estimate, not a measurement. The real size of a label depends on the client's font, DPI, window size, and formspec scaling settings, and Luanti gives mods no way to measure text. Flow assumes 0.21 slots per character (UTF-8 characters, not bytes, counting the longest line) and 0.4 slots per line of height, scaled by any <code>*1.5</code>-style <code>font_size</code> style. It ignores the font. If the estimate is off for your text, set <code>w</code>, <code>h</code>, or <code>min_w</code> yourself.&#160;<a class="footnote-backref" href="#index-fnref:label-size" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div></section><section class="print-page" id="getting-started" heading-number="2"><h1 id="getting-started-getting-started">Getting started</h1>
