@@ -547,12 +547,12 @@
 <h1 id="hiding-elements">Hiding elements</h1>
 <p>Elements inside boxes can have <a href="../elements/#parameters-shared-by-all-elements"><code>visible = false</code></a> set to hide them from the player. Elements hidden this way will still take up space like with <code>visibility: hidden;</code> in CSS.</p>
 <h2 id="example">Example</h2>
-<pre><code class="language-lua">gui.VBox {
-    gui.Button { label = "First button" },
-    gui.Button { label = "Hidden", visible = false },
-    gui.Button { label = "Last button" },
-}
-</code></pre>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nv">gui</span><span class="p">.</span><span class="py">VBox</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-2"><a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="w">    </span><span class="nv">gui</span><span class="p">.</span><span class="py">Button</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"First button"</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-0-3"><a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="w">    </span><span class="nv">gui</span><span class="p">.</span><span class="py">Button</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Hidden"</span><span class="p">,</span><span class="w"> </span><span class="nv">visible</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-0-4"><a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="w">    </span><span class="nv">gui</span><span class="p">.</span><span class="py">Button</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Last button"</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-0-5"><a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="p">}</span>
+</span></code></pre></div>
 <h2 id="where-it-works">Where it works</h2>
 <ul>
 <li><code>visible = false</code> works on elements inside <code>gui.HBox</code>, <code>gui.VBox</code>, <code>gui.Stack</code>, <code>gui.ScrollableVBox</code>, and <code>gui.PaginatedVBox</code>. In a <code>gui.Stack</code>, the hidden element still counts towards the size of the stack.</li>

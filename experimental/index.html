@@ -640,19 +640,19 @@
 <p>Games and mods can add extra content to the start of every form shown to a player with <code>player:set_formspec_prepend()</code>, for example to give all forms the same background or style. This is called a "prepend", and it can be why a form has a background or style you did not expect.</p>
 <p>You can set <code>no_prepend = true</code> on the "root" element to stop prepends from being applied to a form.</p>
 <p>Example:</p>
-<pre><code class="language-lua">local my_gui = flow.make_gui(function(player, ctx)
-    return gui.VBox {
-        no_prepend = true,
-
-        gui.Button { label = "Button 1" },
-
-        -- Hidden and disabled, but its space is kept
-        gui.Button { label = "Button 2", visible = false },
-
-        gui.Button { label = "Button 3" },
-    }
-end)
-</code></pre>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kd">local</span><span class="w"> </span><span class="nv">my_gui</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">flow</span><span class="p">.</span><span class="nf">make_gui</span><span class="p">(</span><span class="kr">function</span><span class="p">(</span><span class="nv">player</span><span class="p">,</span><span class="w"> </span><span class="nv">ctx</span><span class="p">)</span>
+</span><span id="__span-0-2"><a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="nv">gui</span><span class="p">.</span><span class="py">VBox</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-3"><a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="w">        </span><span class="nv">no_prepend</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+</span><span id="__span-0-4"><a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a>
+</span><span id="__span-0-5"><a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="w">        </span><span class="nv">gui</span><span class="p">.</span><span class="py">Button</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Button 1"</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-0-6"><a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a>
+</span><span id="__span-0-7"><a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="w">        </span><span class="c1">-- Hidden and disabled, but its space is kept</span>
+</span><span id="__span-0-8"><a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="w">        </span><span class="nv">gui</span><span class="p">.</span><span class="py">Button</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Button 2"</span><span class="p">,</span><span class="w"> </span><span class="nv">visible</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-0-9"><a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a>
+</span><span id="__span-0-10"><a href="#__codelineno-0-10" id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="w">        </span><span class="nv">gui</span><span class="p">.</span><span class="py">Button</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Button 3"</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-0-11"><a href="#__codelineno-0-11" id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-0-12"><a href="#__codelineno-0-12" id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="kr">end</span><span class="p">)</span>
+</span></code></pre></div>
 <p><img alt="Screenshot" src="../images/hidden-button.png"/></p>
 <p>The hidden second button has nothing to do with <code>no_prepend</code>: it only shows that a hidden element still takes up space, see <a href="../hiding-elements/">Hiding elements</a>.</p>
 <h2 id="bgcolor"><code>bgcolor</code></h2>
@@ -664,43 +664,43 @@ end)
 </ul>
 <p><code>bg_fullscreen = true</code> can look backwards: it does not add the fullscreen background to the form's own one, it switches to the fullscreen one. Flow passes these three values straight to Luanti's <code>bgcolor[]</code> formspec element, so Luanti decides what is drawn. This also means that <code>fbgcolor</code> is not drawn unless you set <code>bg_fullscreen</code> to <code>true</code> or <code>"both"</code>.</p>
 <p>Colors that you leave out are not changed. See <a href="../elements/#colors">Elements</a> for how colors are written.</p>
-<pre><code class="language-lua">gui.VBox {
-    -- Draw a dark form on a dimmed screen
-    bgcolor = "#222222",
-    fbgcolor = "#00000080",
-    bg_fullscreen = "both",
-    gui.Label { label = "Hello world!" },
-}
-</code></pre>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-1-1"><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="nv">gui</span><span class="p">.</span><span class="py">VBox</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-2"><a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="w">    </span><span class="c1">-- Draw a dark form on a dimmed screen</span>
+</span><span id="__span-1-3"><a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="w">    </span><span class="nv">bgcolor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"#222222"</span><span class="p">,</span>
+</span><span id="__span-1-4"><a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="w">    </span><span class="nv">fbgcolor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"#00000080"</span><span class="p">,</span>
+</span><span id="__span-1-5"><a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="w">    </span><span class="nv">bg_fullscreen</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"both"</span><span class="p">,</span>
+</span><span id="__span-1-6"><a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="w">    </span><span class="nv">gui</span><span class="p">.</span><span class="py">Label</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Hello world!"</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-1-7"><a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="p">}</span>
+</span></code></pre></div>
 <h2 id="window-position">Window position</h2>
 <p>These values allow the position of the displayed form to be moved around and adjust how it is scaled. You will likely need them for most HUDs, which are described in <a href="../huds/">Using a form as a HUD</a>.</p>
 <p>Example:</p>
-<pre><code class="language-lua">local my_gui = flow.make_gui(function(player, ctx)
-    return gui.VBox {
-        -- window_position is the point on the screen where the form is
-        -- placed, and window_anchor is the point on the form that is put
-        -- there. For both, 0 is the top/left and 1 is the bottom/right, and
-        -- the default is {x = 0.5, y = 0.5} (the center).
-        -- You probably want to set `window_position` and `window_anchor` to
-        -- the same value.
-        -- This puts the form in the bottom-right corner.
-        window_position = { x = 1, y = 1 },
-        window_anchor = { x = 1, y = 1 },
-
-        -- Minimum space to leave around the form, as a fraction of the
-        -- screen size (here 10% on the left/right and 20% at the top/bottom).
-        -- If the form is too big, it will be scaled down. 0 lets the form
-        -- touch the edge of the screen and negative values let it go off
-        -- the edge.
-        -- Default for forms: {x = 0.05, y = 0.05} (i.e. 5% of screen size)
-        -- HUDs default to a hardcoded pixel size, if you want them to roughly
-        -- line up with formspecs then you may explicitly specify this.
-        window_padding = { x = 0.1, y = 0.2 },
-
-        gui.Label { label = "Hello world" },
-    }
-end)
-</code></pre>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-2-1"><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="kd">local</span><span class="w"> </span><span class="nv">my_gui</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">flow</span><span class="p">.</span><span class="nf">make_gui</span><span class="p">(</span><span class="kr">function</span><span class="p">(</span><span class="nv">player</span><span class="p">,</span><span class="w"> </span><span class="nv">ctx</span><span class="p">)</span>
+</span><span id="__span-2-2"><a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="nv">gui</span><span class="p">.</span><span class="py">VBox</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-3"><a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="w">        </span><span class="c1">-- window_position is the point on the screen where the form is</span>
+</span><span id="__span-2-4"><a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="w">        </span><span class="c1">-- placed, and window_anchor is the point on the form that is put</span>
+</span><span id="__span-2-5"><a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="w">        </span><span class="c1">-- there. For both, 0 is the top/left and 1 is the bottom/right, and</span>
+</span><span id="__span-2-6"><a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="w">        </span><span class="c1">-- the default is {x = 0.5, y = 0.5} (the center).</span>
+</span><span id="__span-2-7"><a href="#__codelineno-2-7" id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="w">        </span><span class="c1">-- You probably want to set `window_position` and `window_anchor` to</span>
+</span><span id="__span-2-8"><a href="#__codelineno-2-8" id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="w">        </span><span class="c1">-- the same value.</span>
+</span><span id="__span-2-9"><a href="#__codelineno-2-9" id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="w">        </span><span class="c1">-- This puts the form in the bottom-right corner.</span>
+</span><span id="__span-2-10"><a href="#__codelineno-2-10" id="__codelineno-2-10" name="__codelineno-2-10"></a><span class="w">        </span><span class="nv">window_position</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nv">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-2-11"><a href="#__codelineno-2-11" id="__codelineno-2-11" name="__codelineno-2-11"></a><span class="w">        </span><span class="nv">window_anchor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nv">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-2-12"><a href="#__codelineno-2-12" id="__codelineno-2-12" name="__codelineno-2-12"></a>
+</span><span id="__span-2-13"><a href="#__codelineno-2-13" id="__codelineno-2-13" name="__codelineno-2-13"></a><span class="w">        </span><span class="c1">-- Minimum space to leave around the form, as a fraction of the</span>
+</span><span id="__span-2-14"><a href="#__codelineno-2-14" id="__codelineno-2-14" name="__codelineno-2-14"></a><span class="w">        </span><span class="c1">-- screen size (here 10% on the left/right and 20% at the top/bottom).</span>
+</span><span id="__span-2-15"><a href="#__codelineno-2-15" id="__codelineno-2-15" name="__codelineno-2-15"></a><span class="w">        </span><span class="c1">-- If the form is too big, it will be scaled down. 0 lets the form</span>
+</span><span id="__span-2-16"><a href="#__codelineno-2-16" id="__codelineno-2-16" name="__codelineno-2-16"></a><span class="w">        </span><span class="c1">-- touch the edge of the screen and negative values let it go off</span>
+</span><span id="__span-2-17"><a href="#__codelineno-2-17" id="__codelineno-2-17" name="__codelineno-2-17"></a><span class="w">        </span><span class="c1">-- the edge.</span>
+</span><span id="__span-2-18"><a href="#__codelineno-2-18" id="__codelineno-2-18" name="__codelineno-2-18"></a><span class="w">        </span><span class="c1">-- Default for forms: {x = 0.05, y = 0.05} (i.e. 5% of screen size)</span>
+</span><span id="__span-2-19"><a href="#__codelineno-2-19" id="__codelineno-2-19" name="__codelineno-2-19"></a><span class="w">        </span><span class="c1">-- HUDs default to a hardcoded pixel size, if you want them to roughly</span>
+</span><span id="__span-2-20"><a href="#__codelineno-2-20" id="__codelineno-2-20" name="__codelineno-2-20"></a><span class="w">        </span><span class="c1">-- line up with formspecs then you may explicitly specify this.</span>
+</span><span id="__span-2-21"><a href="#__codelineno-2-21" id="__codelineno-2-21" name="__codelineno-2-21"></a><span class="w">        </span><span class="nv">window_padding</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.1</span><span class="p">,</span><span class="w"> </span><span class="nv">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.2</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-2-22"><a href="#__codelineno-2-22" id="__codelineno-2-22" name="__codelineno-2-22"></a>
+</span><span id="__span-2-23"><a href="#__codelineno-2-23" id="__codelineno-2-23" name="__codelineno-2-23"></a><span class="w">        </span><span class="nv">gui</span><span class="p">.</span><span class="py">Label</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Hello world"</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-2-24"><a href="#__codelineno-2-24" id="__codelineno-2-24" name="__codelineno-2-24"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-2-25"><a href="#__codelineno-2-25" id="__codelineno-2-25" name="__codelineno-2-25"></a><span class="kr">end</span><span class="p">)</span>
+</span></code></pre></div>
 <h2 id="rendering-to-a-formspec">Rendering to a formspec</h2>
 <p>This API should only be used when necessary and may have breaking changes in the future.</p>
 <p>Luanti describes menus with <em>formspec</em> strings (see the <a href="../">introduction</a>), which flow normally generates and shows for you. Some APIs in other mods, such as sfinv (see <a href="../inventory/">Using a form as an inventory</a>), expect formspec strings instead. You can use this API to embed flow forms inside them. To use flow with these mods, you can call <code>form:render_to_formspec_string(player, ctx, standalone)</code>.</p>
@@ -714,65 +714,65 @@ end)
 </blockquote>
 <h2 id="embedding-a-form-into-another-form">Embedding a form into another form</h2>
 <p>You can embed form objects inside others like this:</p>
-<pre><code class="language-lua">local gui = flow.widgets
-
-local other_form = flow.make_gui(function(player, ctx)
-    return gui.Label { label = "I am embedded" }
-end)
-
-local parent_form = flow.make_gui(function(player, ctx)
-    return gui.VBox {
-        gui.Label { label = "Hello world" },
-        other_form:embed {
-            -- Current versions of flow ignore this. Older versions (from
-            -- before 2025-06-17) need it.
-            player = player,
-
-            -- A name for the embed. If this is specified, the embedded form
-            -- will get its own context (accessible at ctx.my_embed_name) and
-            -- field names will be rewritten to avoid conflicts with the
-            -- parent form. If name is not specified, the embedded form will
-            -- share ctx and ctx.form with the parent, and will not have field
-            -- names rewritten.
-            name = "my_embed_name",
-        },
-    }
-end)
-</code></pre>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-3-1"><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="kd">local</span><span class="w"> </span><span class="nv">gui</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">flow</span><span class="p">.</span><span class="py">widgets</span>
+</span><span id="__span-3-2"><a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a>
+</span><span id="__span-3-3"><a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="kd">local</span><span class="w"> </span><span class="nv">other_form</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">flow</span><span class="p">.</span><span class="nf">make_gui</span><span class="p">(</span><span class="kr">function</span><span class="p">(</span><span class="nv">player</span><span class="p">,</span><span class="w"> </span><span class="nv">ctx</span><span class="p">)</span>
+</span><span id="__span-3-4"><a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="nv">gui</span><span class="p">.</span><span class="py">Label</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"I am embedded"</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-3-5"><a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="kr">end</span><span class="p">)</span>
+</span><span id="__span-3-6"><a href="#__codelineno-3-6" id="__codelineno-3-6" name="__codelineno-3-6"></a>
+</span><span id="__span-3-7"><a href="#__codelineno-3-7" id="__codelineno-3-7" name="__codelineno-3-7"></a><span class="kd">local</span><span class="w"> </span><span class="nv">parent_form</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">flow</span><span class="p">.</span><span class="nf">make_gui</span><span class="p">(</span><span class="kr">function</span><span class="p">(</span><span class="nv">player</span><span class="p">,</span><span class="w"> </span><span class="nv">ctx</span><span class="p">)</span>
+</span><span id="__span-3-8"><a href="#__codelineno-3-8" id="__codelineno-3-8" name="__codelineno-3-8"></a><span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="nv">gui</span><span class="p">.</span><span class="py">VBox</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-9"><a href="#__codelineno-3-9" id="__codelineno-3-9" name="__codelineno-3-9"></a><span class="w">        </span><span class="nv">gui</span><span class="p">.</span><span class="py">Label</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Hello world"</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-3-10"><a href="#__codelineno-3-10" id="__codelineno-3-10" name="__codelineno-3-10"></a><span class="w">        </span><span class="nv">other_form</span><span class="p">:</span><span class="py">embed</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-11"><a href="#__codelineno-3-11" id="__codelineno-3-11" name="__codelineno-3-11"></a><span class="w">            </span><span class="c1">-- Current versions of flow ignore this. Older versions (from</span>
+</span><span id="__span-3-12"><a href="#__codelineno-3-12" id="__codelineno-3-12" name="__codelineno-3-12"></a><span class="w">            </span><span class="c1">-- before 2025-06-17) need it.</span>
+</span><span id="__span-3-13"><a href="#__codelineno-3-13" id="__codelineno-3-13" name="__codelineno-3-13"></a><span class="w">            </span><span class="nv">player</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">player</span><span class="p">,</span>
+</span><span id="__span-3-14"><a href="#__codelineno-3-14" id="__codelineno-3-14" name="__codelineno-3-14"></a>
+</span><span id="__span-3-15"><a href="#__codelineno-3-15" id="__codelineno-3-15" name="__codelineno-3-15"></a><span class="w">            </span><span class="c1">-- A name for the embed. If this is specified, the embedded form</span>
+</span><span id="__span-3-16"><a href="#__codelineno-3-16" id="__codelineno-3-16" name="__codelineno-3-16"></a><span class="w">            </span><span class="c1">-- will get its own context (accessible at ctx.my_embed_name) and</span>
+</span><span id="__span-3-17"><a href="#__codelineno-3-17" id="__codelineno-3-17" name="__codelineno-3-17"></a><span class="w">            </span><span class="c1">-- field names will be rewritten to avoid conflicts with the</span>
+</span><span id="__span-3-18"><a href="#__codelineno-3-18" id="__codelineno-3-18" name="__codelineno-3-18"></a><span class="w">            </span><span class="c1">-- parent form. If name is not specified, the embedded form will</span>
+</span><span id="__span-3-19"><a href="#__codelineno-3-19" id="__codelineno-3-19" name="__codelineno-3-19"></a><span class="w">            </span><span class="c1">-- share ctx and ctx.form with the parent, and will not have field</span>
+</span><span id="__span-3-20"><a href="#__codelineno-3-20" id="__codelineno-3-20" name="__codelineno-3-20"></a><span class="w">            </span><span class="c1">-- names rewritten.</span>
+</span><span id="__span-3-21"><a href="#__codelineno-3-21" id="__codelineno-3-21" name="__codelineno-3-21"></a><span class="w">            </span><span class="nv">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"my_embed_name"</span><span class="p">,</span>
+</span><span id="__span-3-22"><a href="#__codelineno-3-22" id="__codelineno-3-22" name="__codelineno-3-22"></a><span class="w">        </span><span class="p">},</span>
+</span><span id="__span-3-23"><a href="#__codelineno-3-23" id="__codelineno-3-23" name="__codelineno-3-23"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-3-24"><a href="#__codelineno-3-24" id="__codelineno-3-24" name="__codelineno-3-24"></a><span class="kr">end</span><span class="p">)</span>
+</span></code></pre></div>
 <p>Special characters (excluding <code>-</code> and <code>_</code>) are not allowed in embed names.</p>
 <h2 id="running-code-when-a-form-is-closed">Running code when a form is closed</h2>
 <p><a href="../elements/#guicontainer"><code>gui.Container</code></a>, <a href="../layout-elements/#guihbox"><code>gui.HBox</code></a>, <a href="../layout-elements/#guivbox"><code>gui.VBox</code></a>, and <a href="../layout-elements/#guistack"><code>gui.Stack</code></a> elements support an <code>on_quit</code> callback which gets run when a player closes a form (for example by pressing Escape or clicking an exit button).</p>
 <p>Note that this function is not called in some cases, such as when the player leaves without closing the form or when another form/formspec is shown.</p>
 <p>This function must not return anything, behaviour may get added to return values in the future.</p>
-<pre><code class="language-lua">local my_gui = flow.make_gui(function(player, ctx)
-    return gui.VBox {
-        on_quit = function(player, ctx)
-            core.chat_send_player(player:get_player_name(), "Form closed!")
-        end,
-    }
-end)
-</code></pre>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-4-1"><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="kd">local</span><span class="w"> </span><span class="nv">my_gui</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">flow</span><span class="p">.</span><span class="nf">make_gui</span><span class="p">(</span><span class="kr">function</span><span class="p">(</span><span class="nv">player</span><span class="p">,</span><span class="w"> </span><span class="nv">ctx</span><span class="p">)</span>
+</span><span id="__span-4-2"><a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="nv">gui</span><span class="p">.</span><span class="py">VBox</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-3"><a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="w">        </span><span class="nv">on_quit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">function</span><span class="p">(</span><span class="nv">player</span><span class="p">,</span><span class="w"> </span><span class="nv">ctx</span><span class="p">)</span>
+</span><span id="__span-4-4"><a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="w">            </span><span class="nv">core</span><span class="p">.</span><span class="nf">chat_send_player</span><span class="p">(</span><span class="nv">player</span><span class="p">:</span><span class="nf">get_player_name</span><span class="p">(),</span><span class="w"> </span><span class="s2">"Form closed!"</span><span class="p">)</span>
+</span><span id="__span-4-5"><a href="#__codelineno-4-5" id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="w">        </span><span class="kr">end</span><span class="p">,</span>
+</span><span id="__span-4-6"><a href="#__codelineno-4-6" id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-4-7"><a href="#__codelineno-4-7" id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="kr">end</span><span class="p">)</span>
+</span></code></pre></div>
 <p>If multiple <code>on_quit</code> callbacks are specified in different elements, they will all get called.</p>
 <h2 id="handling-enter-keypresses-in-fields">Handling enter keypresses in fields</h2>
 <p><code>gui.Field</code> and <code>gui.Pwdfield</code> support an <code>on_key_enter</code> callback that gets called if enter is pressed:</p>
-<pre><code class="language-lua">local form = flow.make_gui(function(player, ctx)
-    return gui.VBox {
-        gui.Field {
-            label = "Press enter!",
-            name = "field",
-            on_key_enter = function(player, ctx)
-                core.chat_send_player(player:get_player_name(),
-                    "Field value: " .. dump(ctx.form.field))
-            end,
-
-            -- Pressing enter does not close the form by default. You can
-            -- specify close_on_enter to close it when enter is pressed.
-            -- This only applies to gui.Field.
-            close_on_enter = true,
-        },
-    }
-end)
-</code></pre>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-5-1"><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="kd">local</span><span class="w"> </span><span class="nv">form</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">flow</span><span class="p">.</span><span class="nf">make_gui</span><span class="p">(</span><span class="kr">function</span><span class="p">(</span><span class="nv">player</span><span class="p">,</span><span class="w"> </span><span class="nv">ctx</span><span class="p">)</span>
+</span><span id="__span-5-2"><a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="nv">gui</span><span class="p">.</span><span class="py">VBox</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-3"><a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="w">        </span><span class="nv">gui</span><span class="p">.</span><span class="py">Field</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-4"><a href="#__codelineno-5-4" id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="w">            </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Press enter!"</span><span class="p">,</span>
+</span><span id="__span-5-5"><a href="#__codelineno-5-5" id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="w">            </span><span class="nv">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"field"</span><span class="p">,</span>
+</span><span id="__span-5-6"><a href="#__codelineno-5-6" id="__codelineno-5-6" name="__codelineno-5-6"></a><span class="w">            </span><span class="nv">on_key_enter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">function</span><span class="p">(</span><span class="nv">player</span><span class="p">,</span><span class="w"> </span><span class="nv">ctx</span><span class="p">)</span>
+</span><span id="__span-5-7"><a href="#__codelineno-5-7" id="__codelineno-5-7" name="__codelineno-5-7"></a><span class="w">                </span><span class="nv">core</span><span class="p">.</span><span class="nf">chat_send_player</span><span class="p">(</span><span class="nv">player</span><span class="p">:</span><span class="nf">get_player_name</span><span class="p">(),</span>
+</span><span id="__span-5-8"><a href="#__codelineno-5-8" id="__codelineno-5-8" name="__codelineno-5-8"></a><span class="w">                    </span><span class="s2">"Field value: "</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="nf">dump</span><span class="p">(</span><span class="nv">ctx</span><span class="p">.</span><span class="py">form</span><span class="p">.</span><span class="py">field</span><span class="p">))</span>
+</span><span id="__span-5-9"><a href="#__codelineno-5-9" id="__codelineno-5-9" name="__codelineno-5-9"></a><span class="w">            </span><span class="kr">end</span><span class="p">,</span>
+</span><span id="__span-5-10"><a href="#__codelineno-5-10" id="__codelineno-5-10" name="__codelineno-5-10"></a>
+</span><span id="__span-5-11"><a href="#__codelineno-5-11" id="__codelineno-5-11" name="__codelineno-5-11"></a><span class="w">            </span><span class="c1">-- Pressing enter does not close the form by default. You can</span>
+</span><span id="__span-5-12"><a href="#__codelineno-5-12" id="__codelineno-5-12" name="__codelineno-5-12"></a><span class="w">            </span><span class="c1">-- specify close_on_enter to close it when enter is pressed.</span>
+</span><span id="__span-5-13"><a href="#__codelineno-5-13" id="__codelineno-5-13" name="__codelineno-5-13"></a><span class="w">            </span><span class="c1">-- This only applies to gui.Field.</span>
+</span><span id="__span-5-14"><a href="#__codelineno-5-14" id="__codelineno-5-14" name="__codelineno-5-14"></a><span class="w">            </span><span class="nv">close_on_enter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+</span><span id="__span-5-15"><a href="#__codelineno-5-15" id="__codelineno-5-15" name="__codelineno-5-15"></a><span class="w">        </span><span class="p">},</span>
+</span><span id="__span-5-16"><a href="#__codelineno-5-16" id="__codelineno-5-16" name="__codelineno-5-16"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-5-17"><a href="#__codelineno-5-17" id="__codelineno-5-17" name="__codelineno-5-17"></a><span class="kr">end</span><span class="p">)</span>
+</span></code></pre></div>
 <p>Notes:</p>
 <ul>
 <li>If you're using this callback, please make sure there's some other way to trigger the enter action (like a button) so that the form works on older flow versions, and in case this API is replaced by a better one in the future.</li>
@@ -781,36 +781,36 @@ end)
 </ul>
 <h2 id="getting-a-reference-to-the-current-player-and-context">Getting a reference to the current player and context</h2>
 <p>If you're making a custom widget, it might be useful to get a reference to <code>ctx</code> and <code>player</code> so you don't have to pass them in manually.</p>
-<pre><code class="language-lua">local function HelloWorld(def)
-    local ctx, player = flow.get_context()
-    return gui.Label {
-        label = "Hello, " .. player:get_player_name() .. "!\n" ..
-            "some_value=" .. ctx.some_value,
-        style = def.style,
-    }
-end
-
-local form = flow.make_gui(function(player, ctx)
-    ctx.some_value = 123
-    return HelloWorld { style = { font_size = "*2" } }
-end)
-</code></pre>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-6-1"><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="kd">local</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="nf">HelloWorld</span><span class="p">(</span><span class="nv">def</span><span class="p">)</span>
+</span><span id="__span-6-2"><a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="w">    </span><span class="kd">local</span><span class="w"> </span><span class="nv">ctx</span><span class="p">,</span><span class="w"> </span><span class="nv">player</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">flow</span><span class="p">.</span><span class="nf">get_context</span><span class="p">()</span>
+</span><span id="__span-6-3"><a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="nv">gui</span><span class="p">.</span><span class="py">Label</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-4"><a href="#__codelineno-6-4" id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="w">        </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Hello, "</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="nv">player</span><span class="p">:</span><span class="nf">get_player_name</span><span class="p">()</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="s2">"!</span><span class="se">\n</span><span class="s2">"</span><span class="w"> </span><span class="o">..</span>
+</span><span id="__span-6-5"><a href="#__codelineno-6-5" id="__codelineno-6-5" name="__codelineno-6-5"></a><span class="w">            </span><span class="s2">"some_value="</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="nv">ctx</span><span class="p">.</span><span class="py">some_value</span><span class="p">,</span>
+</span><span id="__span-6-6"><a href="#__codelineno-6-6" id="__codelineno-6-6" name="__codelineno-6-6"></a><span class="w">        </span><span class="nv">style</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">def</span><span class="p">.</span><span class="py">style</span><span class="p">,</span>
+</span><span id="__span-6-7"><a href="#__codelineno-6-7" id="__codelineno-6-7" name="__codelineno-6-7"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-6-8"><a href="#__codelineno-6-8" id="__codelineno-6-8" name="__codelineno-6-8"></a><span class="kr">end</span>
+</span><span id="__span-6-9"><a href="#__codelineno-6-9" id="__codelineno-6-9" name="__codelineno-6-9"></a>
+</span><span id="__span-6-10"><a href="#__codelineno-6-10" id="__codelineno-6-10" name="__codelineno-6-10"></a><span class="kd">local</span><span class="w"> </span><span class="nv">form</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">flow</span><span class="p">.</span><span class="nf">make_gui</span><span class="p">(</span><span class="kr">function</span><span class="p">(</span><span class="nv">player</span><span class="p">,</span><span class="w"> </span><span class="nv">ctx</span><span class="p">)</span>
+</span><span id="__span-6-11"><a href="#__codelineno-6-11" id="__codelineno-6-11" name="__codelineno-6-11"></a><span class="w">    </span><span class="nv">ctx</span><span class="p">.</span><span class="py">some_value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">123</span>
+</span><span id="__span-6-12"><a href="#__codelineno-6-12" id="__codelineno-6-12" name="__codelineno-6-12"></a><span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="nv">HelloWorld</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">style</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">font_size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"*2"</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-6-13"><a href="#__codelineno-6-13" id="__codelineno-6-13" name="__codelineno-6-13"></a><span class="kr">end</span><span class="p">)</span>
+</span></code></pre></div>
 <p><code>flow.get_context()</code> will error when called outside a build function (as you should not normally do this).</p>
 <h2 id="guiflow-container"><code>gui.Flow</code> container</h2>
 <p><code>gui.Flow</code> is a fixed-width container that wraps items around if they don't fit. Unlike other elements, you must specify a width, and some options like <code>min_w</code> and <code>padding</code> aren't supported.</p>
 <p>This is similar to GTK's <code>FlowBox</code>, but with a lot fewer features.</p>
 <p>The width also has to leave room for the spacing between elements. <code>spacing</code> has the same default as for <a href="../layout-elements/#guivbox"><code>gui.VBox</code></a> (0.2, see also <a href="../padding/">Padding</a>). Flow needs <code>w</code> to be at least <code>1 + 0.2 + 1 + 0.2 + 1</code> (3.4) to fit three 1-wide elements on one row, and at least 4.6 to fit four, so <code>3 * (1 + 0.2)</code> (3.6) is a safe width for three.</p>
-<pre><code class="language-lua">gui.Flow {
-    -- Fits 3 items, including the default spacing
-    w = 3 * (1 + 0.2),
-
-    gui.Image { w = 1, h = 1, texture_name = "default_mese_crystal.png" },
-    gui.Image { w = 1, h = 1, texture_name = "default_mese_crystal.png" },
-    gui.Image { w = 1, h = 1, texture_name = "default_mese_crystal.png" },
-    gui.Image { w = 1, h = 1, texture_name = "default_mese_crystal.png" },
-    gui.Image { w = 1, h = 1, texture_name = "default_mese_crystal.png" },
-}
-</code></pre>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-7-1"><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="nv">gui</span><span class="p">.</span><span class="py">Flow</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-2"><a href="#__codelineno-7-2" id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="w">    </span><span class="c1">-- Fits 3 items, including the default spacing</span>
+</span><span id="__span-7-3"><a href="#__codelineno-7-3" id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="w">    </span><span class="nv">w</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">0.2</span><span class="p">),</span>
+</span><span id="__span-7-4"><a href="#__codelineno-7-4" id="__codelineno-7-4" name="__codelineno-7-4"></a>
+</span><span id="__span-7-5"><a href="#__codelineno-7-5" id="__codelineno-7-5" name="__codelineno-7-5"></a><span class="w">    </span><span class="nv">gui</span><span class="p">.</span><span class="py">Image</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">w</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nv">h</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nv">texture_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"default_mese_crystal.png"</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-7-6"><a href="#__codelineno-7-6" id="__codelineno-7-6" name="__codelineno-7-6"></a><span class="w">    </span><span class="nv">gui</span><span class="p">.</span><span class="py">Image</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">w</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nv">h</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nv">texture_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"default_mese_crystal.png"</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-7-7"><a href="#__codelineno-7-7" id="__codelineno-7-7" name="__codelineno-7-7"></a><span class="w">    </span><span class="nv">gui</span><span class="p">.</span><span class="py">Image</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">w</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nv">h</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nv">texture_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"default_mese_crystal.png"</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-7-8"><a href="#__codelineno-7-8" id="__codelineno-7-8" name="__codelineno-7-8"></a><span class="w">    </span><span class="nv">gui</span><span class="p">.</span><span class="py">Image</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">w</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nv">h</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nv">texture_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"default_mese_crystal.png"</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-7-9"><a href="#__codelineno-7-9" id="__codelineno-7-9" name="__codelineno-7-9"></a><span class="w">    </span><span class="nv">gui</span><span class="p">.</span><span class="py">Image</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">w</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nv">h</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nv">texture_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"default_mese_crystal.png"</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-7-10"><a href="#__codelineno-7-10" id="__codelineno-7-10" name="__codelineno-7-10"></a><span class="p">}</span>
+</span></code></pre></div>
 </article>
 </div>
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>

@@ -698,13 +698,13 @@
 <p><a href="../elements/#guihypertext"><code>gui.Hypertext</code></a> shows text that is written in a small markup language with tags that look like HTML tags. It can be used to make text bold, coloured, bigger, or centred, to add pictures, and to add clickable links.</p>
 <p>The markup language is defined by Luanti, see <a href="https://api.luanti.org/formspec/#markup-language">Markup Language</a> in the Luanti API documentation.</p>
 <p><strong>Warning:</strong> The markup language is currently unstable and may change. Use it with caution. Flow passes the text to Luanti without looking at it, so everything on this page is handled by the player's Luanti client, not by flow.</p>
-<pre><code class="language-lua">gui.Hypertext {
-    w = 8, h = 3,
-    text = "&lt;center&gt;&lt;big&gt;Welcome!&lt;/big&gt;&lt;/center&gt;" ..
-        "This is &lt;b&gt;bold&lt;/b&gt;, &lt;i&gt;italic&lt;/i&gt;, and " ..
-        "&lt;style color='red'&gt;red&lt;/style&gt; text.",
-}
-</code></pre>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nv">gui</span><span class="p">.</span><span class="py">Hypertext</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-2"><a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="w">    </span><span class="nv">w</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="nv">h</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span>
+</span><span id="__span-0-3"><a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="w">    </span><span class="nv">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"&lt;center&gt;&lt;big&gt;Welcome!&lt;/big&gt;&lt;/center&gt;"</span><span class="w"> </span><span class="o">..</span>
+</span><span id="__span-0-4"><a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="w">        </span><span class="s2">"This is &lt;b&gt;bold&lt;/b&gt;, &lt;i&gt;italic&lt;/i&gt;, and "</span><span class="w"> </span><span class="o">..</span>
+</span><span id="__span-0-5"><a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="w">        </span><span class="s2">"&lt;style color='red'&gt;red&lt;/style&gt; text."</span><span class="p">,</span>
+</span><span id="__span-0-6"><a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="p">}</span>
+</span></code></pre></div>
 <p><strong>What flow does not have:</strong> the markup can only be used in <code>gui.Hypertext</code>. Luanti can also show it in a tooltip (<code>hypertip[]</code>), but flow has no element for that, see <a href="../not-supported/">Unsupported Features</a>. Colors in the markup are written like colors everywhere else, see <a href="../elements/#colors">Colors</a>: the client reads them with the same code, so <code>#RGB</code>, <code>#RRGGBB</code>, <code>#RGBA</code>, <code>#RRGGBBAA</code>, color names, and a name with an alpha value (<code>red#80</code>) all work. A color without an alpha value is fully opaque, and a color the client cannot read is ignored.</p>
 <h2 id="syntax">Syntax</h2>
 <p>Some tags enclose text: they open with <code>&lt;tagname&gt;</code> and close with <code>&lt;/tagname&gt;</code>. Tags can have attributes, which are written in the opening tag as <code>key=value</code>. Attribute values should be quoted with either <code>"</code> or <code>'</code>. Inside a Lua string that is already in double quotes, use single quotes, as in <code>&lt;style color='red'&gt;</code>.</p>
@@ -794,17 +794,17 @@
 <h3 id="action-nameaction"><code>&lt;action name=...&gt;...&lt;/action&gt;</code></h3>
 <p>Makes the text inside it clickable. <code>name</code> is required. An optional <code>url</code> attribute is a web address to open when the text is clicked.</p>
 <p>When the player clicks it, the form is sent to the server and the value of the <code>gui.Hypertext</code> element is <code>"action:"</code> followed by the action name. In flow, give the element a <code>name</code> and an <a href="../elements/#events"><code>on_event</code></a> function, and read the value from <a href="../elements/#names-and-values"><code>ctx.form</code></a>. This is experimental and may change.</p>
-<pre><code class="language-lua">gui.Hypertext {
-    w = 6, h = 1,
-    name = "help",
-    text = "Read the &lt;action name='rules'&gt;rules&lt;/action&gt;.",
-    on_event = function(player, ctx)
-        if ctx.form.help == "action:rules" then
-            core.chat_send_player(player:get_player_name(), "No rules!")
-        end
-    end,
-}
-</code></pre>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-1-1"><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="nv">gui</span><span class="p">.</span><span class="py">Hypertext</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-2"><a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="w">    </span><span class="nv">w</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="nv">h</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+</span><span id="__span-1-3"><a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="w">    </span><span class="nv">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"help"</span><span class="p">,</span>
+</span><span id="__span-1-4"><a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="w">    </span><span class="nv">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Read the &lt;action name='rules'&gt;rules&lt;/action&gt;."</span><span class="p">,</span>
+</span><span id="__span-1-5"><a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="w">    </span><span class="nv">on_event</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">function</span><span class="p">(</span><span class="nv">player</span><span class="p">,</span><span class="w"> </span><span class="nv">ctx</span><span class="p">)</span>
+</span><span id="__span-1-6"><a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="w">        </span><span class="kr">if</span><span class="w"> </span><span class="nv">ctx</span><span class="p">.</span><span class="py">form</span><span class="p">.</span><span class="py">help</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">"action:rules"</span><span class="w"> </span><span class="kr">then</span>
+</span><span id="__span-1-7"><a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="w">            </span><span class="nv">core</span><span class="p">.</span><span class="nf">chat_send_player</span><span class="p">(</span><span class="nv">player</span><span class="p">:</span><span class="nf">get_player_name</span><span class="p">(),</span><span class="w"> </span><span class="s2">"No rules!"</span><span class="p">)</span>
+</span><span id="__span-1-8"><a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="w">        </span><span class="kr">end</span>
+</span><span id="__span-1-9"><a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="w">    </span><span class="kr">end</span><span class="p">,</span>
+</span><span id="__span-1-10"><a href="#__codelineno-1-10" id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="p">}</span>
+</span></code></pre></div>
 <h2 id="pictures">Pictures</h2>
 <h3 id="img-name-float-width-height"><code>&lt;img name=... float=... width=... height=...&gt;</code></h3>
 <p>Draws a texture that is in the client's media cache.</p>

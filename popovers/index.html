@@ -457,74 +457,74 @@
 <li><code>on_close_popover</code>: a function that flow calls with <code>(player, ctx)</code> when the player clicks anywhere outside the popover. Like an <code>on_event</code> function, it can return <code>true</code> to redraw the form. Flow only adds this click catcher while a popover is shown.</li>
 </ul>
 <p>See the below example for details on how to use the API. The popover is drawn from the build function, so it can depend on <code>ctx</code>:</p>
-<pre><code class="language-lua">local gui = flow.widgets
-
-local my_gui = flow.make_gui(function(player, ctx)
-    return gui.VBox {
-        -- Some padding is added for the purposes of the demo so that the popup
-        -- isn't off-screen
-        padding = 3,
-        gui.Label { label = "Popover demo:" },
-
-        gui.Stack {
-            gui.Button {
-                label = "Open popover",
-
-                -- When the popover button is clicked, open the popover
-                on_event = function(player, ctx)
-                    ctx.show_popover = true
-                    return true
-                end,
-            },
-
-            -- The actual element to overlay
-            -- "popover" is set to the gui.VBox element if (and only if)
-            -- ctx.show_popover is true, otherwise it's nil so no popover is
-            -- shown.
-            popover = ctx.show_popover and gui.VBox {
-                -- Specifying padding and bgcolor is optional, but is probably
-                -- a good idea since flow doesn't do any styling on its own.
-                padding = 0.2,
-                bgcolor = "#222e",
-
-                -- "side" specifies how the popover is positioned relative to
-                -- the parent, and can be "bottom" (default), "top", "left", or
-                -- "right". It is nil on the first draw, which means "bottom".
-                side = ctx.form.side,
-
-                -- align_h and align_v align the popover according to its
-                -- parent element. You only need to specify align_h for
-                -- side = "top"/"bottom" or align_v for side = "left"/"right",
-                -- this example specifies both so that it can demonstrate
-                -- switching between different sides.
-                align_h = "fill",
-                align_v = "center",
-
-                -- Popover contents
-                gui.Label { label = "Hi there!" },
-                gui.Dropdown {
-                    name = "side",
-                    items = {
-                        "bottom",
-                        "top",
-                        "left",
-                        "right",
-                    },
-                },
-            } or nil,
-
-            -- Clicking outside the popover will call this function, which
-            -- should probably close the popover.
-            on_close_popover = function(player, ctx)
-                ctx.show_popover = false
-                return true
-            end,
-        },
-
-        gui.Label { label = "After popover button" },
-    }
-end)
-</code></pre>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kd">local</span><span class="w"> </span><span class="nv">gui</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">flow</span><span class="p">.</span><span class="py">widgets</span>
+</span><span id="__span-0-2"><a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>
+</span><span id="__span-0-3"><a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="kd">local</span><span class="w"> </span><span class="nv">my_gui</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">flow</span><span class="p">.</span><span class="nf">make_gui</span><span class="p">(</span><span class="kr">function</span><span class="p">(</span><span class="nv">player</span><span class="p">,</span><span class="w"> </span><span class="nv">ctx</span><span class="p">)</span>
+</span><span id="__span-0-4"><a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="nv">gui</span><span class="p">.</span><span class="py">VBox</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-5"><a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="w">        </span><span class="c1">-- Some padding is added for the purposes of the demo so that the popup</span>
+</span><span id="__span-0-6"><a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="w">        </span><span class="c1">-- isn't off-screen</span>
+</span><span id="__span-0-7"><a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="w">        </span><span class="nv">padding</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span>
+</span><span id="__span-0-8"><a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="w">        </span><span class="nv">gui</span><span class="p">.</span><span class="py">Label</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Popover demo:"</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-0-9"><a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a>
+</span><span id="__span-0-10"><a href="#__codelineno-0-10" id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="w">        </span><span class="nv">gui</span><span class="p">.</span><span class="py">Stack</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-11"><a href="#__codelineno-0-11" id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="w">            </span><span class="nv">gui</span><span class="p">.</span><span class="py">Button</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-12"><a href="#__codelineno-0-12" id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="w">                </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Open popover"</span><span class="p">,</span>
+</span><span id="__span-0-13"><a href="#__codelineno-0-13" id="__codelineno-0-13" name="__codelineno-0-13"></a>
+</span><span id="__span-0-14"><a href="#__codelineno-0-14" id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="w">                </span><span class="c1">-- When the popover button is clicked, open the popover</span>
+</span><span id="__span-0-15"><a href="#__codelineno-0-15" id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="w">                </span><span class="nv">on_event</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">function</span><span class="p">(</span><span class="nv">player</span><span class="p">,</span><span class="w"> </span><span class="nv">ctx</span><span class="p">)</span>
+</span><span id="__span-0-16"><a href="#__codelineno-0-16" id="__codelineno-0-16" name="__codelineno-0-16"></a><span class="w">                    </span><span class="nv">ctx</span><span class="p">.</span><span class="py">show_popover</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
+</span><span id="__span-0-17"><a href="#__codelineno-0-17" id="__codelineno-0-17" name="__codelineno-0-17"></a><span class="w">                    </span><span class="kr">return</span><span class="w"> </span><span class="kc">true</span>
+</span><span id="__span-0-18"><a href="#__codelineno-0-18" id="__codelineno-0-18" name="__codelineno-0-18"></a><span class="w">                </span><span class="kr">end</span><span class="p">,</span>
+</span><span id="__span-0-19"><a href="#__codelineno-0-19" id="__codelineno-0-19" name="__codelineno-0-19"></a><span class="w">            </span><span class="p">},</span>
+</span><span id="__span-0-20"><a href="#__codelineno-0-20" id="__codelineno-0-20" name="__codelineno-0-20"></a>
+</span><span id="__span-0-21"><a href="#__codelineno-0-21" id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="w">            </span><span class="c1">-- The actual element to overlay</span>
+</span><span id="__span-0-22"><a href="#__codelineno-0-22" id="__codelineno-0-22" name="__codelineno-0-22"></a><span class="w">            </span><span class="c1">-- "popover" is set to the gui.VBox element if (and only if)</span>
+</span><span id="__span-0-23"><a href="#__codelineno-0-23" id="__codelineno-0-23" name="__codelineno-0-23"></a><span class="w">            </span><span class="c1">-- ctx.show_popover is true, otherwise it's nil so no popover is</span>
+</span><span id="__span-0-24"><a href="#__codelineno-0-24" id="__codelineno-0-24" name="__codelineno-0-24"></a><span class="w">            </span><span class="c1">-- shown.</span>
+</span><span id="__span-0-25"><a href="#__codelineno-0-25" id="__codelineno-0-25" name="__codelineno-0-25"></a><span class="w">            </span><span class="nv">popover</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">ctx</span><span class="p">.</span><span class="py">show_popover</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nv">gui</span><span class="p">.</span><span class="py">VBox</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-26"><a href="#__codelineno-0-26" id="__codelineno-0-26" name="__codelineno-0-26"></a><span class="w">                </span><span class="c1">-- Specifying padding and bgcolor is optional, but is probably</span>
+</span><span id="__span-0-27"><a href="#__codelineno-0-27" id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="w">                </span><span class="c1">-- a good idea since flow doesn't do any styling on its own.</span>
+</span><span id="__span-0-28"><a href="#__codelineno-0-28" id="__codelineno-0-28" name="__codelineno-0-28"></a><span class="w">                </span><span class="nv">padding</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.2</span><span class="p">,</span>
+</span><span id="__span-0-29"><a href="#__codelineno-0-29" id="__codelineno-0-29" name="__codelineno-0-29"></a><span class="w">                </span><span class="nv">bgcolor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"#222e"</span><span class="p">,</span>
+</span><span id="__span-0-30"><a href="#__codelineno-0-30" id="__codelineno-0-30" name="__codelineno-0-30"></a>
+</span><span id="__span-0-31"><a href="#__codelineno-0-31" id="__codelineno-0-31" name="__codelineno-0-31"></a><span class="w">                </span><span class="c1">-- "side" specifies how the popover is positioned relative to</span>
+</span><span id="__span-0-32"><a href="#__codelineno-0-32" id="__codelineno-0-32" name="__codelineno-0-32"></a><span class="w">                </span><span class="c1">-- the parent, and can be "bottom" (default), "top", "left", or</span>
+</span><span id="__span-0-33"><a href="#__codelineno-0-33" id="__codelineno-0-33" name="__codelineno-0-33"></a><span class="w">                </span><span class="c1">-- "right". It is nil on the first draw, which means "bottom".</span>
+</span><span id="__span-0-34"><a href="#__codelineno-0-34" id="__codelineno-0-34" name="__codelineno-0-34"></a><span class="w">                </span><span class="nv">side</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">ctx</span><span class="p">.</span><span class="py">form</span><span class="p">.</span><span class="py">side</span><span class="p">,</span>
+</span><span id="__span-0-35"><a href="#__codelineno-0-35" id="__codelineno-0-35" name="__codelineno-0-35"></a>
+</span><span id="__span-0-36"><a href="#__codelineno-0-36" id="__codelineno-0-36" name="__codelineno-0-36"></a><span class="w">                </span><span class="c1">-- align_h and align_v align the popover according to its</span>
+</span><span id="__span-0-37"><a href="#__codelineno-0-37" id="__codelineno-0-37" name="__codelineno-0-37"></a><span class="w">                </span><span class="c1">-- parent element. You only need to specify align_h for</span>
+</span><span id="__span-0-38"><a href="#__codelineno-0-38" id="__codelineno-0-38" name="__codelineno-0-38"></a><span class="w">                </span><span class="c1">-- side = "top"/"bottom" or align_v for side = "left"/"right",</span>
+</span><span id="__span-0-39"><a href="#__codelineno-0-39" id="__codelineno-0-39" name="__codelineno-0-39"></a><span class="w">                </span><span class="c1">-- this example specifies both so that it can demonstrate</span>
+</span><span id="__span-0-40"><a href="#__codelineno-0-40" id="__codelineno-0-40" name="__codelineno-0-40"></a><span class="w">                </span><span class="c1">-- switching between different sides.</span>
+</span><span id="__span-0-41"><a href="#__codelineno-0-41" id="__codelineno-0-41" name="__codelineno-0-41"></a><span class="w">                </span><span class="nv">align_h</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"fill"</span><span class="p">,</span>
+</span><span id="__span-0-42"><a href="#__codelineno-0-42" id="__codelineno-0-42" name="__codelineno-0-42"></a><span class="w">                </span><span class="nv">align_v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"center"</span><span class="p">,</span>
+</span><span id="__span-0-43"><a href="#__codelineno-0-43" id="__codelineno-0-43" name="__codelineno-0-43"></a>
+</span><span id="__span-0-44"><a href="#__codelineno-0-44" id="__codelineno-0-44" name="__codelineno-0-44"></a><span class="w">                </span><span class="c1">-- Popover contents</span>
+</span><span id="__span-0-45"><a href="#__codelineno-0-45" id="__codelineno-0-45" name="__codelineno-0-45"></a><span class="w">                </span><span class="nv">gui</span><span class="p">.</span><span class="py">Label</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Hi there!"</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-0-46"><a href="#__codelineno-0-46" id="__codelineno-0-46" name="__codelineno-0-46"></a><span class="w">                </span><span class="nv">gui</span><span class="p">.</span><span class="py">Dropdown</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-47"><a href="#__codelineno-0-47" id="__codelineno-0-47" name="__codelineno-0-47"></a><span class="w">                    </span><span class="nv">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"side"</span><span class="p">,</span>
+</span><span id="__span-0-48"><a href="#__codelineno-0-48" id="__codelineno-0-48" name="__codelineno-0-48"></a><span class="w">                    </span><span class="nv">items</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-49"><a href="#__codelineno-0-49" id="__codelineno-0-49" name="__codelineno-0-49"></a><span class="w">                        </span><span class="s2">"bottom"</span><span class="p">,</span>
+</span><span id="__span-0-50"><a href="#__codelineno-0-50" id="__codelineno-0-50" name="__codelineno-0-50"></a><span class="w">                        </span><span class="s2">"top"</span><span class="p">,</span>
+</span><span id="__span-0-51"><a href="#__codelineno-0-51" id="__codelineno-0-51" name="__codelineno-0-51"></a><span class="w">                        </span><span class="s2">"left"</span><span class="p">,</span>
+</span><span id="__span-0-52"><a href="#__codelineno-0-52" id="__codelineno-0-52" name="__codelineno-0-52"></a><span class="w">                        </span><span class="s2">"right"</span><span class="p">,</span>
+</span><span id="__span-0-53"><a href="#__codelineno-0-53" id="__codelineno-0-53" name="__codelineno-0-53"></a><span class="w">                    </span><span class="p">},</span>
+</span><span id="__span-0-54"><a href="#__codelineno-0-54" id="__codelineno-0-54" name="__codelineno-0-54"></a><span class="w">                </span><span class="p">},</span>
+</span><span id="__span-0-55"><a href="#__codelineno-0-55" id="__codelineno-0-55" name="__codelineno-0-55"></a><span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="kc">nil</span><span class="p">,</span>
+</span><span id="__span-0-56"><a href="#__codelineno-0-56" id="__codelineno-0-56" name="__codelineno-0-56"></a>
+</span><span id="__span-0-57"><a href="#__codelineno-0-57" id="__codelineno-0-57" name="__codelineno-0-57"></a><span class="w">            </span><span class="c1">-- Clicking outside the popover will call this function, which</span>
+</span><span id="__span-0-58"><a href="#__codelineno-0-58" id="__codelineno-0-58" name="__codelineno-0-58"></a><span class="w">            </span><span class="c1">-- should probably close the popover.</span>
+</span><span id="__span-0-59"><a href="#__codelineno-0-59" id="__codelineno-0-59" name="__codelineno-0-59"></a><span class="w">            </span><span class="nv">on_close_popover</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">function</span><span class="p">(</span><span class="nv">player</span><span class="p">,</span><span class="w"> </span><span class="nv">ctx</span><span class="p">)</span>
+</span><span id="__span-0-60"><a href="#__codelineno-0-60" id="__codelineno-0-60" name="__codelineno-0-60"></a><span class="w">                </span><span class="nv">ctx</span><span class="p">.</span><span class="py">show_popover</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span>
+</span><span id="__span-0-61"><a href="#__codelineno-0-61" id="__codelineno-0-61" name="__codelineno-0-61"></a><span class="w">                </span><span class="kr">return</span><span class="w"> </span><span class="kc">true</span>
+</span><span id="__span-0-62"><a href="#__codelineno-0-62" id="__codelineno-0-62" name="__codelineno-0-62"></a><span class="w">            </span><span class="kr">end</span><span class="p">,</span>
+</span><span id="__span-0-63"><a href="#__codelineno-0-63" id="__codelineno-0-63" name="__codelineno-0-63"></a><span class="w">        </span><span class="p">},</span>
+</span><span id="__span-0-64"><a href="#__codelineno-0-64" id="__codelineno-0-64" name="__codelineno-0-64"></a>
+</span><span id="__span-0-65"><a href="#__codelineno-0-65" id="__codelineno-0-65" name="__codelineno-0-65"></a><span class="w">        </span><span class="nv">gui</span><span class="p">.</span><span class="py">Label</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"After popover button"</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-0-66"><a href="#__codelineno-0-66" id="__codelineno-0-66" name="__codelineno-0-66"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-0-67"><a href="#__codelineno-0-67" id="__codelineno-0-67" name="__codelineno-0-67"></a><span class="kr">end</span><span class="p">)</span>
+</span></code></pre></div>
 <p>Show the form with <code>my_gui:show(player)</code> as usual.</p>
 <p><code>align_h</code> and <code>align_v</code> are among the <a href="../elements/#parameters-shared-by-all-elements">parameters shared by all elements</a>.</p>
 <p>There are some restrictions on popovers:</p>

@@ -548,9 +548,9 @@
 <p>A form can be shown as a HUD (text and pictures drawn over the game screen) instead of a menu. A HUD cannot be clicked or typed into, so it is only useful for showing information such as a score, a timer, or a status display.</p>
 <p>Flow uses the <a href="https://content.luanti.org/packages/luk3yx/hud_fs/">hud_fs</a> mod to do this. It is an optional dependency, so it must be installed separately. hud_fs only draws some of the formspec elements, and ignores the others, see its page for the list.</p>
 <h2 id="showing-and-closing-a-hud">Showing and closing a HUD</h2>
-<pre><code class="language-lua">my_gui:show_hud(player, ctx)
-my_gui:close_hud(player)
-</code></pre>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nv">my_gui</span><span class="p">:</span><span class="nf">show_hud</span><span class="p">(</span><span class="nv">player</span><span class="p">,</span><span class="w"> </span><span class="nv">ctx</span><span class="p">)</span>
+</span><span id="__span-0-2"><a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="nv">my_gui</span><span class="p">:</span><span class="nf">close_hud</span><span class="p">(</span><span class="nv">player</span><span class="p">)</span>
+</span></code></pre></div>
 <ul>
 <li><code>show_hud(player, ctx)</code> draws the form as a HUD, or redraws it if it is already shown. Without hud_fs it stops with an error. <code>ctx</code> is optional.</li>
 <li><code>close_hud(player)</code> removes the HUD.</li>
@@ -559,37 +559,37 @@ my_gui:close_hud(player)
 <h2 id="updating-a-hud">Updating a HUD</h2>
 <p><code>my_gui:update(player)</code> and <code>my_gui:update_where(func)</code> only affect forms shown with <code>my_gui:show(player)</code>, so they do nothing to a HUD. Call <code>show_hud</code> again to update it.</p>
 <h2 id="example">Example</h2>
-<pre><code class="language-lua">local gui = flow.widgets
-
-local hud = flow.make_gui(function(player, ctx)
-    return gui.VBox {
-        -- Put the HUD in the top-right corner.
-        window_position = { x = 1, y = 0 },
-        window_anchor = { x = 1, y = 0 },
-
-        gui.Label { label = "Score: " .. ctx.score },
-    }
-end)
-
-local contexts = {}
-
-local function set_score(player, score)
-    local name = player:get_player_name()
-    contexts[name] = contexts[name] or {}
-    contexts[name].score = score
-
-    -- Pass the same context every time.
-    hud:show_hud(player, contexts[name])
-end
-
-core.register_on_joinplayer(function(player)
-    set_score(player, 0)
-end)
-
-core.register_on_leaveplayer(function(player)
-    contexts[player:get_player_name()] = nil
-end)
-</code></pre>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-1-1"><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="kd">local</span><span class="w"> </span><span class="nv">gui</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">flow</span><span class="p">.</span><span class="py">widgets</span>
+</span><span id="__span-1-2"><a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>
+</span><span id="__span-1-3"><a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="kd">local</span><span class="w"> </span><span class="nv">hud</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">flow</span><span class="p">.</span><span class="nf">make_gui</span><span class="p">(</span><span class="kr">function</span><span class="p">(</span><span class="nv">player</span><span class="p">,</span><span class="w"> </span><span class="nv">ctx</span><span class="p">)</span>
+</span><span id="__span-1-4"><a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="nv">gui</span><span class="p">.</span><span class="py">VBox</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-5"><a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="w">        </span><span class="c1">-- Put the HUD in the top-right corner.</span>
+</span><span id="__span-1-6"><a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="w">        </span><span class="nv">window_position</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nv">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-1-7"><a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="w">        </span><span class="nv">window_anchor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nv">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-1-8"><a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a>
+</span><span id="__span-1-9"><a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="w">        </span><span class="nv">gui</span><span class="p">.</span><span class="py">Label</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Score: "</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="nv">ctx</span><span class="p">.</span><span class="py">score</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-1-10"><a href="#__codelineno-1-10" id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-1-11"><a href="#__codelineno-1-11" id="__codelineno-1-11" name="__codelineno-1-11"></a><span class="kr">end</span><span class="p">)</span>
+</span><span id="__span-1-12"><a href="#__codelineno-1-12" id="__codelineno-1-12" name="__codelineno-1-12"></a>
+</span><span id="__span-1-13"><a href="#__codelineno-1-13" id="__codelineno-1-13" name="__codelineno-1-13"></a><span class="kd">local</span><span class="w"> </span><span class="nv">contexts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{}</span>
+</span><span id="__span-1-14"><a href="#__codelineno-1-14" id="__codelineno-1-14" name="__codelineno-1-14"></a>
+</span><span id="__span-1-15"><a href="#__codelineno-1-15" id="__codelineno-1-15" name="__codelineno-1-15"></a><span class="kd">local</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="nf">set_score</span><span class="p">(</span><span class="nv">player</span><span class="p">,</span><span class="w"> </span><span class="nv">score</span><span class="p">)</span>
+</span><span id="__span-1-16"><a href="#__codelineno-1-16" id="__codelineno-1-16" name="__codelineno-1-16"></a><span class="w">    </span><span class="kd">local</span><span class="w"> </span><span class="nv">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">player</span><span class="p">:</span><span class="nf">get_player_name</span><span class="p">()</span>
+</span><span id="__span-1-17"><a href="#__codelineno-1-17" id="__codelineno-1-17" name="__codelineno-1-17"></a><span class="w">    </span><span class="nv">contexts</span><span class="p">[</span><span class="nv">name</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">contexts</span><span class="p">[</span><span class="nv">name</span><span class="p">]</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="p">{}</span>
+</span><span id="__span-1-18"><a href="#__codelineno-1-18" id="__codelineno-1-18" name="__codelineno-1-18"></a><span class="w">    </span><span class="nv">contexts</span><span class="p">[</span><span class="nv">name</span><span class="p">].</span><span class="nv">score</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">score</span>
+</span><span id="__span-1-19"><a href="#__codelineno-1-19" id="__codelineno-1-19" name="__codelineno-1-19"></a>
+</span><span id="__span-1-20"><a href="#__codelineno-1-20" id="__codelineno-1-20" name="__codelineno-1-20"></a><span class="w">    </span><span class="c1">-- Pass the same context every time.</span>
+</span><span id="__span-1-21"><a href="#__codelineno-1-21" id="__codelineno-1-21" name="__codelineno-1-21"></a><span class="w">    </span><span class="nv">hud</span><span class="p">:</span><span class="nf">show_hud</span><span class="p">(</span><span class="nv">player</span><span class="p">,</span><span class="w"> </span><span class="nv">contexts</span><span class="p">[</span><span class="nv">name</span><span class="p">])</span>
+</span><span id="__span-1-22"><a href="#__codelineno-1-22" id="__codelineno-1-22" name="__codelineno-1-22"></a><span class="kr">end</span>
+</span><span id="__span-1-23"><a href="#__codelineno-1-23" id="__codelineno-1-23" name="__codelineno-1-23"></a>
+</span><span id="__span-1-24"><a href="#__codelineno-1-24" id="__codelineno-1-24" name="__codelineno-1-24"></a><span class="nv">core</span><span class="p">.</span><span class="nf">register_on_joinplayer</span><span class="p">(</span><span class="kr">function</span><span class="p">(</span><span class="nv">player</span><span class="p">)</span>
+</span><span id="__span-1-25"><a href="#__codelineno-1-25" id="__codelineno-1-25" name="__codelineno-1-25"></a><span class="w">    </span><span class="nf">set_score</span><span class="p">(</span><span class="nv">player</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+</span><span id="__span-1-26"><a href="#__codelineno-1-26" id="__codelineno-1-26" name="__codelineno-1-26"></a><span class="kr">end</span><span class="p">)</span>
+</span><span id="__span-1-27"><a href="#__codelineno-1-27" id="__codelineno-1-27" name="__codelineno-1-27"></a>
+</span><span id="__span-1-28"><a href="#__codelineno-1-28" id="__codelineno-1-28" name="__codelineno-1-28"></a><span class="nv">core</span><span class="p">.</span><span class="nf">register_on_leaveplayer</span><span class="p">(</span><span class="kr">function</span><span class="p">(</span><span class="nv">player</span><span class="p">)</span>
+</span><span id="__span-1-29"><a href="#__codelineno-1-29" id="__codelineno-1-29" name="__codelineno-1-29"></a><span class="w">    </span><span class="nv">contexts</span><span class="p">[</span><span class="nv">player</span><span class="p">:</span><span class="nf">get_player_name</span><span class="p">()]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">nil</span>
+</span><span id="__span-1-30"><a href="#__codelineno-1-30" id="__codelineno-1-30" name="__codelineno-1-30"></a><span class="kr">end</span><span class="p">)</span>
+</span></code></pre></div>
 <h2 id="things-to-know">Things to know</h2>
 <ul>
 <li><strong>No input.</strong> <code>on_event</code> and <code>on_key_enter</code> functions are never called, as the player cannot use a HUD.</li>

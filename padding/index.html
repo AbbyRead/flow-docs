@@ -459,27 +459,27 @@
 <p><code>HBox</code> and <code>VBox</code> have a <code>spacing</code> field which specifies how much spacing there is between elements inside the box. Its default value is described in <a href="../layout-elements/#guivbox"><code>gui.VBox</code></a>.</p>
 <p>Container elements (HBox and VBox) can optionally have <code>bgimg</code> and <code>bgimg_middle</code> parameters that specify a background for the container. <code>bgimg</code> is the name of a texture, which is stretched to fill the container. If <code>bgimg_middle</code> is set as well, the texture is drawn as a <a href="../elements/#nine-slice-images">nine-slice</a> whose corners are <code>bgimg_middle</code> pixels big, so one small texture can make a background of any size. The background will be drawn behind any padding that the container has.</p>
 <p>Example with only <code>bgimg</code>:</p>
-<pre><code class="language-lua">gui.VBox {
-    -- Stretch the texture over the whole box
-    bgimg = "air.png",
-
-    gui.Button { label = "Button 1" },
-    gui.Button { label = "Button 2" },
-}
-</code></pre>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nv">gui</span><span class="p">.</span><span class="py">VBox</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-2"><a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="w">    </span><span class="c1">-- Stretch the texture over the whole box</span>
+</span><span id="__span-0-3"><a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="w">    </span><span class="nv">bgimg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"air.png"</span><span class="p">,</span>
+</span><span id="__span-0-4"><a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a>
+</span><span id="__span-0-5"><a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="w">    </span><span class="nv">gui</span><span class="p">.</span><span class="py">Button</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Button 1"</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-0-6"><a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="w">    </span><span class="nv">gui</span><span class="p">.</span><span class="py">Button</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Button 2"</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-0-7"><a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="p">}</span>
+</span></code></pre></div>
 <p>Example with <code>bgimg_middle</code> as well:</p>
-<pre><code class="language-lua">gui.VBox {
-    padding = 0.5,
-    spacing = 0.1,
-
-    -- Draw the texture as a nine-slice
-    bgimg = "air.png",
-    bgimg_middle = 2,
-
-    gui.Button { label = "Button 1" },
-    gui.Button { label = "Button 2" },
-}
-</code></pre>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-1-1"><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="nv">gui</span><span class="p">.</span><span class="py">VBox</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-2"><a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="w">    </span><span class="nv">padding</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.5</span><span class="p">,</span>
+</span><span id="__span-1-3"><a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="w">    </span><span class="nv">spacing</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.1</span><span class="p">,</span>
+</span><span id="__span-1-4"><a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a>
+</span><span id="__span-1-5"><a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="w">    </span><span class="c1">-- Draw the texture as a nine-slice</span>
+</span><span id="__span-1-6"><a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="w">    </span><span class="nv">bgimg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"air.png"</span><span class="p">,</span>
+</span><span id="__span-1-7"><a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="w">    </span><span class="nv">bgimg_middle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+</span><span id="__span-1-8"><a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a>
+</span><span id="__span-1-9"><a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="w">    </span><span class="nv">gui</span><span class="p">.</span><span class="py">Button</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Button 1"</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-1-10"><a href="#__codelineno-1-10" id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="w">    </span><span class="nv">gui</span><span class="p">.</span><span class="py">Button</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Button 2"</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-1-11"><a href="#__codelineno-1-11" id="__codelineno-1-11" name="__codelineno-1-11"></a><span class="p">}</span>
+</span></code></pre></div>
 <p><img alt="Screenshot" src="../images/buttons-on-background.png"/></p>
 <p>The padding around the VBox is 0.5 and the spacing between the buttons inside it is 0.1.</p>
 </article>
