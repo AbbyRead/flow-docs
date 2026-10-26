@@ -278,6 +278,15 @@
 </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#guiflow">
+<span class="md-ellipsis">
+      
+        gui.Flow
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#guipadding-deprecated">
 <span class="md-ellipsis">
       
@@ -352,6 +361,18 @@
 </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="../security/">
+<span class="md-ellipsis">
+    
+  
+    Security
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../styling/">
 <span class="md-ellipsis">
     
@@ -405,6 +426,18 @@
     
   
     Using a form as an inventory
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../huds/">
+<span class="md-ellipsis">
+    
+  
+    Using a form as a HUD
   
 
     
@@ -603,6 +636,15 @@
 </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#guiflow">
+<span class="md-ellipsis">
+      
+        gui.Flow
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#guipadding-deprecated">
 <span class="md-ellipsis">
       
@@ -633,8 +675,7 @@
     gui.Label { label = "I am a second label!" },
 }
 </code></pre>
-<!-- TODO(P3,link): spacing is also described in padding.md; cross-link. -->
-<p>Elements inside boxes have a spacing of 0.2 between them. To change this, you can add <code>spacing = &lt;number&gt;</code> to the box definition. For example, <code>spacing = 0</code> will remove all spacing between the elements.</p>
+<p>Elements inside boxes have a spacing of 0.2 between them. To change this, you can add <code>spacing = &lt;number&gt;</code> to the box definition. For example, <code>spacing = 0</code> will remove all spacing between the elements. <code>gui.HBox</code> and <code>gui.Flow</code> have the same <code>spacing</code> parameter and default. Spacing is the gap between the elements of a box, while <a href="../padding/">padding</a> is the space around a single element.</p>
 <h2 id="guihbox"><code>gui.HBox</code></h2>
 <p>Like <code>gui.VBox</code> but stacks elements horizontally instead.</p>
 <pre><code class="language-lua">gui.HBox {
@@ -688,8 +729,7 @@
     gui.Button { label = "Confirm" },
 }
 </code></pre>
-<!-- TODO(P2,clarify): first person is the flow author's voice; reword for an unofficial doc. "align = ..." should be align_h / align_v (no align parameter exists). -->
-<p>I advise against using spacers when <code>expand = true</code> and <code>align = ...</code> would work just as well since spacers are implemented hackily and won't account for some special cases.</p>
+<p>Prefer <code>expand = true</code> with <code>align_h</code> or <code>align_v</code> when that gives the same result. Spacers are implemented as hidden containers and do not handle some special cases.</p>
 <p>You can replicate the above example without spacers, however the code doesn't look as clean:</p>
 <pre><code class="language-lua">gui.HBox {
     -- These buttons will be on the left-hand side of the screen
@@ -714,8 +754,7 @@ gui.HBox {
 </code></pre>
 <p>This applies to other elements as well, because using HBox and Spacer to center elements creates unnecessary containers.</p>
 <h2 id="guinil"><code>gui.Nil</code></h2>
-<!-- TODO(P3,link): cross-link hiding-elements.md (visible = false keeps space, gui.Nil removes it). -->
-<p>A tool to allow for ternary-ish conditional widgets:</p>
+<p>A tool to allow for ternary-ish conditional widgets. Unlike an element with <code>visible = false</code> (see <a href="../hiding-elements/">Hiding elements</a>), which keeps its space, a <code>gui.Nil</code> takes up no space:</p>
 <pre><code class="language-lua">local form = flow.make_gui(function(player, ctx)
     local the_boolean = false
     return gui.VBox {
@@ -740,7 +779,8 @@ end)
 <h2 id="guipaginatedvbox"><code>gui.PaginatedVBox</code></h2>
 <p>Like <code>gui.ScrollableVBox</code>, but splits the contents into pages instead of scrolling. Only one page is shown at a time, with a <code>&lt;</code> button, a "Page 1 of 3" label, and a <code>&gt;</code> button underneath to change page. It needs a unique <code>name</code>, and <code>w</code> and <code>h</code> work the same way as for <code>gui.ScrollableVBox</code>. Elements are never cut in half: an element that does not fit on a page starts the next one.</p>
 <p><code>gui.ScrollableVBox</code> uses this automatically on clients that cannot scroll.</p>
-<!-- TODO(P2,link): gui.Flow (experimental.md#guiflow-container) is missing from this page; add an entry. -->
+<h2 id="guiflow"><code>gui.Flow</code></h2>
+<p>A container with a fixed width that wraps its children onto new rows when they do not fit. You must give it a <code>w</code>, and it does not support <code>h</code>, <code>min_w</code>, or <code>padding</code>. Use <code>spacing</code> to change the gap between elements (the default is the same as for <a href="#guivbox"><code>gui.VBox</code></a>). See <a href="../experimental/#guiflow-container">Experimental features</a> for details and an example.</p>
 <h2 id="guipadding-deprecated"><code>gui.Padding</code> (deprecated)</h2>
 <p>Wraps a single element to add padding around it. It is deprecated and logs a warning, use the <code>padding</code> parameter of the element itself instead, see <a href="../padding/">Padding</a>.</p>
 </article>

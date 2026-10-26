@@ -6,7 +6,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="../hypertext/" rel="prev"/>
-<link href="../styling/" rel="next"/>
+<link href="../security/" rel="next"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.6.1, mkdocs-material-9.8.0" name="generator"/>
 <title>Unsupported Features - Flow Unofficial Docs</title>
@@ -298,9 +298,34 @@
       
     </span>
 </a>
+<nav aria-label="Newer Luanti features" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#formspec-versions-and-luanti-releases">
+<span class="md-ellipsis">
+      
+        Formspec versions and Luanti releases
+      
+    </span>
+</a>
 </li>
 </ul>
 </nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../security/">
+<span class="md-ellipsis">
+    
+  
+    Security
+  
+
+    
+  </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../styling/">
@@ -356,6 +381,18 @@
     
   
     Using a form as an inventory
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../huds/">
+<span class="md-ellipsis">
+    
+  
+    Using a form as a HUD
   
 
     
@@ -512,6 +549,19 @@
       
     </span>
 </a>
+<nav aria-label="Newer Luanti features" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#formspec-versions-and-luanti-releases">
+<span class="md-ellipsis">
+      
+        Formspec versions and Luanti releases
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -521,8 +571,7 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1 id="unsupported-features">Unsupported Features</h1>
-<!-- TODO(P3,link): link each formspec element named below to the Luanti formspec docs (lua_api.md). -->
-<p>Flow does not support everything that Luanti formspecs can do. This page lists what is missing, so you know before you look for it. Where there is a way to get a similar result, it is mentioned.</p>
+<p>Flow does not support everything that Luanti formspecs can do. This page lists what is missing, so you know before you look for it. Where there is a way to get a similar result, it is mentioned. Each formspec element links to its description in the <a href="https://api.luanti.org/formspec/">Luanti API documentation</a>.</p>
 <h2 id="missing-elements">Missing elements</h2>
 <table>
 <thead>
@@ -534,57 +583,121 @@
 </thead>
 <tbody>
 <tr>
-<td><code>hypertip[]</code></td>
+<td><a href="https://api.luanti.org/formspec/#hypertipgui_element_namestaticposwidthnametext"><code>hypertip[]</code></a></td>
 <td>A tooltip that shows formatted text (see <a href="../hypertext/">Hypertext markup</a>).</td>
 <td>Flow tooltips only show plain text with the <code>tooltip</code> parameter or <a href="../elements/#guitooltip"><code>gui.Tooltip</code></a>. The markup language can only be used in <a href="../elements/#guihypertext"><code>gui.Hypertext</code></a>.</td>
 </tr>
 <tr>
-<td><code>allow_close[]</code></td>
+<td><a href="https://api.luanti.org/formspec/#allow_closebool"><code>allow_close[]</code></a></td>
 <td>Stops the Escape key (and similar) from closing the form.</td>
 <td>Nothing. Players can always close a flow form. You can run code when they do with <a href="../experimental/#running-code-when-a-form-is-closed"><code>on_quit</code></a>, but you cannot stop it.</td>
 </tr>
 <tr>
-<td><code>listimages[]</code></td>
+<td><a href="https://api.luanti.org/formspec/#listimagesslot_bgimg_normalslot_bgimg_hover"><code>listimages[]</code></a></td>
 <td>Pictures for the background of inventory slots.</td>
 <td><a href="../elements/#guilistcolors"><code>gui.Listcolors</code></a> only sets colors.</td>
 </tr>
 <tr>
-<td><code>label[x,y;w,h;text]</code></td>
+<td><a href="https://api.luanti.org/formspec/#labelxywhlabel"><code>label[x,y;w,h;text]</code></a></td>
 <td>A label that wraps long text inside a given size (an "area label").</td>
 <td><a href="../elements/#guitextarea"><code>gui.Textarea</code></a> without a <code>name</code>, or <a href="../elements/#guihypertext"><code>gui.Hypertext</code></a>. Because of this, the <code>halign</code> and <code>valign</code> styles do not do anything for <code>gui.Label</code>.</td>
 </tr>
 <tr>
-<td><code>tooltip[x,y;w,h;...]</code></td>
+<td><a href="https://api.luanti.org/formspec/#tooltipxywhtooltip_textbgcolorfontcolor"><code>tooltip[x,y;w,h;...]</code></a></td>
 <td>A tooltip for an area instead of an element.</td>
 <td>The <code>tooltip</code> parameter of any element (flow uses the area of an element without a <code>name</code> for you). <code>gui.Tooltip</code> can only be attached to a named element.</td>
 </tr>
 <tr>
-<td><code>field[name;label;default]</code></td>
+<td><a href="https://api.luanti.org/formspec/#fieldnamelabeldefault"><code>field[name;label;default]</code></a></td>
 <td>A small form with a single field and an automatic "Proceed" button (for example for signs).</td>
 <td>Use a <code>gui.Field</code> and a <code>gui.Button</code>.</td>
 </tr>
 </tbody>
 </table>
 <h2 id="missing-parameters">Missing parameters</h2>
-<!-- TODO(P3,link): link gui.ScrollbarOptions to elements.md#guiscrollbaroptions. -->
 <ul>
-<li><strong>Content padding of scroll containers.</strong> Luanti can work out the range of a scroll container's scrollbar for you, but flow's <a href="../elements/#guiscrollcontainer"><code>gui.ScrollContainer</code></a> does not expose this, so you have to set the range yourself with <code>gui.ScrollbarOptions</code>. <a href="../layout-elements/#guiscrollablevbox"><code>gui.ScrollableVBox</code></a> already does this for you.</li>
+<li><strong>Content padding of scroll containers.</strong> Luanti can work out the range of a scroll container's scrollbar for you, but flow's <a href="../elements/#guiscrollcontainer"><code>gui.ScrollContainer</code></a> does not expose this, so you have to set the range yourself with <a href="../elements/#guiscrollbaroptions"><code>gui.ScrollbarOptions</code></a>. <a href="../layout-elements/#guiscrollablevbox"><code>gui.ScrollableVBox</code></a> already does this for you.</li>
 <li><strong>Node formspec inventory locations.</strong> The <code>"current_node"</code> inventory location refers to the node whose formspec is open. A flow form cannot be the formspec of a node, so use <code>"nodemeta:X,Y,Z"</code> to show a node's inventory instead.</li>
 </ul>
 <h2 id="things-flow-does-for-you">Things flow does for you</h2>
 <p>These formspec elements exist, but flow generates them itself and you cannot write them:</p>
-<!-- TODO(P3,link): link no_prepend and bgcolor to experimental.md#no_prepend and experimental.md#bgcolor. -->
 <ul>
-<li><code>size[]</code>: The size of the form is worked out from the elements in it.</li>
-<li><code>position[]</code>, <code>anchor[]</code>, and <code>padding[]</code>: Use the <code>window_position</code>, <code>window_anchor</code>, and <code>window_padding</code> options of the root element, see <a href="../experimental/#putting-the-form-somewhere-else-on-the-screen-likely-required-for-most-huds">Experimental features</a>.</li>
-<li><code>no_prepend[]</code> and <code>bgcolor[]</code>: Use the <code>no_prepend</code>, <code>bgcolor</code>, <code>fbgcolor</code>, and <code>bg_fullscreen</code> options of the root element.</li>
-<li><code>real_coordinates[]</code>: Flow always uses the newer coordinate system, where there is no hidden padding or spacing between elements.</li>
-<li><code>container_end[]</code> and <code>scroll_container_end[]</code>: Elements inside <code>gui.Container</code> and <code>gui.ScrollContainer</code> are written inside the table.</li>
-<li><code>formspec_version[]</code>: Flow always uses formspec version 7.</li>
+<li><a href="https://api.luanti.org/formspec/#sizewhfixed_size"><code>size[]</code></a>: The size of the form is worked out from the elements in it.</li>
+<li><a href="https://api.luanti.org/formspec/#positionxy"><code>position[]</code></a>, <a href="https://api.luanti.org/formspec/#anchorxy"><code>anchor[]</code></a>, and <a href="https://api.luanti.org/formspec/#paddingxy"><code>padding[]</code></a>: Use the <code>window_position</code>, <code>window_anchor</code>, and <code>window_padding</code> options of the root element, see <a href="../experimental/#window-position">Window position</a>.</li>
+<li><a href="https://api.luanti.org/formspec/#no_prepend"><code>no_prepend[]</code></a> and <a href="https://api.luanti.org/formspec/#bgcolorbgcolorfullscreenfbgcolor"><code>bgcolor[]</code></a>: Use the <a href="../experimental/#no_prepend"><code>no_prepend</code></a> option and the <a href="../experimental/#bgcolor"><code>bgcolor</code>, <code>fbgcolor</code>, and <code>bg_fullscreen</code></a> options of the root element.</li>
+<li><a href="https://api.luanti.org/formspec/#real_coordinatesbool"><code>real_coordinates[]</code></a>: Flow always uses the newer coordinate system, where there is no hidden padding or spacing between elements.</li>
+<li><a href="https://api.luanti.org/formspec/#container_end"><code>container_end[]</code></a> and <a href="https://api.luanti.org/formspec/#scroll_container_end"><code>scroll_container_end[]</code></a>: Elements inside <code>gui.Container</code> and <code>gui.ScrollContainer</code> are written inside the table.</li>
+<li><a href="https://api.luanti.org/formspec/#formspec_versionversion"><code>formspec_version[]</code></a>: Flow always uses formspec version 7.</li>
 </ul>
 <h2 id="newer-luanti-features">Newer Luanti features</h2>
-<!-- TODO(P2,clarify): styling.md gives Luanti releases (5.17, 5.18) where this page gives formspec versions (11, 12); add a version -> release table and link it from both. -->
 <p>Because flow always uses formspec version 7 (Luanti 5.8), features that were added in newer versions may not work, even if the missing element or parameter is not listed above. This includes the area label (version 9), floating-point animation frames in <code>gui.Model</code> (version 10), and the <code>halign</code> and <code>valign</code> styles of fields and text areas (version 11), and the <code>editable</code> style of checkboxes, dropdowns, and fields (version 12, the only addition in that version). Formspec versions are described in the "Formspec Version History" section of the Luanti API documentation.</p>
+<h3 id="formspec-versions-and-luanti-releases">Formspec versions and Luanti releases</h3>
+<table>
+<thead>
+<tr>
+<th>Formspec version</th>
+<th>Luanti release</th>
+<th>Notable additions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2</td>
+<td>5.1.0</td>
+<td>Real coordinates always on, <code>background9[]</code></td>
+</tr>
+<tr>
+<td>3</td>
+<td>5.2.0</td>
+<td>Draw order follows definition order, <code>scroll_container[]</code></td>
+</tr>
+<tr>
+<td>4</td>
+<td>5.4.0</td>
+<td>Dropdown index events</td>
+</tr>
+<tr>
+<td>5</td>
+<td>5.5.0</td>
+<td><code>padding[]</code></td>
+</tr>
+<tr>
+<td>6</td>
+<td>5.6.0</td>
+<td>Nine-slice images, <code>animated_image[]</code></td>
+</tr>
+<tr>
+<td>7</td>
+<td>5.8.0</td>
+<td>Focused button state, <code>field_enter_after_edit[]</code> (the version flow uses)</td>
+</tr>
+<tr>
+<td>8</td>
+<td>5.10.0</td>
+<td>Scroll container content padding</td>
+</tr>
+<tr>
+<td>9</td>
+<td>5.12.0</td>
+<td><code>allow_close[]</code>, area <code>label[]</code></td>
+</tr>
+<tr>
+<td>10</td>
+<td>5.13.0</td>
+<td>Floating-point <code>model[]</code> frames</td>
+</tr>
+<tr>
+<td>11</td>
+<td>5.17.0</td>
+<td><code>hypertip[]</code>, text alignment styles</td>
+</tr>
+<tr>
+<td>12</td>
+<td>5.18.0</td>
+<td><code>editable</code> style</td>
+</tr>
+</tbody>
+</table>
 </article>
 </div>
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>

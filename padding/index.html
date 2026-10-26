@@ -247,6 +247,18 @@
 </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="../security/">
+<span class="md-ellipsis">
+    
+  
+    Security
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../styling/">
 <span class="md-ellipsis">
     
@@ -301,6 +313,18 @@
     
   
     Using a form as an inventory
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../huds/">
+<span class="md-ellipsis">
+    
+  
+    Using a form as a HUD
   
 
     
@@ -424,24 +448,31 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1 id="padding-spacing-and-backgrounds">Padding, spacing, and backgrounds</h1>
-<!-- TODO(P3,link): link build_func to getting-started.md, units to elements.md#sizes, and gui.Padding to layout-elements.md. -->
-<p>Most elements can have a <code>padding</code> value, which will add the specified amount of padding around the element. The "root" element of the form (the one returned by <code>build_func</code>) has a default padding of 0.3, everything else has a default padding of 0.</p>
+<p>Most elements can have a <code>padding</code> value, which will add the specified amount of padding around the element, measured in <a href="../elements/#sizes">slot units</a>. The "root" element of the form (the one returned by the <a href="../getting-started/">build function</a>) has a default padding of 0.3, everything else has a default padding of 0.</p>
 <p><code>padding</code> is ignored on these elements:</p>
 <ul>
 <li><code>gui.Flow</code>, <code>gui.ScrollableVBox</code>, and <code>gui.PaginatedVBox</code>. To pad one, put it inside a <code>gui.VBox</code> (or another layouting element) and set <code>padding</code> on that instead.</li>
 <li>Elements inside a <code>gui.Container</code>, which are placed at their <code>x</code> and <code>y</code> and are not padded.</li>
 <li>Invisible elements such as <code>gui.Style</code>, which take up no space.</li>
 </ul>
-<!-- TODO(P3,link): spacing is also described in layout-elements.md (gui.VBox); keep the 0.2 default in one place and cross-link. -->
-<p><code>HBox</code> and <code>VBox</code> have a <code>spacing</code> field which specifies how much spacing there is between elements inside the box. If unspecified, <code>spacing</code> will default to 0.2.</p>
-<p>Container elements (HBox and VBox) can optionally have <code>bgimg</code> and <code>bgimg_middle</code> parameters that specify a background for the container. <code>bgimg</code> is the name of a texture. If <code>bgimg_middle</code> is set, the texture is drawn as a <a href="../elements/#nine-slice-images">nine-slice</a> whose corners are <code>bgimg_middle</code> pixels big, so one small texture can make a background of any size. The background will be drawn behind any padding that the container has.</p>
-<!-- TODO(P3,clarify): code comment says bgimg works without bgimg_middle but the example sets both; show the plain bgimg case or reword. -->
-<p>Example:</p>
+<p>There is also a deprecated <a href="../layout-elements/#guipadding-deprecated"><code>gui.Padding</code></a> element that wraps a single element and pads it. Use the <code>padding</code> parameter instead.</p>
+<p><code>HBox</code> and <code>VBox</code> have a <code>spacing</code> field which specifies how much spacing there is between elements inside the box. Its default value is described in <a href="../layout-elements/#guivbox"><code>gui.VBox</code></a>.</p>
+<p>Container elements (HBox and VBox) can optionally have <code>bgimg</code> and <code>bgimg_middle</code> parameters that specify a background for the container. <code>bgimg</code> is the name of a texture, which is stretched to fill the container. If <code>bgimg_middle</code> is set as well, the texture is drawn as a <a href="../elements/#nine-slice-images">nine-slice</a> whose corners are <code>bgimg_middle</code> pixels big, so one small texture can make a background of any size. The background will be drawn behind any padding that the container has.</p>
+<p>Example with only <code>bgimg</code>:</p>
+<pre><code class="language-lua">gui.VBox {
+    -- Stretch the texture over the whole box
+    bgimg = "air.png",
+
+    gui.Button { label = "Button 1" },
+    gui.Button { label = "Button 2" },
+}
+</code></pre>
+<p>Example with <code>bgimg_middle</code> as well:</p>
 <pre><code class="language-lua">gui.VBox {
     padding = 0.5,
     spacing = 0.1,
 
-    -- bgimg can be used without bgimg_middle
+    -- Draw the texture as a nine-slice
     bgimg = "air.png",
     bgimg_middle = 2,
 

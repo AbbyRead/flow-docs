@@ -183,6 +183,19 @@
       
     </span>
 </a>
+<nav aria-label="Updating forms" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#redrawing-when-a-value-changes">
+<span class="md-ellipsis">
+      
+        Redrawing when a value changes
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -285,6 +298,18 @@
 </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="../security/">
+<span class="md-ellipsis">
+    
+  
+    Security
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../styling/">
 <span class="md-ellipsis">
     
@@ -338,6 +363,18 @@
     
   
     Using a form as an inventory
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../huds/">
+<span class="md-ellipsis">
+    
+  
+    Using a form as a HUD
   
 
     
@@ -476,6 +513,19 @@
       
     </span>
 </a>
+<nav aria-label="Updating forms" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#redrawing-when-a-value-changes">
+<span class="md-ellipsis">
+      
+        Redrawing when a value changes
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -485,12 +535,9 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1 id="getting-started">Getting started</h1>
-<!-- TODO(P3,link): link gui.VBox to layout-elements.md#guivbox on first mention. -->
-<!-- TODO(P2,clarify): "build function" here vs build_func in padding.md; pick one term and define it. -->
-<p>A <em>form</em> is a menu that is shown to a player. It is made of <em>elements</em> (also called widgets), such as labels, buttons, text fields, and inventory slots, which are arranged by layout elements like <code>gui.VBox</code>. You describe a form with a <em>build function</em> that returns the elements, and flow works out the positions and sizes and shows the form for you. See <a href="../elements/">Elements</a> for what each element does.</p>
+<p>A <em>form</em> is a menu that is shown to a player. It is made of <em>elements</em> (also called widgets), such as labels, buttons, text fields, and inventory slots, which are arranged by layout elements like <a href="../layout-elements/#guivbox"><code>gui.VBox</code></a>. You describe a form with a <em>build function</em>, which is the function you pass to <code>flow.make_gui()</code>. It returns the elements, and flow works out the positions and sizes and shows the form for you. This documentation always calls it the build function. See <a href="../elements/">Elements</a> for what each element does.</p>
 <h2 id="basic-example">Basic example</h2>
-<!-- TODO(P2,link): example.lua has no link or location (also in manual-positioning.md); link it in the flow repo. -->
-<p>See <code>example.lua</code> for a more comprehensive example which demonstrates how layouting and alignment works.</p>
+<p>See <a href="https://gitlab.com/luk3yx/minetest-flow/-/blob/main/example.lua"><code>example.lua</code></a> in the flow repository for a more comprehensive example which demonstrates how layouting and alignment works. In singleplayer, a player with the <code>server</code> privilege can also run <code>/flow-example</code> to open it in the game.</p>
 <p>The build function is called with the player and a context table (<code>ctx</code>) every time the form is drawn. <code>ctx</code> belongs to one player's copy of the form: flow keeps the same table for as long as the form is open, passes it to the build function and to every <code>on_event</code> function, and you can store anything in it. Flow adds a <code>ctx.form</code> table to it, which holds the current values of the form's named inputs (see <a href="../elements/#names-and-values">Names and values</a>).</p>
 <p><code>form:show(player, ctx)</code> shows the form to a player. The second argument is the starting <code>ctx</code>. Flow uses that table itself instead of a copy, and uses a new empty table if you leave it out.</p>
 <p>The example below uses a player called <code>playground</code>, which only exists in the online playground. In a mod, use a real player object instead, such as the one passed to a chat command or to <code>core.register_on_joinplayer</code>.</p>
@@ -543,8 +590,7 @@ end)
 -- Re-shows the form for all players with the form open
 my_gui:update_where(function() return true end)
 </code></pre>
-<!-- TODO(P3,link): link on_event / return true to elements.md#events. -->
-<p>Inside an <code>on_event</code> handler, you can use <code>return true</code> instead.</p>
+<p>Inside an <a href="../elements/#events"><code>on_event</code> handler</a>, you can use <code>return true</code> instead.</p>
 <pre><code class="language-lua">gui.Button {
     label = "Update form",
     on_event = function(player, ctx)
@@ -552,8 +598,27 @@ my_gui:update_where(function() return true end)
     end,
 }
 </code></pre>
-<!-- TODO(P2,link): no page documents show_hud / close_hud; add one and link experimental.md#putting-the-form-somewhere-else-on-the-screen-likely-required-for-most-huds and inventory.md. -->
-<p>If you're using a form as a HUD, you must call <code>my_gui:show_hud(player)</code> to update it.</p>
+<p>If you're using a form as a HUD, you must call <code>my_gui:show_hud(player)</code> to update it. See <a href="../huds/">HUDs</a> for how to show and close one.</p>
+<h3 id="redrawing-when-a-value-changes">Redrawing when a value changes</h3>
+<p>You often do not need <code>return true</code>. If your build function reads the value of a named input from <code>ctx.form</code>, flow notices and redraws the form by itself whenever the player changes that value.</p>
+<pre><code class="language-lua">local form = flow.make_gui(function(player, ctx)
+    return gui.VBox {
+        gui.Checkbox { name = "advanced", label = "Show advanced options" },
+
+        -- Reading ctx.form.advanced here makes flow redraw the form
+        -- whenever the checkbox changes.
+        ctx.form.advanced and gui.Label { label = "Advanced options" }
+            or gui.Nil {},
+    }
+end)
+</code></pre>
+<p>The rules are:</p>
+<ul>
+<li>Only reads while the build function runs count, including reads in helper functions that it calls. Reading <code>ctx.form</code> inside an <code>on_event</code> function does not.</li>
+<li>The form is only redrawn if the value is different from the stored one.</li>
+<li>If the element has its own <code>on_event</code> function, there is no automatic redraw. That function has to <code>return true</code> instead.</li>
+<li>Text fields only send their text when the player presses a button or Enter (see <a href="../elements/#names-and-values">Names and values</a>), so the redraw happens then.</li>
+</ul>
 </article>
 </div>
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>

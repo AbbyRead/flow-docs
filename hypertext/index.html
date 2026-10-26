@@ -378,6 +378,18 @@
 </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="../security/">
+<span class="md-ellipsis">
+    
+  
+    Security
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../styling/">
 <span class="md-ellipsis">
     
@@ -431,6 +443,18 @@
     
   
     Using a form as an inventory
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../huds/">
+<span class="md-ellipsis">
+    
+  
+    Using a form as a HUD
   
 
     
@@ -672,7 +696,7 @@
 <article class="md-content__inner md-typeset">
 <h1 id="hypertext-markup">Hypertext markup</h1>
 <p><a href="../elements/#guihypertext"><code>gui.Hypertext</code></a> shows text that is written in a small markup language with tags that look like HTML tags. It can be used to make text bold, coloured, bigger, or centred, to add pictures, and to add clickable links.</p>
-<!-- TODO(P3,link): link the upstream Luanti hypertext documentation (lua_api.md). -->
+<p>The markup language is defined by Luanti, see <a href="https://api.luanti.org/formspec/#markup-language">Markup Language</a> in the Luanti API documentation.</p>
 <p><strong>Warning:</strong> The markup language is currently unstable and may change. Use it with caution. Flow passes the text to Luanti without looking at it, so everything on this page is handled by the player's Luanti client, not by flow.</p>
 <pre><code class="language-lua">gui.Hypertext {
     w = 8, h = 3,
@@ -681,19 +705,16 @@
         "&lt;style color='red'&gt;red&lt;/style&gt; text.",
 }
 </code></pre>
-<!-- TODO(P3,link): link text "Unsupported Features" does not match the page title "Unsupported Features" (also elements.md, hypertext.md, styling.md x3). -->
-<!-- TODO(P2,clarify): hypertext colors are parsed by the client; confirm color names and alpha forms from elements.md#colors are accepted. -->
-<p><strong>What flow does not have:</strong> the markup can only be used in <code>gui.Hypertext</code>. Luanti can also show it in a tooltip (<code>hypertip[]</code>), but flow has no element for that, see <a href="../not-supported/">Unsupported Features</a>. Colors in the markup are written like colors everywhere else, see <a href="../elements/#colors">Colors</a>.</p>
+<p><strong>What flow does not have:</strong> the markup can only be used in <code>gui.Hypertext</code>. Luanti can also show it in a tooltip (<code>hypertip[]</code>), but flow has no element for that, see <a href="../not-supported/">Unsupported Features</a>. Colors in the markup are written like colors everywhere else, see <a href="../elements/#colors">Colors</a>: the client reads them with the same code, so <code>#RGB</code>, <code>#RRGGBB</code>, <code>#RGBA</code>, <code>#RRGGBBAA</code>, color names, and a name with an alpha value (<code>red#80</code>) all work. A color without an alpha value is fully opaque, and a color the client cannot read is ignored.</p>
 <h2 id="syntax">Syntax</h2>
 <p>Some tags enclose text: they open with <code>&lt;tagname&gt;</code> and close with <code>&lt;/tagname&gt;</code>. Tags can have attributes, which are written in the opening tag as <code>key=value</code>. Attribute values should be quoted with either <code>"</code> or <code>'</code>. Inside a Lua string that is already in double quotes, use single quotes, as in <code>&lt;style color='red'&gt;</code>.</p>
 <p>To write a literal <code>&lt;</code>, <code>&gt;</code>, or <code>\</code> in the text, put a backslash before it. In a quoted attribute value, put a backslash before a literal quote mark. In Lua code, each backslash has to be written twice (<code>"\\&lt;"</code>), or you can use a long string (<code>[[\&lt;]]</code>).</p>
 <h2 id="basic-tags">Basic tags</h2>
-<!-- TODO(P2,clarify): "size" format and units are not given (absolute, or relative like +2 / *1.5 as in styling.md?). -->
 <h3 id="style-color-font-sizestyle"><code>&lt;style color=... font=... size=...&gt;...&lt;/style&gt;</code></h3>
 <p>Changes the style of the text inside it.</p>
 <ul>
 <li><code>color</code>: Text color.</li>
-<li><code>size</code>: Text size.</li>
+<li><code>size</code>: Text size, a whole number where <code>16</code> is the normal size (the size the player chose in their settings), so <code>32</code> is twice as big and <code>8</code> is half as big. <code>&lt;big&gt;</code> is <code>24</code> and <code>&lt;bigger&gt;</code> is <code>36</code>. The relative values from <a href="../styling/#text-properties">Styling</a> are not supported: <code>*1.5</code> is ignored and <code>+2</code> is read as plain <code>2</code>.</li>
 <li><code>font</code>: Text font, <code>mono</code> or <code>normal</code>.</li>
 </ul>
 <h3 id="global"><code>&lt;global ...&gt;</code></h3>
@@ -708,7 +729,7 @@
 <ul>
 <li><code>color</code>: Default text color.</li>
 <li><code>hovercolor</code>: Color of <code>&lt;action&gt;</code> links while the mouse is over them.</li>
-<li><code>size</code>: Default text size.</li>
+<li><code>size</code>: Default text size, written like <code>size</code> in <code>&lt;style&gt;</code>.</li>
 <li><code>font</code>: Default font, <code>mono</code> or <code>normal</code>.</li>
 <li><code>halign</code>: Default horizontal alignment: <code>left</code>, <code>right</code>, <code>center</code>, or <code>justify</code>.</li>
 </ul>
@@ -718,7 +739,7 @@
 <li><code>name</code>: The name of the tag to define or change.</li>
 <li><code>color</code>: Text color.</li>
 <li><code>hovercolor</code>: Text color while the mouse is over it (only for <code>action</code> tags).</li>
-<li><code>size</code>: Text size.</li>
+<li><code>size</code>: Text size, written like <code>size</code> in <code>&lt;style&gt;</code>.</li>
 <li><code>font</code>: Text font, <code>mono</code> or <code>normal</code>.</li>
 </ul>
 <h2 id="layout-tags">Layout tags</h2>
@@ -772,8 +793,7 @@
 <h2 id="links">Links</h2>
 <h3 id="action-nameaction"><code>&lt;action name=...&gt;...&lt;/action&gt;</code></h3>
 <p>Makes the text inside it clickable. <code>name</code> is required. An optional <code>url</code> attribute is a web address to open when the text is clicked.</p>
-<!-- TODO(P3,link): link ctx.form and on_event to elements.md#names-and-values and elements.md#events. -->
-<p>When the player clicks it, the form is sent to the server and the value of the <code>gui.Hypertext</code> element is <code>"action:"</code> followed by the action name. In flow, give the element a <code>name</code> and an <code>on_event</code> function, and read the value from <code>ctx.form</code>. This is experimental and may change.</p>
+<p>When the player clicks it, the form is sent to the server and the value of the <code>gui.Hypertext</code> element is <code>"action:"</code> followed by the action name. In flow, give the element a <code>name</code> and an <a href="../elements/#events"><code>on_event</code></a> function, and read the value from <a href="../elements/#names-and-values"><code>ctx.form</code></a>. This is experimental and may change.</p>
 <pre><code class="language-lua">gui.Hypertext {
     w = 6, h = 1,
     name = "help",

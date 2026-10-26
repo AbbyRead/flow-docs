@@ -5,7 +5,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<link href="../not-supported/" rel="prev"/>
+<link href="../security/" rel="prev"/>
 <link href="../padding/" rel="next"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.6.1, mkdocs-material-9.8.0" name="generator"/>
@@ -246,6 +246,18 @@
   </span>
 </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../security/">
+<span class="md-ellipsis">
+    
+  
+    Security
+  
+
+    
+  </span>
+</a>
+</li>
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
 <label class="md-nav__link md-nav__link--active" for="__toc">
@@ -472,6 +484,18 @@
     
   
     Using a form as an inventory
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../huds/">
+<span class="md-ellipsis">
+    
+  
+    Using a form as a HUD
   
 
     
@@ -756,8 +780,8 @@
 <p>Styles change how elements look: their colors, images, fonts, and so on. A style is a set of properties such as <code>bgcolor = "red"</code>, and which properties exist depends on the type of element. All of them are listed in the <a href="#property-reference">property reference</a> below.</p>
 <p>You can style a single element with the <code>style</code> field (the <a href="#inline-syntax">inline syntax</a>), or style many elements at once with the <code>gui.Style</code> and <code>gui.StyleType</code> elements (see <a href="#separate-style-elements">separate style elements</a>).</p>
 <h2 id="inline-syntax">Inline syntax</h2>
-<!-- TODO(P3,clarify): first person is the flow author's voice; reword for an unofficial doc. Give the flow version or date that added inline styles. -->
-<p>At the moment I suggest only using this syntax if your form won't look broken without the style - older versions of flow don't support this syntax, and I may make breaking changes to the sub-style syntax in the future.</p>
+<!-- TODO(P3,research): find the flow version or date that added inline styles (not recorded in the repository). -->
+<p>Older versions of flow do not support this syntax, and the sub-style syntax (the <code>sel</code> entries) may change in the future. Only use inline styles for things that are not essential, so that your form does not look broken without them, or use <a href="#separate-style-elements">separate style elements</a> if you need to support older versions.</p>
 <p>You can add inline styles to elements with the <code>style</code> field:</p>
 <pre><code class="language-lua">gui.Button {
     label = "Test",
@@ -773,13 +797,12 @@
     },
 }
 </code></pre>
-<!-- TODO(P2,clarify): explain the "$" prefix: sel uses "$hovered+pressed" but selectors use "button:hovered+pressed". -->
+<p>In a <code>sel</code> entry, <code>$</code> stands for the element itself, so <code>"$hovered+pressed"</code> is the same as the selector <code>"button:hovered+pressed"</code> for an unnamed button, or <code>"my_name:hovered+pressed"</code> for an element named <code>my_name</code>. Every comma-separated entry needs its own <code>$</code> (an entry without one is skipped and flow logs a warning).</p>
 <p>The properties directly inside <code>style</code> always apply. A <code>sel</code> entry only applies while the element is in one of the listed <a href="#states">states</a>. Separate states with a comma to apply the style when <em>any</em> of them is active (<code>"$hovered, $pressed"</code>), or join them with <code>+</code> to apply it only when <em>all</em> of them are active at once (<code>"$hovered+pressed"</code>).</p>
 <p>If you need to style multiple elements, you can reuse the <code>style</code> table:</p>
-<!-- TODO(P2,clarify): this variable shadows the gui table; rename it to form as on other pages. -->
 <pre><code class="language-lua">local my_style = { bgcolor = "red", { sel = "$hovered", bgcolor = "green" } }
 
-local gui = flow.make_gui(function(player, ctx)
+local form = flow.make_gui(function(player, ctx)
     return gui.VBox {
         gui.Button { label = "Styled button", style = my_style },
         gui.Button { label = "Unstyled button" },
@@ -960,7 +983,6 @@ gui.StyleType {
 </tr>
 </tbody>
 </table>
-<!-- TODO(P3,link): link text "Unsupported Features" does not match the page title "Unsupported Features" (also elements.md, hypertext.md, styling.md x3). -->
 <p>Luanti also lists <code>hypertip</code>, but flow has no element for it, see <a href="../not-supported/#missing-elements">Unsupported Features</a>. <code>gui.ItemImage</code> has the <code>item_image</code> type, which only supports <code>noclip</code> (see <a href="#other-elements">Other elements</a>). <code>gui.ImageButtonExit</code> and <code>gui.ButtonURL</code> are not in Luanti's list of types, so give them a <code>name</code> and style them with <code>gui.Style</code> or the inline syntax.</p>
 <h2 id="property-reference">Property reference</h2>
 <p>Colors are described in <a href="../elements/#colors">Elements</a>, and textures are image file names. A "2D vector" is written as a string such as <code>"1,2"</code>. Properties that only list a type of element are not valid on other elements, and an unknown property is ignored.</p>
@@ -1003,11 +1025,9 @@ gui.StyleType {
 </tr>
 </tbody>
 </table>
-<!-- TODO(P2,clarify): "(this is deprecated)" is ambiguous: the fixed h on labels, or the positioning behaviour? -->
-<p>Flow can make room for bigger text in <code>gui.Label</code>s, buttons, and the default text of fields, but only if <code>font_size</code> starts with <code>*</code> and is set with the inline syntax (<code>style = {font_size = "*2"}</code>). Other values still change the text but not the size of the element. The labels above fields and checkboxes ignore <code>font_size</code>, and a <code>gui.Label</code> with a fixed <code>h</code> is positioned as if <code>font_size</code> was not set (this is deprecated).</p>
+<p>Flow can make room for bigger text in <code>gui.Label</code>s, buttons, and the default text of fields, but only if <code>font_size</code> starts with <code>*</code> and is set with the inline syntax (<code>style = {font_size = "*2"}</code>). Other values still change the text but not the size of the element. The labels above fields and checkboxes ignore <code>font_size</code>, and a <code>gui.Label</code> with a fixed <code>h</code> is positioned as if <code>font_size</code> was not set. That positioning behavior is deprecated and flow logs a warning when it detects it, so leave <code>h</code> out of labels that use <code>font_size</code>.</p>
 <h3 id="buttons">Buttons</h3>
 <p>For <code>gui.Button</code>, <code>gui.ButtonExit</code>, <code>gui.ImageButton</code>, and <code>gui.ItemImageButton</code>. Buttons also support <code>font</code>, <code>font_size</code>, and <code>textcolor</code>.</p>
-<!-- TODO(P2,clarify): the style property padding shares its name with the element parameter padding (padding.md); explain the difference. Also say what format sound takes. -->
 <table>
 <thead>
 <tr>
@@ -1042,11 +1062,11 @@ gui.StyleType {
 </tr>
 <tr>
 <td><code>padding</code></td>
-<td>Space between the edges of the button and its content, as a rectangle written in the same formats as <code>bgimg_middle</code>. This value is relative to <code>bgimg_middle</code>.</td>
+<td>Space between the edges of the button and its content, as a rectangle written in the same formats as <code>bgimg_middle</code>. This value is relative to <code>bgimg_middle</code>. It is not the same as the <code>padding</code> parameter of elements, which adds space outside the element and is handled by flow, see <a href="../padding/">Padding</a>.</td>
 </tr>
 <tr>
 <td><code>sound</code></td>
-<td>A sound to play when the button is triggered.</td>
+<td>The name of a sound to play when the button is triggered, such as a sound file name from a mod's <code>sounds</code> folder without the extension. It is played at normal volume and takes no other options.</td>
 </tr>
 </tbody>
 </table>
@@ -1072,7 +1092,6 @@ gui.StyleType {
 <p>Some older properties still work but are deprecated. Use <a href="#states">states</a> instead: <code>bgcolor_hovered</code>, <code>bgcolor_pressed</code>, <code>bgimg_hovered</code>, <code>bgimg_pressed</code>, <code>fgimg_hovered</code>, and <code>fgimg_pressed</code>. They work like <code>bgcolor</code> and <code>bgimg</code> but only apply while the button is hovered or pressed.</p>
 <h3 id="fields-and-text-areas">Fields and text areas</h3>
 <p>For <code>gui.Field</code>, <code>gui.Pwdfield</code>, and <code>gui.Textarea</code>. They also support <code>font</code>, <code>font_size</code>, and <code>textcolor</code>.</p>
-<!-- TODO(P2,clarify): "5.17 or newer" here vs "version 11" in not-supported.md; add a formspec version -> Luanti release table and link it. -->
 <table>
 <thead>
 <tr>
@@ -1087,11 +1106,11 @@ gui.StyleType {
 </tr>
 <tr>
 <td><code>halign</code></td>
-<td>Horizontal alignment of the text: <code>left</code> (default), <code>center</code>, or <code>right</code>. Needs a recent version of Luanti (5.17 or newer), and flow may not be able to use it, see <a href="../not-supported/#newer-luanti-features">Unsupported Features</a>.</td>
+<td>Horizontal alignment of the text: <code>left</code> (default), <code>center</code>, or <code>right</code>. Needs formspec version 11 (Luanti 5.17 or newer, see <a href="../not-supported/#formspec-versions-and-luanti-releases">the version table</a>), and flow may not be able to use it, see <a href="../not-supported/#newer-luanti-features">Unsupported Features</a>.</td>
 </tr>
 <tr>
 <td><code>valign</code></td>
-<td>Vertical alignment of the text: <code>top</code> (default), <code>center</code>, or <code>bottom</code>. Needs a recent version of Luanti (5.17 or newer). Only has an effect when all of the text fits inside the element. If the text is too long (and a <code>gui.Textarea</code> gets a scrollbar), it is always aligned to the top so that no text is cut off. It also does not work in <code>gui.Field</code>, but <code>halign</code> does.</td>
+<td>Vertical alignment of the text: <code>top</code> (default), <code>center</code>, or <code>bottom</code>. Needs formspec version 11 (Luanti 5.17 or newer, see <a href="../not-supported/#formspec-versions-and-luanti-releases">the version table</a>). Only has an effect when all of the text fits inside the element. If the text is too long (and a <code>gui.Textarea</code> gets a scrollbar), it is always aligned to the top so that no text is cut off. It also does not work in <code>gui.Field</code>, but <code>halign</code> does.</td>
 </tr>
 </tbody>
 </table>

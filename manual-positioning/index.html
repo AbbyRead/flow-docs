@@ -5,7 +5,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<link href="../inventory/" rel="prev"/>
+<link href="../huds/" rel="prev"/>
 <link href="../experimental/" rel="next"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.6.1, mkdocs-material-9.8.0" name="generator"/>
@@ -247,6 +247,18 @@
 </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="../security/">
+<span class="md-ellipsis">
+    
+  
+    Security
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../styling/">
 <span class="md-ellipsis">
     
@@ -300,6 +312,18 @@
     
   
     Using a form as an inventory
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../huds/">
+<span class="md-ellipsis">
+    
+  
+    Using a form as a HUD
   
 
     
@@ -530,14 +554,11 @@
 <article class="md-content__inner md-typeset">
 <h1 id="manual-positioning">Manual positioning</h1>
 <h2 id="dynamic-element-types">Dynamic element types</h2>
-<!-- TODO(P2,clarify): first paragraph is hard to parse; state when type tables are fine. "won't work correctly" for ScrollableVBox/Spacer: error or wrong layout? -->
-<!-- TODO(P3,link): link gui.Container to elements.md#guicontainer, ScrollableVBox/Spacer to layout-elements.md, type names to styling.md#element-types. -->
-<p>A <code>gui.Label{...}</code> call just returns a table with <code>type = "label"</code> added to it, so you can write <code>{type = "label", label = "Hello world!"}</code> instead of <code>gui.Label{label="Hello world!"}</code>. This is what you need inside <code>gui.Container</code> (see below), and it is also useful if you want to choose the element type from a variable. The <code>type</code> is the name of the <code>gui</code> function in lowercase with underscores between words, for example <code>"item_image_button"</code> for <code>gui.ItemImageButton</code>.</p>
-<p>HBoxes and VBoxes can be created this way as well (with <code>type = "hbox"</code> and <code>type = "vbox"</code>) and work anywhere <code>gui.HBox</code> and <code>gui.VBox</code> do. However, <code>gui.ScrollableVBox</code>, <code>gui.PaginatedVBox</code>, <code>gui.Spacer</code>, <code>gui.Flow</code>, and <code>gui.Nil</code> are functions that build other elements instead of element types, so they cannot be created with a <code>type</code> table: flow does not recognize them and they will not work.</p>
-<!-- TODO(P2,link): example.lua has no link or location (also in getting-started.md). -->
-<p>An example of this is in <code>example.lua</code>.</p>
+<p>A <code>gui.Label{...}</code> call just returns a table with <code>type = "label"</code> added to it, so you can write <code>{type = "label", label = "Hello world!"}</code> instead of <code>gui.Label{label="Hello world!"}</code>. This is what you need inside <a href="../elements/#guicontainer"><code>gui.Container</code></a> (see below), and it is also useful if you want to choose the element type from a variable. The <code>type</code> is the name of the <code>gui</code> function in lowercase with underscores between words, for example <code>"item_image_button"</code> for <code>gui.ItemImageButton</code>. The <a href="../styling/#element-types">element types table</a> in Styling lists many of them.</p>
+<p>HBoxes and VBoxes can be created this way as well (with <code>type = "hbox"</code> and <code>type = "vbox"</code>) and work anywhere <a href="../layout-elements/#guihbox"><code>gui.HBox</code></a> and <a href="../layout-elements/#guivbox"><code>gui.VBox</code></a> do. However, <a href="../layout-elements/#guiscrollablevbox"><code>gui.ScrollableVBox</code></a>, <a href="../layout-elements/#guipaginatedvbox"><code>gui.PaginatedVBox</code></a>, <a href="../layout-elements/#guispacer"><code>gui.Spacer</code></a>, <a href="../layout-elements/#guiflow"><code>gui.Flow</code></a>, and <a href="../layout-elements/#guinil"><code>gui.Nil</code></a> are functions that build other elements instead of element types, so they cannot be created with a <code>type</code> table. Flow does not know those types, and showing the form fails with an <code>Unknown element</code> error.</p>
+<p>An example of this is in <a href="https://gitlab.com/luk3yx/minetest-flow/-/blob/main/example.lua"><code>example.lua</code></a> in the flow repository.</p>
 <h2 id="manual-positioning-of-elements">Manual positioning of elements</h2>
-<p>You can use <code>gui.Container</code> elements to contain manually positioned elements. Every element inside a container has an <code>x</code> and <code>y</code>, which is the distance of its top-left corner from the top-left corner of the container, in the same units as <code>w</code> and <code>h</code>. Containers can be nested, in which case the offsets add up. If you do not give a <code>w</code> and <code>h</code>, flow uses the smallest size that fits all the elements inside.</p>
+<p>You can use <a href="../elements/#guicontainer"><code>gui.Container</code></a> elements to contain manually positioned elements. Every element inside a container has an <code>x</code> and <code>y</code>, which is the distance of its top-left corner from the top-left corner of the container, in the same units as <code>w</code> and <code>h</code>. Containers can be nested, in which case the offsets add up. If you do not give a <code>w</code> and <code>h</code>, flow uses the smallest size that fits all the elements inside.</p>
 <h3 id="container-vbox-example">Container: VBox Example</h3>
 <pre><code class="language-lua">gui.VBox {
     gui.Label { label = "Automatically positioned" },
@@ -570,7 +591,7 @@
     }
 }
 </code></pre>
-<p>Do not put layouting elements (like <code>gui.VBox</code>, <code>gui.HBox</code>, and <code>gui.Stack</code>) inside <code>gui.Container</code>, whether you write them with <code>gui.VBox</code> or with <code>type = "vbox"</code>. A container never lays out its children, it only places them at their <code>x</code> and <code>y</code>. It only works out the size of a box inside it when neither the container nor the box has both a <code>w</code> and a <code>h</code>. If one of them does, flow either fails with an error or draws the box's contents wrongly. Even when it works, <code>padding</code>, <code>align_h</code>, and <code>align_v</code> on the box are not applied.</p>
+<p>Do not put layouting elements (like <a href="../layout-elements/#guivbox"><code>gui.VBox</code></a>, <a href="../layout-elements/#guihbox"><code>gui.HBox</code></a>, and <a href="../layout-elements/#guistack"><code>gui.Stack</code></a>) inside <code>gui.Container</code>, whether you write them with <code>gui.VBox</code> or with <code>type = "vbox"</code>. A container never lays out its children, it only places them at their <code>x</code> and <code>y</code>. It only works out the size of a box inside it when neither the container nor the box has both a <code>w</code> and a <code>h</code>. If one of them does, flow either fails with an error or draws the box's contents wrongly. Even when it works, <code>padding</code>, <code>align_h</code>, and <code>align_v</code> on the box are not applied.</p>
 <p>This does not stop you from using a <code>gui.Container</code> inside a layouting element, as in the example above. To get the same effect inside a container, put the elements at exact <code>x</code> and <code>y</code> positions yourself.</p>
 </article>
 </div>
