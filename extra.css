@@ -1,11 +1,154 @@
-/* Wrap table text instead of scrolling horizontally. */
-.wy-table-responsive table td,
-.wy-table-responsive table th {
-    white-space: normal;
+@media screen {
+    /* Classic RTD blue and neutral document colors.
+       Scope these variables to light mode so dark mode remains Material-like. */
+    body[data-md-color-scheme="default"] {
+        --md-primary-fg-color: #2980b9;
+        --md-primary-fg-color--light: #5aa0ca;
+        --md-primary-fg-color--dark: #206a9c;
+        --md-accent-fg-color: #2980b9;
+
+        --md-default-bg-color: #ffffff;
+        --md-default-fg-color: #404040;
+        --md-typeset-color: #404040;
+        --md-typeset-a-color: #2980b9;
+
+        --md-code-bg-color: #f3f3f3;
+        --md-code-fg-color: #333333;
+    }
+
+    /* Charcoal primary navigation sidebar */
+    body[data-md-color-scheme="default"] .md-sidebar--primary {
+        background-color: #343131;
+
+        /* Give sidebar components a dark background and light text. */
+        --md-default-bg-color: #343131;
+        --md-default-fg-color: #e0dddd;
+        --md-default-fg-color--light: #d6d3d3;
+        --md-default-fg-color--lighter: #aaa5a5;
+        --md-default-fg-color--lightest: #817b7b;
+    }
+
+    body[data-md-color-scheme="default"] .md-sidebar--primary .md-sidebar__scrollwrap,
+    body[data-md-color-scheme="default"] .md-sidebar--primary .md-sidebar__inner,
+    body[data-md-color-scheme="default"] .md-sidebar--primary .md-nav,
+    body[data-md-color-scheme="default"] .md-sidebar--primary .md-nav__list,
+    body[data-md-color-scheme="default"] .md-sidebar--primary .md-nav__title {
+        background-color: #343131;
+    }
+
+    body[data-md-color-scheme="default"] .md-sidebar--primary .md-nav__title {
+        color: #ffffff;
+        box-shadow: none;
+    }
+
+    body[data-md-color-scheme="default"] .md-sidebar--primary .md-nav__link {
+        color: #d6d3d3;
+    }
+
+    body[data-md-color-scheme="default"] .md-sidebar--primary .md-nav__link:hover,
+    body[data-md-color-scheme="default"] .md-sidebar--primary .md-nav__link--active {
+        color: #ffffff;
+    }
+
+    body[data-md-color-scheme="default"] .md-sidebar--primary .md-nav__link--active {
+        font-weight: 700;
+    }
+
+    /* Flat blue header, without Material's pronounced shadow */
+    body[data-md-color-scheme="default"] .md-header {
+        box-shadow: none;
+    }
+
+    /* Traditional documentation typography */
+    body[data-md-color-scheme="default"] .md-typeset {
+        color: #404040;
+        font-size: 0.9rem;
+        line-height: 1.6;
+    }
+
+    body[data-md-color-scheme="default"] .md-typeset h1,
+    body[data-md-color-scheme="default"] .md-typeset h2,
+    body[data-md-color-scheme="default"] .md-typeset h3,
+    body[data-md-color-scheme="default"] .md-typeset h4,
+    body[data-md-color-scheme="default"] .md-typeset h5,
+    body[data-md-color-scheme="default"] .md-typeset h6 {
+        color: #404040;
+        font-weight: 700;
+    }
+
+    body[data-md-color-scheme="default"] .md-typeset h1 {
+        font-size: 1.8rem;
+    }
+
+    body[data-md-color-scheme="default"] .md-typeset h2 {
+        font-size: 1.5rem;
+    }
+
+    body[data-md-color-scheme="default"] .md-typeset h3 {
+        font-size: 1.25rem;
+    }
+
+    body[data-md-color-scheme="default"] .md-typeset h4 {
+        font-size: 1.1rem;
+    }
+
+    /* RTD-style blue hyperlinks */
+    body[data-md-color-scheme="default"] .md-typeset a {
+        color: #2980b9;
+    }
+
+    body[data-md-color-scheme="default"] .md-typeset a:hover {
+        color: #206a9c;
+        text-decoration: underline;
+    }
+
+    /* Light-gray code blocks and subtle inline-code backgrounds */
+    body[data-md-color-scheme="default"] .md-typeset pre {
+        background-color: #f8f8f8;
+        border: 1px solid #e1e4e5;
+        border-radius: 0;
+    }
+
+    body[data-md-color-scheme="default"] .md-typeset pre > code {
+        background-color: transparent;
+    }
+
+    body[data-md-color-scheme="default"] .md-typeset :not(pre) > code {
+        background-color: #f3f3f3;
+        border-radius: 2px;
+    }
+
+    /* Traditional table styling */
+    body[data-md-color-scheme="default"] .md-typeset table th {
+        background-color: #f0f0f0;
+        color: #404040;
+    }
+
+    body[data-md-color-scheme="default"] .md-typeset table th,
+    body[data-md-color-scheme="default"] .md-typeset table td {
+        border: 1px solid #dddddd;
+        padding: 0.5rem 0.75rem;
+    }
+
+    /* Subtle horizontal rules */
+    body[data-md-color-scheme="default"] .md-typeset hr {
+        border-bottom-color: #e1e4e5;
+    }
 }
 
-/* Allow long inline code to wrap at spaces; break mid-token only if needed. */
-.rst-content table.docutils code {
+/* Wrap table text instead of scrolling horizontally where possible. */
+.wy-table-responsive table td,
+.wy-table-responsive table th,
+.md-typeset table td,
+.md-typeset table th {
+    white-space: normal;
+    overflow-wrap: anywhere;
+}
+
+/* Allow long inline code in tables to wrap at spaces;
+   break mid-token only when needed. */
+.rst-content table.docutils code,
+.md-typeset table code {
     white-space: normal;
     overflow-wrap: break-word;
 }
@@ -31,43 +174,92 @@
 /* PDF/print only styles */
 @media print {
     /* Title page elements */
-    .pdf-title, h1.title, .print-site-page-title, title {
+    .pdf-title,
+    h1.title,
+    .print-site-page-title,
+    title {
         font-size: 64pt !important;
     }
-    
-    .pdf-subtitle, .print-site-page-subtitle {
+
+    .pdf-subtitle,
+    .print-site-page-subtitle {
         font-size: 48pt !important;
     }
 
-    /* Change regular body text font size */
-    body, p, li, span, div {
+    /* Regular body text */
+    body,
+    p,
+    li,
+    span,
+    div {
         font-size: 10pt !important;
         line-height: 1.5 !important;
     }
 
-    /* Change mkdocs-to-pdf header underlines to gray */
+    /* Change mkdocs-to-pdf heading underlines to gray */
     article h1,
     article h2,
     article h3 {
         border-bottom-color: #667788 !important;
     }
 
-    /* Headings hierarchy */
-    h1, .md-typeset h1 { font-size: 20pt }
-    h2, .md-typeset h2 { font-size: 16pt }
-    h3, .md-typeset h3 { font-size: 13pt }
-    h4, h5, h6, .md-typeset h4, .md-typeset h5, .md-typeset h6 { font-size: 11.5pt !important; }
+    /* Heading hierarchy */
+    h1,
+    .md-typeset h1 {
+        font-size: 20pt;
+    }
+
+    h2,
+    .md-typeset h2 {
+        font-size: 16pt;
+    }
+
+    h3,
+    .md-typeset h3 {
+        font-size: 13pt;
+    }
+
+    h4,
+    h5,
+    h6,
+    .md-typeset h4,
+    .md-typeset h5,
+    .md-typeset h6 {
+        font-size: 11.5pt !important;
+    }
 
     /* Title page elements (placed after general h1 rules so !important wins) */
-    .pdf-title, h1.title, .print-site-page-title, title {
+    .pdf-title,
+    h1.title,
+    .print-site-page-title,
+    title {
         font-size: 64pt !important;
     }
 
-    /* Heading numbers (child spans/elements) set 2pt smaller */
-    h1 *, .md-typeset h1 * { font-size: 16pt !important; }
-    h2 *, .md-typeset h2 * { font-size: 13pt !important; }
-    h3 *, .md-typeset h3 * { font-size: 11pt !important; }
-    h4 *, h5 *, h6 *, .md-typeset h4 *, .md-typeset h5 *, .md-typeset h6 * { font-size: 9.5pt !important; }
+    /* Heading numbers and child elements: 2pt smaller */
+    h1 *,
+    .md-typeset h1 * {
+        font-size: 16pt !important;
+    }
+
+    h2 *,
+    .md-typeset h2 * {
+        font-size: 13pt !important;
+    }
+
+    h3 *,
+    .md-typeset h3 * {
+        font-size: 11pt !important;
+    }
+
+    h4 *,
+    h5 *,
+    h6 *,
+    .md-typeset h4 *,
+    .md-typeset h5 *,
+    .md-typeset h6 * {
+        font-size: 9.5pt !important;
+    }
 
     /* Table headers and cells */
     table th,
@@ -82,7 +274,7 @@
         font-size: 9pt !important;
     }
 
-    /* Code blocks font size and wrapping */
+    /* Code blocks: wrapping, spacing, and print-safe colors */
     pre {
         white-space: pre-wrap !important;
         overflow-wrap: break-word !important;
