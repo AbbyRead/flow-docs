@@ -774,8 +774,7 @@ end)
     gui.Image { w = 1, h = 1, texture_name = "air.png", padding = 0.2, align_h = "left" },
 }
 </code></pre>
-<!-- TODO(P2,clarify): screenshot is hotlinked from user-images.githubusercontent.com; copy it into docs/ so it cannot break. -->
-<p><img alt="Screenshot" src="https://user-images.githubusercontent.com/3182651/215946217-3705dbd1-4ec8-4aed-a9eb-381fecb2d8f2.png"/></p>
+<p><img alt="Screenshot" src="../images/stacked-elements.png"/></p>
 <h2 id="guipaginatedvbox"><code>gui.PaginatedVBox</code></h2>
 <p>Like <code>gui.ScrollableVBox</code>, but splits the contents into pages instead of scrolling. Only one page is shown at a time, with a <code>&lt;</code> button, a "Page 1 of 3" label, and a <code>&gt;</code> button underneath to change page. It needs a unique <code>name</code>, and <code>w</code> and <code>h</code> work the same way as for <code>gui.ScrollableVBox</code>. Elements are never cut in half: an element that does not fit on a page starts the next one.</p>
 <p><code>gui.ScrollableVBox</code> uses this automatically on clients that cannot scroll.</p>

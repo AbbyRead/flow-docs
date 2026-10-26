@@ -627,7 +627,7 @@ Vaguely inspired by Flutter and GTK.</p>
 <hr/>
 <ol>
 <li id="fn:label-size">
-<p>This isn't perfect, the actual size of labels depends on the client's font, DPI, window size, and formspec-related scaling settings. <!-- TODO(P4,research): add a section on getting sizing perfect for common fonts (Luanti API/source). --> <a class="footnote-backref" href="#fnref:label-size" title="Jump back to footnote 1 in the text">↩</a></p>
+<p>This isn't perfect, the actual size of labels depends on the client's font, DPI, window size, and formspec-related scaling settings. Luanti gives mods no way to measure text, so flow estimates the width as 0.21 slots per character (counting UTF-8 characters, not bytes, for the longest line) and the height as 0.4 slots per line, scaled by a <code>*1.5</code>-style <code>font_size</code> style. The font is not taken into account. If the estimate is wrong for your text, set <code>w</code>, <code>h</code>, or <code>min_w</code> yourself. <a class="footnote-backref" href="#fnref:label-size" title="Jump back to footnote 1 in the text">↩</a></p>
 </li>
 </ol>
 </div>

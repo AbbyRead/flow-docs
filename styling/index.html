@@ -780,8 +780,7 @@
 <p>Styles change how elements look: their colors, images, fonts, and so on. A style is a set of properties such as <code>bgcolor = "red"</code>, and which properties exist depends on the type of element. All of them are listed in the <a href="#property-reference">property reference</a> below.</p>
 <p>You can style a single element with the <code>style</code> field (the <a href="#inline-syntax">inline syntax</a>), or style many elements at once with the <code>gui.Style</code> and <code>gui.StyleType</code> elements (see <a href="#separate-style-elements">separate style elements</a>).</p>
 <h2 id="inline-syntax">Inline syntax</h2>
-<!-- TODO(P3,research): find the flow version or date that added inline styles (not recorded in the repository). -->
-<p>Older versions of flow do not support this syntax, and the sub-style syntax (the <code>sel</code> entries) may change in the future. Only use inline styles for things that are not essential, so that your form does not look broken without them, or use <a href="#separate-style-elements">separate style elements</a> if you need to support older versions.</p>
+<p>Inline styles were added in May 2024, so older versions of flow do not support this syntax, and the sub-style syntax (the <code>sel</code> entries) may change in the future. Only use inline styles for things that are not essential, so that your form does not look broken without them, or use <a href="#separate-style-elements">separate style elements</a> if you need to support older versions.</p>
 <p>You can add inline styles to elements with the <code>style</code> field:</p>
 <pre><code class="language-lua">gui.Button {
     label = "Test",
@@ -828,7 +827,7 @@ gui.Button {
 },
 </code></pre>
 <p>The <code>Style</code> and <code>StyleType</code> elements are invisible and won't affect padding. They only affect the elements that come after them, so put them before the elements you want to style.</p>
-<p><strong>Warning:</strong> <code>gui.Style</code> and <code>gui.StyleType</code> do not support styles that change the element size, such as <code>font_size</code> for labels, buttons, and fields, and <code>size</code>/<code>spacing</code> for lists. Flow only sees these properties in the inline syntax, so use that for them.</p>
+<p><strong>Warning:</strong> <code>gui.Style</code> and <code>gui.StyleType</code> do not support styles that change the element size, such as <code>font_size</code> for labels, buttons, and fields, and <code>size</code>/<code>spacing</code> for lists (added in March 2025). Flow only sees these properties in the inline syntax, so use that for them.</p>
 <h2 id="selectors-and-states">Selectors and states</h2>
 <p><code>selectors</code> is a list that says which elements the style applies to:</p>
 <ul>

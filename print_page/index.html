@@ -1257,7 +1257,7 @@ Vaguely inspired by Flutter and GTK.</p>
 <hr />
 <ol>
 <li id="index-fn:label-size">
-<p>This isn't perfect, the actual size of labels depends on the client's font, DPI, window size, and formspec-related scaling settings. <!-- TODO(P4,research): add a section on getting sizing perfect for common fonts (Luanti API/source). -->&#160;<a class="footnote-backref" href="#index-fnref:label-size" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+<p>This isn't perfect, the actual size of labels depends on the client's font, DPI, window size, and formspec-related scaling settings. Luanti gives mods no way to measure text, so flow estimates the width as 0.21 slots per character (counting UTF-8 characters, not bytes, for the longest line) and the height as 0.4 slots per line, scaled by a <code>*1.5</code>-style <code>font_size</code> style. The font is not taken into account. If the estimate is wrong for your text, set <code>w</code>, <code>h</code>, or <code>min_w</code> yourself.&#160;<a class="footnote-backref" href="#index-fnref:label-size" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div></section><section class="print-page" id="getting-started" heading-number="2"><h1 id="getting-started-getting-started">Getting started</h1>
@@ -1462,9 +1462,7 @@ end)
     gui.Image { w = 1, h = 1, texture_name = &quot;air.png&quot;, padding = 0.2, align_h = &quot;left&quot; },
 }
 </code></pre>
-<!-- TODO(P2,clarify): screenshot is hotlinked from user-images.githubusercontent.com; copy it into docs/ so it cannot break. -->
-
-<p><img alt="Screenshot" src="https://user-images.githubusercontent.com/3182651/215946217-3705dbd1-4ec8-4aed-a9eb-381fecb2d8f2.png" /></p>
+<p><img alt="Screenshot" src="../images/stacked-elements.png" /></p>
 <h2 id="layout-elements-guipaginatedvbox"><code>gui.PaginatedVBox</code></h2>
 <p>Like <code>gui.ScrollableVBox</code>, but splits the contents into pages instead of scrolling. Only one page is shown at a time, with a <code>&lt;</code> button, a "Page 1 of 3" label, and a <code>&gt;</code> button underneath to change page. It needs a unique <code>name</code>, and <code>w</code> and <code>h</code> work the same way as for <code>gui.ScrollableVBox</code>. Elements are never cut in half: an element that does not fit on a page starts the next one.</p>
 <p><code>gui.ScrollableVBox</code> uses this automatically on clients that cannot scroll.</p>
@@ -2058,9 +2056,6 @@ gui.Label { label = &quot;Hello world!&quot; }
 </code></pre>
 <h3 id="elements-guiscrollbar"><code>gui.Scrollbar</code></h3>
 <p>A slider that the player can drag. <code>ctx.form[name]</code> is its position, a whole number from <code>min</code> to <code>max</code> (by default <code>0</code> to <code>1000</code>, change them with <a href="#elements-guiscrollbaroptions"><code>gui.ScrollbarOptions</code></a> before the scrollbar). <code>value</code> is the position it starts at, and <code>orientation</code> is <code>"vertical"</code> or <code>"horizontal"</code>. Use it with a <code>gui.ScrollContainer</code>, or by itself as a slider.</p>
-<!-- TODO(P4,clarify): confirm in the Luanti source which versions use these textures. -->
-
-<p><code>scrollbar_bg</code>, <code>slider</code>, <code>arrow_up</code>, and <code>arrow_down</code> are textures that replace the parts of the scrollbar. They are not described in the Luanti documentation and may be ignored.</p>
 <p><strong>Example</strong></p>
 <pre><code class="language-lua">gui.Scrollbar {
     w = 8,
@@ -2072,20 +2067,40 @@ gui.Label { label = &quot;Hello world!&quot; }
 
     -- Starting position.
     value = 3, -- Optional
-
-    -- Texture. Optional, see above.
-    scrollbar_bg = &quot;texture.png&quot;, -- Optional
-
-    -- Texture. Optional, see above.
-    slider = &quot;texture.png&quot;, -- Optional
-
-    -- Texture. Optional, see above.
-    arrow_up = &quot;texture.png&quot;, -- Optional
-
-    -- Texture. Optional, see above.
-    arrow_down = &quot;texture.png&quot;, -- Optional
 }
 </code></pre>
+<h4 id="elements-scrollbar-textures-do-not-work">Scrollbar textures do not work</h4>
+<p><code>scrollbar_bg</code>, <code>slider</code>, <code>arrow_up</code>, and <code>arrow_down</code> should not be used. Flow accepts them, but Luanti has no such parameters, and on Luanti 5.8 and newer a scrollbar that sets any of them is not shown at all.</p>
+<p>Flow (through formspec_ast) writes the four textures as one comma-separated sixth parameter after <code>value</code>, leaving the ones you did not set empty. Luanti's <code>scrollbar[]</code> takes exactly five parameters. It only tolerates extra parameters when the form's formspec version is newer than the highest version the client supports, and flow always uses version 7:</p>
+<table>
+<thead>
+<tr>
+<th>Luanti version</th>
+<th>Highest formspec version</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>5.6 and 5.7</td>
+<td>6</td>
+<td>The extra parameter is ignored and the scrollbar is shown with its normal look.</td>
+</tr>
+<tr>
+<td>5.8 and newer</td>
+<td>7 or higher</td>
+<td>The scrollbar is rejected and not shown, and an error is logged.</td>
+</tr>
+</tbody>
+</table>
+<p>The rejection was confirmed in-game with a <code>gui.Scrollbar</code> that set all four textures and one that set only <code>slider</code>. A scrollbar without textures next to them was shown normally.</p>
+<p>Sources (Luanti source code):</p>
+<ul>
+<li><code>GUIFormSpecMenu::parseScrollBar</code> requires between 5 and 5 parameters, and nothing in <code>guiFormSpecMenu.cpp</code> reads the textures: <a href="https://github.com/luanti-org/luanti/blob/5.8.0/src/gui/guiFormSpecMenu.cpp">5.8.0</a>, <a href="https://github.com/luanti-org/luanti/blob/5.7.0/src/gui/guiFormSpecMenu.cpp">5.7.0</a>, <a href="https://github.com/luanti-org/luanti/blob/master/src/gui/guiFormSpecMenu.cpp">master</a>.</li>
+<li><code>GUIFormSpecMenu::precheckElement</code> in the same file accepts extra parameters only when <code>m_formspec_version &gt; FORMSPEC_API_VERSION</code>, and otherwise logs <code>Invalid &lt;element&gt; element(&lt;count&gt;)</code> and skips the element.</li>
+<li><code>FORMSPEC_API_VERSION</code> is 6 in <a href="https://github.com/luanti-org/luanti/blob/5.7.0/src/network/networkprotocol.h">5.7.0</a>, 7 in <a href="https://github.com/luanti-org/luanti/blob/5.8.0/src/network/networkprotocol.h">5.8.0</a>, and 12 in <a href="https://github.com/luanti-org/luanti/blob/master/src/network/networkprotocol.cpp">master</a>.</li>
+<li>The <a href="https://api.luanti.org/formspec/">formspec documentation</a> lists <code>scrollbar[]</code> with five parameters: position, size, orientation, name, and value.</li>
+</ul>
 <h3 id="elements-guiscrollbaroptions"><code>gui.ScrollbarOptions</code></h3>
 <p>Sets the options of the <code>gui.Scrollbar</code> elements that come after it. It is invisible and takes up no space. <code>opts</code> is a table with any of these options, all values are strings that contain whole numbers (except <code>arrows</code>):</p>
 <ul>
@@ -2574,9 +2589,7 @@ gui.Label { label = &quot;Hello world!&quot; }
 <p>Styles change how elements look: their colors, images, fonts, and so on. A style is a set of properties such as <code>bgcolor = "red"</code>, and which properties exist depends on the type of element. All of them are listed in the <a href="#styling-property-reference">property reference</a> below.</p>
 <p>You can style a single element with the <code>style</code> field (the <a href="#styling-inline-syntax">inline syntax</a>), or style many elements at once with the <code>gui.Style</code> and <code>gui.StyleType</code> elements (see <a href="#styling-separate-style-elements">separate style elements</a>).</p>
 <h2 id="styling-inline-syntax">Inline syntax</h2>
-<!-- TODO(P3,research): find the flow version or date that added inline styles (not recorded in the repository). -->
-
-<p>Older versions of flow do not support this syntax, and the sub-style syntax (the <code>sel</code> entries) may change in the future. Only use inline styles for things that are not essential, so that your form does not look broken without them, or use <a href="#styling-separate-style-elements">separate style elements</a> if you need to support older versions.</p>
+<p>Inline styles were added in May 2024, so older versions of flow do not support this syntax, and the sub-style syntax (the <code>sel</code> entries) may change in the future. Only use inline styles for things that are not essential, so that your form does not look broken without them, or use <a href="#styling-separate-style-elements">separate style elements</a> if you need to support older versions.</p>
 <p>You can add inline styles to elements with the <code>style</code> field:</p>
 <pre><code class="language-lua">gui.Button {
     label = &quot;Test&quot;,
@@ -2623,7 +2636,7 @@ gui.Button {
 },
 </code></pre>
 <p>The <code>Style</code> and <code>StyleType</code> elements are invisible and won't affect padding. They only affect the elements that come after them, so put them before the elements you want to style.</p>
-<p><strong>Warning:</strong> <code>gui.Style</code> and <code>gui.StyleType</code> do not support styles that change the element size, such as <code>font_size</code> for labels, buttons, and fields, and <code>size</code>/<code>spacing</code> for lists. Flow only sees these properties in the inline syntax, so use that for them.</p>
+<p><strong>Warning:</strong> <code>gui.Style</code> and <code>gui.StyleType</code> do not support styles that change the element size, such as <code>font_size</code> for labels, buttons, and fields, and <code>size</code>/<code>spacing</code> for lists (added in March 2025). Flow only sees these properties in the inline syntax, so use that for them.</p>
 <h2 id="styling-selectors-and-states">Selectors and states</h2>
 <p><code>selectors</code> is a list that says which elements the style applies to:</p>
 <ul>
@@ -3043,9 +3056,7 @@ gui.StyleType {
     gui.Button { label = &quot;Button 2&quot; },
 }
 </code></pre>
-<!-- TODO(P2,clarify): screenshot is hotlinked from user-images.githubusercontent.com; copy it into docs/ so it cannot break. -->
-
-<p><img alt="Screenshot" src="https://user-images.githubusercontent.com/3182651/198194381-4812c0fa-1909-48f8-b50d-6713c4c126ec.png" /></p>
+<p><img alt="Screenshot" src="../images/buttons-on-background.png" /></p>
 <p>The padding around the VBox is 0.5 and the spacing between the buttons inside it is 0.1.</p></section><section class="print-page" id="tooltips" heading-number="4.5"><h1 id="tooltips-tooltips">Tooltips</h1>
 <p>A tooltip is a small box of text that appears when the player hovers over an element.</p>
 <p>You can add tooltips to elements using the <code>tooltip</code> field:</p>
@@ -3223,9 +3234,7 @@ end)
     }
 end)
 </code></pre>
-<!-- TODO(P2,clarify): screenshot is hotlinked from user-images.githubusercontent.com; copy it into docs/ so it cannot break. -->
-
-<p><img alt="Screenshot" src="https://user-images.githubusercontent.com/3182651/212222545-baee3669-15cd-410d-a638-c63b65a8811b.png" /></p>
+<p><img alt="Screenshot" src="../images/hidden-button.png" /></p>
 <p>The hidden second button has nothing to do with <code>no_prepend</code>: it only shows that a hidden element still takes up space, see <a href="#hiding-elements">Hiding elements</a>.</p>
 <h2 id="experimental-bgcolor"><code>bgcolor</code></h2>
 <p>You can set <code>bgcolor = "#123"</code>, <code>fbgcolor = "#123"</code>, and <code>bg_fullscreen = true</code> on the root element to set background colors:</p>

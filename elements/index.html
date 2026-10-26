@@ -559,6 +559,19 @@
       
     </span>
 </a>
+<nav aria-label="gui.Scrollbar" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#scrollbar-textures-do-not-work">
+<span class="md-ellipsis">
+      
+        Scrollbar textures do not work
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#guiscrollbaroptions">
@@ -1269,6 +1282,19 @@
       
     </span>
 </a>
+<nav aria-label="gui.Scrollbar" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#scrollbar-textures-do-not-work">
+<span class="md-ellipsis">
+      
+        Scrollbar textures do not work
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#guiscrollbaroptions">
@@ -1975,8 +2001,6 @@ gui.Label { label = "Hello world!" }
 </code></pre>
 <h3 id="guiscrollbar"><code>gui.Scrollbar</code></h3>
 <p>A slider that the player can drag. <code>ctx.form[name]</code> is its position, a whole number from <code>min</code> to <code>max</code> (by default <code>0</code> to <code>1000</code>, change them with <a href="#guiscrollbaroptions"><code>gui.ScrollbarOptions</code></a> before the scrollbar). <code>value</code> is the position it starts at, and <code>orientation</code> is <code>"vertical"</code> or <code>"horizontal"</code>. Use it with a <code>gui.ScrollContainer</code>, or by itself as a slider.</p>
-<!-- TODO(P4,clarify): confirm in the Luanti source which versions use these textures. -->
-<p><code>scrollbar_bg</code>, <code>slider</code>, <code>arrow_up</code>, and <code>arrow_down</code> are textures that replace the parts of the scrollbar. They are not described in the Luanti documentation and may be ignored.</p>
 <p><strong>Example</strong></p>
 <pre><code class="language-lua">gui.Scrollbar {
     w = 8,
@@ -1988,20 +2012,40 @@ gui.Label { label = "Hello world!" }
 
     -- Starting position.
     value = 3, -- Optional
-
-    -- Texture. Optional, see above.
-    scrollbar_bg = "texture.png", -- Optional
-
-    -- Texture. Optional, see above.
-    slider = "texture.png", -- Optional
-
-    -- Texture. Optional, see above.
-    arrow_up = "texture.png", -- Optional
-
-    -- Texture. Optional, see above.
-    arrow_down = "texture.png", -- Optional
 }
 </code></pre>
+<h4 id="scrollbar-textures-do-not-work">Scrollbar textures do not work</h4>
+<p><code>scrollbar_bg</code>, <code>slider</code>, <code>arrow_up</code>, and <code>arrow_down</code> should not be used. Flow accepts them, but Luanti has no such parameters, and on Luanti 5.8 and newer a scrollbar that sets any of them is not shown at all.</p>
+<p>Flow (through formspec_ast) writes the four textures as one comma-separated sixth parameter after <code>value</code>, leaving the ones you did not set empty. Luanti's <code>scrollbar[]</code> takes exactly five parameters. It only tolerates extra parameters when the form's formspec version is newer than the highest version the client supports, and flow always uses version 7:</p>
+<table>
+<thead>
+<tr>
+<th>Luanti version</th>
+<th>Highest formspec version</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>5.6 and 5.7</td>
+<td>6</td>
+<td>The extra parameter is ignored and the scrollbar is shown with its normal look.</td>
+</tr>
+<tr>
+<td>5.8 and newer</td>
+<td>7 or higher</td>
+<td>The scrollbar is rejected and not shown, and an error is logged.</td>
+</tr>
+</tbody>
+</table>
+<p>The rejection was confirmed in-game with a <code>gui.Scrollbar</code> that set all four textures and one that set only <code>slider</code>. A scrollbar without textures next to them was shown normally.</p>
+<p>Sources (Luanti source code):</p>
+<ul>
+<li><code>GUIFormSpecMenu::parseScrollBar</code> requires between 5 and 5 parameters, and nothing in <code>guiFormSpecMenu.cpp</code> reads the textures: <a href="https://github.com/luanti-org/luanti/blob/5.8.0/src/gui/guiFormSpecMenu.cpp">5.8.0</a>, <a href="https://github.com/luanti-org/luanti/blob/5.7.0/src/gui/guiFormSpecMenu.cpp">5.7.0</a>, <a href="https://github.com/luanti-org/luanti/blob/master/src/gui/guiFormSpecMenu.cpp">master</a>.</li>
+<li><code>GUIFormSpecMenu::precheckElement</code> in the same file accepts extra parameters only when <code>m_formspec_version &gt; FORMSPEC_API_VERSION</code>, and otherwise logs <code>Invalid &lt;element&gt; element(&lt;count&gt;)</code> and skips the element.</li>
+<li><code>FORMSPEC_API_VERSION</code> is 6 in <a href="https://github.com/luanti-org/luanti/blob/5.7.0/src/network/networkprotocol.h">5.7.0</a>, 7 in <a href="https://github.com/luanti-org/luanti/blob/5.8.0/src/network/networkprotocol.h">5.8.0</a>, and 12 in <a href="https://github.com/luanti-org/luanti/blob/master/src/network/networkprotocol.cpp">master</a>.</li>
+<li>The <a href="https://api.luanti.org/formspec/">formspec documentation</a> lists <code>scrollbar[]</code> with five parameters: position, size, orientation, name, and value.</li>
+</ul>
 <h3 id="guiscrollbaroptions"><code>gui.ScrollbarOptions</code></h3>
 <p>Sets the options of the <code>gui.Scrollbar</code> elements that come after it. It is invisible and takes up no space. <code>opts</code> is a table with any of these options, all values are strings that contain whole numbers (except <code>arrows</code>):</p>
 <ul>
