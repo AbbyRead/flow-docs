@@ -348,14 +348,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../intro-to-elements/" class="md-nav__link">
+      <a href="../common-aspects/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Introduction to Elements
+    Common Aspects
   
 
     
@@ -1033,10 +1033,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#intro-to-elements" class="md-nav__link">
+  <a href="#common-aspects" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3.1 Introduction to Elements
+        3.1 Common Aspects
       
     </span>
   </a>
@@ -1382,17 +1382,16 @@ Vaguely inspired by Flutter and GTK.</p>
                     <section class='print-page md-section' id='section-3' heading-number='3'>
                         <h1>Elements/widgets<a class='headerlink' href='#section-3' title='Permanent link'></a>
                         </h1>
-                    <section class="print-page" id="intro-to-elements" heading-number="3.1"><h1 id="intro-to-elements-introduction-to-elements">Introduction to Elements</h1>
+                    <section class="print-page" id="common-aspects" heading-number="3.1"><h1 id="common-aspects-common-aspects">Common Aspects</h1>
 <p>All flow elements (widgets) draw something, change size/position of other elements, or accept input. Every element is a function in <code>flow.widgets</code> that takes a table of parameters. For example:</p>
-<div class="language-lua highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#intro-to-elements-__codelineno-0-1"></a><span class="kd">local</span><span class="w"> </span><span class="nv">gui</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">flow</span><span class="p">.</span><span class="py">widgets</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#intro-to-elements-__codelineno-0-2"></a>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#intro-to-elements-__codelineno-0-3"></a><span class="nv">gui</span><span class="p">.</span><span class="py">Label</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Hello world!"</span><span class="w"> </span><span class="p">}</span>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#common-aspects-__codelineno-0-1"></a><span class="kd">local</span><span class="w"> </span><span class="nv">gui</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">flow</span><span class="p">.</span><span class="py">widgets</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#common-aspects-__codelineno-0-2"></a>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#common-aspects-__codelineno-0-3"></a><span class="nv">gui</span><span class="p">.</span><span class="py">Label</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Hello world!"</span><span class="w"> </span><span class="p">}</span>
 </span></code></pre></div>
-<h2 id="intro-to-elements-element-features">Element Features</h2>
-<h3 id="intro-to-elements-sizes">Sizes</h3>
+<h2 id="common-aspects-sizes">Sizes</h2>
 <p>Sizes are measured in inventory slots: <code>1</code> is the width and height of one item slot. There is no hidden padding or spacing, so two boxes that are <code>1</code> wide and placed next to each other with <code>spacing = 0</code> touch. You never give an element a position, boxes place their children and flow works out the total size of the form.</p>
 <p>Elements that show text, such as labels, buttons, and fields, are sized to fit their text unless you give them a <code>w</code> and <code>h</code>. Elements that show something without a natural size, such as images, boxes, models, and tables, need an explicit <code>w</code> and <code>h</code> (their parameter lists below do not say <code>-- Optional</code>). Flow can only estimate the width of text because the real width depends on the player's font, screen size, and scaling settings, so avoid layouts that rely on exact text widths (see <a href="#index-fn:label-size">the note on label sizes</a>).</p>
-<h3 id="intro-to-elements-names-and-values">Names and values</h3>
+<h2 id="common-aspects-names-and-values">Names and values</h2>
 <p>Many elements take a <code>name</code>. Input elements (fields, checkboxes, dropdowns, lists of text, tables, ...) with a <code>name</code> have their current value stored in <code>ctx.form[name]</code> and flow remembers it when the form is redrawn:</p>
 <table>
 <thead>
@@ -1434,14 +1433,14 @@ Vaguely inspired by Flutter and GTK.</p>
 </table>
 <p>Until the player changes something, the value is the element's initial value (<code>default</code>, <code>selected</code>, <code>selected_idx</code>, <code>value</code>, <code>current_tab</code>). If you did not give one, it is <code>""</code> for text, <code>false</code> for checkboxes, <code>1</code> for tables, text lists, and dropdowns with <code>index_event = true</code>, the text of the first item for other dropdowns, and <code>0</code> for scrollbars. <code>gui.Hypertext</code> has no starting value, and neither has <code>gui.Tabheader</code> without a <code>current_tab</code>, so <code>ctx.form[name]</code> is <code>nil</code> until the player clicks a link or a tab. Text fields only send their text to the server when the player presses a button or Enter, so <code>ctx.form</code> can be out of date until then.</p>
 <p>If your build function reads <code>ctx.form.some_name</code>, flow redraws the form automatically whenever the player changes that value (unless the element has its own <code>on_event</code>), see <a href="#getting-started-redrawing-when-a-value-changes">Redrawing when a value changes</a>. Buttons do not store a value.</p>
-<h3 id="intro-to-elements-events">Events</h3>
+<h2 id="common-aspects-events">Events</h2>
 <p>Elements that the player can use accept an <code>on_event</code> function, which is called with the player and <code>ctx</code>. Return <code>true</code> from it to redraw the form. A <code>name</code> is optional if you use <code>on_event</code>, flow makes one up.</p>
-<h3 id="intro-to-elements-colors">Colors</h3>
+<h2 id="common-aspects-colors">Colors</h2>
 <p>Colors are strings. <code>"#RGB"</code> and <code>"#RRGGBB"</code> are fully opaque, while <code>"#RGBA"</code> and <code>"#RRGGBBAA"</code> end with an alpha value, where <code>00</code> is fully transparent and <code>FF</code> is fully opaque. Color names also work (all the names from CSS, such as <code>"red"</code> and <code>"darkgreen"</code>), and you can add an alpha value after a <code>#</code>, for example <code>"darkgreen#08"</code>.</p>
 <p>Most text can also be coloured by putting color escape sequences in it, such as the ones made by <code>core.colorize()</code>. Dropdown items and tab captions are an exception, they cannot be coloured.</p>
-<h3 id="intro-to-elements-textures-and-items">Textures and items</h3>
+<h2 id="common-aspects-textures-and-items">Textures and items</h2>
 <p>A texture name is the file name of an image from the <code>textures</code> folder of any loaded mod, such as <code>"default_dirt.png"</code>. An item name is the registered name of an item or node, such as <code>"unifieddyes:colorium"</code>.</p>
-<h3 id="intro-to-elements-parameters-shared-by-all-elements">Parameters shared by all elements</h3>
+<h2 id="common-aspects-parameters-shared-by-all-elements">Parameters shared by all elements</h2>
 <p>Every element, including <a href="#layout-elements">Layout elements</a>, accepts these parameters in addition to its own:</p>
 <table>
 <thead>
@@ -1485,7 +1484,7 @@ Vaguely inspired by Flutter and GTK.</p>
 </tr>
 </tbody>
 </table>
-<h3 id="intro-to-elements-nine-slice-images">Nine-slice images</h3>
+<h2 id="common-aspects-nine-slice-images">Nine-slice images</h2>
 <p>Images and image-like backgrounds can optionally be drawn as a "nine-slice". The picture is cut into a 3x3 grid, where the corners keep their size, the edges are stretched in one direction, and the middle is stretched in both. This lets one small texture make a panel or border of any size without distorting its corners. The <code>middle_*</code> parameters describe where the cuts are, in texture pixels (whole numbers):</p>
 <ul>
 <li><code>middle_x</code> only: the cuts are <code>middle_x</code> pixels from every side.</li>
@@ -1624,7 +1623,7 @@ Vaguely inspired by Flutter and GTK.</p>
 <p>Wraps a single element to add padding around it. It is deprecated and logs a warning, use the <code>padding</code> parameter of the element itself instead, see <a href="#padding">Padding</a>.</p></section><section class="print-page" id="functional-elements" heading-number="3.3"><h1 id="functional-elements-functional-elements">Functional Elements</h1>
 <h2 id="functional-elements-guianimatedimage"><code>gui.AnimatedImage</code></h2>
 <p>Shows an image that plays an animation. The texture must contain every frame stacked on top of each other (the first frame at the top), with all frames the same size. <code>w</code> and <code>h</code> are the size of one displayed frame.</p>
-<p><code>middle_*</code> parameters turn on nine-slice drawing, see <a href="#intro-to-elements-nine-slice-images">Nine-slice images</a>.</p>
+<p><code>middle_*</code> parameters turn on nine-slice drawing, see <a href="#common-aspects-nine-slice-images">Nine-slice images</a>.</p>
 <h3 id="functional-elements-example">Example</h3>
 <div class="language-lua highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#functional-elements-__codelineno-0-1"></a><span class="nv">gui</span><span class="p">.</span><span class="py">AnimatedImage</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#functional-elements-__codelineno-0-2"></a><span class="w">    </span><span class="nv">w</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
@@ -1666,7 +1665,7 @@ Vaguely inspired by Flutter and GTK.</p>
 </span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#functional-elements-__codelineno-1-10"></a><span class="p">}</span>
 </span></code></pre></div>
 <h2 id="functional-elements-guibackground9"><code>gui.Background9</code></h2>
-<p>Like <code>gui.Background</code>, but the picture is drawn as a <a href="#intro-to-elements-nine-slice-images">nine-slice</a> so that it can be stretched to any size without distorting its corners.</p>
+<p>Like <code>gui.Background</code>, but the picture is drawn as a <a href="#common-aspects-nine-slice-images">nine-slice</a> so that it can be stretched to any size without distorting its corners.</p>
 <h3 id="functional-elements-example_2">Example</h3>
 <div class="language-lua highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#functional-elements-__codelineno-2-1"></a><span class="nv">gui</span><span class="p">.</span><span class="py">Background9</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#functional-elements-__codelineno-2-2"></a><span class="w">    </span><span class="nv">w</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
@@ -1846,7 +1845,7 @@ Vaguely inspired by Flutter and GTK.</p>
 </span><span id="__span-14-10"><a id="__codelineno-14-10" name="__codelineno-14-10" href="#functional-elements-__codelineno-14-10"></a><span class="p">}</span>
 </span></code></pre></div>
 <h2 id="functional-elements-guiimage"><code>gui.Image</code></h2>
-<p>Shows a picture, stretched to fit <code>w</code> by <code>h</code>. If you want to use one small texture for pictures of many sizes, use the <code>middle_*</code> parameters, see <a href="#intro-to-elements-nine-slice-images">Nine-slice images</a>.</p>
+<p>Shows a picture, stretched to fit <code>w</code> by <code>h</code>. If you want to use one small texture for pictures of many sizes, use the <code>middle_*</code> parameters, see <a href="#common-aspects-nine-slice-images">Nine-slice images</a>.</p>
 <h3 id="functional-elements-example_15">Example</h3>
 <div class="language-lua highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#functional-elements-__codelineno-15-1"></a><span class="nv">gui</span><span class="p">.</span><span class="py">Image</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#functional-elements-__codelineno-15-2"></a><span class="w">    </span><span class="nv">w</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span>
@@ -3531,10 +3530,10 @@ Vaguely inspired by Flutter and GTK.</p>
                 .print-site-enumerate-headings #getting-started h3 {  counter-increment: counter-getting-started-3 }
             
 .print-site-enumerate-headings #section-3 > h1:before { content: '3 ' }
-.print-site-enumerate-headings #intro-to-elements > h1:before { content: '3.1 ' }
+.print-site-enumerate-headings #common-aspects > h1:before { content: '3.1 ' }
 
-                .print-site-enumerate-headings #intro-to-elements h2:before { content: '3.1.' counter(counter-intro-to-elements-2) ' ' }
-                .print-site-enumerate-headings #intro-to-elements h2 {  counter-increment: counter-intro-to-elements-2 }
+                .print-site-enumerate-headings #common-aspects h2:before { content: '3.1.' counter(counter-common-aspects-2) ' ' }
+                .print-site-enumerate-headings #common-aspects h2 {  counter-increment: counter-common-aspects-2 }
             
 .print-site-enumerate-headings #layout-elements > h1:before { content: '3.2 ' }
 
