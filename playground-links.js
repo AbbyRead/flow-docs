@@ -25,7 +25,7 @@ local form = flow.make_gui(function(player, ctx)
 %
 end)
 
-form:show(core.get_player_by_name("playground"))
+form:show(core.get_player_by_name("current_player"))
 `.trim();
 
 const unsupported = [
@@ -49,10 +49,10 @@ function extractMakeGuiBody(text) {
     return m ? m[1] : null;
 }
 
-// Return true for complete scripts that already show the form to "playground".
+// Return true for complete scripts that already show the form to "current_player".
 function isFullScript(text) {
     return text.includes("flow.make_gui(") &&
-        text.includes('get_player_by_name("playground")');
+        text.includes('get_player_by_name("current_player")');
 }
 
 function addPlayBtn({el, result, text}) {

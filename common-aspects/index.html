@@ -214,7 +214,7 @@
 <a class="md-nav__link" href="#names-and-values">
 <span class="md-ellipsis">
       
-        Names and values
+        Names and Values
       
     </span>
 </a>
@@ -241,7 +241,7 @@
 <a class="md-nav__link" href="#textures-and-items">
 <span class="md-ellipsis">
       
-        Textures and items
+        Textures and Items
       
     </span>
 </a>
@@ -250,7 +250,7 @@
 <a class="md-nav__link" href="#parameters-shared-by-all-elements">
 <span class="md-ellipsis">
       
-        Parameters shared by all elements
+        Parameters Shared by All Elements
       
     </span>
 </a>
@@ -259,7 +259,7 @@
 <a class="md-nav__link" href="#nine-slice-images">
 <span class="md-ellipsis">
       
-        Nine-slice images
+        Nine-Slice Images
       
     </span>
 </a>
@@ -272,7 +272,7 @@
 <span class="md-ellipsis">
     
   
-    Layout elements
+    Layout Elements
   
 
     
@@ -296,7 +296,7 @@
 <span class="md-ellipsis">
     
   
-    Hypertext markup
+    Hypertext Markup
   
 
     
@@ -358,7 +358,7 @@
 <span class="md-ellipsis">
     
   
-    Styling forms
+    Styling Forms
   
 
     
@@ -370,7 +370,7 @@
 <span class="md-ellipsis">
     
   
-    Padding, spacing, and backgrounds
+    Padding, Spacing, and Backgrounds
   
 
     
@@ -394,7 +394,7 @@
 <span class="md-ellipsis">
     
   
-    Hiding elements
+    Hiding Elements
   
 
     
@@ -406,7 +406,7 @@
 <span class="md-ellipsis">
     
   
-    Using a form as an inventory
+    Using a Form as an Inventory
   
 
     
@@ -418,7 +418,7 @@
 <span class="md-ellipsis">
     
   
-    Using a form as a HUD
+    Using a Form as a HUD
   
 
     
@@ -430,7 +430,7 @@
 <span class="md-ellipsis">
     
   
-    Manual positioning
+    Manual Positioning
   
 
     
@@ -442,7 +442,7 @@
 <span class="md-ellipsis">
     
   
-    Experimental features
+    Experimental Features
   
 
     
@@ -454,7 +454,7 @@
 <span class="md-ellipsis">
     
   
-    Popovers (highly experimental)
+    Popovers (Highly Experimental)
   
 
     
@@ -553,7 +553,7 @@
 <a class="md-nav__link" href="#names-and-values">
 <span class="md-ellipsis">
       
-        Names and values
+        Names and Values
       
     </span>
 </a>
@@ -580,7 +580,7 @@
 <a class="md-nav__link" href="#textures-and-items">
 <span class="md-ellipsis">
       
-        Textures and items
+        Textures and Items
       
     </span>
 </a>
@@ -589,7 +589,7 @@
 <a class="md-nav__link" href="#parameters-shared-by-all-elements">
 <span class="md-ellipsis">
       
-        Parameters shared by all elements
+        Parameters Shared by All Elements
       
     </span>
 </a>
@@ -598,7 +598,7 @@
 <a class="md-nav__link" href="#nine-slice-images">
 <span class="md-ellipsis">
       
-        Nine-slice images
+        Nine-Slice Images
       
     </span>
 </a>
@@ -619,7 +619,7 @@
 <h2 id="sizes">Sizes</h2>
 <p>Sizes are measured in inventory slots: <code>1</code> is the width and height of one item slot. There is no hidden padding or spacing, so two boxes that are <code>1</code> wide and placed next to each other with <code>spacing = 0</code> touch. You never give an element a position, boxes place their children and flow works out the total size of the form.</p>
 <p>Elements that show text, such as labels, buttons, and fields, are sized to fit their text unless you give them a <code>w</code> and <code>h</code>. Elements that show something without a natural size, such as images, boxes, models, and tables, need an explicit <code>w</code> and <code>h</code> (their parameter lists below do not say <code>-- Optional</code>). Flow can only estimate the width of text because the real width depends on the player's font, screen size, and scaling settings, so avoid layouts that rely on exact text widths (see <a href="../#fn:label-size">the note on label sizes</a>).</p>
-<h2 id="names-and-values">Names and values</h2>
+<h2 id="names-and-values">Names and Values</h2>
 <p>Many elements take a <code>name</code>. Input elements (fields, checkboxes, dropdowns, lists of text, tables, ...) with a <code>name</code> have their current value stored in <code>ctx.form[name]</code> and flow remembers it when the form is redrawn:</p>
 <table>
 <thead>
@@ -660,16 +660,16 @@
 </tbody>
 </table>
 <p>Until the player changes something, the value is the element's initial value (<code>default</code>, <code>selected</code>, <code>selected_idx</code>, <code>value</code>, <code>current_tab</code>). If you did not give one, it is <code>""</code> for text, <code>false</code> for checkboxes, <code>1</code> for tables, text lists, and dropdowns with <code>index_event = true</code>, the text of the first item for other dropdowns, and <code>0</code> for scrollbars. <code>gui.Hypertext</code> has no starting value, and neither has <code>gui.Tabheader</code> without a <code>current_tab</code>, so <code>ctx.form[name]</code> is <code>nil</code> until the player clicks a link or a tab. Text fields only send their text to the server when the player presses a button or Enter, so <code>ctx.form</code> can be out of date until then.</p>
-<p>If your build function reads <code>ctx.form.some_name</code>, flow redraws the form automatically whenever the player changes that value (unless the element has its own <code>on_event</code>), see <a href="../getting-started/#redrawing-when-a-value-changes">Redrawing when a value changes</a>. Buttons do not store a value.</p>
+<p>If your build function reads <code>ctx.form.some_name</code>, flow redraws the form automatically whenever the player changes that value (unless the element has its own <code>on_event</code>), see <a href="../getting-started/#redrawing-when-a-value-changes">Redrawing When a Value Changes</a>. Buttons do not store a value.</p>
 <h2 id="events">Events</h2>
 <p>Elements that the player can use accept an <code>on_event</code> function, which is called with the player and <code>ctx</code>. Return <code>true</code> from it to redraw the form. A <code>name</code> is optional if you use <code>on_event</code>, flow makes one up.</p>
 <h2 id="colors">Colors</h2>
 <p>Colors are strings. <code>"#RGB"</code> and <code>"#RRGGBB"</code> are fully opaque, while <code>"#RGBA"</code> and <code>"#RRGGBBAA"</code> end with an alpha value, where <code>00</code> is fully transparent and <code>FF</code> is fully opaque. Color names also work (all the names from CSS, such as <code>"red"</code> and <code>"darkgreen"</code>), and you can add an alpha value after a <code>#</code>, for example <code>"darkgreen#08"</code>.</p>
 <p>Most text can also be coloured by putting color escape sequences in it, such as the ones made by <code>core.colorize()</code>. Dropdown items and tab captions are an exception, they cannot be coloured.</p>
-<h2 id="textures-and-items">Textures and items</h2>
+<h2 id="textures-and-items">Textures and Items</h2>
 <p>A texture name is the file name of an image from the <code>textures</code> folder of any loaded mod, such as <code>"default_dirt.png"</code>. An item name is the registered name of an item or node, such as <code>"unifieddyes:colorium"</code>.</p>
-<h2 id="parameters-shared-by-all-elements">Parameters shared by all elements</h2>
-<p>Every element, including <a href="../layout-elements/">Layout elements</a>, accepts these parameters in addition to its own:</p>
+<h2 id="parameters-shared-by-all-elements">Parameters Shared by All Elements</h2>
+<p>Every element, including <a href="../layout-elements/">Layout Elements</a>, accepts these parameters in addition to its own:</p>
 <table>
 <thead>
 <tr>
@@ -684,7 +684,7 @@
 </tr>
 <tr>
 <td><code>visible</code></td>
-<td>Set to <code>false</code> to hide the element but keep its space, see <a href="../hiding-elements/">Hiding elements</a>.</td>
+<td>Set to <code>false</code> to hide the element but keep its space, see <a href="../hiding-elements/">Hiding Elements</a>.</td>
 </tr>
 <tr>
 <td><code>expand</code></td>
@@ -712,7 +712,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="nine-slice-images">Nine-slice images</h2>
+<h2 id="nine-slice-images">Nine-Slice Images</h2>
 <p>Images and image-like backgrounds can optionally be drawn as a "nine-slice". The picture is cut into a 3x3 grid, where the corners keep their size, the edges are stretched in one direction, and the middle is stretched in both. This lets one small texture make a panel or border of any size without distorting its corners. The <code>middle_*</code> parameters describe where the cuts are, in texture pixels (whole numbers):</p>
 <ul>
 <li><code>middle_x</code> only: the cuts are <code>middle_x</code> pixels from every side.</li>

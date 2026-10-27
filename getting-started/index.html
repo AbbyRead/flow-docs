@@ -170,7 +170,7 @@
 <a class="md-nav__link" href="#basic-example">
 <span class="md-ellipsis">
       
-        Basic example
+        Basic Example
       
     </span>
 </a>
@@ -179,17 +179,17 @@
 <a class="md-nav__link" href="#updating-forms">
 <span class="md-ellipsis">
       
-        Updating forms
+        Updating Forms
       
     </span>
 </a>
-<nav aria-label="Updating forms" class="md-nav">
+<nav aria-label="Updating Forms" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#redrawing-when-a-value-changes">
 <span class="md-ellipsis">
       
-        Redrawing when a value changes
+        Redrawing When a Value Changes
       
     </span>
 </a>
@@ -240,7 +240,7 @@
 <span class="md-ellipsis">
     
   
-    Layout elements
+    Layout Elements
   
 
     
@@ -264,7 +264,7 @@
 <span class="md-ellipsis">
     
   
-    Hypertext markup
+    Hypertext Markup
   
 
     
@@ -326,7 +326,7 @@
 <span class="md-ellipsis">
     
   
-    Styling forms
+    Styling Forms
   
 
     
@@ -338,7 +338,7 @@
 <span class="md-ellipsis">
     
   
-    Padding, spacing, and backgrounds
+    Padding, Spacing, and Backgrounds
   
 
     
@@ -362,7 +362,7 @@
 <span class="md-ellipsis">
     
   
-    Hiding elements
+    Hiding Elements
   
 
     
@@ -374,7 +374,7 @@
 <span class="md-ellipsis">
     
   
-    Using a form as an inventory
+    Using a Form as an Inventory
   
 
     
@@ -386,7 +386,7 @@
 <span class="md-ellipsis">
     
   
-    Using a form as a HUD
+    Using a Form as a HUD
   
 
     
@@ -398,7 +398,7 @@
 <span class="md-ellipsis">
     
   
-    Manual positioning
+    Manual Positioning
   
 
     
@@ -410,7 +410,7 @@
 <span class="md-ellipsis">
     
   
-    Experimental features
+    Experimental Features
   
 
     
@@ -422,7 +422,7 @@
 <span class="md-ellipsis">
     
   
-    Popovers (highly experimental)
+    Popovers (Highly Experimental)
   
 
     
@@ -512,7 +512,7 @@
 <a class="md-nav__link" href="#basic-example">
 <span class="md-ellipsis">
       
-        Basic example
+        Basic Example
       
     </span>
 </a>
@@ -521,17 +521,17 @@
 <a class="md-nav__link" href="#updating-forms">
 <span class="md-ellipsis">
       
-        Updating forms
+        Updating Forms
       
     </span>
 </a>
-<nav aria-label="Updating forms" class="md-nav">
+<nav aria-label="Updating Forms" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#redrawing-when-a-value-changes">
 <span class="md-ellipsis">
       
-        Redrawing when a value changes
+        Redrawing When a Value Changes
       
     </span>
 </a>
@@ -546,11 +546,11 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="getting-started">Getting started</h1>
+<h1 id="getting-started">Getting Started</h1>
 <p>A <em>form</em> is a menu that is shown to a player. It is made of <em>elements</em> (also called widgets), such as labels, buttons, text fields, and inventory slots, which are arranged by layout elements like <a href="../layout-elements/#guivbox"><code>gui.VBox</code></a>. You describe a form with a <em>build function</em>, which is the function you pass to <code>flow.make_gui()</code>. It returns the elements, and flow works out the positions and sizes and shows the form for you. This documentation always calls it the build function. See <a href="../functional-elements/">Functional Elements</a> for what each element does.</p>
-<h2 id="basic-example">Basic example</h2>
+<h2 id="basic-example">Basic Example</h2>
 <p>See <a href="https://gitlab.com/luk3yx/minetest-flow/-/blob/main/example.lua"><code>example.lua</code></a> in the flow repository for a more comprehensive example which demonstrates how layouting and alignment works. In singleplayer, a player with the <code>server</code> privilege can also run <code>/flow-example</code> to open it in the game.</p>
-<p>The build function is called with the player and a context table (<code>ctx</code>) every time the form is drawn. <code>ctx</code> belongs to one player's copy of the form: flow keeps the same table for as long as the form is open, passes it to the build function and to every <code>on_event</code> function, and you can store anything in it. Flow adds a <code>ctx.form</code> table to it, which holds the current values of the form's named inputs (see <a href="elements.md#names-and-values">Names and values</a>).</p>
+<p>The build function is called with the player and a context table (<code>ctx</code>) every time the form is drawn. <code>ctx</code> belongs to one player's copy of the form: flow keeps the same table for as long as the form is open, passes it to the build function and to every <code>on_event</code> function, and you can store anything in it. Flow adds a <code>ctx.form</code> table to it, which holds the current values of the form's named inputs (see <a href="elements.md#names-and-values">Names and Values</a>).</p>
 <p><code>form:show(player, ctx)</code> shows the form to a player. The second argument is the starting <code>ctx</code>. Flow uses that table itself instead of a copy, and uses a new empty table if you leave it out.</p>
 <p>The example below uses a player called <code>playground</code>, which only exists in the online playground. In a mod, use a real player object instead, such as the one passed to a chat command or to <code>core.register_on_joinplayer</code>.</p>
 <div class="language-lua highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kd">local</span><span class="w"> </span><span class="nv">gui</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">flow</span><span class="p">.</span><span class="py">widgets</span><span class="w"> </span><span class="c1">-- local recommended for direct referencing</span>
@@ -571,18 +571,29 @@
 </span><span id="__span-0-16"><a href="#__codelineno-0-16" id="__codelineno-0-16" name="__codelineno-0-16"></a><span class="w">                </span><span class="kd">local</span><span class="w"> </span><span class="nv">idx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">ctx</span><span class="p">.</span><span class="py">form</span><span class="p">.</span><span class="py">cool_dropdown</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="nv">ctx</span><span class="p">.</span><span class="py">value</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="mi">1</span>
 </span><span id="__span-0-17"><a href="#__codelineno-0-17" id="__codelineno-0-17" name="__codelineno-0-17"></a><span class="w">                </span><span class="nv">core</span><span class="p">.</span><span class="nf">chat_send_player</span><span class="p">(</span><span class="nv">player</span><span class="p">:</span><span class="nf">get_player_name</span><span class="p">(),</span>
 </span><span id="__span-0-18"><a href="#__codelineno-0-18" id="__codelineno-0-18" name="__codelineno-0-18"></a><span class="w">                    </span><span class="p">(</span><span class="s2">"You have selected item #%d!"</span><span class="p">):</span><span class="nf">format</span><span class="p">(</span><span class="nv">idx</span><span class="p">))</span>
-</span><span id="__span-0-19"><a href="#__codelineno-0-19" id="__codelineno-0-19" name="__codelineno-0-19"></a><span class="w">            </span><span class="kr">end</span><span class="p">,</span>
-</span><span id="__span-0-20"><a href="#__codelineno-0-20" id="__codelineno-0-20" name="__codelineno-0-20"></a><span class="w">        </span><span class="p">}</span>
-</span><span id="__span-0-21"><a href="#__codelineno-0-21" id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-0-22"><a href="#__codelineno-0-22" id="__codelineno-0-22" name="__codelineno-0-22"></a><span class="kr">end</span>
-</span><span id="__span-0-23"><a href="#__codelineno-0-23" id="__codelineno-0-23" name="__codelineno-0-23"></a>
-</span><span id="__span-0-24"><a href="#__codelineno-0-24" id="__codelineno-0-24" name="__codelineno-0-24"></a><span class="kd">local</span><span class="w"> </span><span class="nv">form</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">flow</span><span class="p">.</span><span class="nf">make_gui</span><span class="p">(</span><span class="nv">build_vbox</span><span class="p">)</span>
-</span><span id="__span-0-25"><a href="#__codelineno-0-25" id="__codelineno-0-25" name="__codelineno-0-25"></a><span class="c1">-- Use a real player in your mod, "playground" only exists in the playground</span>
-</span><span id="__span-0-26"><a href="#__codelineno-0-26" id="__codelineno-0-26" name="__codelineno-0-26"></a><span class="kd">local</span><span class="w"> </span><span class="nv">player_obj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">core</span><span class="p">.</span><span class="nf">get_player_by_name</span><span class="p">(</span><span class="s2">"playground"</span><span class="p">)</span>
-</span><span id="__span-0-27"><a href="#__codelineno-0-27" id="__codelineno-0-27" name="__codelineno-0-27"></a>
-</span><span id="__span-0-28"><a href="#__codelineno-0-28" id="__codelineno-0-28" name="__codelineno-0-28"></a><span class="nv">form</span><span class="p">:</span><span class="nf">show</span><span class="p">(</span><span class="nv">player_obj</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">STARTING_SELECTION</span><span class="w"> </span><span class="p">})</span><span class="w"> </span><span class="c1">-- Starting ctx, optional</span>
+</span><span id="__span-0-19"><a href="#__codelineno-0-19" id="__codelineno-0-19" name="__codelineno-0-19"></a>
+</span><span id="__span-0-20"><a href="#__codelineno-0-20" id="__codelineno-0-20" name="__codelineno-0-20"></a><span class="w">                </span><span class="c1">-- Remember the index and redraw so the label below shows it.</span>
+</span><span id="__span-0-21"><a href="#__codelineno-0-21" id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="w">                </span><span class="nv">ctx</span><span class="p">.</span><span class="py">picked</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">idx</span>
+</span><span id="__span-0-22"><a href="#__codelineno-0-22" id="__codelineno-0-22" name="__codelineno-0-22"></a><span class="w">                </span><span class="kr">return</span><span class="w"> </span><span class="kc">true</span>
+</span><span id="__span-0-23"><a href="#__codelineno-0-23" id="__codelineno-0-23" name="__codelineno-0-23"></a><span class="w">            </span><span class="kr">end</span><span class="p">,</span>
+</span><span id="__span-0-24"><a href="#__codelineno-0-24" id="__codelineno-0-24" name="__codelineno-0-24"></a><span class="w">        </span><span class="p">},</span>
+</span><span id="__span-0-25"><a href="#__codelineno-0-25" id="__codelineno-0-25" name="__codelineno-0-25"></a><span class="w">        </span><span class="nv">gui</span><span class="p">.</span><span class="py">Label</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-26"><a href="#__codelineno-0-26" id="__codelineno-0-26" name="__codelineno-0-26"></a><span class="w">            </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">ctx</span><span class="p">.</span><span class="py">picked</span>
+</span><span id="__span-0-27"><a href="#__codelineno-0-27" id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="w">                </span><span class="ow">and</span><span class="w"> </span><span class="p">(</span><span class="s2">"You have selected item #%d!"</span><span class="p">):</span><span class="nf">format</span><span class="p">(</span><span class="nv">ctx</span><span class="p">.</span><span class="py">picked</span><span class="p">)</span>
+</span><span id="__span-0-28"><a href="#__codelineno-0-28" id="__codelineno-0-28" name="__codelineno-0-28"></a><span class="w">                </span><span class="ow">or</span><span class="w"> </span><span class="s2">"Pick an item, then press the button."</span><span class="p">,</span>
+</span><span id="__span-0-29"><a href="#__codelineno-0-29" id="__codelineno-0-29" name="__codelineno-0-29"></a><span class="w">        </span><span class="p">},</span>
+</span><span id="__span-0-30"><a href="#__codelineno-0-30" id="__codelineno-0-30" name="__codelineno-0-30"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-0-31"><a href="#__codelineno-0-31" id="__codelineno-0-31" name="__codelineno-0-31"></a><span class="kr">end</span>
+</span><span id="__span-0-32"><a href="#__codelineno-0-32" id="__codelineno-0-32" name="__codelineno-0-32"></a>
+</span><span id="__span-0-33"><a href="#__codelineno-0-33" id="__codelineno-0-33" name="__codelineno-0-33"></a><span class="kd">local</span><span class="w"> </span><span class="nv">form</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">flow</span><span class="p">.</span><span class="nf">make_gui</span><span class="p">(</span><span class="nv">build_vbox</span><span class="p">)</span>
+</span><span id="__span-0-34"><a href="#__codelineno-0-34" id="__codelineno-0-34" name="__codelineno-0-34"></a><span class="c1">-- "singleplayer" is the default player name for single-player games</span>
+</span><span id="__span-0-35"><a href="#__codelineno-0-35" id="__codelineno-0-35" name="__codelineno-0-35"></a><span class="kd">local</span><span class="w"> </span><span class="nv">player_obj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">core</span><span class="p">.</span><span class="nf">get_player_by_name</span><span class="p">(</span><span class="s2">"singleplayer"</span><span class="p">)</span>
+</span><span id="__span-0-36"><a href="#__codelineno-0-36" id="__codelineno-0-36" name="__codelineno-0-36"></a>
+</span><span id="__span-0-37"><a href="#__codelineno-0-37" id="__codelineno-0-37" name="__codelineno-0-37"></a><span class="nv">form</span><span class="p">:</span><span class="nf">show</span><span class="p">(</span><span class="nv">player_obj</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">STARTING_SELECTION</span><span class="w"> </span><span class="p">})</span><span class="w"> </span><span class="c1">-- Starting ctx, optional</span>
 </span></code></pre></div>
-<h2 id="updating-forms">Updating forms</h2>
+<p><img alt="Screenshot" src="../images/getting-started-basic-example.png"/></p>
+<p>Pick an item and press the button: the button's <code>on_event</code> function stores the index in <code>ctx.picked</code> and returns <code>true</code>, which redraws the form so that the label under the button changes. The same message is also sent to the chat.</p>
+<h2 id="updating-forms">Updating Forms</h2>
 <p>If some data displayed inside a form changes (for example a timer or progress indicator), you can use <code>my_gui:update(player)</code> or <code>my_gui:update_where(func)</code> (see below) to update the form without resetting <code>ctx</code> or showing the form again if the player has closed it.</p>
 <p>Luanti has no way to change a form that is already open, so flow has to show the whole form again. Because of this, players may lose text typed into fields that hasn't been sent to the server (which happens when they press a button or Enter) when the form is updated.</p>
 <div class="language-lua highlight"><pre><span></span><code><span id="__span-1-1"><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="c1">-- Re-shows the form for one player if they have the form open</span>
@@ -611,25 +622,57 @@
 </span><span id="__span-2-6"><a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="p">}</span>
 </span></code></pre></div>
 <p>If you're using a form as a HUD, you must call <code>my_gui:show_hud(player)</code> to update it. See <a href="../huds/">HUDs</a> for how to show and close one.</p>
-<h3 id="redrawing-when-a-value-changes">Redrawing when a value changes</h3>
-<p>You often do not need <code>return true</code>. If your build function reads the value of a named input from <code>ctx.form</code>, flow notices and redraws the form by itself whenever the player changes that value.</p>
-<div class="language-lua highlight"><pre><span></span><code><span id="__span-3-1"><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="kd">local</span><span class="w"> </span><span class="nv">form</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">flow</span><span class="p">.</span><span class="nf">make_gui</span><span class="p">(</span><span class="kr">function</span><span class="p">(</span><span class="nv">player</span><span class="p">,</span><span class="w"> </span><span class="nv">ctx</span><span class="p">)</span>
-</span><span id="__span-3-2"><a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="nv">gui</span><span class="p">.</span><span class="py">VBox</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-3-3"><a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="w">        </span><span class="nv">gui</span><span class="p">.</span><span class="py">Checkbox</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"advanced"</span><span class="p">,</span><span class="w"> </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Show advanced options"</span><span class="w"> </span><span class="p">},</span>
-</span><span id="__span-3-4"><a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a>
-</span><span id="__span-3-5"><a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="w">        </span><span class="c1">-- Reading ctx.form.advanced here makes flow redraw the form</span>
-</span><span id="__span-3-6"><a href="#__codelineno-3-6" id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="w">        </span><span class="c1">-- whenever the checkbox changes.</span>
-</span><span id="__span-3-7"><a href="#__codelineno-3-7" id="__codelineno-3-7" name="__codelineno-3-7"></a><span class="w">        </span><span class="nv">ctx</span><span class="p">.</span><span class="py">form</span><span class="p">.</span><span class="py">advanced</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nv">gui</span><span class="p">.</span><span class="py">Label</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Advanced options"</span><span class="w"> </span><span class="p">}</span>
-</span><span id="__span-3-8"><a href="#__codelineno-3-8" id="__codelineno-3-8" name="__codelineno-3-8"></a><span class="w">            </span><span class="ow">or</span><span class="w"> </span><span class="nv">gui</span><span class="p">.</span><span class="py">Nil</span><span class="w"> </span><span class="p">{},</span>
-</span><span id="__span-3-9"><a href="#__codelineno-3-9" id="__codelineno-3-9" name="__codelineno-3-9"></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-3-10"><a href="#__codelineno-3-10" id="__codelineno-3-10" name="__codelineno-3-10"></a><span class="kr">end</span><span class="p">)</span>
+<p>Here is a complete example you can run. A timer redraws the form every second with <code>update_where</code>, and the click counter stored in <code>ctx</code> survives every redraw because updating a form does not reset <code>ctx</code>:</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-3-1"><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="kd">local</span><span class="w"> </span><span class="nv">gui</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">flow</span><span class="p">.</span><span class="py">widgets</span>
+</span><span id="__span-3-2"><a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a>
+</span><span id="__span-3-3"><a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="c1">-- Shared by every open copy of the form.</span>
+</span><span id="__span-3-4"><a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="kd">local</span><span class="w"> </span><span class="nv">seconds</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+</span><span id="__span-3-5"><a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a>
+</span><span id="__span-3-6"><a href="#__codelineno-3-6" id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="kd">local</span><span class="w"> </span><span class="nv">form</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">flow</span><span class="p">.</span><span class="nf">make_gui</span><span class="p">(</span><span class="kr">function</span><span class="p">(</span><span class="nv">player</span><span class="p">,</span><span class="w"> </span><span class="nv">ctx</span><span class="p">)</span>
+</span><span id="__span-3-7"><a href="#__codelineno-3-7" id="__codelineno-3-7" name="__codelineno-3-7"></a><span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="nv">gui</span><span class="p">.</span><span class="py">VBox</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-8"><a href="#__codelineno-3-8" id="__codelineno-3-8" name="__codelineno-3-8"></a><span class="w">        </span><span class="nv">gui</span><span class="p">.</span><span class="py">Label</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="s2">"Form drawn after %d seconds"</span><span class="p">):</span><span class="nf">format</span><span class="p">(</span><span class="nv">seconds</span><span class="p">)</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-3-9"><a href="#__codelineno-3-9" id="__codelineno-3-9" name="__codelineno-3-9"></a><span class="w">        </span><span class="nv">gui</span><span class="p">.</span><span class="py">Label</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="s2">"Clicks (kept in ctx): %d"</span><span class="p">):</span><span class="nf">format</span><span class="p">(</span><span class="nv">ctx</span><span class="p">.</span><span class="py">clicks</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-3-10"><a href="#__codelineno-3-10" id="__codelineno-3-10" name="__codelineno-3-10"></a><span class="w">        </span><span class="nv">gui</span><span class="p">.</span><span class="py">Button</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-11"><a href="#__codelineno-3-11" id="__codelineno-3-11" name="__codelineno-3-11"></a><span class="w">            </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Click me"</span><span class="p">,</span>
+</span><span id="__span-3-12"><a href="#__codelineno-3-12" id="__codelineno-3-12" name="__codelineno-3-12"></a><span class="w">            </span><span class="nv">on_event</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">function</span><span class="p">(</span><span class="nv">player</span><span class="p">,</span><span class="w"> </span><span class="nv">ctx</span><span class="p">)</span>
+</span><span id="__span-3-13"><a href="#__codelineno-3-13" id="__codelineno-3-13" name="__codelineno-3-13"></a><span class="w">                </span><span class="nv">ctx</span><span class="p">.</span><span class="py">clicks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nv">ctx</span><span class="p">.</span><span class="py">clicks</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+</span><span id="__span-3-14"><a href="#__codelineno-3-14" id="__codelineno-3-14" name="__codelineno-3-14"></a><span class="w">                </span><span class="kr">return</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="c1">-- redraw this form</span>
+</span><span id="__span-3-15"><a href="#__codelineno-3-15" id="__codelineno-3-15" name="__codelineno-3-15"></a><span class="w">            </span><span class="kr">end</span><span class="p">,</span>
+</span><span id="__span-3-16"><a href="#__codelineno-3-16" id="__codelineno-3-16" name="__codelineno-3-16"></a><span class="w">        </span><span class="p">},</span>
+</span><span id="__span-3-17"><a href="#__codelineno-3-17" id="__codelineno-3-17" name="__codelineno-3-17"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-3-18"><a href="#__codelineno-3-18" id="__codelineno-3-18" name="__codelineno-3-18"></a><span class="kr">end</span><span class="p">)</span>
+</span><span id="__span-3-19"><a href="#__codelineno-3-19" id="__codelineno-3-19" name="__codelineno-3-19"></a>
+</span><span id="__span-3-20"><a href="#__codelineno-3-20" id="__codelineno-3-20" name="__codelineno-3-20"></a><span class="c1">-- Redraw every open copy once per second.</span>
+</span><span id="__span-3-21"><a href="#__codelineno-3-21" id="__codelineno-3-21" name="__codelineno-3-21"></a><span class="kd">local</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="nf">tick</span><span class="p">()</span>
+</span><span id="__span-3-22"><a href="#__codelineno-3-22" id="__codelineno-3-22" name="__codelineno-3-22"></a><span class="w">    </span><span class="nv">seconds</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">seconds</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+</span><span id="__span-3-23"><a href="#__codelineno-3-23" id="__codelineno-3-23" name="__codelineno-3-23"></a><span class="w">    </span><span class="nv">form</span><span class="p">:</span><span class="nf">update_where</span><span class="p">(</span><span class="kr">function</span><span class="p">()</span><span class="w"> </span><span class="kr">return</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="kr">end</span><span class="p">)</span>
+</span><span id="__span-3-24"><a href="#__codelineno-3-24" id="__codelineno-3-24" name="__codelineno-3-24"></a><span class="w">    </span><span class="nv">core</span><span class="p">.</span><span class="nf">after</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nv">tick</span><span class="p">)</span>
+</span><span id="__span-3-25"><a href="#__codelineno-3-25" id="__codelineno-3-25" name="__codelineno-3-25"></a><span class="kr">end</span>
+</span><span id="__span-3-26"><a href="#__codelineno-3-26" id="__codelineno-3-26" name="__codelineno-3-26"></a><span class="nv">core</span><span class="p">.</span><span class="nf">after</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nv">tick</span><span class="p">)</span>
+</span><span id="__span-3-27"><a href="#__codelineno-3-27" id="__codelineno-3-27" name="__codelineno-3-27"></a>
+</span><span id="__span-3-28"><a href="#__codelineno-3-28" id="__codelineno-3-28" name="__codelineno-3-28"></a><span class="nv">form</span><span class="p">:</span><span class="nf">show</span><span class="p">(</span><span class="nv">core</span><span class="p">.</span><span class="nf">get_player_by_name</span><span class="p">(</span><span class="s2">"current_player"</span><span class="p">))</span>
 </span></code></pre></div>
+<p><img alt="Screenshot" src="../images/update-form-drawn-ctx-clicks.png"/></p>
+<h3 id="redrawing-when-a-value-changes">Redrawing When a Value Changes</h3>
+<p>You often do not need <code>return true</code>. If your build function reads the value of a named input from <code>ctx.form</code>, flow notices and redraws the form by itself whenever the player changes that value.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-4-1"><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="kd">local</span><span class="w"> </span><span class="nv">form</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">flow</span><span class="p">.</span><span class="nf">make_gui</span><span class="p">(</span><span class="kr">function</span><span class="p">(</span><span class="nv">player</span><span class="p">,</span><span class="w"> </span><span class="nv">ctx</span><span class="p">)</span>
+</span><span id="__span-4-2"><a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="nv">gui</span><span class="p">.</span><span class="py">VBox</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-3"><a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="w">        </span><span class="nv">gui</span><span class="p">.</span><span class="py">Checkbox</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"advanced"</span><span class="p">,</span><span class="w"> </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Show advanced options"</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-4-4"><a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a>
+</span><span id="__span-4-5"><a href="#__codelineno-4-5" id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="w">        </span><span class="c1">-- Reading ctx.form.advanced here makes flow redraw the form</span>
+</span><span id="__span-4-6"><a href="#__codelineno-4-6" id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="w">        </span><span class="c1">-- whenever the checkbox changes.</span>
+</span><span id="__span-4-7"><a href="#__codelineno-4-7" id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="w">        </span><span class="nv">ctx</span><span class="p">.</span><span class="py">form</span><span class="p">.</span><span class="py">advanced</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nv">gui</span><span class="p">.</span><span class="py">Label</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Advanced options"</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-4-8"><a href="#__codelineno-4-8" id="__codelineno-4-8" name="__codelineno-4-8"></a><span class="w">            </span><span class="ow">or</span><span class="w"> </span><span class="nv">gui</span><span class="p">.</span><span class="py">Nil</span><span class="w"> </span><span class="p">{},</span>
+</span><span id="__span-4-9"><a href="#__codelineno-4-9" id="__codelineno-4-9" name="__codelineno-4-9"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-4-10"><a href="#__codelineno-4-10" id="__codelineno-4-10" name="__codelineno-4-10"></a><span class="kr">end</span><span class="p">)</span>
+</span></code></pre></div>
+<p><img alt="Screenshot" src="../images/show-advanced-options.png"/></p>
 <p>The rules are:</p>
 <ul>
 <li>Only reads while the build function runs count, including reads in helper functions that it calls. Reading <code>ctx.form</code> inside an <code>on_event</code> function does not.</li>
 <li>The form is only redrawn if the value is different from the stored one.</li>
 <li>If the element has its own <code>on_event</code> function, there is no automatic redraw. That function has to <code>return true</code> instead.</li>
-<li>Text fields only send their text when the player presses a button or Enter (see <a href="elements.md#names-and-values">Names and values</a>), so the redraw happens then.</li>
+<li>Text fields only send their text when the player presses a button or Enter (see <a href="elements.md#names-and-values">Names and Values</a>), so the redraw happens then.</li>
 </ul>
 </article>
 </div>
