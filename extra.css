@@ -15,6 +15,12 @@
     size: A4;
     margin: 20mm 20mm 20mm 20mm;
 
+    /* Hide embedded images / screenshots in PDF output */
+    img,
+    figure {
+        display: none !important;
+    }
+
     /* Top Right: Section name / title */
     @top-right {
         content: "Your Section Name";
@@ -103,7 +109,6 @@
         padding: 0 !important;
         border: 0 !important;
         background: none !important;
-        color: #000 !important;
         font-size: 8pt !important;
     }
 }
