@@ -1,41 +1,10 @@
-/* Wrap table text instead of scrolling horizontally. */
-.wy-table-responsive table td,
-.wy-table-responsive table th {
-    white-space: normal;
-}
-
-/* Allow long inline code to wrap at spaces; break mid-token only if needed. */
-.rst-content table.docutils code {
-    white-space: normal;
-    overflow-wrap: break-word;
-}
-
-/* Global paged media configuration for WeasyPrint (PDF output) */
-@page {
-    size: A4;
-    margin: 20mm 20mm 20mm 20mm;
-
-    /* Hide embedded images / screenshots in PDF output */
-    img,
-    figure {
+/* PDF/print only styles */
+@media print {
+    /* Hide embedded screenshots / images in PDF */
+    img, figure {
         display: none !important;
     }
 
-    /* Top Right: Section name / title */
-    @top-right {
-        content: "Your Section Name";
-        font-size: 10pt !important;
-    }
-
-    /* Bottom Center: Page numbering */
-    @bottom-center {
-        content: counter(page);
-        font-size: 11pt !important;
-    }
-}
-
-/* PDF/print only styles */
-@media print {
     /* Title page elements */
     .pdf-title, h1.title, .print-site-page-title, title {
         font-size: 64pt !important;
@@ -64,12 +33,7 @@
     h3, .md-typeset h3 { font-size: 13pt }
     h4, h5, h6, .md-typeset h4, .md-typeset h5, .md-typeset h6 { font-size: 11.5pt !important; }
 
-    /* Title page elements (placed after general h1 rules so !important wins) */
-    .pdf-title, h1.title, .print-site-page-title, title {
-        font-size: 64pt !important;
-    }
-
-    /* Heading numbers (child spans/elements) set 2pt smaller */
+    /* Heading numbers set 2pt smaller */
     h1 *, .md-typeset h1 * { font-size: 16pt !important; }
     h2 *, .md-typeset h2 * { font-size: 13pt !important; }
     h3 *, .md-typeset h3 * { font-size: 11pt !important; }
@@ -96,7 +60,7 @@
         page-break-inside: avoid !important;
         margin: 0 0 1em !important;
         padding: 8px 10px !important;
-        background: #f8f8f8 !important;
+        background: #ffffff !important;
         border: 1px solid #e1e4e5 !important;
         font-size: 8pt !important;
     }
@@ -110,82 +74,32 @@
         border: 0 !important;
         background: none !important;
         font-size: 8pt !important;
+        /* Note: color: #000 !important removed so syntax highlighting colors remain visible */
     }
-}
 
-/* VS Code Light+ (Material "default" scheme) */
-[data-md-color-scheme="default"] {
-  --md-code-fg-color: #000000;
-  --md-code-bg-color: #FFFFFF;
-  --md-code-hl-color: #ADD6FF66;
+    /* Force Light+ Variables in Print / PDF Mode */
+    :root, body, [data-md-color-scheme] {
+        --md-code-fg-color: #000000;
+        --md-code-bg-color: #FFFFFF;
+        --md-code-hl-color: #ADD6FF66;
 
-  --md-code-hl-number-color: #098658;
-  --md-code-hl-special-color: #811F3F;
-  --md-code-hl-function-color: #795E26;
-  --md-code-hl-constant-color: #0070C1;
-  --md-code-hl-keyword-color: #0000FF;
-  --md-code-hl-string-color: #A31515;
-  --md-code-hl-name-color: #267F99;
-  --md-code-hl-operator-color: #000000;
-  --md-code-hl-punctuation-color: #000000;
-  --md-code-hl-comment-color: #008000;
-  --md-code-hl-generic-color: #000000;
-  --md-code-hl-variable-color: #001080;
+        --md-code-hl-number-color: #098658;
+        --md-code-hl-special-color: #811F3F;
+        --md-code-hl-function-color: #795E26;
+        --md-code-hl-constant-color: #0070C1;
+        --md-code-hl-keyword-color: #0000FF;
+        --md-code-hl-string-color: #A31515;
+        --md-code-hl-name-color: #267F99;
+        --md-code-hl-operator-color: #000000;
+        --md-code-hl-punctuation-color: #000000;
+        --md-code-hl-comment-color: #008000;
+        --md-code-hl-generic-color: #000000;
+        --md-code-hl-variable-color: #001080;
 
-  --vsc-control-color: #AF00DB;
-  --vsc-tag-color: #800000;
-  --vsc-attr-color: #E50000;
-  --vsc-invalid-color: #CD3131;
-  --vsc-code-border: #E5E5E5;
-}
-
-/* VS Code Dark+ (Material "slate" scheme) */
-[data-md-color-scheme="slate"] {
-  --md-code-fg-color: #D4D4D4;
-  --md-code-bg-color: #1E1E1E;
-  --md-code-hl-color: #264F7866;
-
-  --md-code-hl-number-color: #B5CEA8;
-  --md-code-hl-special-color: #D16969;
-  --md-code-hl-function-color: #DCDCAA;
-  --md-code-hl-constant-color: #4FC1FF;
-  --md-code-hl-keyword-color: #569CD6;
-  --md-code-hl-string-color: #CE9178;
-  --md-code-hl-name-color: #4EC9B0;
-  --md-code-hl-operator-color: #D4D4D4;
-  --md-code-hl-punctuation-color: #D4D4D4;
-  --md-code-hl-comment-color: #6A9955;
-  --md-code-hl-generic-color: #D4D4D4;
-  --md-code-hl-variable-color: #9CDCFE;
-
-  --vsc-control-color: #C586C0;
-  --vsc-tag-color: #569CD6;
-  --vsc-attr-color: #9CDCFE;
-  --vsc-invalid-color: #F44747;
-  --vsc-code-border: transparent;
-}
-
-/* Outline white code backgrounds so they stand out from the page. */
-.md-typeset .highlight,
-.md-typeset :not(pre) > code {
-  outline: 1px solid var(--vsc-code-border);
-}
-
-/* Control-flow keywords (Pygments only exposes import/from as .kn). */
-.md-typeset .highlight .kn {
-  color: var(--vsc-control-color);
-}
-
-/* HTML/XML tags and attributes. */
-.md-typeset .highlight .nt {
-  color: var(--vsc-tag-color);
-}
-
-.md-typeset .highlight .na {
-  color: var(--vsc-attr-color);
-}
-
-/* Invalid syntax. */
-.md-typeset .highlight .err {
-  color: var(--vsc-invalid-color);
+        --vsc-control-color: #AF00DB;
+        --vsc-tag-color: #800000;
+        --vsc-attr-color: #E50000;
+        --vsc-invalid-color: #CD3131;
+        --vsc-code-border: #E5E5E5;
+    }
 }
