@@ -197,6 +197,37 @@
 </ul>
 </nav>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#context-and-redraws-at-a-glance">
+<span class="md-ellipsis">
+      
+        Context and Redraws at a Glance
+      
+    </span>
+</a>
+<nav aria-label="Context and Redraws at a Glance" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#context-lifetime-by-mode">
+<span class="md-ellipsis">
+      
+        Context Lifetime by Mode
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ways-to-redraw-a-form">
+<span class="md-ellipsis">
+      
+        Ways to Redraw a Form
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
 </ul>
 </nav>
 </li>
@@ -539,6 +570,37 @@
 </ul>
 </nav>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#context-and-redraws-at-a-glance">
+<span class="md-ellipsis">
+      
+        Context and Redraws at a Glance
+      
+    </span>
+</a>
+<nav aria-label="Context and Redraws at a Glance" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#context-lifetime-by-mode">
+<span class="md-ellipsis">
+      
+        Context Lifetime by Mode
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ways-to-redraw-a-form">
+<span class="md-ellipsis">
+      
+        Ways to Redraw a Form
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
 </ul>
 </nav>
 </div>
@@ -550,7 +612,35 @@
 <p>A <em>form</em> is a menu that is shown to a player. It is made of <em>elements</em> (also called widgets), such as labels, buttons, text fields, and inventory slots, which are arranged by layout elements like <a href="../layout-elements/#guivbox"><code>gui.VBox</code></a>. You describe a form with a <em>build function</em>, which is the function you pass to <code>flow.make_gui()</code>. It returns the elements, and flow works out the positions and sizes and shows the form for you. This documentation always calls it the build function. See <a href="../functional-elements/">Functional Elements</a> for what each element does.</p>
 <h2 id="basic-example">Basic Example</h2>
 <p>See <a href="https://gitlab.com/luk3yx/minetest-flow/-/blob/main/example.lua"><code>example.lua</code></a> in the flow repository for a more comprehensive example which demonstrates how layouting and alignment works. In singleplayer, a player with the <code>server</code> privilege can also run <code>/flow-example</code> to open it in the game.</p>
-<p>The build function is called with the player and a context table (<code>ctx</code>) every time the form is drawn. <code>ctx</code> belongs to one player's copy of the form: flow keeps the same table for as long as the form is open, passes it to the build function and to every <code>on_event</code> function, and you can store anything in it. Flow adds a <code>ctx.form</code> table to it, which holds the current values of the form's named inputs (see <a href="elements.md#names-and-values">Names and Values</a>).</p>
+<p>The build function is called with the player and a context table (<code>ctx</code>) every time the form is drawn. <code>ctx</code> belongs to one player's copy of the form: flow keeps the same table for as long as the form is open, passes it to the build function and to every <code>on_event</code> function, and you can store anything in it. Flow adds a <code>ctx.form</code> table to it, which holds the current values of the form's named inputs (see <a href="../common-aspects/#names-and-values">Names and Values</a>).</p>
+<p>Three things in the example below look alike but are different:</p>
+<table>
+<thead>
+<tr>
+<th>Name in the example</th>
+<th>What it is</th>
+<th>Who writes it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ctx.value</code></td>
+<td>The starting <code>ctx</code>: whatever you passed to <code>form:show</code>.</td>
+<td>You, before the form is shown.</td>
+</tr>
+<tr>
+<td><code>ctx.form.cool_dropdown</code></td>
+<td>The live value of the input named <code>cool_dropdown</code>.</td>
+<td>Flow: it sets the initial value on the first draw and updates it when the player changes the input.</td>
+</tr>
+<tr>
+<td><code>ctx.picked</code></td>
+<td>Your own state.</td>
+<td>Your <code>on_event</code> function, when the player presses the button.</td>
+</tr>
+</tbody>
+</table>
+<p>All three are in the same table. Do not use <code>form</code> as a key of your own and do not replace <code>ctx.form</code>, flow raises an error if you do that in the build function.</p>
 <p><code>form:show(player, ctx)</code> shows the form to a player. The second argument is the starting <code>ctx</code>. Flow uses that table itself instead of a copy, and uses a new empty table if you leave it out.</p>
 <p>The example below uses a player called <code>playground</code>, which only exists in the online playground. In a mod, use a real player object instead, such as the one passed to a chat command or to <code>core.register_on_joinplayer</code>.</p>
 <div class="language-lua highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kd">local</span><span class="w"> </span><span class="nv">gui</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">flow</span><span class="p">.</span><span class="py">widgets</span><span class="w"> </span><span class="c1">-- local recommended for direct referencing</span>
@@ -656,7 +746,7 @@
 </span><span id="__span-1-57"><a href="#__codelineno-1-57" id="__codelineno-1-57" name="__codelineno-1-57"></a><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-1-58"><a href="#__codelineno-1-58" id="__codelineno-1-58" name="__codelineno-1-58"></a><span class="kr">end</span><span class="p">)</span>
 </span></code></pre></div>
-<p>Inside an <a href="elements.md#events"><code>on_event</code> handler</a>, you can use <code>return true</code> instead of <code>my_gui:update(player)</code>. This form does the same as the first button above:</p>
+<p>Inside an <a href="../common-aspects/#events"><code>on_event</code> handler</a>, you can use <code>return true</code> instead of <code>my_gui:update(player)</code>. This form does the same as the first button above:</p>
 <div class="language-lua highlight"><pre><span></span><code><span id="__span-2-1"><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="kd">local</span><span class="w"> </span><span class="nv">counter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
 </span><span id="__span-2-2"><a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>
 </span><span id="__span-2-3"><a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="kd">local</span><span class="w"> </span><span class="nv">form</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">flow</span><span class="p">.</span><span class="nf">make_gui</span><span class="p">(</span><span class="kr">function</span><span class="p">(</span><span class="nv">player</span><span class="p">,</span><span class="w"> </span><span class="nv">ctx</span><span class="p">)</span>
@@ -724,8 +814,130 @@
 <li>Only reads while the build function runs count, including reads in helper functions that it calls. Reading <code>ctx.form</code> inside an <code>on_event</code> function does not.</li>
 <li>The form is only redrawn if the value is different from the stored one.</li>
 <li>If the element has its own <code>on_event</code> function, there is no automatic redraw. That function has to <code>return true</code> instead.</li>
-<li>Text fields only send their text when the player presses a button or Enter (see <a href="elements.md#names-and-values">Names and Values</a>), so the redraw happens then.</li>
+<li>Text fields only send their text when the player presses a button or Enter (see <a href="../common-aspects/#names-and-values">Names and Values</a>), so the redraw happens then, and only if the text is different from the stored one. Pressing a button with the text unchanged does not redraw because of the field.</li>
 </ul>
+<p>Here are the two cases that surprise people. The label shows the values that the build function reads, but only <code>Show details</code> redraws the form:</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-5-1"><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="kd">local</span><span class="w"> </span><span class="nv">gui</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">flow</span><span class="p">.</span><span class="py">widgets</span>
+</span><span id="__span-5-2"><a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a>
+</span><span id="__span-5-3"><a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="kd">local</span><span class="w"> </span><span class="nv">form</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">flow</span><span class="p">.</span><span class="nf">make_gui</span><span class="p">(</span><span class="kr">function</span><span class="p">(</span><span class="nv">player</span><span class="p">,</span><span class="w"> </span><span class="nv">ctx</span><span class="p">)</span>
+</span><span id="__span-5-4"><a href="#__codelineno-5-4" id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="nv">gui</span><span class="p">.</span><span class="py">VBox</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-5"><a href="#__codelineno-5-5" id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="w">        </span><span class="c1">-- No on_event, and the build function reads it below: ticking this</span>
+</span><span id="__span-5-6"><a href="#__codelineno-5-6" id="__codelineno-5-6" name="__codelineno-5-6"></a><span class="w">        </span><span class="c1">-- redraws the form.</span>
+</span><span id="__span-5-7"><a href="#__codelineno-5-7" id="__codelineno-5-7" name="__codelineno-5-7"></a><span class="w">        </span><span class="nv">gui</span><span class="p">.</span><span class="py">Checkbox</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"details"</span><span class="p">,</span><span class="w"> </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Show details"</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-5-8"><a href="#__codelineno-5-8" id="__codelineno-5-8" name="__codelineno-5-8"></a>
+</span><span id="__span-5-9"><a href="#__codelineno-5-9" id="__codelineno-5-9" name="__codelineno-5-9"></a><span class="w">        </span><span class="c1">-- Has its own on_event: ticking this does NOT redraw the form, so</span>
+</span><span id="__span-5-10"><a href="#__codelineno-5-10" id="__codelineno-5-10" name="__codelineno-5-10"></a><span class="w">        </span><span class="c1">-- the label below goes out of date. Return true to fix that.</span>
+</span><span id="__span-5-11"><a href="#__codelineno-5-11" id="__codelineno-5-11" name="__codelineno-5-11"></a><span class="w">        </span><span class="nv">gui</span><span class="p">.</span><span class="py">Checkbox</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-12"><a href="#__codelineno-5-12" id="__codelineno-5-12" name="__codelineno-5-12"></a><span class="w">            </span><span class="nv">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"loud"</span><span class="p">,</span><span class="w"> </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Loud"</span><span class="p">,</span>
+</span><span id="__span-5-13"><a href="#__codelineno-5-13" id="__codelineno-5-13" name="__codelineno-5-13"></a><span class="w">            </span><span class="nv">on_event</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">function</span><span class="p">(</span><span class="nv">player</span><span class="p">,</span><span class="w"> </span><span class="nv">ctx</span><span class="p">)</span><span class="w"> </span><span class="kr">end</span><span class="p">,</span>
+</span><span id="__span-5-14"><a href="#__codelineno-5-14" id="__codelineno-5-14" name="__codelineno-5-14"></a><span class="w">        </span><span class="p">},</span>
+</span><span id="__span-5-15"><a href="#__codelineno-5-15" id="__codelineno-5-15" name="__codelineno-5-15"></a>
+</span><span id="__span-5-16"><a href="#__codelineno-5-16" id="__codelineno-5-16" name="__codelineno-5-16"></a><span class="w">        </span><span class="nv">gui</span><span class="p">.</span><span class="py">Label</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-17"><a href="#__codelineno-5-17" id="__codelineno-5-17" name="__codelineno-5-17"></a><span class="w">            </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="s2">"details = %s, loud = %s"</span><span class="p">):</span><span class="nf">format</span><span class="p">(</span>
+</span><span id="__span-5-18"><a href="#__codelineno-5-18" id="__codelineno-5-18" name="__codelineno-5-18"></a><span class="w">                </span><span class="nb">tostring</span><span class="p">(</span><span class="nv">ctx</span><span class="p">.</span><span class="py">form</span><span class="p">.</span><span class="py">details</span><span class="p">),</span><span class="w"> </span><span class="nb">tostring</span><span class="p">(</span><span class="nv">ctx</span><span class="p">.</span><span class="py">form</span><span class="p">.</span><span class="py">loud</span><span class="p">)),</span>
+</span><span id="__span-5-19"><a href="#__codelineno-5-19" id="__codelineno-5-19" name="__codelineno-5-19"></a><span class="w">        </span><span class="p">},</span>
+</span><span id="__span-5-20"><a href="#__codelineno-5-20" id="__codelineno-5-20" name="__codelineno-5-20"></a>
+</span><span id="__span-5-21"><a href="#__codelineno-5-21" id="__codelineno-5-21" name="__codelineno-5-21"></a><span class="w">        </span><span class="c1">-- Reading ctx.form.details here does not make the form redraw when</span>
+</span><span id="__span-5-22"><a href="#__codelineno-5-22" id="__codelineno-5-22" name="__codelineno-5-22"></a><span class="w">        </span><span class="c1">-- details changes. Only the reads above (in the build function) do.</span>
+</span><span id="__span-5-23"><a href="#__codelineno-5-23" id="__codelineno-5-23" name="__codelineno-5-23"></a><span class="w">        </span><span class="nv">gui</span><span class="p">.</span><span class="py">Button</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-24"><a href="#__codelineno-5-24" id="__codelineno-5-24" name="__codelineno-5-24"></a><span class="w">            </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Report"</span><span class="p">,</span>
+</span><span id="__span-5-25"><a href="#__codelineno-5-25" id="__codelineno-5-25" name="__codelineno-5-25"></a><span class="w">            </span><span class="nv">on_event</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">function</span><span class="p">(</span><span class="nv">player</span><span class="p">,</span><span class="w"> </span><span class="nv">ctx</span><span class="p">)</span>
+</span><span id="__span-5-26"><a href="#__codelineno-5-26" id="__codelineno-5-26" name="__codelineno-5-26"></a><span class="w">                </span><span class="nv">core</span><span class="p">.</span><span class="nf">chat_send_player</span><span class="p">(</span><span class="nv">player</span><span class="p">:</span><span class="nf">get_player_name</span><span class="p">(),</span>
+</span><span id="__span-5-27"><a href="#__codelineno-5-27" id="__codelineno-5-27" name="__codelineno-5-27"></a><span class="w">                    </span><span class="s2">"details is "</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="nb">tostring</span><span class="p">(</span><span class="nv">ctx</span><span class="p">.</span><span class="py">form</span><span class="p">.</span><span class="py">details</span><span class="p">))</span>
+</span><span id="__span-5-28"><a href="#__codelineno-5-28" id="__codelineno-5-28" name="__codelineno-5-28"></a><span class="w">            </span><span class="kr">end</span><span class="p">,</span>
+</span><span id="__span-5-29"><a href="#__codelineno-5-29" id="__codelineno-5-29" name="__codelineno-5-29"></a><span class="w">        </span><span class="p">},</span>
+</span><span id="__span-5-30"><a href="#__codelineno-5-30" id="__codelineno-5-30" name="__codelineno-5-30"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-5-31"><a href="#__codelineno-5-31" id="__codelineno-5-31" name="__codelineno-5-31"></a><span class="kr">end</span><span class="p">)</span>
+</span></code></pre></div>
+<h2 id="context-and-redraws-at-a-glance">Context and Redraws at a Glance</h2>
+<h3 id="context-lifetime-by-mode">Context Lifetime by Mode</h3>
+<p>How long <code>ctx</code> lives depends on how the form is shown:</p>
+<table>
+<thead>
+<tr>
+<th>How the form is shown</th>
+<th>Where <code>ctx</code> comes from</th>
+<th>How long it is kept</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>my_gui:show(player, ctx)</code></td>
+<td>The table you pass, or a new empty one.</td>
+<td>Until the form is closed. <code>update</code>, <code>update_where</code> and <code>return true</code> keep it. Calling <code>show</code> again starts with a new one.</td>
+</tr>
+<tr>
+<td><code>my_gui:set_as_inventory_for(player, ctx)</code>, see <a href="../inventory/">Inventory</a></td>
+<td>The table you pass. If you pass none and this form is already the player's inventory, the existing <code>ctx</code> is reused, otherwise a new empty one.</td>
+<td>Until the form is unset or the player leaves. Passing a new <code>ctx</code> replaces the old one.</td>
+</tr>
+<tr>
+<td><code>my_gui:show_hud(player, ctx)</code>, see <a href="../huds/">HUDs</a></td>
+<td>The table you pass, or a new empty one every time.</td>
+<td>Not kept: flow remembers nothing between calls, so pass your own table each time.</td>
+</tr>
+<tr>
+<td><code>my_gui:render_to_formspec_string(player, ctx)</code>, see <a href="../experimental/#rendering-to-a-formspec">Rendering to a Formspec</a></td>
+<td>The table you pass, or a new empty one.</td>
+<td>Flow keeps nothing: pass the same <code>ctx</code> each time you redraw.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ways-to-redraw-a-form">Ways to Redraw a Form</h3>
+<table>
+<thead>
+<tr>
+<th>Way</th>
+<th>Redraws</th>
+<th>Keeps <code>ctx</code></th>
+<th>Works for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>return true</code> from <code>on_event</code> or <code>on_key_enter</code></td>
+<td>The form of the player who used it</td>
+<td>Yes</td>
+<td>Forms shown with <code>show</code> and inventory forms</td>
+</tr>
+<tr>
+<td>Reading <code>ctx.form.name</code> in the build function (see <a href="#redrawing-when-a-value-changes">Redrawing When a Value Changes</a>)</td>
+<td>The form of the player who changed the value</td>
+<td>Yes</td>
+<td>Forms shown with <code>show</code> and inventory forms</td>
+</tr>
+<tr>
+<td><code>my_gui:update(player)</code></td>
+<td>One player, if they have the form open</td>
+<td>Yes</td>
+<td>Forms shown with <code>show</code> only</td>
+</tr>
+<tr>
+<td><code>my_gui:update_where(func)</code></td>
+<td>Every player with the form open for whom <code>func(player, ctx)</code> returns <code>true</code></td>
+<td>Yes</td>
+<td>Forms shown with <code>show</code> only</td>
+</tr>
+<tr>
+<td><code>my_gui:set_as_inventory_for(player, ctx)</code></td>
+<td>One player</td>
+<td>Reused if you pass none</td>
+<td>Inventory forms only</td>
+</tr>
+<tr>
+<td><code>my_gui:show_hud(player, ctx)</code></td>
+<td>One player</td>
+<td>No</td>
+<td>HUDs only</td>
+</tr>
+<tr>
+<td><code>my_gui:show(player, ctx)</code></td>
+<td>One player (and the old form is replaced)</td>
+<td>No, starts from the <code>ctx</code> you pass</td>
+<td>Forms shown with <code>show</code></td>
+</tr>
+</tbody>
+</table>
 </article>
 </div>
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
@@ -756,5 +968,6 @@
 <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.expand", "navigation.top", "content.code.copy"], "search": "../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
 <script src="../assets/javascripts/bundle.c21346df.min.js"></script>
 <script src="../js/print-site.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script>
 </body>
 </html>

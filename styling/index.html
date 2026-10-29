@@ -318,6 +318,15 @@
 </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#styles-that-change-size">
+<span class="md-ellipsis">
+      
+        Styles That Change Size
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#selectors-and-states">
 <span class="md-ellipsis">
       
@@ -648,6 +657,15 @@
 </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#styles-that-change-size">
+<span class="md-ellipsis">
+      
+        Styles That Change Size
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#selectors-and-states">
 <span class="md-ellipsis">
       
@@ -791,6 +809,34 @@
 <h1 id="styling-forms">Styling Forms</h1>
 <p>Styles change how elements look: their colors, images, fonts, and so on. A style is a set of properties such as <code>bgcolor = "red"</code>, and which properties exist depends on the type of element. All of them are listed in the <a href="#property-reference">property reference</a> below.</p>
 <p>You can style a single element with the <code>style</code> field (the <a href="#inline-syntax">inline syntax</a>), or style many elements at once with the <code>gui.Style</code> and <code>gui.StyleType</code> elements (see <a href="#separate-style-elements">separate style elements</a>).</p>
+<p>Which one to use:</p>
+<table>
+<thead>
+<tr>
+<th>You want to</th>
+<th>Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Style one element, or a few that share a table</td>
+<td>The inline <code>style</code> field</td>
+</tr>
+<tr>
+<td>Style one element by its <code>name</code>, or support old versions of flow</td>
+<td><code>gui.Style</code></td>
+</tr>
+<tr>
+<td>Style every element of a type (every button, say) after this point</td>
+<td><code>gui.StyleType</code></td>
+</tr>
+<tr>
+<td>Change the size of an element (<code>font_size</code>, list <code>size</code> and <code>spacing</code>)</td>
+<td>The inline <code>style</code> field only, see <a href="#styles-that-change-size">Styles That Change Size</a></td>
+</tr>
+</tbody>
+</table>
+<p>Two things show up in the examples below. A <code>sel</code> entry (inline) or a selector (separate elements) limits a style to some <a href="#states">states</a> of the element, such as <code>hovered</code>. Within one entry, states separated by a comma apply when any of them is active and states joined with <code>+</code> apply only when all of them are active. In a <code>sel</code> entry, <code>$</code> stands for the element itself. These are explained in full under <a href="#inline-syntax">Inline Syntax</a> and <a href="#selectors-and-states">Selectors and States</a>.</p>
 <h2 id="inline-syntax">Inline Syntax</h2>
 <p>Inline styles were added in May 2024, so older versions of flow do not support this syntax, and the sub-style syntax (the <code>sel</code> entries) may change in the future. Only use inline styles for things that are not essential, so that your form does not look broken without them, or use <a href="#separate-style-elements">separate style elements</a> if you need to support older versions.</p>
 <p>You can add inline styles to elements with the <code>style</code> field:</p>
@@ -821,27 +867,47 @@
 </span><span id="__span-1-8"><a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-1-9"><a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="kr">end</span><span class="p">)</span>
 </span></code></pre></div>
-<p>Note that this may inadvertently reset styles on subsequent elements if used on elements without a name. Luanti can only style unnamed elements by their type, so flow applies the style to every element of that type and then resets those properties to their defaults straight after the element. This also undoes any earlier <code>gui.StyleType</code> for the same properties. Give the element a <code>name</code> to avoid this.</p>
+<div class="admonition warning">
+<p class="admonition-title">Styling an unnamed element can undo other styles</p>
+<p>Luanti can only style unnamed elements by their type, so flow applies the style to every element of that type and then resets those properties to their defaults straight after the element. This also undoes any earlier <code>gui.StyleType</code> for the same properties, for every element of that type that comes after. Give the element a <code>name</code> to avoid this.</p>
+</div>
+<p>In this form, button A is blue because of the <code>gui.StyleType</code>, button B is red, and button C is not blue: the style on B reset <code>bgcolor</code> for every button after it. Button D has a <code>name</code>, so its style is applied to it alone and nothing is reset:</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-2-1"><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="nv">gui</span><span class="p">.</span><span class="py">VBox</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-2"><a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="w">    </span><span class="nv">gui</span><span class="p">.</span><span class="py">StyleType</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">selectors</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"button"</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="nv">props</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">bgcolor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"blue"</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-2-3"><a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a>
+</span><span id="__span-2-4"><a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="w">    </span><span class="nv">gui</span><span class="p">.</span><span class="py">Button</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"A"</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-2-5"><a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="w">    </span><span class="nv">gui</span><span class="p">.</span><span class="py">Button</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"B"</span><span class="p">,</span><span class="w"> </span><span class="nv">style</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">bgcolor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"red"</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-2-6"><a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="w">    </span><span class="nv">gui</span><span class="p">.</span><span class="py">Button</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"C"</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-2-7"><a href="#__codelineno-2-7" id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="w">    </span><span class="nv">gui</span><span class="p">.</span><span class="py">Button</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"d"</span><span class="p">,</span><span class="w"> </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"D"</span><span class="p">,</span><span class="w"> </span><span class="nv">style</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">bgcolor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"red"</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-2-8"><a href="#__codelineno-2-8" id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="p">}</span>
+</span></code></pre></div>
 <p>Property values are normally strings, but flow also accepts numbers and booleans where a property needs one. Setting a property to an empty string (<code>bgimg = ""</code>) resets it to its default value.</p>
 <h2 id="separate-style-elements">Separate Style Elements</h2>
 <p>Alternatively, you can use the <code>gui.Style</code> and <code>gui.StyleType</code> elements if you need to style a large group of elements or need to support older versions of flow. This form has a second button that is left alone so you can compare:</p>
-<div class="language-lua highlight"><pre><span></span><code><span id="__span-2-1"><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="kd">local</span><span class="w"> </span><span class="nv">form</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">flow</span><span class="p">.</span><span class="nf">make_gui</span><span class="p">(</span><span class="kr">function</span><span class="p">(</span><span class="nv">player</span><span class="p">,</span><span class="w"> </span><span class="nv">ctx</span><span class="p">)</span>
-</span><span id="__span-2-2"><a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="nv">gui</span><span class="p">.</span><span class="py">VBox</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-2-3"><a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="w">        </span><span class="nv">gui</span><span class="p">.</span><span class="py">Style</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-2-4"><a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="w">            </span><span class="nv">selectors</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"btn1"</span><span class="w"> </span><span class="p">},</span>
-</span><span id="__span-2-5"><a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="w">            </span><span class="nv">props</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-2-6"><a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="w">                </span><span class="nv">bgcolor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"red"</span><span class="p">,</span>
-</span><span id="__span-2-7"><a href="#__codelineno-2-7" id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="w">                </span><span class="nv">border</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
-</span><span id="__span-2-8"><a href="#__codelineno-2-8" id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="w">            </span><span class="p">},</span>
-</span><span id="__span-2-9"><a href="#__codelineno-2-9" id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="w">        </span><span class="p">},</span>
-</span><span id="__span-2-10"><a href="#__codelineno-2-10" id="__codelineno-2-10" name="__codelineno-2-10"></a>
-</span><span id="__span-2-11"><a href="#__codelineno-2-11" id="__codelineno-2-11" name="__codelineno-2-11"></a><span class="w">        </span><span class="nv">gui</span><span class="p">.</span><span class="py">Button</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"btn1"</span><span class="p">,</span><span class="w"> </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Styled by name"</span><span class="w"> </span><span class="p">},</span>
-</span><span id="__span-2-12"><a href="#__codelineno-2-12" id="__codelineno-2-12" name="__codelineno-2-12"></a><span class="w">        </span><span class="nv">gui</span><span class="p">.</span><span class="py">Button</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"btn2"</span><span class="p">,</span><span class="w"> </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Not styled"</span><span class="w"> </span><span class="p">},</span>
-</span><span id="__span-2-13"><a href="#__codelineno-2-13" id="__codelineno-2-13" name="__codelineno-2-13"></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-2-14"><a href="#__codelineno-2-14" id="__codelineno-2-14" name="__codelineno-2-14"></a><span class="kr">end</span><span class="p">)</span>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-3-1"><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="kd">local</span><span class="w"> </span><span class="nv">form</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">flow</span><span class="p">.</span><span class="nf">make_gui</span><span class="p">(</span><span class="kr">function</span><span class="p">(</span><span class="nv">player</span><span class="p">,</span><span class="w"> </span><span class="nv">ctx</span><span class="p">)</span>
+</span><span id="__span-3-2"><a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="nv">gui</span><span class="p">.</span><span class="py">VBox</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-3"><a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="w">        </span><span class="nv">gui</span><span class="p">.</span><span class="py">Style</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-4"><a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="w">            </span><span class="nv">selectors</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"btn1"</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-3-5"><a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="w">            </span><span class="nv">props</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-6"><a href="#__codelineno-3-6" id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="w">                </span><span class="nv">bgcolor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"red"</span><span class="p">,</span>
+</span><span id="__span-3-7"><a href="#__codelineno-3-7" id="__codelineno-3-7" name="__codelineno-3-7"></a><span class="w">                </span><span class="nv">border</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+</span><span id="__span-3-8"><a href="#__codelineno-3-8" id="__codelineno-3-8" name="__codelineno-3-8"></a><span class="w">            </span><span class="p">},</span>
+</span><span id="__span-3-9"><a href="#__codelineno-3-9" id="__codelineno-3-9" name="__codelineno-3-9"></a><span class="w">        </span><span class="p">},</span>
+</span><span id="__span-3-10"><a href="#__codelineno-3-10" id="__codelineno-3-10" name="__codelineno-3-10"></a>
+</span><span id="__span-3-11"><a href="#__codelineno-3-11" id="__codelineno-3-11" name="__codelineno-3-11"></a><span class="w">        </span><span class="nv">gui</span><span class="p">.</span><span class="py">Button</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"btn1"</span><span class="p">,</span><span class="w"> </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Styled by name"</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-3-12"><a href="#__codelineno-3-12" id="__codelineno-3-12" name="__codelineno-3-12"></a><span class="w">        </span><span class="nv">gui</span><span class="p">.</span><span class="py">Button</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"btn2"</span><span class="p">,</span><span class="w"> </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Not styled"</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-3-13"><a href="#__codelineno-3-13" id="__codelineno-3-13" name="__codelineno-3-13"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-3-14"><a href="#__codelineno-3-14" id="__codelineno-3-14" name="__codelineno-3-14"></a><span class="kr">end</span><span class="p">)</span>
 </span></code></pre></div>
 <p>The <code>Style</code> and <code>StyleType</code> elements are invisible and won't affect padding. They only affect the elements that come after them, so put them before the elements you want to style.</p>
-<p><strong>Warning:</strong> <code>gui.Style</code> and <code>gui.StyleType</code> do not support styles that change the element size, such as <code>font_size</code> for labels, buttons, and fields, and <code>size</code>/<code>spacing</code> for lists (added in March 2025). Flow only sees these properties in the inline syntax, so use that for them.</p>
+<h2 id="styles-that-change-size">Styles That Change Size</h2>
+<p>Flow works out the size of an element before it writes any styles, so it has to see a style that changes the size. It only does that in some cases:</p>
+<ul>
+<li><code>gui.Style</code> and <code>gui.StyleType</code> do not support styles that change the element size. Flow only sees these properties in the inline syntax, so use that for them.</li>
+<li><code>font_size</code> changes the size of <code>gui.Label</code>s, buttons, and the default text of fields only if it starts with <code>*</code> (such as <code>"*2"</code>) and is set with the inline syntax. Other values still change the text but not the size of the element.</li>
+<li>The labels above fields and checkboxes ignore <code>font_size</code>, and a <code>gui.Label</code> with a fixed <code>h</code> is positioned as if <code>font_size</code> was not set. That behavior is deprecated and flow logs a warning when it detects it, so leave <code>h</code> out of labels that use <code>font_size</code>.</li>
+<li>The <code>size</code> and <code>spacing</code> styles of <code>gui.List</code> (added in March 2025) count too, but only whole numbers such as <code>"2,2"</code> or <code>"0,0"</code> and only in the inline syntax.</li>
+</ul>
 <h2 id="selectors-and-states">Selectors and States</h2>
 <p><code>selectors</code> is a list that says which elements the style applies to:</p>
 <ul>
@@ -851,22 +917,22 @@
 </ul>
 <p>A selector can end with a colon and one or more <a href="#states">states</a> to only style the element while it is in that state, such as <code>"btn1:hovered"</code> or <code>"button:hovered+pressed"</code> (<code>+</code> means all of the states have to be active).</p>
 <p>In this form, the text turns yellow on every button, and a button turns blue while the mouse is over it. The label is not a button, so it is not affected:</p>
-<div class="language-lua highlight"><pre><span></span><code><span id="__span-3-1"><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="kd">local</span><span class="w"> </span><span class="nv">form</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">flow</span><span class="p">.</span><span class="nf">make_gui</span><span class="p">(</span><span class="kr">function</span><span class="p">(</span><span class="nv">player</span><span class="p">,</span><span class="w"> </span><span class="nv">ctx</span><span class="p">)</span>
-</span><span id="__span-3-2"><a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="nv">gui</span><span class="p">.</span><span class="py">VBox</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-3-3"><a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="w">        </span><span class="nv">gui</span><span class="p">.</span><span class="py">StyleType</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-3-4"><a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="w">            </span><span class="nv">selectors</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"button"</span><span class="p">,</span><span class="w"> </span><span class="s2">"image_button"</span><span class="w"> </span><span class="p">},</span>
-</span><span id="__span-3-5"><a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="w">            </span><span class="nv">props</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">textcolor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"yellow"</span><span class="w"> </span><span class="p">},</span>
-</span><span id="__span-3-6"><a href="#__codelineno-3-6" id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="w">        </span><span class="p">},</span>
-</span><span id="__span-3-7"><a href="#__codelineno-3-7" id="__codelineno-3-7" name="__codelineno-3-7"></a><span class="w">        </span><span class="nv">gui</span><span class="p">.</span><span class="py">StyleType</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-3-8"><a href="#__codelineno-3-8" id="__codelineno-3-8" name="__codelineno-3-8"></a><span class="w">            </span><span class="nv">selectors</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"button:hovered"</span><span class="w"> </span><span class="p">},</span>
-</span><span id="__span-3-9"><a href="#__codelineno-3-9" id="__codelineno-3-9" name="__codelineno-3-9"></a><span class="w">            </span><span class="nv">props</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">bgcolor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"#336699"</span><span class="w"> </span><span class="p">},</span>
-</span><span id="__span-3-10"><a href="#__codelineno-3-10" id="__codelineno-3-10" name="__codelineno-3-10"></a><span class="w">        </span><span class="p">},</span>
-</span><span id="__span-3-11"><a href="#__codelineno-3-11" id="__codelineno-3-11" name="__codelineno-3-11"></a>
-</span><span id="__span-3-12"><a href="#__codelineno-3-12" id="__codelineno-3-12" name="__codelineno-3-12"></a><span class="w">        </span><span class="nv">gui</span><span class="p">.</span><span class="py">Button</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Hover over me"</span><span class="w"> </span><span class="p">},</span>
-</span><span id="__span-3-13"><a href="#__codelineno-3-13" id="__codelineno-3-13" name="__codelineno-3-13"></a><span class="w">        </span><span class="nv">gui</span><span class="p">.</span><span class="py">Button</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Me too"</span><span class="w"> </span><span class="p">},</span>
-</span><span id="__span-3-14"><a href="#__codelineno-3-14" id="__codelineno-3-14" name="__codelineno-3-14"></a><span class="w">        </span><span class="nv">gui</span><span class="p">.</span><span class="py">Label</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"I am not a button."</span><span class="w"> </span><span class="p">},</span>
-</span><span id="__span-3-15"><a href="#__codelineno-3-15" id="__codelineno-3-15" name="__codelineno-3-15"></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-3-16"><a href="#__codelineno-3-16" id="__codelineno-3-16" name="__codelineno-3-16"></a><span class="kr">end</span><span class="p">)</span>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-4-1"><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="kd">local</span><span class="w"> </span><span class="nv">form</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">flow</span><span class="p">.</span><span class="nf">make_gui</span><span class="p">(</span><span class="kr">function</span><span class="p">(</span><span class="nv">player</span><span class="p">,</span><span class="w"> </span><span class="nv">ctx</span><span class="p">)</span>
+</span><span id="__span-4-2"><a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="nv">gui</span><span class="p">.</span><span class="py">VBox</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-3"><a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="w">        </span><span class="nv">gui</span><span class="p">.</span><span class="py">StyleType</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-4"><a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="w">            </span><span class="nv">selectors</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"button"</span><span class="p">,</span><span class="w"> </span><span class="s2">"image_button"</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-4-5"><a href="#__codelineno-4-5" id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="w">            </span><span class="nv">props</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">textcolor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"yellow"</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-4-6"><a href="#__codelineno-4-6" id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="w">        </span><span class="p">},</span>
+</span><span id="__span-4-7"><a href="#__codelineno-4-7" id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="w">        </span><span class="nv">gui</span><span class="p">.</span><span class="py">StyleType</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-8"><a href="#__codelineno-4-8" id="__codelineno-4-8" name="__codelineno-4-8"></a><span class="w">            </span><span class="nv">selectors</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"button:hovered"</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-4-9"><a href="#__codelineno-4-9" id="__codelineno-4-9" name="__codelineno-4-9"></a><span class="w">            </span><span class="nv">props</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">bgcolor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"#336699"</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-4-10"><a href="#__codelineno-4-10" id="__codelineno-4-10" name="__codelineno-4-10"></a><span class="w">        </span><span class="p">},</span>
+</span><span id="__span-4-11"><a href="#__codelineno-4-11" id="__codelineno-4-11" name="__codelineno-4-11"></a>
+</span><span id="__span-4-12"><a href="#__codelineno-4-12" id="__codelineno-4-12" name="__codelineno-4-12"></a><span class="w">        </span><span class="nv">gui</span><span class="p">.</span><span class="py">Button</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Hover over me"</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-4-13"><a href="#__codelineno-4-13" id="__codelineno-4-13" name="__codelineno-4-13"></a><span class="w">        </span><span class="nv">gui</span><span class="p">.</span><span class="py">Button</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Me too"</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-4-14"><a href="#__codelineno-4-14" id="__codelineno-4-14" name="__codelineno-4-14"></a><span class="w">        </span><span class="nv">gui</span><span class="p">.</span><span class="py">Label</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"I am not a button."</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-4-15"><a href="#__codelineno-4-15" id="__codelineno-4-15" name="__codelineno-4-15"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-4-16"><a href="#__codelineno-4-16" id="__codelineno-4-16" name="__codelineno-4-16"></a><span class="kr">end</span><span class="p">)</span>
 </span></code></pre></div>
 <h3 id="states">States</h3>
 <p>Every element has the <code>default</code> state, which is the same as not giving any state. Buttons (<code>gui.Button</code>, <code>gui.ButtonExit</code>, <code>gui.ImageButton</code>, <code>gui.ItemImageButton</code>) also have these states:</p>
@@ -919,6 +985,11 @@
 <td></td>
 </tr>
 <tr>
+<td><code>button_url</code></td>
+<td><code>gui.ButtonURL</code></td>
+<td>Not valid, style by <code>name</code></td>
+</tr>
+<tr>
 <td><code>button_exit</code></td>
 <td><code>gui.ButtonExit</code></td>
 <td><code>button</code></td>
@@ -947,6 +1018,16 @@
 <td><code>image_button</code></td>
 <td><code>gui.ImageButton</code></td>
 <td></td>
+</tr>
+<tr>
+<td><code>image_button_exit</code></td>
+<td><code>gui.ImageButtonExit</code></td>
+<td>Not valid, style by <code>name</code></td>
+</tr>
+<tr>
+<td><code>item_image</code></td>
+<td><code>gui.ItemImage</code></td>
+<td>Only supports <code>noclip</code></td>
 </tr>
 <tr>
 <td><code>item_image_button</code></td>
@@ -1005,9 +1086,9 @@
 </tr>
 </tbody>
 </table>
-<p>Luanti also lists <code>hypertip</code>, but flow has no element for it, see <a href="../not-supported/#missing-elements">Unsupported Features</a>. <code>gui.ItemImage</code> has the <code>item_image</code> type, which only supports <code>noclip</code> (see <a href="#other-elements">Other Elements</a>). <code>gui.ImageButtonExit</code> and <code>gui.ButtonURL</code> are not in Luanti's list of types, so give them a <code>name</code> and style them with <code>gui.Style</code> or the inline syntax.</p>
+<p>Luanti also lists <code>hypertip</code>, but flow has no element for it, see <a href="../not-supported/#missing-elements">Unsupported Features</a>. The <code>item_image</code> type only supports <code>noclip</code> (see <a href="#other-elements">Other Elements</a>). Types marked "Not valid" are not in Luanti's list of types, so a <code>gui.StyleType</code> for them does nothing: give those elements a <code>name</code> and style them with <code>gui.Style</code> or the inline syntax.</p>
 <h2 id="property-reference">Property Reference</h2>
-<p>Colors are described in <a href="elements.md#colors">Functional Elements</a>, and textures are image file names. A "2D vector" is written as a string such as <code>"1,2"</code>. Properties that only list a type of element are not valid on other elements, and an unknown property is ignored.</p>
+<p>Colors are described in <a href="../common-aspects/#colors">Common Aspects</a>, and textures are image file names. A "2D vector" is written as a string such as <code>"1,2"</code>. Properties that only list a type of element are not valid on other elements, and an unknown property is ignored.</p>
 <h3 id="all-elements">All Elements</h3>
 <table>
 <thead>
@@ -1047,7 +1128,7 @@
 </tr>
 </tbody>
 </table>
-<p>Flow can make room for bigger text in <code>gui.Label</code>s, buttons, and the default text of fields, but only if <code>font_size</code> starts with <code>*</code> and is set with the inline syntax (<code>style = {font_size = "*2"}</code>). Other values still change the text but not the size of the element. The labels above fields and checkboxes ignore <code>font_size</code>, and a <code>gui.Label</code> with a fixed <code>h</code> is positioned as if <code>font_size</code> was not set. That positioning behavior is deprecated and flow logs a warning when it detects it, so leave <code>h</code> out of labels that use <code>font_size</code>.</p>
+<p>Which <code>font_size</code> values change the size of an element is described in <a href="#styles-that-change-size">Styles That Change Size</a>.</p>
 <h3 id="buttons">Buttons</h3>
 <p>For <code>gui.Button</code>, <code>gui.ButtonExit</code>, <code>gui.ImageButton</code>, and <code>gui.ItemImageButton</code>. Buttons also support <code>font</code>, <code>font_size</code>, and <code>textcolor</code>.</p>
 <table>
@@ -1072,7 +1153,7 @@
 </tr>
 <tr>
 <td><code>bgimg_middle</code></td>
-<td>Draws <code>bgimg</code> as a <a href="elements.md#nine-slice-images">nine-slice</a>. Written as a string in one of the formats <code>"x"</code>, <code>"x,y"</code>, or <code>"x,y,x2,y2"</code>, which have the same meaning as <code>middle_x</code>, <code>middle_y</code>, <code>middle_x2</code>, and <code>middle_y2</code>. Also adds padding around the content of the button.</td>
+<td>Draws <code>bgimg</code> as a <a href="../common-aspects/#nine-slice-images">nine-slice</a>. Written as a string in one of the formats <code>"x"</code>, <code>"x,y"</code>, or <code>"x,y,x2,y2"</code>, which have the same meaning as <code>middle_x</code>, <code>middle_y</code>, <code>middle_x2</code>, and <code>middle_y2</code>. Also adds padding around the content of the button.</td>
 </tr>
 <tr>
 <td><code>border</code></td>
@@ -1128,11 +1209,11 @@
 </tr>
 <tr>
 <td><code>halign</code></td>
-<td>Horizontal alignment of the text: <code>left</code> (default), <code>center</code>, or <code>right</code>. Needs formspec version 11 (Luanti 5.17 or newer, see <a href="../not-supported/#formspec-versions-and-luanti-releases">the version table</a>), and flow may not be able to use it, see <a href="../not-supported/#newer-luanti-features">Unsupported Features</a>.</td>
+<td>Horizontal alignment of the text: <code>left</code> (default), <code>center</code>, or <code>right</code>. Needs formspec version 11 (Luanti 5.17 or newer, see <a href="../not-supported/#formspec-versions-and-luanti-releases">the version table</a>). Flow sends the property to the client as written, see <a href="../not-supported/#newer-luanti-features">Newer Luanti Features</a>.</td>
 </tr>
 <tr>
 <td><code>valign</code></td>
-<td>Vertical alignment of the text: <code>top</code> (default), <code>center</code>, or <code>bottom</code>. Needs formspec version 11 (Luanti 5.17 or newer, see <a href="../not-supported/#formspec-versions-and-luanti-releases">the version table</a>). Only has an effect when all of the text fits inside the element. If the text is too long (and a <code>gui.Textarea</code> gets a scrollbar), it is always aligned to the top so that no text is cut off. It also does not work in <code>gui.Field</code>, but <code>halign</code> does.</td>
+<td>Vertical alignment of the text: <code>top</code> (default), <code>center</code>, or <code>bottom</code>. Needs formspec version 11 (Luanti 5.17 or newer, see <a href="../not-supported/#formspec-versions-and-luanti-releases">the version table</a>). Flow sends the property to the client as written, see <a href="../not-supported/#newer-luanti-features">Newer Luanti Features</a>. Only has an effect when all of the text fits inside the element. If the text is too long (and a <code>gui.Textarea</code> gets a scrollbar), it is always aligned to the top so that no text is cut off. It also does not work in <code>gui.Field</code>, but <code>halign</code> does.</td>
 </tr>
 </tbody>
 </table>
@@ -1159,7 +1240,7 @@
 </tr>
 </tbody>
 </table>
-<p>Flow uses these values to work out how big a list is, but it only understands whole numbers in them (such as <code>"2,2"</code> or <code>"0,0"</code>).</p>
+<p>Flow uses these values to work out how big a list is, see <a href="#styles-that-change-size">Styles That Change Size</a> for what it understands.</p>
 <h3 id="boxes">Boxes</h3>
 <p>For <code>gui.Box</code>. These properties only take effect when the box has no <code>color</code> of its own. The <code>colors</code>, <code>bordercolors</code>, and <code>borderwidths</code> properties can have one, two, or four values separated by commas (like CSS borders):</p>
 <ul>
@@ -1230,7 +1311,7 @@
 </tr>
 <tr>
 <td><code>gui.Table</code>, <code>gui.Textlist</code></td>
-<td><code>font</code> and <code>font_size</code>. The colors of a table are set with <a href="elements.md#guitableoptions"><code>gui.TableOptions</code></a>.</td>
+<td><code>font</code> and <code>font_size</code>. The colors of a table are set with <a href="../functional-elements/#guitableoptions"><code>gui.TableOptions</code></a>.</td>
 </tr>
 <tr>
 <td><code>gui.Image</code>, <code>gui.AnimatedImage</code>, <code>gui.ItemImage</code>, <code>gui.Scrollbar</code></td>
@@ -1268,5 +1349,6 @@
 <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.expand", "navigation.top", "content.code.copy"], "search": "../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
 <script src="../assets/javascripts/bundle.c21346df.min.js"></script>
 <script src="../js/print-site.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script>
 </body>
 </html>

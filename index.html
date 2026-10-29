@@ -154,6 +154,15 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
+<a class="md-nav__link" href="#terms-used-in-this-documentation">
+<span class="md-ellipsis">
+      
+        Terms Used in This Documentation
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#features">
 <span class="md-ellipsis">
       
@@ -535,6 +544,15 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
+<a class="md-nav__link" href="#terms-used-in-this-documentation">
+<span class="md-ellipsis">
+      
+        Terms Used in This Documentation
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#features">
 <span class="md-ellipsis">
       
@@ -606,12 +624,59 @@ Vaguely inspired by Flutter and GTK.</p>
 <p>Flow lets you describe the same menu with plain Lua tables, positions and sizes everything for you, and generates the formspec behind the scenes. You never have to write one. And if you like using modern IDE features, you will now actually have direct access to definitions <strong>from the editor</strong> (LuaCATS annotations are included).</p>
 <p><a href="https://luk3yx.gitlab.io/minetest-flow-playground/">Online tutorial/demo</a>
 (<a href="https://gitlab.com/luk3yx/minetest-flow-playground">source</a>)</p>
+<h2 id="terms-used-in-this-documentation">Terms Used in This Documentation</h2>
+<table>
+<thead>
+<tr>
+<th>Term</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Form</td>
+<td>A menu made with flow, created with <code>flow.make_gui()</code> and shown with <code>form:show()</code>. This documentation does not call it a "gui".</td>
+</tr>
+<tr>
+<td>Formspec</td>
+<td>Luanti's own text format for menus. Flow generates formspecs for you.</td>
+</tr>
+<tr>
+<td>Element</td>
+<td>One part of a form, such as a label, a button, or a box. Elements are made with the functions in <code>flow.widgets</code> (the name of that table is the only place "widget" is used).</td>
+</tr>
+<tr>
+<td>Build function</td>
+<td>The function you pass to <code>flow.make_gui()</code>. It returns the elements of the form and is called every time the form is drawn.</td>
+</tr>
+<tr>
+<td>Root element</td>
+<td>The element that the build function returns, which holds everything else in the form.</td>
+</tr>
+<tr>
+<td>Container</td>
+<td>An element that holds other elements. <code>gui.Container</code> is the one whose elements you place yourself with <code>x</code> and <code>y</code>.</td>
+</tr>
+<tr>
+<td>Layout element</td>
+<td>An element that arranges the elements inside it, such as <code>gui.VBox</code>, <code>gui.HBox</code>, and <code>gui.Stack</code>, see <a href="layout-elements/">Layout Elements</a>.</td>
+</tr>
+<tr>
+<td>Flow</td>
+<td>The mod. <code>gui.Flow</code> (written with the <code>gui.</code> prefix and in code font) is an element of the mod that wraps its children onto new rows.</td>
+</tr>
+<tr>
+<td><code>ctx</code></td>
+<td>The context table of a form, see <a href="getting-started/">Getting Started</a>.</td>
+</tr>
+</tbody>
+</table>
 <h2 id="features">Features</h2>
 <h3 id="layouting">Layouting</h3>
 <ul>
 <li><strong>Automatic placement.</strong> Flow works out every position, so there's no arithmetic to redo when you add one button.</li>
 <li><strong>Comprehensive layout elements.</strong> Nest <code>HBox</code> and <code>VBox</code> containers and they line up on their own. Scrolling, paging, stacking, wrapping, and flexible spacing are covered too. And yes, also manual placement using <code>Container</code>.</li>
-<li><strong>Automatic sizing.</strong> Labels, checkboxes, buttons, text fields, password fields, text areas, drop-downs, text lists, and vertical labels size themselves. See <a href="elements.md#sizes">Sizes</a>.</li>
+<li><strong>Automatic sizing.</strong> Labels, checkboxes, buttons, text fields, password fields, text areas, drop-downs, text lists, and vertical labels size themselves. See <a href="common-aspects/#sizes">Sizes</a>.</li>
 <li><strong>Room to grow.</strong> Set <code>expand = true</code> and an element fills any spare space.</li>
 <li><strong>Translation-friendly.</strong> Elements sized from their label grow or shrink to fit longer text<sup id="fnref:label-size"><a class="footnote-ref" href="#fn:label-size">1</a></sup>.</li>
 </ul>
@@ -669,5 +734,6 @@ Vaguely inspired by Flutter and GTK.</p>
 <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.sections", "navigation.expand", "navigation.top", "content.code.copy"], "search": "assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
 <script src="assets/javascripts/bundle.c21346df.min.js"></script>
 <script src="js/print-site.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script>
 </body>
 </html>

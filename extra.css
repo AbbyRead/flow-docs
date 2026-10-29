@@ -24,6 +24,11 @@
   --vsc-code-border: #E5E5E5;
 }
 
+.arithmatex {
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
 /* VS Code Dark+ (Material "slate" scheme) */
 [data-md-color-scheme="slate"] {
   --md-code-fg-color: #D4D4D4;

@@ -324,6 +324,15 @@
 </ul>
 </nav>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#scrollbar-textures-do-not-work">
+<span class="md-ellipsis">
+      
+        Scrollbar Textures Do Not Work
+      
+    </span>
+</a>
+</li>
 </ul>
 </nav>
 </li>
@@ -575,6 +584,15 @@
 </ul>
 </nav>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#scrollbar-textures-do-not-work">
+<span class="md-ellipsis">
+      
+        Scrollbar Textures Do Not Work
+      
+    </span>
+</a>
+</li>
 </ul>
 </nav>
 </div>
@@ -597,7 +615,7 @@
 <tr>
 <td><a href="https://api.luanti.org/formspec/#hypertipgui_element_namestaticposwidthnametext"><code>hypertip[]</code></a></td>
 <td>A tooltip that shows formatted text (see <a href="../hypertext/">Hypertext Markup</a>).</td>
-<td>Flow tooltips only show plain text with the <code>tooltip</code> parameter or <a href="elements.md#guitooltip"><code>gui.Tooltip</code></a>. The markup language can only be used in <a href="elements.md#guihypertext"><code>gui.Hypertext</code></a>.</td>
+<td>Flow tooltips only show plain text with the <code>tooltip</code> parameter or <a href="../functional-elements/#guitooltip"><code>gui.Tooltip</code></a>. The markup language can only be used in <a href="../functional-elements/#guihypertext"><code>gui.Hypertext</code></a>.</td>
 </tr>
 <tr>
 <td><a href="https://api.luanti.org/formspec/#allow_closebool"><code>allow_close[]</code></a></td>
@@ -607,12 +625,12 @@
 <tr>
 <td><a href="https://api.luanti.org/formspec/#listimagesslot_bgimg_normalslot_bgimg_hover"><code>listimages[]</code></a></td>
 <td>Pictures for the background of inventory slots.</td>
-<td><a href="elements.md#guilistcolors"><code>gui.Listcolors</code></a> only sets colors.</td>
+<td><a href="../functional-elements/#guilistcolors"><code>gui.Listcolors</code></a> only sets colors.</td>
 </tr>
 <tr>
 <td><a href="https://api.luanti.org/formspec/#labelxywhlabel"><code>label[x,y;w,h;text]</code></a></td>
 <td>A label that wraps long text inside a given size (an "area label").</td>
-<td><a href="elements.md#guitextarea"><code>gui.Textarea</code></a> without a <code>name</code>, or <a href="elements.md#guihypertext"><code>gui.Hypertext</code></a>. Because of this, the <code>halign</code> and <code>valign</code> styles do not do anything for <code>gui.Label</code>.</td>
+<td><a href="../functional-elements/#guitextarea"><code>gui.Textarea</code></a> without a <code>name</code>, or <a href="../functional-elements/#guihypertext"><code>gui.Hypertext</code></a>. Because of this, the <code>halign</code> and <code>valign</code> styles do not do anything for <code>gui.Label</code>.</td>
 </tr>
 <tr>
 <td><a href="https://api.luanti.org/formspec/#tooltipxywhtooltip_textbgcolorfontcolor"><code>tooltip[x,y;w,h;...]</code></a></td>
@@ -628,7 +646,7 @@
 </table>
 <h2 id="missing-parameters">Missing Parameters</h2>
 <ul>
-<li><strong>Content padding of scroll containers.</strong> Luanti can work out the range of a scroll container's scrollbar for you, but flow's <a href="elements.md#guiscrollcontainer"><code>gui.ScrollContainer</code></a> does not expose this, so you have to set the range yourself with <a href="elements.md#guiscrollbaroptions"><code>gui.ScrollbarOptions</code></a>. <a href="../layout-elements/#guiscrollablevbox"><code>gui.ScrollableVBox</code></a> already does this for you.</li>
+<li><strong>Content padding of scroll containers.</strong> Luanti can work out the range of a scroll container's scrollbar for you, but flow's <a href="../functional-elements/#guiscrollcontainer"><code>gui.ScrollContainer</code></a> does not expose this, so you have to set the range yourself with <a href="../functional-elements/#guiscrollbaroptions"><code>gui.ScrollbarOptions</code></a>. <a href="../layout-elements/#guiscrollablevbox"><code>gui.ScrollableVBox</code></a> already does this for you.</li>
 <li><strong>Node formspec inventory locations.</strong> The <code>"current_node"</code> inventory location refers to the node whose formspec is open. A flow form cannot be the formspec of a node, so use <code>"nodemeta:X,Y,Z"</code> to show a node's inventory instead.</li>
 </ul>
 <h2 id="things-flow-does-for-you">Things Flow Does for You</h2>
@@ -643,6 +661,7 @@
 </ul>
 <h2 id="newer-luanti-features">Newer Luanti Features</h2>
 <p>Because flow always uses formspec version 7 (Luanti 5.8), features that were added in newer versions may not work, even if the missing element or parameter is not listed above. This includes the area label (version 9), floating-point animation frames in <code>gui.Model</code> (version 10), and the <code>halign</code> and <code>valign</code> styles of fields and text areas (version 11), and the <code>editable</code> style of checkboxes, dropdowns, and fields (version 12, the only addition in that version). Formspec versions are described in the "Formspec Version History" section of the Luanti API documentation.</p>
+<p>Flow does not check the formspec version when it writes style properties. A property such as <code>halign</code>, <code>valign</code>, or <code>editable</code> is put in the <code>style[]</code> or <code>style_type[]</code> element exactly as you gave it, and is not removed or changed.</p>
 <h3 id="formspec-versions-and-luanti-releases">Formspec Versions and Luanti Releases</h3>
 <table>
 <thead>
@@ -710,6 +729,38 @@
 </tr>
 </tbody>
 </table>
+<h2 id="scrollbar-textures-do-not-work">Scrollbar Textures Do Not Work</h2>
+<p><code>scrollbar_bg</code>, <code>slider</code>, <code>arrow_up</code>, and <code>arrow_down</code> should not be used. Flow accepts them, but Luanti has no such parameters, and on Luanti 5.8 and newer a scrollbar that sets any of them is not shown at all.</p>
+<p>Flow (through formspec_ast) writes the four textures as one comma-separated sixth parameter after <code>value</code>, leaving the ones you did not set empty. Luanti's <code>scrollbar[]</code> takes exactly five parameters. It only tolerates extra parameters when the form's formspec version is newer than the highest version the client supports, and flow always uses version 7:</p>
+<table>
+<thead>
+<tr>
+<th>Luanti version</th>
+<th>Highest formspec version</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>5.6 and 5.7</td>
+<td>6</td>
+<td>The extra parameter is ignored and the scrollbar is shown with its normal look.</td>
+</tr>
+<tr>
+<td>5.8 and newer</td>
+<td>7 or higher</td>
+<td>The scrollbar is rejected and not shown, and an error is logged.</td>
+</tr>
+</tbody>
+</table>
+<p>The rejection was confirmed in-game with a <code>gui.Scrollbar</code> that set all four textures and one that set only <code>slider</code>. A scrollbar without textures next to them was shown normally.</p>
+<p>Sources (Luanti source code):</p>
+<ul>
+<li><code>GUIFormSpecMenu::parseScrollBar</code> requires between 5 and 5 parameters, and nothing in <code>guiFormSpecMenu.cpp</code> reads the textures: <a href="https://github.com/luanti-org/luanti/blob/5.8.0/src/gui/guiFormSpecMenu.cpp">5.8.0</a>, <a href="https://github.com/luanti-org/luanti/blob/5.7.0/src/gui/guiFormSpecMenu.cpp">5.7.0</a>, <a href="https://github.com/luanti-org/luanti/blob/master/src/gui/guiFormSpecMenu.cpp">master</a>.</li>
+<li><code>GUIFormSpecMenu::precheckElement</code> in the same file accepts extra parameters only when <code>m_formspec_version &gt; FORMSPEC_API_VERSION</code>, and otherwise logs <code>Invalid &lt;element&gt; element(&lt;count&gt;)</code> and skips the element.</li>
+<li><code>FORMSPEC_API_VERSION</code> is 6 in <a href="https://github.com/luanti-org/luanti/blob/5.7.0/src/network/networkprotocol.h">5.7.0</a>, 7 in <a href="https://github.com/luanti-org/luanti/blob/5.8.0/src/network/networkprotocol.h">5.8.0</a>, and 12 in <a href="https://github.com/luanti-org/luanti/blob/master/src/network/networkprotocol.cpp">master</a>.</li>
+<li>The <a href="https://api.luanti.org/formspec/">formspec documentation</a> lists <code>scrollbar[]</code> with five parameters: position, size, orientation, name, and value.</li>
+</ul>
 </article>
 </div>
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
@@ -740,5 +791,6 @@
 <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.expand", "navigation.top", "content.code.copy"], "search": "../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
 <script src="../assets/javascripts/bundle.c21346df.min.js"></script>
 <script src="../js/print-site.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script>
 </body>
 </html>

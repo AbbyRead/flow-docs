@@ -460,7 +460,7 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1 id="padding-spacing-and-backgrounds">Padding, Spacing, and Backgrounds</h1>
-<p>Most elements can have a <code>padding</code> value, which will add the specified amount of padding around the element, measured in <a href="elements.md#sizes">slot units</a>. The "root" element of the form (the one returned by the <a href="../getting-started/">build function</a>) has a default padding of 0.3, everything else has a default padding of 0.</p>
+<p>Most elements can have a <code>padding</code> value, which will add the specified amount of padding around the element, measured in <a href="../common-aspects/#sizes">slot units</a>. The "root" element of the form (the one returned by the <a href="../getting-started/">build function</a>) has a default padding of 0.3, everything else has a default padding of 0.</p>
 <p><code>padding</code> is ignored on these elements:</p>
 <ul>
 <li><code>gui.Flow</code>, <code>gui.ScrollableVBox</code>, and <code>gui.PaginatedVBox</code>. To pad one, put it inside a <code>gui.VBox</code> (or another layouting element) and set <code>padding</code> on that instead.</li>
@@ -469,7 +469,7 @@
 </ul>
 <p>There is also a deprecated <a href="../layout-elements/#guipadding-deprecated"><code>gui.Padding</code></a> element that wraps a single element and pads it. Use the <code>padding</code> parameter instead.</p>
 <p><code>HBox</code> and <code>VBox</code> have a <code>spacing</code> field which specifies how much spacing there is between elements inside the box. Its default value is described in <a href="../layout-elements/#guivbox"><code>gui.VBox</code></a>.</p>
-<p>Container elements (HBox and VBox) can optionally have <code>bgimg</code> and <code>bgimg_middle</code> parameters that specify a background for the container. <code>bgimg</code> is the name of a texture, which is stretched to fill the container. If <code>bgimg_middle</code> is set as well, the texture is drawn as a <a href="elements.md#nine-slice-images">nine-slice</a> whose corners are <code>bgimg_middle</code> pixels big, so one small texture can make a background of any size. The background will be drawn behind any padding that the container has.</p>
+<p>Box elements (<code>gui.HBox</code> and <code>gui.VBox</code>) can optionally have <code>bgimg</code> and <code>bgimg_middle</code> parameters that specify a background for the box. <code>bgimg</code> is the name of a texture, which is stretched to fill the box. If <code>bgimg_middle</code> is set as well, the texture is drawn as a <a href="../common-aspects/#nine-slice-images">nine-slice</a> whose corners are <code>bgimg_middle</code> pixels big, so one small texture can make a background of any size. The background will be drawn behind any padding that the box has.</p>
 <p>The examples below use a small 16x16 texture, a white border around a blue square. It is made with texture modifiers, so no file is needed. Because the border is only 2 pixels wide, you can see how it is stretched.</p>
 <p>Example with only <code>bgimg</code>. The whole texture is stretched, so the border gets thick and blurry:</p>
 <div class="language-lua highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nv">gui</span><span class="p">.</span><span class="py">VBox</span><span class="w"> </span><span class="p">{</span>
@@ -526,5 +526,6 @@
 <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.expand", "navigation.top", "content.code.copy"], "search": "../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
 <script src="../assets/javascripts/bundle.c21346df.min.js"></script>
 <script src="../js/print-site.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script>
 </body>
 </html>
