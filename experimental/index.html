@@ -881,9 +881,15 @@
 <td>Called with the embedded form's own <code>ctx</code></td>
 <td>Called with the shared <code>ctx</code></td>
 </tr>
+<tr>
+<td><code>on_key_enter</code> functions</td>
+<td>Called with the parent's <code>ctx</code>, not the embedded form's (a known limitation, see below)</td>
+<td>Called with the shared <code>ctx</code></td>
+</tr>
 </tbody>
 </table>
 <p>Events and redraws work through the parent. The embedded form's elements are part of the parent's form, so a callback that returns <code>true</code> redraws the whole parent form, and <code>update</code> and <code>update_where</code> called on the embedded form object do nothing, because the form that is open belongs to the parent. Call them on the parent form object instead.</p>
+<p><strong>Known limitation:</strong> the <code>on_key_enter</code> function of a field in a form embedded with a <code>name</code> is called with the parent's <code>ctx</code>, unlike <code>on_event</code>, which gets the embedded form's own <code>ctx</code>. In that function <code>ctx.form.my_field</code> is <code>nil</code>, because the value is stored under the rewritten field name, and anything you store in <code>ctx</code> goes into the parent's <code>ctx</code>. To reach the embedded form's own <code>ctx</code> from there, go through the embed's entry in the parent's <code>ctx</code>, for example <code>ctx.my_embed_name.form.my_field</code>. Embeds without a <code>name</code> are not affected, because they share the parent's <code>ctx</code> anyway.</p>
 <h2 id="running-code-when-a-form-is-closed">Running Code When a Form Is Closed</h2>
 <p><a href="../layout-elements/#guicontainer"><code>gui.Container</code></a>, <a href="../layout-elements/#guihbox"><code>gui.HBox</code></a>, <a href="../layout-elements/#guivbox"><code>gui.VBox</code></a>, and <a href="../layout-elements/#guistack"><code>gui.Stack</code></a> elements support an <code>on_quit</code> callback which gets run when a player closes a form (for example by pressing Escape or clicking an exit button).</p>
 <p>Note that this function is not called in some cases, such as when the player leaves without closing the form or when another form/formspec is shown.</p>

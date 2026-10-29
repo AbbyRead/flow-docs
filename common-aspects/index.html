@@ -748,7 +748,7 @@
 </tr>
 <tr>
 <td><code>gui.ButtonUrlExit</code></td>
-<td>Required in practice (see the note below the table)</td>
+<td>Required, it has no automatic size (see the note below the table)</td>
 <td>No</td>
 </tr>
 <tr>
@@ -803,7 +803,7 @@
 </tr>
 </tbody>
 </table>
-<p>An element without a size that needs one is written to the form with an empty size, which Luanti rejects, so you will see it as a broken form rather than an error message. <code>gui.ButtonUrlExit</code> has no automatic size, unlike <code>gui.ButtonURL</code>, so give it a <code>w</code> and <code>h</code>, even though its example below calls them optional.</p>
+<p>An element without a size that needs one is written to the form with an empty size, which Luanti rejects, so you will see it as a broken form rather than an error message. <code>gui.ButtonUrlExit</code> has no automatic size, unlike <code>gui.ButtonURL</code>, so its <code>w</code> and <code>h</code> are required, see <a href="../functional-elements/#guibuttonurlexit"><code>gui.ButtonUrlExit</code></a>.</p>
 <h2 id="names-and-values">Names and Values</h2>
 <p>Many elements take a <code>name</code>. Input elements (fields, checkboxes, dropdowns, lists of text, tables, ...) with a <code>name</code> have their current value stored in <code>ctx.form[name]</code> and flow remembers it when the form is redrawn:</p>
 <table>

@@ -1209,11 +1209,11 @@
 </tr>
 <tr>
 <td><code>halign</code></td>
-<td>Horizontal alignment of the text: <code>left</code> (default), <code>center</code>, or <code>right</code>. Needs formspec version 11 (Luanti 5.17 or newer, see <a href="../not-supported/#formspec-versions-and-luanti-releases">the version table</a>). Flow sends the property to the client as written, see <a href="../not-supported/#newer-luanti-features">Newer Luanti Features</a>.</td>
+<td>Horizontal alignment of the text: <code>left</code> (default), <code>center</code>, or <code>right</code>. Added in formspec version 11 (Luanti 5.17, see <a href="../not-supported/#formspec-versions-and-luanti-releases">the version table</a>). The form's version does not matter, so it works for any player on Luanti 5.17 or newer even though flow declares version 7, and a client that does not know it skips the property, see <a href="../not-supported/#newer-luanti-features">Newer Luanti Features</a>.</td>
 </tr>
 <tr>
 <td><code>valign</code></td>
-<td>Vertical alignment of the text: <code>top</code> (default), <code>center</code>, or <code>bottom</code>. Needs formspec version 11 (Luanti 5.17 or newer, see <a href="../not-supported/#formspec-versions-and-luanti-releases">the version table</a>). Flow sends the property to the client as written, see <a href="../not-supported/#newer-luanti-features">Newer Luanti Features</a>. Only has an effect when all of the text fits inside the element. If the text is too long (and a <code>gui.Textarea</code> gets a scrollbar), it is always aligned to the top so that no text is cut off. It also does not work in <code>gui.Field</code>, but <code>halign</code> does.</td>
+<td>Vertical alignment of the text: <code>top</code> (default), <code>center</code>, or <code>bottom</code>. Added in formspec version 11 (Luanti 5.17, see <a href="../not-supported/#formspec-versions-and-luanti-releases">the version table</a>). The form's version does not matter, so it works for any player on Luanti 5.17 or newer even though flow declares version 7, and a client that does not know it skips the property, see <a href="../not-supported/#newer-luanti-features">Newer Luanti Features</a>. Only has an effect when all of the text fits inside the element. If the text is too long (and a <code>gui.Textarea</code> gets a scrollbar), it is always aligned to the top so that no text is cut off. It also does not work in <code>gui.Field</code>, but <code>halign</code> does.</td>
 </tr>
 </tbody>
 </table>
@@ -1287,7 +1287,7 @@
 </tbody>
 </table>
 <h3 id="read-only-elements-editable">Read-Only Elements (<code>editable</code>)</h3>
-<p>Luanti 5.18 (formspec version 12) added an <code>editable</code> property for <code>gui.Checkbox</code>, <code>gui.Dropdown</code>, <code>gui.Field</code>, <code>gui.Pwdfield</code>, and <code>gui.Textarea</code>. Setting it to <code>false</code> makes the element read-only (default <code>true</code>). Flow does not support it yet, because flow always uses formspec version 7, so it may do nothing or be ignored depending on the player's version of Luanti. To make a field read-only for now, handle that in your own code, for example by ignoring changes to it. See also <a href="../not-supported/#newer-luanti-features">Newer Luanti Features</a>.</p>
+<p>Luanti 5.18 (formspec version 12) added an <code>editable</code> property for <code>gui.Checkbox</code>, <code>gui.Dropdown</code>, <code>gui.Field</code>, <code>gui.Pwdfield</code>, and <code>gui.Textarea</code>. Setting it to <code>false</code> makes the element read-only (default <code>true</code>). Flow does nothing special for it and writes the property unchanged. The client does not check the form's version for it, so it works for players on Luanti 5.18 or newer even though flow declares version 7, and it may be ignored for other players. Do not rely on it alone to stop changes: also ignore changes to the element in your own code. See also <a href="../not-supported/#newer-luanti-features">Newer Luanti Features</a>.</p>
 <h3 id="other-elements">Other Elements</h3>
 <table>
 <thead>

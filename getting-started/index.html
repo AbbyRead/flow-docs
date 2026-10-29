@@ -186,6 +186,15 @@
 <nav aria-label="Updating Forms" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
+<a class="md-nav__link" href="#example">
+<span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#redrawing-when-a-value-changes">
 <span class="md-ellipsis">
       
@@ -559,6 +568,15 @@
 <nav aria-label="Updating Forms" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
+<a class="md-nav__link" href="#example">
+<span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#redrawing-when-a-value-changes">
 <span class="md-ellipsis">
       
@@ -686,7 +704,8 @@
 <h2 id="updating-forms">Updating Forms</h2>
 <p>If some data displayed inside a form changes (for example a timer or progress indicator), you can use <code>my_gui:update(player)</code> or <code>my_gui:update_where(func)</code> (see below) to update the form without resetting <code>ctx</code> or showing the form again if the player has closed it.</p>
 <p>Luanti has no way to change a form that is already open, so flow has to show the whole form again. Because of this, players may lose text typed into fields that hasn't been sent to the server (which happens when they press a button or Enter) when the form is updated.</p>
-<p>Here is a form with one button for each way to update it. The counter is a plain variable, not something stored in <code>ctx</code>, so flow cannot notice when it changes. Each button adds 1 to it and then redraws the forms that should show the new number:</p>
+<p>Here is a form with one button for each way to update it. The counter is a plain variable, not something stored in <code>ctx</code>, so flow cannot notice when it changes. Each button adds 1 to it and then redraws the forms that should show the new number.</p>
+<h3 id="example">Example</h3>
 <div class="language-lua highlight"><pre><span></span><code><span id="__span-1-1"><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="kd">local</span><span class="w"> </span><span class="nv">gui</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">flow</span><span class="p">.</span><span class="py">widgets</span>
 </span><span id="__span-1-2"><a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>
 </span><span id="__span-1-3"><a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="c1">-- Not stored in ctx, so flow cannot notice when it changes.</span>
