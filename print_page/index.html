@@ -813,34 +813,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../advanced/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Advanced Features
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../styling/" class="md-nav__link">
         
   
@@ -901,7 +873,7 @@
   <span class="md-ellipsis">
     
   
-    Experimental
+    Other Features
   
 
     
@@ -917,7 +889,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Experimental
+    Other Features
   
 
           </label>
@@ -937,7 +909,35 @@
   <span class="md-ellipsis">
     
   
-    Experimental Features
+    Experimental
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../advanced/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Advanced
   
 
     
@@ -1468,21 +1468,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#advanced" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4.3 Advanced Features
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#styling" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4.4 Styling
+        4.3 Styling
       
     </span>
   </a>
@@ -1498,19 +1487,30 @@
   <a href="#section-5" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5 Experimental
+        5 Other Features
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="5 Experimental">
+    <nav class="md-nav" aria-label="5 Other Features">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#experimental" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5.1 Experimental Features
+        5.1 Experimental
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#advanced" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 Advanced
       
     </span>
   </a>
@@ -1521,7 +1521,7 @@
   <a href="#popovers" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5.2 Popovers
+        5.3 Popovers
       
     </span>
   </a>
@@ -4061,132 +4061,7 @@ Vaguely inspired by Flutter and GTK.</p>
 <li><strong>No input.</strong> <a href="#common-aspects-events"><code>on_event</code></a> and <a href="#experimental-handling-enter-keypresses-in-fields"><code>on_key_enter</code></a> functions are never called, as the player cannot use a HUD.</li>
 <li><strong>Position and size.</strong> Use <code>window_position</code>, <code>window_anchor</code>, and <code>window_padding</code> on the root element to place the HUD, see <a href="#experimental-window-position">Experimental Features</a>.</li>
 <li><strong>Scrolling.</strong> Flow does not know the player's formspec version when it draws a HUD, so it treats the player as an old client. <a href="#layout-elements-guiscrollablevbox"><code>gui.ScrollableVBox</code></a> becomes a <a href="#layout-elements-guipaginatedvbox"><code>gui.PaginatedVBox</code></a>, whose page buttons do nothing in a HUD. Avoid both of them.</li>
-</ul></section><section class="print-page" id="advanced" heading-number="4.3"><h1 id="advanced-advanced-features">Advanced Features</h1>
-<p>These features are for more complex forms and custom elements, and most forms will not need them. Features that are more likely to change are on the <a href="#experimental">Experimental Features</a> page.</p>
-<h2 id="advanced-embedding-a-form-into-another-form">Embedding a Form Into Another Form</h2>
-<p>You can embed form objects (made with <code>flow.make_gui</code>, see <a href="#getting-started">Getting Started</a>) inside others like this:</p>
-<div class="language-lua highlight"><pre><span></span><code><span id="__span-0-1"><span class="kd">local</span><span class="w"> </span><span class="nv">gui</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">flow</span><span class="p">.</span><span class="py">widgets</span>
-</span><span id="__span-0-2">
-</span><span id="__span-0-3"><span class="kd">local</span><span class="w"> </span><span class="nv">other_form</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">flow</span><span class="p">.</span><span class="nf">make_gui</span><span class="p">(</span><span class="kr">function</span><span class="p">(</span><span class="nv">player</span><span class="p">,</span><span class="w"> </span><span class="nv">ctx</span><span class="p">)</span>
-</span><span id="__span-0-4"><span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="nv">gui</span><span class="p">.</span><span class="py">Label</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"I am embedded"</span><span class="w"> </span><span class="p">}</span>
-</span><span id="__span-0-5"><span class="kr">end</span><span class="p">)</span>
-</span><span id="__span-0-6">
-</span><span id="__span-0-7"><span class="kd">local</span><span class="w"> </span><span class="nv">parent_form</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">flow</span><span class="p">.</span><span class="nf">make_gui</span><span class="p">(</span><span class="kr">function</span><span class="p">(</span><span class="nv">player</span><span class="p">,</span><span class="w"> </span><span class="nv">ctx</span><span class="p">)</span>
-</span><span id="__span-0-8"><span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="nv">gui</span><span class="p">.</span><span class="py">VBox</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-0-9"><span class="w">        </span><span class="nv">gui</span><span class="p">.</span><span class="py">Label</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Hello world"</span><span class="w"> </span><span class="p">},</span>
-</span><span id="__span-0-10"><span class="w">        </span><span class="nv">other_form</span><span class="p">:</span><span class="py">embed</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-0-11"><span class="w">            </span><span class="c1">-- A name for the embed, see below.</span>
-</span><span id="__span-0-12"><span class="w">            </span><span class="nv">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"my_embed_name"</span><span class="p">,</span>
-</span><span id="__span-0-13"><span class="w">        </span><span class="p">},</span>
-</span><span id="__span-0-14"><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-0-15"><span class="kr">end</span><span class="p">)</span>
-</span></code></pre></div>
-<div class="admonition note">
-<p class="admonition-title">Older versions of flow</p>
-<p>Current versions of flow ignore a <code>player</code> parameter in the table passed to <code>embed</code>. Versions from before 2025-06-17 need <code>player = player</code>, so add it if your mod has to work with them.</p>
-</div>
-<div class="admonition warning">
-<p class="admonition-title">Embed names</p>
-<p>Special characters (excluding <code>-</code> and <code>_</code>) are not allowed in embed names.</p>
-</div>
-<p>The <code>name</code> changes a lot about how the embedded form works:</p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>With <code>name</code></th>
-<th>Without <code>name</code></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>ctx</code> in the embedded form</td>
-<td>Its own table, at <code>ctx.my_embed_name</code> in the parent's <code>ctx</code></td>
-<td>The same <code>ctx</code> as the parent</td>
-</tr>
-<tr>
-<td><code>ctx.form</code> in the embedded form</td>
-<td>Reads and writes go to the parent's <code>ctx.form</code>, with the field names rewritten (the name of the embed is added to the start)</td>
-<td>The same <code>ctx.form</code> as the parent</td>
-</tr>
-<tr>
-<td>Field names, scrollbar names, <a href="#tooltips">tooltip</a> names, and <a href="#styling-selectors-and-states">style selectors</a></td>
-<td>Rewritten, so they cannot clash with the parent's</td>
-<td>Not rewritten, so a name used in both forms is the same input</td>
-</tr>
-<tr>
-<td><a href="#common-aspects-events"><code>on_event</code></a>, <a href="#advanced-running-code-when-a-form-is-closed"><code>on_quit</code></a>, and <a href="#popovers"><code>on_close_popover</code></a> functions</td>
-<td>Called with the embedded form's own <code>ctx</code></td>
-<td>Called with the shared <code>ctx</code></td>
-</tr>
-<tr>
-<td><a href="#experimental-handling-enter-keypresses-in-fields"><code>on_key_enter</code></a> functions</td>
-<td>Called with the parent's <code>ctx</code>, not the embedded form's (a known limitation, see below)</td>
-<td>Called with the shared <code>ctx</code></td>
-</tr>
-</tbody>
-</table>
-<p>Events and redraws work through the parent. The embedded form's elements are part of the parent's form, so a callback that returns <code>true</code> redraws the whole parent form, and <code>update</code> and <code>update_where</code> (see <a href="#getting-started-updating-forms">Updating Forms</a>) called on the embedded form object do nothing, because the form that is open belongs to the parent. Call them on the parent form object instead.</p>
-<div class="admonition warning">
-<p class="admonition-title">Known limitation</p>
-<p>The <code>on_key_enter</code> function of a field in a form embedded with a <code>name</code> is called with the parent's <code>ctx</code>, unlike <code>on_event</code>, which gets the embedded form's own <code>ctx</code>. In that function <code>ctx.form.my_field</code> (see <a href="#common-aspects-names-and-values">Names and Values</a>) is <code>nil</code>, because the value is stored under the rewritten field name, and anything you store in <code>ctx</code> goes into the parent's <code>ctx</code>. To reach the embedded form's own <code>ctx</code> from there, go through the embed's entry in the parent's <code>ctx</code>, for example <code>ctx.my_embed_name.form.my_field</code>. Embeds without a <code>name</code> are not affected, because they share the parent's <code>ctx</code> anyway.</p>
-</div>
-<h2 id="advanced-running-code-when-a-form-is-closed">Running Code When a Form Is Closed</h2>
-<p><a href="#layout-elements-guicontainer"><code>gui.Container</code></a>, <a href="#layout-elements-guihbox"><code>gui.HBox</code></a>, <a href="#layout-elements-guivbox"><code>gui.VBox</code></a>, and <a href="#layout-elements-guistack"><code>gui.Stack</code></a> elements support an <code>on_quit</code> callback which gets run when a player closes a form (for example by pressing Escape or clicking an exit button).</p>
-<div class="admonition note">
-<p class="admonition-title">Limitations of <code>on_quit</code></p>
-<p>This function is not called in some cases, such as when the player leaves without closing the form or when another form/formspec is shown.</p>
-<p>This function must not return anything, behaviour may get added to return values in the future.</p>
-</div>
-<div class="language-lua highlight"><pre><span></span><code><span id="__span-1-1"><span class="kd">local</span><span class="w"> </span><span class="nv">gui</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">flow</span><span class="p">.</span><span class="py">widgets</span>
-</span><span id="__span-1-2">
-</span><span id="__span-1-3"><span class="c1">-- A second form that pops up once the first one is closed.</span>
-</span><span id="__span-1-4"><span class="kd">local</span><span class="w"> </span><span class="nv">closed_notice</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">flow</span><span class="p">.</span><span class="nf">make_gui</span><span class="p">(</span><span class="kr">function</span><span class="p">(</span><span class="nv">player</span><span class="p">,</span><span class="w"> </span><span class="nv">ctx</span><span class="p">)</span>
-</span><span id="__span-1-5"><span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="nv">gui</span><span class="p">.</span><span class="py">VBox</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-1-6"><span class="w">        </span><span class="nv">gui</span><span class="p">.</span><span class="py">Label</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Form closed!"</span><span class="w"> </span><span class="p">},</span>
-</span><span id="__span-1-7"><span class="w">        </span><span class="nv">gui</span><span class="p">.</span><span class="py">ButtonExit</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"OK"</span><span class="w"> </span><span class="p">},</span>
-</span><span id="__span-1-8"><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-1-9"><span class="kr">end</span><span class="p">)</span>
-</span><span id="__span-1-10">
-</span><span id="__span-1-11"><span class="kd">local</span><span class="w"> </span><span class="nv">my_gui</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">flow</span><span class="p">.</span><span class="nf">make_gui</span><span class="p">(</span><span class="kr">function</span><span class="p">(</span><span class="nv">player</span><span class="p">,</span><span class="w"> </span><span class="nv">ctx</span><span class="p">)</span>
-</span><span id="__span-1-12"><span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="nv">gui</span><span class="p">.</span><span class="py">VBox</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-1-13"><span class="w">        </span><span class="nv">on_quit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">function</span><span class="p">(</span><span class="nv">player</span><span class="p">,</span><span class="w"> </span><span class="nv">ctx</span><span class="p">)</span>
-</span><span id="__span-1-14"><span class="w">            </span><span class="nv">core</span><span class="p">.</span><span class="nf">chat_send_player</span><span class="p">(</span><span class="nv">player</span><span class="p">:</span><span class="nf">get_player_name</span><span class="p">(),</span><span class="w"> </span><span class="s2">"Form closed!"</span><span class="p">)</span>
-</span><span id="__span-1-15">
-</span><span id="__span-1-16"><span class="w">            </span><span class="c1">-- Defer so the new form is not closed along with this one.</span>
-</span><span id="__span-1-17"><span class="w">            </span><span class="nv">core</span><span class="p">.</span><span class="nf">after</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="kr">function</span><span class="p">()</span>
-</span><span id="__span-1-18"><span class="w">                </span><span class="nv">closed_notice</span><span class="p">:</span><span class="nf">show</span><span class="p">(</span><span class="nv">player</span><span class="p">)</span>
-</span><span id="__span-1-19"><span class="w">            </span><span class="kr">end</span><span class="p">)</span>
-</span><span id="__span-1-20"><span class="w">        </span><span class="kr">end</span><span class="p">,</span>
-</span><span id="__span-1-21">
-</span><span id="__span-1-22"><span class="w">        </span><span class="nv">gui</span><span class="p">.</span><span class="py">Label</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Press Escape or the button to close me."</span><span class="w"> </span><span class="p">},</span>
-</span><span id="__span-1-23"><span class="w">        </span><span class="nv">gui</span><span class="p">.</span><span class="py">ButtonExit</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Close"</span><span class="w"> </span><span class="p">},</span>
-</span><span id="__span-1-24"><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-1-25"><span class="kr">end</span><span class="p">)</span>
-</span><span id="__span-1-26">
-</span><span id="__span-1-27"><span class="nv">my_gui</span><span class="p">:</span><span class="nf">show</span><span class="p">(</span><span class="nv">core</span><span class="p">.</span><span class="nf">get_player_by_name</span><span class="p">(</span><span class="s2">"current_player"</span><span class="p">))</span>
-</span></code></pre></div>
-<p>If multiple <code>on_quit</code> callbacks are specified in different elements, they will all get called.</p>
-<h2 id="advanced-getting-a-reference-to-the-current-player-and-context">Getting a Reference to the Current Player and Context</h2>
-<p>If you're making a custom element, it might be useful to get a reference to <code>ctx</code> and <code>player</code> (the arguments of the <a href="#getting-started-basic-example">build function</a>) so you don't have to pass them in manually.</p>
-<div class="language-lua highlight"><pre><span></span><code><span id="__span-2-1"><span class="kd">local</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="nf">HelloWorld</span><span class="p">(</span><span class="nv">def</span><span class="p">)</span>
-</span><span id="__span-2-2"><span class="w">    </span><span class="kd">local</span><span class="w"> </span><span class="nv">ctx</span><span class="p">,</span><span class="w"> </span><span class="nv">player</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">flow</span><span class="p">.</span><span class="nf">get_context</span><span class="p">()</span>
-</span><span id="__span-2-3"><span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="nv">gui</span><span class="p">.</span><span class="py">Label</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-2-4"><span class="w">        </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Hello, "</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="nv">player</span><span class="p">:</span><span class="nf">get_player_name</span><span class="p">()</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="s2">"!</span><span class="se">\n</span><span class="s2">"</span><span class="w"> </span><span class="o">..</span>
-</span><span id="__span-2-5"><span class="w">            </span><span class="s2">"some_value="</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="nv">ctx</span><span class="p">.</span><span class="py">some_value</span><span class="p">,</span>
-</span><span id="__span-2-6"><span class="w">        </span><span class="nv">style</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">def</span><span class="p">.</span><span class="py">style</span><span class="p">,</span>
-</span><span id="__span-2-7"><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-2-8"><span class="kr">end</span>
-</span><span id="__span-2-9">
-</span><span id="__span-2-10"><span class="kd">local</span><span class="w"> </span><span class="nv">form</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">flow</span><span class="p">.</span><span class="nf">make_gui</span><span class="p">(</span><span class="kr">function</span><span class="p">(</span><span class="nv">player</span><span class="p">,</span><span class="w"> </span><span class="nv">ctx</span><span class="p">)</span>
-</span><span id="__span-2-11"><span class="w">    </span><span class="nv">ctx</span><span class="p">.</span><span class="py">some_value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">123</span>
-</span><span id="__span-2-12"><span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="nv">HelloWorld</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">style</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">font_size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"*2"</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span>
-</span><span id="__span-2-13"><span class="kr">end</span><span class="p">)</span>
-</span></code></pre></div>
-<div class="admonition warning">
-<p class="admonition-title">Only call it in a build function</p>
-<p><code>flow.get_context()</code> will error when called outside a build function (as you should not normally do this).</p>
-</div></section><section class="print-page" id="styling" heading-number="4.4"><h1 id="styling-styling-forms">Styling Forms</h1>
+</ul></section><section class="print-page" id="styling" heading-number="4.3"><h1 id="styling-styling-forms">Styling Forms</h1>
 <p>Styles change how elements look: their colors, images, fonts, and so on. A style is a set of properties such as <code>bgcolor = "red"</code>, and which properties exist depends on the type of element. All of them are listed in the <a href="#styling-property-reference">property reference</a> below.</p>
 <p>You can style a single element with the <code>style</code> field (the <a href="#styling-inline-syntax">inline syntax</a>), or style many elements at once with the <a href="#functional-elements-guistyle"><code>gui.Style</code></a> and <a href="#functional-elements-guistyletype"><code>gui.StyleType</code></a> elements (see <a href="#styling-separate-style-elements">Separate Style Elements</a>).</p>
 <p>Which one to use:</p>
@@ -4704,7 +4579,7 @@ Vaguely inspired by Flutter and GTK.</p>
 </tbody>
 </table></section></section>
                     <section class='print-page md-section' id='section-5' heading-number='5'>
-                        <h1>Experimental<a class='headerlink' href='#section-5' title='Permanent link'></a>
+                        <h1>Other Features<a class='headerlink' href='#section-5' title='Permanent link'></a>
                         </h1>
                     <section class="print-page" id="experimental" heading-number="5.1"><h1 id="experimental-experimental-features">Experimental Features</h1>
 <div class="admonition warning">
@@ -4924,7 +4799,132 @@ Vaguely inspired by Flutter and GTK.</p>
 </span><span id="__span-5-26"><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-5-27"><span class="kr">end</span><span class="p">)</span>
 </span></code></pre></div>
-<p>Press enter and the label counts the key presses. If you tick the checkbox first, enter closes the form as well.</p></section><section class="print-page" id="popovers" heading-number="5.2"><h1 id="popovers-popovers-highly-experimental">Popovers (Highly Experimental)</h1>
+<p>Press enter and the label counts the key presses. If you tick the checkbox first, enter closes the form as well.</p></section><section class="print-page" id="advanced" heading-number="5.2"><h1 id="advanced-advanced-features">Advanced Features</h1>
+<p>These features are for more complex forms and custom elements, and most forms will not need them. Features that are more likely to change are on the <a href="#experimental">Experimental Features</a> page.</p>
+<h2 id="advanced-embedding-a-form-into-another-form">Embedding a Form Into Another Form</h2>
+<p>You can embed form objects (made with <code>flow.make_gui</code>, see <a href="#getting-started">Getting Started</a>) inside others like this:</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-0-1"><span class="kd">local</span><span class="w"> </span><span class="nv">gui</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">flow</span><span class="p">.</span><span class="py">widgets</span>
+</span><span id="__span-0-2">
+</span><span id="__span-0-3"><span class="kd">local</span><span class="w"> </span><span class="nv">other_form</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">flow</span><span class="p">.</span><span class="nf">make_gui</span><span class="p">(</span><span class="kr">function</span><span class="p">(</span><span class="nv">player</span><span class="p">,</span><span class="w"> </span><span class="nv">ctx</span><span class="p">)</span>
+</span><span id="__span-0-4"><span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="nv">gui</span><span class="p">.</span><span class="py">Label</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"I am embedded"</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-0-5"><span class="kr">end</span><span class="p">)</span>
+</span><span id="__span-0-6">
+</span><span id="__span-0-7"><span class="kd">local</span><span class="w"> </span><span class="nv">parent_form</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">flow</span><span class="p">.</span><span class="nf">make_gui</span><span class="p">(</span><span class="kr">function</span><span class="p">(</span><span class="nv">player</span><span class="p">,</span><span class="w"> </span><span class="nv">ctx</span><span class="p">)</span>
+</span><span id="__span-0-8"><span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="nv">gui</span><span class="p">.</span><span class="py">VBox</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-9"><span class="w">        </span><span class="nv">gui</span><span class="p">.</span><span class="py">Label</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Hello world"</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-0-10"><span class="w">        </span><span class="nv">other_form</span><span class="p">:</span><span class="py">embed</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-11"><span class="w">            </span><span class="c1">-- A name for the embed, see below.</span>
+</span><span id="__span-0-12"><span class="w">            </span><span class="nv">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"my_embed_name"</span><span class="p">,</span>
+</span><span id="__span-0-13"><span class="w">        </span><span class="p">},</span>
+</span><span id="__span-0-14"><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-0-15"><span class="kr">end</span><span class="p">)</span>
+</span></code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Older versions of flow</p>
+<p>Current versions of flow ignore a <code>player</code> parameter in the table passed to <code>embed</code>. Versions from before 2025-06-17 need <code>player = player</code>, so add it if your mod has to work with them.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Embed names</p>
+<p>Special characters (excluding <code>-</code> and <code>_</code>) are not allowed in embed names.</p>
+</div>
+<p>The <code>name</code> changes a lot about how the embedded form works:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>With <code>name</code></th>
+<th>Without <code>name</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ctx</code> in the embedded form</td>
+<td>Its own table, at <code>ctx.my_embed_name</code> in the parent's <code>ctx</code></td>
+<td>The same <code>ctx</code> as the parent</td>
+</tr>
+<tr>
+<td><code>ctx.form</code> in the embedded form</td>
+<td>Reads and writes go to the parent's <code>ctx.form</code>, with the field names rewritten (the name of the embed is added to the start)</td>
+<td>The same <code>ctx.form</code> as the parent</td>
+</tr>
+<tr>
+<td>Field names, scrollbar names, <a href="#tooltips">tooltip</a> names, and <a href="#styling-selectors-and-states">style selectors</a></td>
+<td>Rewritten, so they cannot clash with the parent's</td>
+<td>Not rewritten, so a name used in both forms is the same input</td>
+</tr>
+<tr>
+<td><a href="#common-aspects-events"><code>on_event</code></a>, <a href="#advanced-running-code-when-a-form-is-closed"><code>on_quit</code></a>, and <a href="#popovers"><code>on_close_popover</code></a> functions</td>
+<td>Called with the embedded form's own <code>ctx</code></td>
+<td>Called with the shared <code>ctx</code></td>
+</tr>
+<tr>
+<td><a href="#experimental-handling-enter-keypresses-in-fields"><code>on_key_enter</code></a> functions</td>
+<td>Called with the parent's <code>ctx</code>, not the embedded form's (a known limitation, see below)</td>
+<td>Called with the shared <code>ctx</code></td>
+</tr>
+</tbody>
+</table>
+<p>Events and redraws work through the parent. The embedded form's elements are part of the parent's form, so a callback that returns <code>true</code> redraws the whole parent form, and <code>update</code> and <code>update_where</code> (see <a href="#getting-started-updating-forms">Updating Forms</a>) called on the embedded form object do nothing, because the form that is open belongs to the parent. Call them on the parent form object instead.</p>
+<div class="admonition warning">
+<p class="admonition-title">Known limitation</p>
+<p>The <code>on_key_enter</code> function of a field in a form embedded with a <code>name</code> is called with the parent's <code>ctx</code>, unlike <code>on_event</code>, which gets the embedded form's own <code>ctx</code>. In that function <code>ctx.form.my_field</code> (see <a href="#common-aspects-names-and-values">Names and Values</a>) is <code>nil</code>, because the value is stored under the rewritten field name, and anything you store in <code>ctx</code> goes into the parent's <code>ctx</code>. To reach the embedded form's own <code>ctx</code> from there, go through the embed's entry in the parent's <code>ctx</code>, for example <code>ctx.my_embed_name.form.my_field</code>. Embeds without a <code>name</code> are not affected, because they share the parent's <code>ctx</code> anyway.</p>
+</div>
+<h2 id="advanced-running-code-when-a-form-is-closed">Running Code When a Form Is Closed</h2>
+<p><a href="#layout-elements-guicontainer"><code>gui.Container</code></a>, <a href="#layout-elements-guihbox"><code>gui.HBox</code></a>, <a href="#layout-elements-guivbox"><code>gui.VBox</code></a>, and <a href="#layout-elements-guistack"><code>gui.Stack</code></a> elements support an <code>on_quit</code> callback which gets run when a player closes a form (for example by pressing Escape or clicking an exit button).</p>
+<div class="admonition note">
+<p class="admonition-title">Limitations of <code>on_quit</code></p>
+<p>This function is not called in some cases, such as when the player leaves without closing the form or when another form/formspec is shown.</p>
+<p>This function must not return anything, behaviour may get added to return values in the future.</p>
+</div>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-1-1"><span class="kd">local</span><span class="w"> </span><span class="nv">gui</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">flow</span><span class="p">.</span><span class="py">widgets</span>
+</span><span id="__span-1-2">
+</span><span id="__span-1-3"><span class="c1">-- A second form that pops up once the first one is closed.</span>
+</span><span id="__span-1-4"><span class="kd">local</span><span class="w"> </span><span class="nv">closed_notice</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">flow</span><span class="p">.</span><span class="nf">make_gui</span><span class="p">(</span><span class="kr">function</span><span class="p">(</span><span class="nv">player</span><span class="p">,</span><span class="w"> </span><span class="nv">ctx</span><span class="p">)</span>
+</span><span id="__span-1-5"><span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="nv">gui</span><span class="p">.</span><span class="py">VBox</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-6"><span class="w">        </span><span class="nv">gui</span><span class="p">.</span><span class="py">Label</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Form closed!"</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-1-7"><span class="w">        </span><span class="nv">gui</span><span class="p">.</span><span class="py">ButtonExit</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"OK"</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-1-8"><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-1-9"><span class="kr">end</span><span class="p">)</span>
+</span><span id="__span-1-10">
+</span><span id="__span-1-11"><span class="kd">local</span><span class="w"> </span><span class="nv">my_gui</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">flow</span><span class="p">.</span><span class="nf">make_gui</span><span class="p">(</span><span class="kr">function</span><span class="p">(</span><span class="nv">player</span><span class="p">,</span><span class="w"> </span><span class="nv">ctx</span><span class="p">)</span>
+</span><span id="__span-1-12"><span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="nv">gui</span><span class="p">.</span><span class="py">VBox</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-13"><span class="w">        </span><span class="nv">on_quit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">function</span><span class="p">(</span><span class="nv">player</span><span class="p">,</span><span class="w"> </span><span class="nv">ctx</span><span class="p">)</span>
+</span><span id="__span-1-14"><span class="w">            </span><span class="nv">core</span><span class="p">.</span><span class="nf">chat_send_player</span><span class="p">(</span><span class="nv">player</span><span class="p">:</span><span class="nf">get_player_name</span><span class="p">(),</span><span class="w"> </span><span class="s2">"Form closed!"</span><span class="p">)</span>
+</span><span id="__span-1-15">
+</span><span id="__span-1-16"><span class="w">            </span><span class="c1">-- Defer so the new form is not closed along with this one.</span>
+</span><span id="__span-1-17"><span class="w">            </span><span class="nv">core</span><span class="p">.</span><span class="nf">after</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="kr">function</span><span class="p">()</span>
+</span><span id="__span-1-18"><span class="w">                </span><span class="nv">closed_notice</span><span class="p">:</span><span class="nf">show</span><span class="p">(</span><span class="nv">player</span><span class="p">)</span>
+</span><span id="__span-1-19"><span class="w">            </span><span class="kr">end</span><span class="p">)</span>
+</span><span id="__span-1-20"><span class="w">        </span><span class="kr">end</span><span class="p">,</span>
+</span><span id="__span-1-21">
+</span><span id="__span-1-22"><span class="w">        </span><span class="nv">gui</span><span class="p">.</span><span class="py">Label</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Press Escape or the button to close me."</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-1-23"><span class="w">        </span><span class="nv">gui</span><span class="p">.</span><span class="py">ButtonExit</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Close"</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-1-24"><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-1-25"><span class="kr">end</span><span class="p">)</span>
+</span><span id="__span-1-26">
+</span><span id="__span-1-27"><span class="nv">my_gui</span><span class="p">:</span><span class="nf">show</span><span class="p">(</span><span class="nv">core</span><span class="p">.</span><span class="nf">get_player_by_name</span><span class="p">(</span><span class="s2">"current_player"</span><span class="p">))</span>
+</span></code></pre></div>
+<p>If multiple <code>on_quit</code> callbacks are specified in different elements, they will all get called.</p>
+<h2 id="advanced-getting-a-reference-to-the-current-player-and-context">Getting a Reference to the Current Player and Context</h2>
+<p>If you're making a custom element, it might be useful to get a reference to <code>ctx</code> and <code>player</code> (the arguments of the <a href="#getting-started-basic-example">build function</a>) so you don't have to pass them in manually.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-2-1"><span class="kd">local</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="nf">HelloWorld</span><span class="p">(</span><span class="nv">def</span><span class="p">)</span>
+</span><span id="__span-2-2"><span class="w">    </span><span class="kd">local</span><span class="w"> </span><span class="nv">ctx</span><span class="p">,</span><span class="w"> </span><span class="nv">player</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">flow</span><span class="p">.</span><span class="nf">get_context</span><span class="p">()</span>
+</span><span id="__span-2-3"><span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="nv">gui</span><span class="p">.</span><span class="py">Label</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-4"><span class="w">        </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Hello, "</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="nv">player</span><span class="p">:</span><span class="nf">get_player_name</span><span class="p">()</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="s2">"!</span><span class="se">\n</span><span class="s2">"</span><span class="w"> </span><span class="o">..</span>
+</span><span id="__span-2-5"><span class="w">            </span><span class="s2">"some_value="</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="nv">ctx</span><span class="p">.</span><span class="py">some_value</span><span class="p">,</span>
+</span><span id="__span-2-6"><span class="w">        </span><span class="nv">style</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">def</span><span class="p">.</span><span class="py">style</span><span class="p">,</span>
+</span><span id="__span-2-7"><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-2-8"><span class="kr">end</span>
+</span><span id="__span-2-9">
+</span><span id="__span-2-10"><span class="kd">local</span><span class="w"> </span><span class="nv">form</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">flow</span><span class="p">.</span><span class="nf">make_gui</span><span class="p">(</span><span class="kr">function</span><span class="p">(</span><span class="nv">player</span><span class="p">,</span><span class="w"> </span><span class="nv">ctx</span><span class="p">)</span>
+</span><span id="__span-2-11"><span class="w">    </span><span class="nv">ctx</span><span class="p">.</span><span class="py">some_value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">123</span>
+</span><span id="__span-2-12"><span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="nv">HelloWorld</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">style</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">font_size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"*2"</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-2-13"><span class="kr">end</span><span class="p">)</span>
+</span></code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Only call it in a build function</p>
+<p><code>flow.get_context()</code> will error when called outside a build function (as you should not normally do this).</p>
+</div></section><section class="print-page" id="popovers" heading-number="5.3"><h1 id="popovers-popovers-highly-experimental">Popovers (Highly Experimental)</h1>
 <div class="admonition warning">
 <p class="admonition-title">Highly experimental</p>
 <p>This API will likely have breaking changes in the future. Other experimental features are on the <a href="#experimental">Experimental Features</a> page.</p>
@@ -5346,14 +5346,9 @@ Vaguely inspired by Flutter and GTK.</p>
                 .print-site-enumerate-headings #huds h2:before { content: '4.2.' counter(counter-huds-2) ' ' }
                 .print-site-enumerate-headings #huds h2 {  counter-increment: counter-huds-2 }
             
-.print-site-enumerate-headings #advanced > h1:before { content: '4.3 ' }
+.print-site-enumerate-headings #styling > h1:before { content: '4.3 ' }
 
-                .print-site-enumerate-headings #advanced h2:before { content: '4.3.' counter(counter-advanced-2) ' ' }
-                .print-site-enumerate-headings #advanced h2 {  counter-increment: counter-advanced-2 }
-            
-.print-site-enumerate-headings #styling > h1:before { content: '4.4 ' }
-
-                .print-site-enumerate-headings #styling h2:before { content: '4.4.' counter(counter-styling-2) ' ' }
+                .print-site-enumerate-headings #styling h2:before { content: '4.3.' counter(counter-styling-2) ' ' }
                 .print-site-enumerate-headings #styling h2 {  counter-increment: counter-styling-2 }
             
 .print-site-enumerate-headings #section-5 > h1:before { content: '5 ' }
@@ -5362,9 +5357,14 @@ Vaguely inspired by Flutter and GTK.</p>
                 .print-site-enumerate-headings #experimental h2:before { content: '5.1.' counter(counter-experimental-2) ' ' }
                 .print-site-enumerate-headings #experimental h2 {  counter-increment: counter-experimental-2 }
             
-.print-site-enumerate-headings #popovers > h1:before { content: '5.2 ' }
+.print-site-enumerate-headings #advanced > h1:before { content: '5.2 ' }
 
-                .print-site-enumerate-headings #popovers h2:before { content: '5.2.' counter(counter-popovers-2) ' ' }
+                .print-site-enumerate-headings #advanced h2:before { content: '5.2.' counter(counter-advanced-2) ' ' }
+                .print-site-enumerate-headings #advanced h2 {  counter-increment: counter-advanced-2 }
+            
+.print-site-enumerate-headings #popovers > h1:before { content: '5.3 ' }
+
+                .print-site-enumerate-headings #popovers h2:before { content: '5.3.' counter(counter-popovers-2) ' ' }
                 .print-site-enumerate-headings #popovers h2 {  counter-increment: counter-popovers-2 }
             
 .print-site-enumerate-headings #section-6 > h1:before { content: '6 ' }
