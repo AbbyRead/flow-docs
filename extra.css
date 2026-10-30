@@ -209,3 +209,28 @@
         --vsc-code-border: #E5E5E5;
     }
 }
+
+/* Style non-interactive section titles as distinct category headers */
+.md-nav__item--section > .md-nav__link:not([href]),
+.md-nav__item--section > label.md-nav__link {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--md-default-fg-color--light);
+  cursor: default;
+  margin-top: 1rem;
+}
+
+/* Suppress hover background color and pointer effect for non-interactive headers */
+.md-nav__item--section > .md-nav__link:not([href]):hover,
+.md-nav__item--section > label.md-nav__link:hover {
+  background-color: transparent;
+  color: var(--md-default-fg-color--light);
+}
+
+/* Add a subtle dividing line and extra spacing above major sections for clear grouping */
+.md-nav__item--section:not(:first-child) {
+  border-top: 1px solid var(--md-default-fg-color--lightest);
+  padding-top: 0.5rem;
+}
