@@ -210,14 +210,13 @@
     }
 }
 
-/* Style non-interactive section titles as distinct category headers */
+/* Style non-interactive section titles with distinct coloring and no uppercasing */
 .md-nav__item--section > .md-nav__link:not([href]),
 .md-nav__item--section > label.md-nav__link {
-  font-size: 0.75rem;
+  font-size: 0.85rem;
   font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--md-default-fg-color--light);
+  text-transform: none; /* Keeps original capitalization */
+  color: var(--md-typeset-a-color); /* Uses your primary link/accent color so it stands out */
   cursor: default;
   margin-top: 1rem;
 }
@@ -226,7 +225,7 @@
 .md-nav__item--section > .md-nav__link:not([href]):hover,
 .md-nav__item--section > label.md-nav__link:hover {
   background-color: transparent;
-  color: var(--md-default-fg-color--light);
+  color: var(--md-typeset-a-color);
 }
 
 /* Add a subtle dividing line and extra spacing above major sections for clear grouping */
