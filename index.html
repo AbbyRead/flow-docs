@@ -186,10 +186,19 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#development-tools">
+<a class="md-nav__link" href="#included-in-skyblock-zero">
 <span class="md-ellipsis">
       
-        Development Tools
+        Included in Skyblock Zero
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#tools-not-included">
+<span class="md-ellipsis">
+      
+        Tools Not Included
       
     </span>
 </a>
@@ -656,10 +665,19 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#development-tools">
+<a class="md-nav__link" href="#included-in-skyblock-zero">
 <span class="md-ellipsis">
       
-        Development Tools
+        Included in Skyblock Zero
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#tools-not-included">
+<span class="md-ellipsis">
+      
+        Tools Not Included
       
     </span>
 </a>
@@ -673,22 +691,42 @@
 <article class="md-content__inner md-typeset">
 <h1 id="flow-unofficial-documentation">Flow Unofficial Documentation</h1>
 <p>Flow is a layout manager for Luanti menus. Describe a form with plain Lua tables, and flow positions, sizes, and shows it for you, so you never write a formspec by hand.</p>
-<div class="language-lua highlight"><pre><span></span><code><span id="__span-0-1"><span class="kd">local</span><span class="w"> </span><span class="nv">gui</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">flow</span><span class="p">.</span><span class="py">widgets</span>
-</span><span id="__span-0-2">
-</span><span id="__span-0-3"><span class="kd">local</span><span class="w"> </span><span class="nv">form</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">flow</span><span class="p">.</span><span class="nf">make_gui</span><span class="p">(</span><span class="kr">function</span><span class="p">(</span><span class="nv">player</span><span class="p">,</span><span class="w"> </span><span class="nv">ctx</span><span class="p">)</span>
-</span><span id="__span-0-4"><span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="nv">gui</span><span class="p">.</span><span class="py">VBox</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-0-5"><span class="w">        </span><span class="nv">gui</span><span class="p">.</span><span class="py">Label</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Hello world!"</span><span class="w"> </span><span class="p">},</span>
-</span><span id="__span-0-6"><span class="w">        </span><span class="nv">gui</span><span class="p">.</span><span class="py">ButtonExit</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Close"</span><span class="w"> </span><span class="p">},</span>
-</span><span id="__span-0-7"><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-0-8"><span class="kr">end</span><span class="p">)</span>
-</span><span id="__span-0-9">
-</span><span id="__span-0-10"><span class="nv">form</span><span class="p">:</span><span class="nf">show</span><span class="p">(</span><span class="nv">player</span><span class="p">)</span>
-</span></code></pre></div>
 <h2 id="important-caveat">Important Caveat</h2>
 <p>This guide assumes you are using a version of Flow embedded into Skyblock Zero or maintained by AbbyRead. Certain things like the inclusion of hud_fs and the renaming from <code>minetest-flow</code> to just <code>flow</code> will differ.</p>
-<h2 id="development-tools">Development Tools</h2>
+<h2 id="included-in-skyblock-zero">Included in Skyblock Zero</h2>
+<p>Skyblock Zero includes the following mods inside of a nested modpack (sbz_ui_mods/support/):</p>
+<table>
+<thead>
+<tr>
+<th>Mod Name</th>
+<th>Use / Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>formspec_ast</code></td>
+<td>Flow's main dependency, which on its own is useful if you want to process formspec into meaningful tables of types and values (and back)</td>
+</tr>
+<tr>
+<td><code>hud_fs</code></td>
+<td>Flow's optional dependency, allowing it to render elements to the heads-up display instead of an interactable window.</td>
+</tr>
+<tr>
+<td><code>flow</code></td>
+<td>The actual Flow mod. Include this as the depends for any mod you want to display Flow forms from.</td>
+</tr>
+<tr>
+<td><code>flow_inspector</code></td>
+<td>A toggleable in-game debug display to query the different parts of a Flow window.</td>
+</tr>
+<tr>
+<td><code>flow_extras</code></td>
+<td>An unofficial add-on that includes an enhanced List element, plus tools for navigating forms and managing context.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="tools-not-included">Tools Not Included</h2>
 <ul>
-<li><a href="https://content.luanti.org/packages/luk3yx/flow_inspector/">Flow Inspector</a>: helps you develop and debug forms.</li>
 <li><a href="https://luk3yx.gitlab.io/minetest-flow-playground/">Flow Playground / Tutorial</a>: try flow in the browser.</li>
 <li><a href="https://content.luanti.org/packages/luk3yx/snippets/">Snippets</a>: small reusable pieces of code.</li>
 </ul>
