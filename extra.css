@@ -153,6 +153,31 @@
         font-size: 11pt !important;
     }
 
+    /* Prevent monospaced words from breaking inside table cells */
+    table td code,
+    table th code,
+    .md-typeset table td code,
+    .md-typeset table th code {
+        white-space: nowrap !important;
+        overflow-wrap: normal !important;
+        word-break: normal !important;
+    }
+
+    /* Let columns expand to accommodate their content */
+    table {
+        table-layout: auto !important;
+    }
+
+    /* Inline code (single backticks) */
+    code:not(pre code) {
+        font-size: 9pt !important;
+    }
+
+    /* Inline code (single backticks) */
+    code:not(pre code) {
+        font-size: 9pt !important;
+    }
+
     /* Inline code (single backticks) */
     code:not(pre code) {
         font-size: 9pt !important;
