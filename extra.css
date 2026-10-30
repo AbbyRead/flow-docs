@@ -80,6 +80,23 @@
   color: var(--vsc-invalid-color);
 }
 
+
+/* Prevent monospaced words from breaking inside table cells */
+table td code,
+table th code,
+.md-typeset table td code,
+.md-typeset table th code {
+    white-space: nowrap !important;
+    overflow-wrap: normal !important;
+    word-break: normal !important;
+}
+
+/* Let columns expand to accommodate their content */
+table {
+    table-layout: auto !important;
+}
+
+
 /* Global paged media configuration for WeasyPrint (PDF output) */
 @page {
     size: A4;
@@ -151,21 +168,6 @@
     .md-typeset table th,
     .md-typeset table td {
         font-size: 11pt !important;
-    }
-
-    /* Prevent monospaced words from breaking inside table cells */
-    table td code,
-    table th code,
-    .md-typeset table td code,
-    .md-typeset table th code {
-        white-space: nowrap !important;
-        overflow-wrap: normal !important;
-        word-break: normal !important;
-    }
-
-    /* Let columns expand to accommodate their content */
-    table {
-        table-layout: auto !important;
     }
 
     /* Inline code (single backticks) */
