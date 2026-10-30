@@ -131,7 +131,7 @@
 <span class="md-ellipsis">
     
   
-    Index
+    Start Here
   
 
     
@@ -143,13 +143,25 @@
 <span class="md-nav__icon md-icon"></span>
             
   
-    Index
+    Start Here
   
 
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="..">
+<span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../introduction/">
 <span class="md-ellipsis">
     
   
@@ -166,6 +178,30 @@
     
   
     Getting Started
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../updating-forms/">
+<span class="md-ellipsis">
+    
+  
+    Updating Forms
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../glossary/">
+<span class="md-ellipsis">
+    
+  
+    Terms Used
   
 
     
@@ -719,7 +755,7 @@
 </tr>
 </tbody>
 </table>
-<p>Events and redraws work through the parent. The embedded form's elements are part of the parent's form, so a callback that returns <code>true</code> redraws the whole parent form, and <code>update</code> and <code>update_where</code> (see <a href="../getting-started/#updating-forms">Updating Forms</a>) called on the embedded form object do nothing, because the form that is open belongs to the parent. Call them on the parent form object instead.</p>
+<p>Events and redraws work through the parent. The embedded form's elements are part of the parent's form, so a callback that returns <code>true</code> redraws the whole parent form, and <code>update</code> and <code>update_where</code> (see <a href="../updating-forms/">Updating Forms</a>) called on the embedded form object do nothing, because the form that is open belongs to the parent. Call them on the parent form object instead.</p>
 <div class="admonition warning">
 <p class="admonition-title">Known limitation</p>
 <p>The <code>on_key_enter</code> function of a field in a form embedded with a <code>name</code> is called with the parent's <code>ctx</code>, unlike <code>on_event</code>, which gets the embedded form's own <code>ctx</code>. In that function <code>ctx.form.my_field</code> (see <a href="../common-aspects/#names-and-values">Names and Values</a>) is <code>nil</code>, because the value is stored under the rewritten field name, and anything you store in <code>ctx</code> goes into the parent's <code>ctx</code>. To reach the embedded form's own <code>ctx</code> from there, go through the embed's entry in the parent's <code>ctx</code>, for example <code>ctx.my_embed_name.form.my_field</code>. Embeds without a <code>name</code> are not affected, because they share the parent's <code>ctx</code> anyway.</p>
@@ -761,7 +797,7 @@
 </span></code></pre></div>
 <p>If multiple <code>on_quit</code> callbacks are specified in different elements, they will all get called.</p>
 <h2 id="getting-a-reference-to-the-current-player-and-context">Getting a Reference to the Current Player and Context</h2>
-<p>If you're making a custom element, it might be useful to get a reference to <code>ctx</code> and <code>player</code> (the arguments of the <a href="../getting-started/#basic-example">build function</a>) so you don't have to pass them in manually.</p>
+<p>If you're making a custom element, it might be useful to get a reference to <code>ctx</code> and <code>player</code> (the arguments of the <a href="../getting-started/#the-build-function">build function</a>) so you don't have to pass them in manually.</p>
 <div class="language-lua highlight"><pre><span></span><code><span id="__span-2-1"><span class="kd">local</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="nf">HelloWorld</span><span class="p">(</span><span class="nv">def</span><span class="p">)</span>
 </span><span id="__span-2-2"><span class="w">    </span><span class="kd">local</span><span class="w"> </span><span class="nv">ctx</span><span class="p">,</span><span class="w"> </span><span class="nv">player</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">flow</span><span class="p">.</span><span class="nf">get_context</span><span class="p">()</span>
 </span><span id="__span-2-3"><span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="nv">gui</span><span class="p">.</span><span class="py">Label</span><span class="w"> </span><span class="p">{</span>

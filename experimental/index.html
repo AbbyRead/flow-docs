@@ -131,7 +131,7 @@
 <span class="md-ellipsis">
     
   
-    Index
+    Start Here
   
 
     
@@ -143,13 +143,25 @@
 <span class="md-nav__icon md-icon"></span>
             
   
-    Index
+    Start Here
   
 
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="..">
+<span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../introduction/">
 <span class="md-ellipsis">
     
   
@@ -166,6 +178,30 @@
     
   
     Getting Started
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../updating-forms/">
+<span class="md-ellipsis">
+    
+  
+    Updating Forms
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../glossary/">
+<span class="md-ellipsis">
+    
+  
+    Terms Used
   
 
     
@@ -698,7 +734,7 @@
 <p><a href="../popovers/">Popovers</a> are also experimental, and have their own page. Other less common features are on the <a href="../advanced/">Advanced Features</a> page.</p>
 <h2 id="no_prepend"><code>no_prepend</code></h2>
 <p>Games and mods can add extra content to the start of every form shown to a player with <code>player:set_formspec_prepend()</code>, for example to give all forms the same background or style. This is called a "prepend", and it can be why a form has a background or style you did not expect.</p>
-<p>You can set <code>no_prepend = true</code> on the "root" element (see <a href="../#terms-used-in-this-documentation">Terms Used in This Documentation</a>) to stop prepends from being applied to a form.</p>
+<p>You can set <code>no_prepend = true</code> on the "root" element (see <a href="../glossary/">Terms Used in This Documentation</a>) to stop prepends from being applied to a form.</p>
 <p>To see what <code>no_prepend</code> does, this example gives the player a prepend that makes every button red. Tick the checkbox and the red disappears:</p>
 <div class="language-lua highlight"><pre><span></span><code><span id="__span-0-1"><span class="kd">local</span><span class="w"> </span><span class="nv">gui</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">flow</span><span class="p">.</span><span class="py">widgets</span>
 </span><span id="__span-0-2"><span class="kd">local</span><span class="w"> </span><span class="nv">player</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">core</span><span class="p">.</span><span class="nf">get_player_by_name</span><span class="p">(</span><span class="s2">"current_player"</span><span class="p">)</span>
@@ -795,7 +831,7 @@
 <p class="admonition-title">Use only when necessary</p>
 <p>This API should only be used when necessary and may have breaking changes in the future.</p>
 </div>
-<p>Luanti describes menus with <em>formspec</em> strings (see <a href="../#terms-used-in-this-documentation">Terms Used in This Documentation</a>), which flow normally generates and shows for you. Some APIs in other mods, such as sfinv (see <a href="../inventory/">Using a Form as an Inventory</a>), expect formspec strings instead. You can use this API to embed flow forms inside them. To use flow with these mods, you can call <code>form:render_to_formspec_string(player, ctx, standalone)</code>.</p>
+<p>Luanti describes menus with <em>formspec</em> strings (see <a href="../glossary/">Terms Used in This Documentation</a>), which flow normally generates and shows for you. Some APIs in other mods, such as sfinv (see <a href="../inventory/">Using a Form as an Inventory</a>), expect formspec strings instead. You can use this API to embed flow forms inside them. To use flow with these mods, you can call <code>form:render_to_formspec_string(player, ctx, standalone)</code>.</p>
 <ul>
 <li>A complete formspec starts with a <code>formspec_version[]</code> element (the version of the formspec language it uses) and a <code>size[]</code> element (the size of the form). By default these aren't included in the returned formspec, and are returned in a third value instead: a table <code>info</code> with <code>w</code> and <code>h</code> (the size of the form, in the units described in <a href="../common-aspects/#sizes">Sizes</a>) and <code>formspec_version</code> (the version number). Set <code>standalone</code> to include them in the returned formspec string. The third return value will not be returned (it is <code>nil</code>).</li>
 <li>Returns <code>formspec, process_event[, info]</code>, see the two forms below. <code>info.formspec_version</code> is always 7, whatever the player's client supports. Pass the same <code>ctx</code> again when you redraw so the form keeps its values.</li>

@@ -131,7 +131,7 @@
 <span class="md-ellipsis">
     
   
-    Index
+    Start Here
   
 
     
@@ -143,13 +143,25 @@
 <span class="md-nav__icon md-icon"></span>
             
   
-    Index
+    Start Here
   
 
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="..">
+<span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../introduction/">
 <span class="md-ellipsis">
     
   
@@ -166,6 +178,30 @@
     
   
     Getting Started
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../updating-forms/">
+<span class="md-ellipsis">
+    
+  
+    Updating Forms
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../glossary/">
+<span class="md-ellipsis">
+    
+  
+    Terms Used
   
 
     
@@ -694,7 +730,7 @@
 <ul>
 <li><code>visible = false</code> works on elements inside <a href="../layout-elements/#guihbox"><code>gui.HBox</code></a>, <a href="../layout-elements/#guivbox"><code>gui.VBox</code></a>, <a href="../layout-elements/#guistack"><code>gui.Stack</code></a>, <a href="../layout-elements/#guiscrollablevbox"><code>gui.ScrollableVBox</code></a>, and <a href="../layout-elements/#guipaginatedvbox"><code>gui.PaginatedVBox</code></a>. In a <code>gui.Stack</code>, the hidden element still counts towards the size of the stack.</li>
 <li>It does nothing on elements placed directly inside a <a href="../layout-elements/#guicontainer"><code>gui.Container</code></a> or <a href="../functional-elements/#guiscrollcontainer"><code>gui.ScrollContainer</code></a> (the ones you position yourself with <code>x</code> and <code>y</code>): they are still drawn. See <a href="../manual-positioning/">Manual Positioning</a>.</li>
-<li>It does nothing on the root element of the form (see <a href="../#terms-used-in-this-documentation">Terms Used in This Documentation</a>), which is always shown.</li>
+<li>It does nothing on the root element of the form (see <a href="../glossary/">Terms Used in This Documentation</a>), which is always shown.</li>
 </ul>
 <h2 id="what-happens-to-hidden-elements">What Happens to Hidden Elements</h2>
 <p>Flow takes a hidden element out of the form after it has worked out the layout, and before it handles anything else. The player's client never receives it, so:</p>

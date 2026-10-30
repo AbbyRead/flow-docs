@@ -131,7 +131,7 @@
 <span class="md-ellipsis">
     
   
-    Index
+    Start Here
   
 
     
@@ -143,13 +143,25 @@
 <span class="md-nav__icon md-icon"></span>
             
   
-    Index
+    Start Here
   
 
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="..">
+<span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../introduction/">
 <span class="md-ellipsis">
     
   
@@ -166,6 +178,30 @@
     
   
     Getting Started
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../updating-forms/">
+<span class="md-ellipsis">
+    
+  
+    Updating Forms
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../glossary/">
+<span class="md-ellipsis">
+    
+  
+    Terms Used
   
 
     
@@ -576,7 +612,7 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1 id="using-a-form-as-an-inventory">Using a Form as an Inventory</h1>
-<p>A form can be set as the player inventory, which is the screen the player sees when they open their inventory. Flow internally generates the <a href="../#terms-used-in-this-documentation">formspec</a> (the text Luanti uses to describe a menu) and passes it to <a href="https://api.luanti.org/class-reference/#player-only-no-op-for-other-objects"><code>player:set_inventory_formspec()</code></a>. To show inventory slots inside the form, use <a href="../functional-elements/#guilist"><code>gui.List</code></a>.</p>
+<p>A form can be set as the player inventory, which is the screen the player sees when they open their inventory. Flow internally generates the <a href="../glossary/">formspec</a> (the text Luanti uses to describe a menu) and passes it to <a href="https://api.luanti.org/class-reference/#player-only-no-op-for-other-objects"><code>player:set_inventory_formspec()</code></a>. To show inventory slots inside the form, use <a href="../functional-elements/#guilist"><code>gui.List</code></a>.</p>
 <div class="admonition warning">
 <p class="admonition-title">This replaces your inventory</p>
 <p>This will completely replace your inventory and isn't compatible with inventory mods like sfinv (the inventory in Minetest Game, which lets mods add tabs). To put a flow form inside an sfinv-style inventory instead, see <a href="../experimental/#rendering-to-a-formspec">Rendering to a Formspec</a>.</p>
@@ -628,9 +664,9 @@
 </span><span id="__span-0-41"><span class="p">})</span>
 </span></code></pre></div>
 <p>Open your inventory and click the button: the counter goes up, and the form is redrawn with the new context.</p>
-<p>Like with the <code>show_hud</code> function (see <a href="../huds/">HUDs</a>), the <code>update*</code> functions (see <a href="../getting-started/#updating-forms">Updating Forms</a>) don't do anything, so to update it, call <code>example_inventory:set_as_inventory_for(player, new_ctx)</code> again with the new context. If the context is not provided, it will reuse the existing context of the same form. This is different from HUDs, which never keep a context. Passing a new context replaces the existing one, so values that were stored in the old one are gone. See <a href="../getting-started/#context-lifetime-by-mode">Context Lifetime by Mode</a>.</p>
+<p>Like with the <code>show_hud</code> function (see <a href="../huds/">HUDs</a>), the <code>update*</code> functions (see <a href="../updating-forms/">Updating Forms</a>) don't do anything, so to update it, call <code>example_inventory:set_as_inventory_for(player, new_ctx)</code> again with the new context. If the context is not provided, it will reuse the existing context of the same form. This is different from HUDs, which never keep a context. Passing a new context replaces the existing one, so values that were stored in the old one are gone. See <a href="../updating-forms/#context-lifetime-by-mode">Context Lifetime by Mode</a>.</p>
 <p>The <code>/inv_title</code> chat command above does this. Keep your inventory open while you run it and the title changes straight away. The command passes a new context, which replaces the old one, so the click counter goes back to 0.</p>
-<p>If the player has the inventory open when you do this, it is redrawn straight away: Luanti compares the new formspec with the one on screen and rebuilds the screen if they differ. As with any <a href="../getting-started/#updating-forms">redraw</a>, text that the player has typed into a field but not yet sent is lost. If the new formspec is identical to the old one, nothing is sent.</p>
+<p>If the player has the inventory open when you do this, it is redrawn straight away: Luanti compares the new formspec with the one on screen and rebuilds the screen if they differ. As with any <a href="../updating-forms/">redraw</a>, text that the player has typed into a field but not yet sent is lost. If the new formspec is identical to the old one, nothing is sent.</p>
 <p>Flow does the same when the player does something in the inventory that needs a redraw (an <a href="../common-aspects/#events"><code>on_event</code></a> function returning <code>true</code>, for example). Other changes to <code>ctx.form</code> (see <a href="../common-aspects/#names-and-values">Names and Values</a>) that do not need a redraw are applied when the player closes the inventory, so they show up the next time it is opened.</p>
 <p>While the form will of course be cleared when the player leaves, if you'd like to unset the inventory manually, call <code>example_inventory:unset_as_inventory_for(player)</code>, analogue to <code>close_hud</code> (see <a href="../huds/">HUDs</a>).</p>
 <p>For example, after the <code>/inv_off</code> chat command above, the inventory key shows the default inventory (or nothing, depending on your game) instead of the form.</p>
