@@ -7,10 +7,10 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="../not-supported/" rel="prev"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.6.1, mkdocs-material-9.7.6" name="generator"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.8.0" name="generator"/>
 <title>Security - Flow Unofficial Documentation</title>
-<link href="../assets/stylesheets/main.484c7ddc.min.css" rel="stylesheet"/>
-<link href="../assets/stylesheets/palette.ab4e12ef.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/main.57a0d79d.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/palette.fb2fffe2.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
@@ -141,7 +141,7 @@
 <span class="md-ellipsis">
     
   
-    Getting started
+    Getting Started
   
 
     
@@ -176,7 +176,7 @@
 <span class="md-ellipsis">
     
   
-    Layout elements
+    Layout Elements
   
 
     
@@ -188,7 +188,7 @@
 <span class="md-ellipsis">
     
   
-    Padding and spacing
+    Padding and Spacing
   
 
     
@@ -200,7 +200,7 @@
 <span class="md-ellipsis">
     
   
-    Hiding elements
+    Hiding Elements
   
 
     
@@ -212,7 +212,7 @@
 <span class="md-ellipsis">
     
   
-    Manual positioning
+    Manual Positioning
   
 
     
@@ -250,7 +250,7 @@
 <span class="md-ellipsis">
     
   
-    Common aspects
+    Common Aspects
   
 
     
@@ -262,7 +262,7 @@
 <span class="md-ellipsis">
     
   
-    Functional elements
+    Functional Elements
   
 
     
@@ -274,7 +274,7 @@
 <span class="md-ellipsis">
     
   
-    Hypertext markup
+    Hypertext Markup
   
 
     
@@ -340,7 +340,7 @@
 <span class="md-ellipsis">
     
   
-    Displaying forms
+    Displaying Forms
   
 
     
@@ -352,7 +352,7 @@
 <span class="md-nav__icon md-icon"></span>
             
   
-    Displaying forms
+    Displaying Forms
   
 
           </label>
@@ -389,7 +389,7 @@
 <span class="md-ellipsis">
     
   
-    Advanced features
+    Advanced Features
   
 
     
@@ -424,7 +424,7 @@
 <span class="md-ellipsis">
     
   
-    Experimental features
+    Experimental Features
   
 
     
@@ -452,7 +452,7 @@
 <span class="md-ellipsis">
     
   
-    Limitations and security
+    Limitations and Security
   
 
     
@@ -464,7 +464,7 @@
 <span class="md-nav__icon md-icon"></span>
             
   
-    Limitations and security
+    Limitations and Security
   
 
           </label>
@@ -474,7 +474,7 @@
 <span class="md-ellipsis">
     
   
-    Unsupported features
+    Unsupported Features
   
 
     
@@ -549,7 +549,7 @@
 <span class="md-ellipsis">
     
   
-    Development tools
+    Development Tools
   
 
     
@@ -561,7 +561,7 @@
 <span class="md-nav__icon md-icon"></span>
             
   
-    Development tools
+    Development Tools
   
 
           </label>
@@ -654,24 +654,28 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1 id="security">Security</h1>
-<p>A player's client can send anything to the server. A normal client only sends values that the form could produce, but a modified one can send other names, other values, and several actions at once. This page lists what flow checks before it stores a value or calls one of your functions, and what it leaves to you.</p>
+<div class="admonition warning">
+<p class="admonition-title">Never trust the client</p>
+<p>A player's client can send anything to the server. A normal client only sends values that the form could produce, but a modified one can send other names, other values, and several actions at once.</p>
+</div>
+<p>This page lists what flow checks before it stores a value or calls one of your functions, and what it leaves to you.</p>
 <h2 id="what-flow-checks">What Flow Checks</h2>
 <ul>
-<li><strong>The form.</strong> Flow only handles input for the form that the player has open right now. Every time a form is shown with <code>form:show()</code> it gets a new internal name, so input that is meant for an old or made-up form is ignored.</li>
-<li><strong>The elements.</strong> Flow only stores values for named inputs that were in the form it drew, and only calls <code>on_event</code> and <code>on_key_enter</code> functions of elements that were in it. Anything else the client sends is ignored. Hidden elements are not part of the form, see <a href="../hiding-elements/#what-happens-to-hidden-elements">Hiding Elements</a>.</li>
+<li><strong>The form.</strong> Flow only handles input for the form that the player has open right now. Every time a form is shown with <code>form:show()</code> (see <a href="../getting-started/">Getting Started</a>) it gets a new internal name, so input that is meant for an old or made-up form is ignored.</li>
+<li><strong>The elements.</strong> Flow only stores values for named inputs that were in the form it drew, and only calls <a href="../common-aspects/#events"><code>on_event</code></a> and <a href="../experimental/#handling-enter-keypresses-in-fields"><code>on_key_enter</code></a> functions of elements that were in it. Anything else the client sends is ignored. Hidden elements are not part of the form, see <a href="../hiding-elements/#what-happens-to-hidden-elements">Hiding Elements</a>.</li>
 <li><strong>Size.</strong> A value longer than 60,000 bytes is ignored and a warning is logged.</li>
-<li><strong>Text.</strong> Control characters other than tabs and newlines are removed from the text of <code>gui.Field</code>, <code>gui.Pwdfield</code>, and <code>gui.Textarea</code>, and from the value of a <code>gui.Hypertext</code> action. The same goes for the control characters from U+0080 to U+009F. Newlines are also removed from <code>gui.Field</code>, where a player can only enter one by pasting it.</li>
+<li><strong>Text.</strong> Control characters other than tabs and newlines are removed from the text of <a href="../functional-elements/#guifield"><code>gui.Field</code></a>, <a href="../functional-elements/#guipwdfield"><code>gui.Pwdfield</code></a>, and <a href="../functional-elements/#guitextarea"><code>gui.Textarea</code></a>, and from the value of a <a href="../functional-elements/#guihypertext"><code>gui.Hypertext</code></a> action. The same goes for the control characters from U+0080 to U+009F. Newlines are also removed from <code>gui.Field</code>, where a player can only enter one by pasting it.</li>
 <li><strong>Checkboxes.</strong> The value is always <code>true</code> or <code>false</code>.</li>
-<li><strong>Dropdowns.</strong> The value must be one of the items. With <code>index_event = true</code> it must be a number from <code>1</code> to the number of items. On clients that support it, flow always asks for the item number instead of the text, so the client never gets to choose the text.</li>
+<li><strong>Dropdowns.</strong> The value must be one of the items (<a href="../functional-elements/#guidropdown"><code>gui.Dropdown</code></a>). With <code>index_event = true</code> it must be a number from <code>1</code> to the number of items. On clients that support it, flow always asks for the item number instead of the text, so the client never gets to choose the text.</li>
 <li><strong>Tabs, tables, and text lists.</strong> The selected tab or row must be a number from <code>1</code> to the number of tabs or rows. Decimals are rounded down.</li>
 <li><strong>Buttons.</strong> Flow calls the <code>on_event</code> function of at most one button per submission, and not at the same time as an <code>on_key_enter</code> function. Buttons never store a value.</li>
 </ul>
-<p>When a value is rejected, <code>ctx.form</code> keeps its previous value. The other values in the same submission are still used.</p>
+<p>When a value is rejected, <code>ctx.form</code> (see <a href="../common-aspects/#names-and-values">Names and Values</a>) keeps its previous value. The other values in the same submission are still used.</p>
 <h2 id="what-you-still-need-to-check">What You Still Need to Check</h2>
 <ul>
 <li><strong>Who is allowed to do something.</strong> Flow can tell that a button exists in the form, but not whether the player really clicked it. A modified client can trigger the <code>on_event</code> function of any element that is currently in the form. Check privileges, ownership, distances and so on inside the function, the same as you would in a chat command.</li>
-<li><strong>What is in the value.</strong> Flow does not limit text to a length (apart from 60,000 bytes), and it does not check scrollbar positions against the range of the scrollbar. Check values that matter before you use them, for example before putting text into a node's metadata.</li>
-<li><strong>Inventories.</strong> The slots of a <code>gui.List</code> are handled by Luanti, flow does not check or limit what is moved. Use the inventory callbacks that Luanti provides.</li>
+<li><strong>What is in the value.</strong> Flow does not limit text to a length (apart from 60,000 bytes), and it does not check <a href="../functional-elements/#guiscrollbar">scrollbar</a> positions against the range of the scrollbar. Check values that matter before you use them, for example before putting text into a node's metadata.</li>
+<li><strong>Inventories.</strong> The slots of a <a href="../functional-elements/#guilist"><code>gui.List</code></a> are handled by Luanti, flow does not check or limit what is moved. Use the inventory callbacks that Luanti provides.</li>
 <li><strong>Hypertext.</strong> Flow does not look at the markup that you give <code>gui.Hypertext</code>, see <a href="../hypertext/">Hypertext Markup</a>. Escape text from players with <code>core.hypertext_escape()</code>.</li>
 </ul>
 <p>Everything in <code>ctx</code> except <code>ctx.form</code> is only changed by your code, so the client cannot change it.</p>
@@ -704,8 +708,8 @@
 <div class="md-dialog" data-md-component="dialog">
 <div class="md-dialog__inner md-typeset"></div>
 </div>
-<script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.expand", "navigation.top", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
-<script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+<script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.expand", "navigation.top", "content.code.copy"], "search": "../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+<script src="../assets/javascripts/bundle.c21346df.min.js"></script>
 <script src="../js/print-site.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script>
 </body>

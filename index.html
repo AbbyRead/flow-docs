@@ -7,10 +7,10 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="getting-started/" rel="next"/>
 <link href="assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.6.1, mkdocs-material-9.7.6" name="generator"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.8.0" name="generator"/>
 <title>Flow Unofficial Documentation</title>
-<link href="assets/stylesheets/main.484c7ddc.min.css" rel="stylesheet"/>
-<link href="assets/stylesheets/palette.ab4e12ef.min.css" rel="stylesheet"/>
+<link href="assets/stylesheets/main.57a0d79d.min.css" rel="stylesheet"/>
+<link href="assets/stylesheets/palette.fb2fffe2.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
@@ -228,7 +228,7 @@
 <span class="md-ellipsis">
     
   
-    Getting started
+    Getting Started
   
 
     
@@ -263,7 +263,7 @@
 <span class="md-ellipsis">
     
   
-    Layout elements
+    Layout Elements
   
 
     
@@ -275,7 +275,7 @@
 <span class="md-ellipsis">
     
   
-    Padding and spacing
+    Padding and Spacing
   
 
     
@@ -287,7 +287,7 @@
 <span class="md-ellipsis">
     
   
-    Hiding elements
+    Hiding Elements
   
 
     
@@ -299,7 +299,7 @@
 <span class="md-ellipsis">
     
   
-    Manual positioning
+    Manual Positioning
   
 
     
@@ -337,7 +337,7 @@
 <span class="md-ellipsis">
     
   
-    Common aspects
+    Common Aspects
   
 
     
@@ -349,7 +349,7 @@
 <span class="md-ellipsis">
     
   
-    Functional elements
+    Functional Elements
   
 
     
@@ -361,7 +361,7 @@
 <span class="md-ellipsis">
     
   
-    Hypertext markup
+    Hypertext Markup
   
 
     
@@ -427,7 +427,7 @@
 <span class="md-ellipsis">
     
   
-    Displaying forms
+    Displaying Forms
   
 
     
@@ -439,7 +439,7 @@
 <span class="md-nav__icon md-icon"></span>
             
   
-    Displaying forms
+    Displaying Forms
   
 
           </label>
@@ -476,7 +476,7 @@
 <span class="md-ellipsis">
     
   
-    Advanced features
+    Advanced Features
   
 
     
@@ -511,7 +511,7 @@
 <span class="md-ellipsis">
     
   
-    Experimental features
+    Experimental Features
   
 
     
@@ -539,7 +539,7 @@
 <span class="md-ellipsis">
     
   
-    Limitations and security
+    Limitations and Security
   
 
     
@@ -551,7 +551,7 @@
 <span class="md-nav__icon md-icon"></span>
             
   
-    Limitations and security
+    Limitations and Security
   
 
           </label>
@@ -561,7 +561,7 @@
 <span class="md-ellipsis">
     
   
-    Unsupported features
+    Unsupported Features
   
 
     
@@ -589,7 +589,7 @@
 <span class="md-ellipsis">
     
   
-    Development tools
+    Development Tools
   
 
     
@@ -601,7 +601,7 @@
 <span class="md-nav__icon md-icon"></span>
             
   
-    Development tools
+    Development Tools
   
 
           </label>
@@ -740,6 +740,7 @@ Vaguely inspired by Flutter and GTK.</p>
 <p>Flow lets you describe the same menu with plain Lua tables, positions and sizes everything for you, and generates the formspec behind the scenes. You never have to write one. And if you like using modern IDE features, you will now actually have direct access to definitions <strong>from the editor</strong> (LuaCATS annotations are included).</p>
 <p><a href="https://luk3yx.gitlab.io/minetest-flow-playground/">Online tutorial/demo</a>
 (<a href="https://gitlab.com/luk3yx/minetest-flow-playground">source</a>)</p>
+<p>New to flow? Start with <a href="getting-started/">Getting Started</a>.</p>
 <h2 id="terms-used-in-this-documentation">Terms Used in This Documentation</h2>
 <table>
 <thead>
@@ -751,7 +752,7 @@ Vaguely inspired by Flutter and GTK.</p>
 <tbody>
 <tr>
 <td>Form</td>
-<td>A menu made with flow, created with <code>flow.make_gui()</code> and shown with <code>form:show()</code>. This documentation does not call it a "gui".</td>
+<td>A menu made with flow, created with <code>flow.make_gui()</code> and shown with <code>form:show()</code>, see <a href="getting-started/">Getting Started</a>. This documentation does not call it a "gui".</td>
 </tr>
 <tr>
 <td>Formspec</td>
@@ -759,11 +760,11 @@ Vaguely inspired by Flutter and GTK.</p>
 </tr>
 <tr>
 <td>Element</td>
-<td>One part of a form, such as a label, a button, or a box. Elements are made with the functions in <code>flow.widgets</code> (the name of that table is the only place "widget" is used).</td>
+<td>One part of a form, such as a label, a button, or a box. Elements are made with the functions in <code>flow.widgets</code> (the name of that table is the only place "widget" is used), see <a href="functional-elements/">Functional Elements</a> and <a href="layout-elements/">Layout Elements</a>.</td>
 </tr>
 <tr>
 <td>Build function</td>
-<td>The function you pass to <code>flow.make_gui()</code>. It returns the elements of the form and is called every time the form is drawn.</td>
+<td>The function you pass to <code>flow.make_gui()</code>. It returns the elements of the form and is called every time the form is drawn, see <a href="getting-started/#basic-example">Getting Started</a>.</td>
 </tr>
 <tr>
 <td>Root element</td>
@@ -771,7 +772,7 @@ Vaguely inspired by Flutter and GTK.</p>
 </tr>
 <tr>
 <td>Container</td>
-<td>An element that holds other elements. <code>gui.Container</code> is the one whose elements you place yourself with <code>x</code> and <code>y</code>.</td>
+<td>An element that holds other elements. <a href="layout-elements/#guicontainer"><code>gui.Container</code></a> is the one whose elements you place yourself with <code>x</code> and <code>y</code>, see <a href="manual-positioning/">Manual Positioning</a>.</td>
 </tr>
 <tr>
 <td>Layout element</td>
@@ -779,7 +780,7 @@ Vaguely inspired by Flutter and GTK.</p>
 </tr>
 <tr>
 <td>Flow</td>
-<td>The mod. <code>gui.Flow</code> (written with the <code>gui.</code> prefix) is an element of the mod that wraps its children onto new rows.</td>
+<td>The mod. <a href="layout-elements/#guiflow"><code>gui.Flow</code></a> (written with the <code>gui.</code> prefix) is an element of the mod that wraps its children onto new rows.</td>
 </tr>
 <tr>
 <td><code>ctx</code></td>
@@ -791,15 +792,15 @@ Vaguely inspired by Flutter and GTK.</p>
 <h3 id="layouting">Layouting</h3>
 <ul>
 <li><strong>Automatic placement.</strong> Flow works out every position, so there's no arithmetic to redo when you add one button.</li>
-<li><strong>Comprehensive layout elements.</strong> Nest <code>HBox</code> and <code>VBox</code> containers and they line up on their own. Scrolling, paging, stacking, wrapping, and flexible spacing are covered too. And yes, also manual placement using <code>Container</code>.</li>
+<li><strong>Comprehensive layout elements.</strong> Nest <code>HBox</code> and <code>VBox</code> containers and they line up on their own. <a href="layout-elements/#guiscrollablevbox">Scrolling</a>, <a href="layout-elements/#guipaginatedvbox">paging</a>, <a href="layout-elements/#guistack">stacking</a>, <a href="layout-elements/#guiflow">wrapping</a>, and <a href="layout-elements/#guispacer">flexible spacing</a> are covered too. And yes, also <a href="manual-positioning/">manual placement</a> using <code>Container</code>.</li>
 <li><strong>Automatic sizing.</strong> Labels, checkboxes, buttons, text fields, password fields, text areas, drop-downs, text lists, and vertical labels size themselves. See <a href="common-aspects/#sizes">Sizes</a>.</li>
-<li><strong>Room to grow.</strong> Set <code>expand = true</code> and an element fills any spare space.</li>
+<li><strong>Room to grow.</strong> Set <code>expand = true</code> and an element fills any spare space, see <a href="common-aspects/#parameters-shared-by-all-elements">Parameters Shared by All Elements</a>.</li>
 <li><strong>Translation-friendly.</strong> Elements sized from their label grow or shrink to fit longer text<sup id="fnref:label-size"><a class="footnote-ref" href="#fn:label-size">1</a></sup>.</li>
 </ul>
 <h3 id="other-features">Other Features</h3>
 <ul>
 <li><strong>No form names.</strong> They still exist internally, but you never have to deal with them.</li>
-<li><strong>No state bookkeeping.</strong> Flow remembers the values of fields, scrollbars, checkboxes, and the like across redraws, and reapplies them for you.</li>
+<li><strong>No state bookkeeping.</strong> Flow remembers the values of fields, scrollbars, checkboxes, and the like across redraws, and reapplies them for you, see <a href="common-aspects/#names-and-values">Names and Values</a>.</li>
 <li><strong>Built-in debugging.</strong> The <a href="https://content.luanti.org/packages/luk3yx/flow_inspector/">inspector mod</a> helps you develop and debug forms.</li>
 <li><strong>Safer input handling.</strong> Flow mitigates some common formspec input security issues. See <a href="#security">Security</a>.</li>
 </ul>
@@ -811,7 +812,11 @@ Vaguely inspired by Flutter and GTK.</p>
 <h2 id="security">Security</h2>
 <p>Flow ignores potentially malicious formspec input from clients, such as buttons or fields that haven't been shown to the client, out-of-bounds dropdown selections, and newlines in <code>Field</code> elements (where it's impossible to enter a newline without pasting it in). See <a href="security/">Security</a> for the full list of what flow checks and what you still need to check yourself.</p>
 <h2 id="other-documentation">Other Documentation</h2>
-<p>The official documentation is available at <a href="https://luk3yx.gitlab.io/minetest-flow/">https://luk3yx.gitlab.io/minetest-flow/</a>. Some code snippets have a "run" button which will open them in a web-based playground, not all of these will work properly as the playground doesn't support all formspec elements.</p>
+<p>The official documentation is available at <a href="https://luk3yx.gitlab.io/minetest-flow/">https://luk3yx.gitlab.io/minetest-flow/</a>. Some code snippets have a "run" button which will open them in a web-based playground.</p>
+<div class="admonition note">
+<p class="admonition-title">Playground limitations</p>
+<p>Not all snippets will work properly in the playground, as it doesn't support all formspec elements. See <a href="not-supported/">Unsupported Features</a>.</p>
+</div>
 <div class="footnote">
 <hr/>
 <ol>
@@ -847,8 +852,8 @@ Vaguely inspired by Flutter and GTK.</p>
 <div class="md-dialog" data-md-component="dialog">
 <div class="md-dialog__inner md-typeset"></div>
 </div>
-<script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.sections", "navigation.expand", "navigation.top", "content.code.copy"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
-<script src="assets/javascripts/bundle.79ae519e.min.js"></script>
+<script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.sections", "navigation.expand", "navigation.top", "content.code.copy"], "search": "assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+<script src="assets/javascripts/bundle.c21346df.min.js"></script>
 <script src="js/print-site.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script>
 </body>

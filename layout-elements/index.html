@@ -8,10 +8,10 @@
 <link href="../getting-started/" rel="prev"/>
 <link href="../padding/" rel="next"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.6.1, mkdocs-material-9.7.6" name="generator"/>
-<title>Layout elements - Flow Unofficial Documentation</title>
-<link href="../assets/stylesheets/main.484c7ddc.min.css" rel="stylesheet"/>
-<link href="../assets/stylesheets/palette.ab4e12ef.min.css" rel="stylesheet"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.8.0" name="generator"/>
+<title>Layout Elements - Flow Unofficial Documentation</title>
+<link href="../assets/stylesheets/main.57a0d79d.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/palette.fb2fffe2.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
@@ -49,7 +49,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Layout elements
+              Layout Elements
             
           </span>
 </div>
@@ -142,7 +142,7 @@
 <span class="md-ellipsis">
     
   
-    Getting started
+    Getting Started
   
 
     
@@ -178,7 +178,7 @@
 <span class="md-ellipsis">
     
   
-    Layout elements
+    Layout Elements
   
 
     
@@ -189,7 +189,7 @@
 <span class="md-ellipsis">
     
   
-    Layout elements
+    Layout Elements
   
 
     
@@ -325,7 +325,7 @@
 <span class="md-ellipsis">
     
   
-    Padding and spacing
+    Padding and Spacing
   
 
     
@@ -337,7 +337,7 @@
 <span class="md-ellipsis">
     
   
-    Hiding elements
+    Hiding Elements
   
 
     
@@ -349,7 +349,7 @@
 <span class="md-ellipsis">
     
   
-    Manual positioning
+    Manual Positioning
   
 
     
@@ -387,7 +387,7 @@
 <span class="md-ellipsis">
     
   
-    Common aspects
+    Common Aspects
   
 
     
@@ -399,7 +399,7 @@
 <span class="md-ellipsis">
     
   
-    Functional elements
+    Functional Elements
   
 
     
@@ -411,7 +411,7 @@
 <span class="md-ellipsis">
     
   
-    Hypertext markup
+    Hypertext Markup
   
 
     
@@ -477,7 +477,7 @@
 <span class="md-ellipsis">
     
   
-    Displaying forms
+    Displaying Forms
   
 
     
@@ -489,7 +489,7 @@
 <span class="md-nav__icon md-icon"></span>
             
   
-    Displaying forms
+    Displaying Forms
   
 
           </label>
@@ -526,7 +526,7 @@
 <span class="md-ellipsis">
     
   
-    Advanced features
+    Advanced Features
   
 
     
@@ -561,7 +561,7 @@
 <span class="md-ellipsis">
     
   
-    Experimental features
+    Experimental Features
   
 
     
@@ -589,7 +589,7 @@
 <span class="md-ellipsis">
     
   
-    Limitations and security
+    Limitations and Security
   
 
     
@@ -601,7 +601,7 @@
 <span class="md-nav__icon md-icon"></span>
             
   
-    Limitations and security
+    Limitations and Security
   
 
           </label>
@@ -611,7 +611,7 @@
 <span class="md-ellipsis">
     
   
-    Unsupported features
+    Unsupported Features
   
 
     
@@ -639,7 +639,7 @@
 <span class="md-ellipsis">
     
   
-    Development tools
+    Development Tools
   
 
     
@@ -651,7 +651,7 @@
 <span class="md-nav__icon md-icon"></span>
             
   
-    Development tools
+    Development Tools
   
 
           </label>
@@ -833,9 +833,12 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1 id="layout-elements">Layout Elements</h1>
-<p>You should do <code>local gui = flow.widgets</code> in your code to improve readability. All examples will assume that this line exists.</p>
+<p>You should do <code>local gui = flow.widgets</code> in your code to improve readability. All examples will assume that this line exists. A form is built from these elements, see <a href="../getting-started/">Getting Started</a>.</p>
 <p>These elements control how other elements are arranged. Most of them draw nothing themselves: they place the elements inside them, work out how big everything is, and share out any spare space. Elements that draw something or accept input (labels, buttons, fields, ...) are described in <a href="../functional-elements/">Functional Elements</a>. To place elements at exact coordinates instead, see <a href="../manual-positioning/">Manual Positioning</a>.</p>
-<p><strong>Warning:</strong> Do not use <code>w</code> and <code>h</code> to size <code>gui.VBox</code>, <code>gui.HBox</code>, or <code>gui.Stack</code>, use <code>min_w</code> and <code>min_h</code> instead: these elements always work out their size from their contents. The one exception is manual positioning with a <code>gui.Stack</code>: if you set both <code>w</code> and <code>h</code>, flow does not position its children, so each child keeps its own <code>x</code> and <code>y</code> and needs its own <code>w</code> and <code>h</code> (see the <a href="../manual-positioning/#container-noclip-example"><code>noclip</code> example</a>). Setting only one of them makes flow overwrite the children's <code>x</code> and <code>y</code>. See <a href="../common-aspects/#which-elements-take-w-h-min_w-and-min_h">Common Aspects</a> for which elements take <code>w</code> and <code>h</code>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Do not use <code>w</code> and <code>h</code> on boxes and stacks</p>
+<p>Do not use <code>w</code> and <code>h</code> to size <code>gui.VBox</code>, <code>gui.HBox</code>, or <code>gui.Stack</code>, use <code>min_w</code> and <code>min_h</code> instead: these elements always work out their size from their contents. The one exception is manual positioning with a <code>gui.Stack</code>: if you set both <code>w</code> and <code>h</code>, flow does not position its children, so each child keeps its own <code>x</code> and <code>y</code> and needs its own <code>w</code> and <code>h</code> (see the <a href="../manual-positioning/#container-noclip-example"><code>noclip</code> example</a>). Setting only one of them makes flow overwrite the children's <code>x</code> and <code>y</code>. See <a href="../common-aspects/#which-elements-take-w-h-min_w-and-min_h">Common Aspects</a> for which elements take <code>w</code> and <code>h</code>.</p>
+</div>
 <h2 id="guivbox"><code>gui.VBox</code></h2>
 <p>A vertical box, similar to a VBox in GTK. Elements inside a VBox are stacked vertically.</p>
 <div class="language-lua highlight"><pre><span></span><code><span id="__span-0-1"><span class="nv">gui</span><span class="p">.</span><span class="py">VBox</span><span class="w"> </span><span class="p">{</span>
@@ -863,7 +866,10 @@
 </span></code></pre></div>
 <h2 id="guiscrollablevbox"><code>gui.ScrollableVBox</code></h2>
 <p>Similar to <code>gui.VBox</code>, but shows its contents in an area of a fixed size that the player can scroll, and automatically adds a scrollbar next to it. Anything outside the area is hidden until it is scrolled into view. The area is <code>w</code> by <code>h</code>, both are optional: the width defaults to the width of the contents and the height defaults to the height of the contents, up to a maximum of 5.</p>
-<p>On clients too old to support scrolling areas (before Luanti 5.4), flow shows one page of the contents at a time instead, with <code>&lt;</code> and <code>&gt;</code> buttons to change page.</p>
+<div class="admonition note">
+<p class="admonition-title">Old clients</p>
+<p>On clients too old to support scrolling areas (before Luanti 5.4), flow shows one page of the contents at a time instead, with <code>&lt;</code> and <code>&gt;</code> buttons to change page. See <a href="#guipaginatedvbox"><code>gui.PaginatedVBox</code></a>.</p>
+</div>
 <p>To change how the scrollbar looks, set <code>custom_scrollbar</code> to a table of parameters for <a href="../functional-elements/#guiscrollbar"><code>gui.Scrollbar</code></a>, for example <code>custom_scrollbar = {w = 0.8}</code> to make it wider.</p>
 <div class="language-lua highlight"><pre><span></span><code><span id="__span-2-1"><span class="nv">gui</span><span class="p">.</span><span class="py">ScrollableVBox</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-2-2"><span class="w">    </span><span class="c1">-- Required. It keeps flow from mixing up scrollbar states if</span>
@@ -900,7 +906,11 @@
 </span><span id="__span-3-14"><span class="p">}</span>
 </span></code></pre></div>
 <p><img alt="Screenshot" src="../images/cancel-back-space-next-confirm.png"/></p>
-<p>Prefer <code>expand = true</code> with <code>align_h</code> or <code>align_v</code> when that gives the same result. Spacers are implemented as hidden containers, so a few things behave differently from other elements:</p>
+<div class="admonition tip">
+<p class="admonition-title">Prefer <code>expand</code> when it works</p>
+<p>Prefer <code>expand = true</code> with <code>align_h</code> or <code>align_v</code> when that gives the same result, see <a href="../common-aspects/#parameters-shared-by-all-elements">Parameters Shared by All Elements</a>.</p>
+</div>
+<p>Spacers are implemented as hidden containers, so a few things behave differently from other elements:</p>
 <ul>
 <li>A spacer counts as an element when flow adds the <code>spacing</code> between the elements of a box. Each spacer therefore adds a gap on each side of it, which is taken out of the spare room it fills. If the box has no spare room, the spacer has no width but the gaps are still there.</li>
 <li>A spacer cannot have child elements and flow raises an error if you give it any.</li>
@@ -919,7 +929,10 @@
 </span><span id="__span-4-9"><span class="p">}</span>
 </span></code></pre></div>
 <p><img alt="Screenshot" src="../images/cancel-back-next-confirm.png"/></p>
-<p>Do not use spacers to center elements. It creates unnecessary boxes, and labels may end up slightly off-center, because label widths depend on screen size and DPI and this code does not trigger the centering hack. The centering hack is what flow does when <code>align_h</code> or <code>expand</code> centers or stretches a label: it draws the label as a background-less button as wide as the whole area, so the client centers the text itself.</p>
+<div class="admonition warning">
+<p class="admonition-title">Do not use spacers to center elements</p>
+<p>It creates unnecessary boxes, and labels may end up slightly off-center, because label widths depend on screen size and DPI and this code does not trigger the centering hack. The centering hack is what flow does when <code>align_h</code> or <code>expand</code> centers or stretches a label: it draws the label as a background-less button as wide as the whole area, so the client centers the text itself.</p>
+</div>
 <div class="language-lua highlight"><pre><span></span><code><span id="__span-5-1"><span class="c1">-- This is bad!</span>
 </span><span id="__span-5-2"><span class="nv">gui</span><span class="p">.</span><span class="py">HBox</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-5-3"><span class="w">    </span><span class="nv">min_w</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span>
@@ -952,7 +965,10 @@
 </span><span id="__span-7-8"><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-7-9"><span class="kr">end</span><span class="p">)</span>
 </span></code></pre></div>
-<p>Use sparingly: flow still has to process each <code>Nil</code> to remove it.</p>
+<div class="admonition note">
+<p class="admonition-title">Use sparingly</p>
+<p>Flow still has to process each <code>Nil</code> to remove it.</p>
+</div>
 <h2 id="guicontainer"><code>gui.Container</code></h2>
 <p>A group of elements that you position yourself with <code>x</code> and <code>y</code> instead of letting flow lay them out. See <a href="../manual-positioning/">Manual Positioning</a>.</p>
 <h3 id="example">Example</h3>
@@ -964,7 +980,10 @@
 </span></code></pre></div>
 <h2 id="guistack"><code>gui.Stack</code></h2>
 <p>This container element places its children on top of each other. All child elements are expanded in both directions.</p>
-<p>Note that some elements (such as centred labels) won't pass clicks through to the element below them.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Some elements (such as centred labels) won't pass clicks through to the element below them.</p>
+</div>
 <h3 id="example_1">Example</h3>
 <div class="language-lua highlight"><pre><span></span><code><span id="__span-9-1"><span class="nv">gui</span><span class="p">.</span><span class="py">Stack</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-9-2"><span class="w">    </span><span class="nv">min_w</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span>
@@ -978,9 +997,9 @@
 <p><img alt="Screenshot" src="../images/stacked-air-on-button.png"/></p>
 <h2 id="guipaginatedvbox"><code>gui.PaginatedVBox</code></h2>
 <p>Like <code>gui.ScrollableVBox</code>, but splits the contents into pages instead of scrolling. Only one page is shown at a time, with a <code>&lt;</code> button, a "Page 1 of 3" label, and a <code>&gt;</code> button underneath to change page. It needs a unique <code>name</code>, and <code>w</code> and <code>h</code> work the same way as for <code>gui.ScrollableVBox</code>. Elements are never cut in half: an element that does not fit on a page starts the next one.</p>
-<p><code>gui.ScrollableVBox</code> uses this automatically on clients that cannot scroll.</p>
+<p><a href="#guiscrollablevbox"><code>gui.ScrollableVBox</code></a> uses this automatically on clients that cannot scroll.</p>
 <h2 id="guiflow"><code>gui.Flow</code></h2>
-<p>A container with a fixed width that wraps its children onto new rows when they do not fit. You must give it a <code>w</code>, and it does not support <code>h</code>, <code>min_w</code>, or <code>padding</code>. Use <code>spacing</code> to change the gap between elements.</p>
+<p>A container with a fixed width that wraps its children onto new rows when they do not fit. You must give it a <code>w</code>, and it does not support <code>h</code>, <code>min_w</code>, or <a href="../padding/"><code>padding</code></a>. See <a href="../common-aspects/#which-elements-take-w-h-min_w-and-min_h">Which Elements Take <code>w</code>, <code>h</code>, <code>min_w</code>, and <code>min_h</code></a>. Use <code>spacing</code> to change the gap between elements.</p>
 <p>This is similar to GTK's <code>FlowBox</code>, but with a lot fewer features.</p>
 <p>The width also has to leave room for the spacing between elements. <code>spacing</code> has the same default as for <a href="#guivbox"><code>gui.VBox</code></a> (0.2, see also <a href="../padding/">Padding</a>). Flow needs <code>w</code> to be at least <code>1 + 0.2 + 1 + 0.2 + 1</code> (3.4) to fit three 1-wide elements on one row, and at least 4.6 to fit four, so <code>3 * (1 + 0.2)</code> (3.6) is a safe width for three.</p>
 <div class="language-lua highlight"><pre><span></span><code><span id="__span-10-1"><span class="nv">gui</span><span class="p">.</span><span class="py">Flow</span><span class="w"> </span><span class="p">{</span>
@@ -996,7 +1015,11 @@
 </span><span id="__span-10-11"><span class="p">}</span>
 </span></code></pre></div>
 <h2 id="guipadding-deprecated"><code>gui.Padding</code> (Deprecated)</h2>
-<p>Wraps a single element to add padding around it. It is deprecated and logs a warning, use the <code>padding</code> parameter of the element itself instead, see <a href="../padding/">Padding</a>.</p>
+<p>Wraps a single element to add padding around it.</p>
+<div class="admonition warning">
+<p class="admonition-title">Deprecated</p>
+<p>This element logs a warning. Use the <code>padding</code> parameter of the element itself instead, see <a href="../padding/">Padding</a>.</p>
+</div>
 </article>
 </div>
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
@@ -1024,8 +1047,8 @@
 <div class="md-dialog" data-md-component="dialog">
 <div class="md-dialog__inner md-typeset"></div>
 </div>
-<script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.expand", "navigation.top", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
-<script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+<script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.expand", "navigation.top", "content.code.copy"], "search": "../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+<script src="../assets/javascripts/bundle.c21346df.min.js"></script>
 <script src="../js/print-site.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script>
 </body>

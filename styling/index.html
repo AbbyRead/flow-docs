@@ -8,10 +8,10 @@
 <link href="../hypertext/" rel="prev"/>
 <link href="../tooltips/" rel="next"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.6.1, mkdocs-material-9.7.6" name="generator"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.8.0" name="generator"/>
 <title>Styling - Flow Unofficial Documentation</title>
-<link href="../assets/stylesheets/main.484c7ddc.min.css" rel="stylesheet"/>
-<link href="../assets/stylesheets/palette.ab4e12ef.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/main.57a0d79d.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/palette.fb2fffe2.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
@@ -142,7 +142,7 @@
 <span class="md-ellipsis">
     
   
-    Getting started
+    Getting Started
   
 
     
@@ -177,7 +177,7 @@
 <span class="md-ellipsis">
     
   
-    Layout elements
+    Layout Elements
   
 
     
@@ -189,7 +189,7 @@
 <span class="md-ellipsis">
     
   
-    Padding and spacing
+    Padding and Spacing
   
 
     
@@ -201,7 +201,7 @@
 <span class="md-ellipsis">
     
   
-    Hiding elements
+    Hiding Elements
   
 
     
@@ -213,7 +213,7 @@
 <span class="md-ellipsis">
     
   
-    Manual positioning
+    Manual Positioning
   
 
     
@@ -251,7 +251,7 @@
 <span class="md-ellipsis">
     
   
-    Common aspects
+    Common Aspects
   
 
     
@@ -263,7 +263,7 @@
 <span class="md-ellipsis">
     
   
-    Functional elements
+    Functional Elements
   
 
     
@@ -275,7 +275,7 @@
 <span class="md-ellipsis">
     
   
-    Hypertext markup
+    Hypertext Markup
   
 
     
@@ -522,7 +522,7 @@
 <span class="md-ellipsis">
     
   
-    Displaying forms
+    Displaying Forms
   
 
     
@@ -534,7 +534,7 @@
 <span class="md-nav__icon md-icon"></span>
             
   
-    Displaying forms
+    Displaying Forms
   
 
           </label>
@@ -571,7 +571,7 @@
 <span class="md-ellipsis">
     
   
-    Advanced features
+    Advanced Features
   
 
     
@@ -606,7 +606,7 @@
 <span class="md-ellipsis">
     
   
-    Experimental features
+    Experimental Features
   
 
     
@@ -634,7 +634,7 @@
 <span class="md-ellipsis">
     
   
-    Limitations and security
+    Limitations and Security
   
 
     
@@ -646,7 +646,7 @@
 <span class="md-nav__icon md-icon"></span>
             
   
-    Limitations and security
+    Limitations and Security
   
 
           </label>
@@ -656,7 +656,7 @@
 <span class="md-ellipsis">
     
   
-    Unsupported features
+    Unsupported Features
   
 
     
@@ -684,7 +684,7 @@
 <span class="md-ellipsis">
     
   
-    Development tools
+    Development Tools
   
 
     
@@ -696,7 +696,7 @@
 <span class="md-nav__icon md-icon"></span>
             
   
-    Development tools
+    Development Tools
   
 
           </label>
@@ -924,7 +924,7 @@
 <article class="md-content__inner md-typeset">
 <h1 id="styling-forms">Styling Forms</h1>
 <p>Styles change how elements look: their colors, images, fonts, and so on. A style is a set of properties such as <code>bgcolor = "red"</code>, and which properties exist depends on the type of element. All of them are listed in the <a href="#property-reference">property reference</a> below.</p>
-<p>You can style a single element with the <code>style</code> field (the <a href="#inline-syntax">inline syntax</a>), or style many elements at once with the <code>gui.Style</code> and <code>gui.StyleType</code> elements (see <a href="#separate-style-elements">separate style elements</a>).</p>
+<p>You can style a single element with the <code>style</code> field (the <a href="#inline-syntax">inline syntax</a>), or style many elements at once with the <a href="../functional-elements/#guistyle"><code>gui.Style</code></a> and <a href="../functional-elements/#guistyletype"><code>gui.StyleType</code></a> elements (see <a href="#separate-style-elements">Separate Style Elements</a>).</p>
 <p>Which one to use:</p>
 <table>
 <thead>
@@ -953,7 +953,10 @@
 </tbody>
 </table>
 <h2 id="inline-syntax">Inline Syntax</h2>
+<div class="admonition note">
+<p class="admonition-title">Requires a recent version of flow</p>
 <p>Inline styles were added in May 2024, so older versions of flow do not support this syntax, and the sub-style syntax (the <code>sel</code> entries) may change in the future. Only use inline styles for things that are not essential, so that your form does not look broken without them, or use <a href="#separate-style-elements">separate style elements</a> if you need to support older versions.</p>
+</div>
 <p>You can add inline styles to elements with the <code>style</code> field:</p>
 <div class="language-lua highlight"><pre><span></span><code><span id="__span-0-1"><span class="nv">gui</span><span class="p">.</span><span class="py">Button</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-0-2"><span class="w">    </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Test"</span><span class="p">,</span>
@@ -997,7 +1000,7 @@
 </span></code></pre></div>
 <p>Property values are normally strings, but flow also accepts numbers and booleans where a property needs one. Setting a property to an empty string (<code>bgimg = ""</code>) resets it to its default value.</p>
 <h2 id="separate-style-elements">Separate Style Elements</h2>
-<p>Alternatively, use the <code>gui.Style</code> and <code>gui.StyleType</code> elements to style a large group of elements or to support older versions of flow:</p>
+<p>Alternatively, use the <a href="../functional-elements/#guistyle"><code>gui.Style</code></a> and <a href="../functional-elements/#guistyletype"><code>gui.StyleType</code></a> elements to style a large group of elements or to support older versions of flow:</p>
 <div class="language-lua highlight"><pre><span></span><code><span id="__span-3-1"><span class="nv">gui</span><span class="p">.</span><span class="py">VBox</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-3-2"><span class="w">    </span><span class="nv">gui</span><span class="p">.</span><span class="py">Style</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">selectors</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"btn1"</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="nv">props</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">bgcolor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"red"</span><span class="p">,</span><span class="w"> </span><span class="nv">border</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">},</span>
 </span><span id="__span-3-3">
@@ -1005,20 +1008,20 @@
 </span><span id="__span-3-5"><span class="w">    </span><span class="nv">gui</span><span class="p">.</span><span class="py">Button</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"btn2"</span><span class="p">,</span><span class="w"> </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Not styled"</span><span class="w"> </span><span class="p">},</span>
 </span><span id="__span-3-6"><span class="p">}</span>
 </span></code></pre></div>
-<p>The <code>Style</code> and <code>StyleType</code> elements are invisible and won't affect padding. They only affect the elements that come after them, so put them before the elements you want to style.</p>
+<p>The <code>Style</code> and <code>StyleType</code> elements are <a href="../common-aspects/#invisible-elements">invisible</a> and won't affect <a href="../padding/">padding</a>. They only affect the elements that come after them, so put them before the elements you want to style.</p>
 <h2 id="styles-that-change-size">Styles That Change Size</h2>
 <p>Flow works out the size of an element before it writes any styles, so it has to see a style that changes the size. It only does that in some cases:</p>
 <ul>
 <li><code>gui.Style</code> and <code>gui.StyleType</code> do not support styles that change the element size. Flow only sees these properties in the inline syntax, so use that for them.</li>
-<li><code>font_size</code> changes the size of <code>gui.Label</code>s, buttons, and the default text of fields only if it starts with <code>*</code> (such as <code>"*2"</code>) and is set with the inline syntax. Other values still change the text but not the size of the element.</li>
+<li><code>font_size</code> changes the size of <a href="../functional-elements/#guilabel"><code>gui.Label</code></a>s, buttons, and the default text of fields only if it starts with <code>*</code> (such as <code>"*2"</code>) and is set with the inline syntax. Other values still change the text but not the size of the element.</li>
 <li>The labels above fields and checkboxes ignore <code>font_size</code>, and a <code>gui.Label</code> with a fixed <code>h</code> is positioned as if <code>font_size</code> was not set. That behavior is deprecated and flow logs a warning when it detects it, so leave <code>h</code> out of labels that use <code>font_size</code>.</li>
-<li>The <code>size</code> and <code>spacing</code> styles of <code>gui.List</code> (added in March 2025) count too, but only whole numbers such as <code>"2,2"</code> or <code>"0,0"</code> and only in the inline syntax.</li>
+<li>The <code>size</code> and <code>spacing</code> styles of <a href="../functional-elements/#guilist"><code>gui.List</code></a> (added in March 2025) count too, but only whole numbers such as <code>"2,2"</code> or <code>"0,0"</code> and only in the inline syntax.</li>
 </ul>
 <h2 id="selectors-and-states">Selectors and States</h2>
 <p><code>selectors</code> is a list that says which elements the style applies to:</p>
 <ul>
 <li><code>gui.Style</code> selects elements by their <code>name</code>, so <code>{"btn1"}</code> styles the element with <code>name = "btn1"</code>.</li>
-<li><code>gui.StyleType</code> selects elements by their type, so <code>{"button"}</code> styles every button that comes after it. The type is the element's name in lowercase with underscores between words, for example <code>item_image_button</code> for <code>gui.ItemImageButton</code>. Some types also style other types, see <a href="#element-types">element types</a>.</li>
+<li><code>gui.StyleType</code> selects elements by their type, so <code>{"button"}</code> styles every button that comes after it. The type is the element's name in lowercase with underscores between words, for example <code>item_image_button</code> for <code>gui.ItemImageButton</code>. Some types also style other types, see <a href="#element-types">Element Types</a>.</li>
 <li><code>gui.StyleType</code> also accepts <code>"*"</code>, which selects every element.</li>
 </ul>
 <p>A selector can end with a colon and one or more <a href="#states">states</a> to only style the element while it is in that state, such as <code>"btn1:hovered"</code> or <code>"button:hovered+pressed"</code> (<code>+</code> means all of the states have to be active).</p>
@@ -1192,7 +1195,11 @@
 </tr>
 </tbody>
 </table>
-<p>Luanti also lists <code>hypertip</code>, but flow has no element for it, see <a href="../not-supported/#missing-elements">Unsupported Features</a>. The <code>item_image</code> type only supports <code>noclip</code> (see <a href="#other-elements">Other Elements</a>). Types marked "Not valid" are not in Luanti's list of types, so a <code>gui.StyleType</code> for them does nothing: give those elements a <code>name</code> and style them with <code>gui.Style</code> or the inline syntax.</p>
+<p>Luanti also lists <code>hypertip</code>, but flow has no element for it, see <a href="../not-supported/#missing-elements">Unsupported Features</a>. The <code>item_image</code> type only supports <code>noclip</code> (see <a href="#other-elements">Other Elements</a>).</p>
+<div class="admonition warning">
+<p class="admonition-title"><code>gui.StyleType</code> does not work for some types</p>
+<p>Types marked "Not valid" are not in Luanti's list of types, so a <code>gui.StyleType</code> for them does nothing: give those elements a <code>name</code> and style them with <code>gui.Style</code> or the inline syntax.</p>
+</div>
 <h2 id="property-reference">Property Reference</h2>
 <p>Colors are described in <a href="../common-aspects/#colors">Common Aspects</a>, and textures are image file names. A "2D vector" is written as a string such as <code>"1,2"</code>. Properties that only list a type of element are not valid on other elements, and an unknown property is ignored.</p>
 <h3 id="all-elements">All Elements</h3>
@@ -1298,7 +1305,10 @@
 </tr>
 </tbody>
 </table>
+<div class="admonition warning">
+<p class="admonition-title">Deprecated properties</p>
 <p>Some older properties still work but are deprecated. Use <a href="#states">states</a> instead: <code>bgcolor_hovered</code>, <code>bgcolor_pressed</code>, <code>bgimg_hovered</code>, <code>bgimg_pressed</code>, <code>fgimg_hovered</code>, and <code>fgimg_pressed</code>. They work like <code>bgcolor</code> and <code>bgimg</code> but only apply while the button is hovered or pressed.</p>
+</div>
 <h3 id="fields-and-text-areas">Fields and Text Areas</h3>
 <p>For <code>gui.Field</code>, <code>gui.Pwdfield</code>, and <code>gui.Textarea</code>. They also support <code>font</code>, <code>font_size</code>, and <code>textcolor</code>.</p>
 <table>
@@ -1393,7 +1403,11 @@
 </tbody>
 </table>
 <h3 id="read-only-elements-editable">Read-Only Elements (<code>editable</code>)</h3>
-<p>Luanti 5.18 (formspec version 12) added an <code>editable</code> property for <code>gui.Checkbox</code>, <code>gui.Dropdown</code>, <code>gui.Field</code>, <code>gui.Pwdfield</code>, and <code>gui.Textarea</code>. Setting it to <code>false</code> makes the element read-only (default <code>true</code>). Flow does nothing special for it and writes the property unchanged. The client does not check the form's version for it, so it works for players on Luanti 5.18 or newer even though flow declares version 7, and it may be ignored for other players. Do not rely on it alone to stop changes: also ignore changes to the element in your own code. See also <a href="../not-supported/#newer-luanti-features">Newer Luanti Features</a>.</p>
+<p>Luanti 5.18 (formspec version 12) added an <code>editable</code> property for <code>gui.Checkbox</code>, <code>gui.Dropdown</code>, <code>gui.Field</code>, <code>gui.Pwdfield</code>, and <code>gui.Textarea</code>. Setting it to <code>false</code> makes the element read-only (default <code>true</code>). Flow does nothing special for it and writes the property unchanged. The client does not check the form's version for it, so it works for players on Luanti 5.18 or newer even though flow declares version 7, and it may be ignored for other players. See also <a href="../not-supported/#newer-luanti-features">Newer Luanti Features</a>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Do not rely on <code>editable</code> alone</p>
+<p>Also ignore changes to the element in your own code, because a player's client can send anything, see <a href="../security/#what-you-still-need-to-check">Security</a>.</p>
+</div>
 <h3 id="other-elements">Other Elements</h3>
 <table>
 <thead>
@@ -1452,8 +1466,8 @@
 <div class="md-dialog" data-md-component="dialog">
 <div class="md-dialog__inner md-typeset"></div>
 </div>
-<script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.expand", "navigation.top", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
-<script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+<script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.expand", "navigation.top", "content.code.copy"], "search": "../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+<script src="../assets/javascripts/bundle.c21346df.min.js"></script>
 <script src="../js/print-site.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script>
 </body>

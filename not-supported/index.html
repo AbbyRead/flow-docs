@@ -8,10 +8,10 @@
 <link href="../popovers/" rel="prev"/>
 <link href="../security/" rel="next"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.6.1, mkdocs-material-9.7.6" name="generator"/>
-<title>Unsupported features - Flow Unofficial Documentation</title>
-<link href="../assets/stylesheets/main.484c7ddc.min.css" rel="stylesheet"/>
-<link href="../assets/stylesheets/palette.ab4e12ef.min.css" rel="stylesheet"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.8.0" name="generator"/>
+<title>Unsupported Features - Flow Unofficial Documentation</title>
+<link href="../assets/stylesheets/main.57a0d79d.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/palette.fb2fffe2.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
@@ -49,7 +49,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Unsupported features
+              Unsupported Features
             
           </span>
 </div>
@@ -142,7 +142,7 @@
 <span class="md-ellipsis">
     
   
-    Getting started
+    Getting Started
   
 
     
@@ -177,7 +177,7 @@
 <span class="md-ellipsis">
     
   
-    Layout elements
+    Layout Elements
   
 
     
@@ -189,7 +189,7 @@
 <span class="md-ellipsis">
     
   
-    Padding and spacing
+    Padding and Spacing
   
 
     
@@ -201,7 +201,7 @@
 <span class="md-ellipsis">
     
   
-    Hiding elements
+    Hiding Elements
   
 
     
@@ -213,7 +213,7 @@
 <span class="md-ellipsis">
     
   
-    Manual positioning
+    Manual Positioning
   
 
     
@@ -251,7 +251,7 @@
 <span class="md-ellipsis">
     
   
-    Common aspects
+    Common Aspects
   
 
     
@@ -263,7 +263,7 @@
 <span class="md-ellipsis">
     
   
-    Functional elements
+    Functional Elements
   
 
     
@@ -275,7 +275,7 @@
 <span class="md-ellipsis">
     
   
-    Hypertext markup
+    Hypertext Markup
   
 
     
@@ -341,7 +341,7 @@
 <span class="md-ellipsis">
     
   
-    Displaying forms
+    Displaying Forms
   
 
     
@@ -353,7 +353,7 @@
 <span class="md-nav__icon md-icon"></span>
             
   
-    Displaying forms
+    Displaying Forms
   
 
           </label>
@@ -390,7 +390,7 @@
 <span class="md-ellipsis">
     
   
-    Advanced features
+    Advanced Features
   
 
     
@@ -425,7 +425,7 @@
 <span class="md-ellipsis">
     
   
-    Experimental features
+    Experimental Features
   
 
     
@@ -453,7 +453,7 @@
 <span class="md-ellipsis">
     
   
-    Limitations and security
+    Limitations and Security
   
 
     
@@ -465,7 +465,7 @@
 <span class="md-nav__icon md-icon"></span>
             
   
-    Limitations and security
+    Limitations and Security
   
 
           </label>
@@ -476,7 +476,7 @@
 <span class="md-ellipsis">
     
   
-    Unsupported features
+    Unsupported Features
   
 
     
@@ -487,7 +487,7 @@
 <span class="md-ellipsis">
     
   
-    Unsupported features
+    Unsupported Features
   
 
     
@@ -581,7 +581,7 @@
 <span class="md-ellipsis">
     
   
-    Development tools
+    Development Tools
   
 
     
@@ -593,7 +593,7 @@
 <span class="md-nav__icon md-icon"></span>
             
   
-    Development tools
+    Development Tools
   
 
           </label>
@@ -768,16 +768,19 @@
 <h2 id="things-flow-does-for-you">Things Flow Does for You</h2>
 <p>These formspec elements exist, but flow generates them itself and you cannot write them:</p>
 <ul>
-<li><a href="https://api.luanti.org/formspec/#sizewhfixed_size"><code>size[]</code></a>: The size of the form is worked out from the elements in it.</li>
+<li><a href="https://api.luanti.org/formspec/#sizewhfixed_size"><code>size[]</code></a>: The size of the form is worked out from the elements in it, see <a href="../common-aspects/#sizes">Sizes</a>.</li>
 <li><a href="https://api.luanti.org/formspec/#positionxy"><code>position[]</code></a>, <a href="https://api.luanti.org/formspec/#anchorxy"><code>anchor[]</code></a>, and <a href="https://api.luanti.org/formspec/#paddingxy"><code>padding[]</code></a>: Use the <code>window_position</code>, <code>window_anchor</code>, and <code>window_padding</code> options of the root element, see <a href="../experimental/#window-position">Window Position</a>.</li>
 <li><a href="https://api.luanti.org/formspec/#no_prepend"><code>no_prepend[]</code></a> and <a href="https://api.luanti.org/formspec/#bgcolorbgcolorfullscreenfbgcolor"><code>bgcolor[]</code></a>: Use the <a href="../experimental/#no_prepend"><code>no_prepend</code></a> option and the <a href="../experimental/#bgcolor"><code>bgcolor</code>, <code>fbgcolor</code>, and <code>bg_fullscreen</code></a> options of the root element.</li>
 <li><a href="https://api.luanti.org/formspec/#real_coordinatesbool"><code>real_coordinates[]</code></a>: Flow always uses the newer coordinate system, where there is no hidden padding or spacing between elements.</li>
-<li><a href="https://api.luanti.org/formspec/#container_end"><code>container_end[]</code></a> and <a href="https://api.luanti.org/formspec/#scroll_container_end"><code>scroll_container_end[]</code></a>: Elements inside <code>gui.Container</code> and <code>gui.ScrollContainer</code> are written inside the table.</li>
+<li><a href="https://api.luanti.org/formspec/#container_end"><code>container_end[]</code></a> and <a href="https://api.luanti.org/formspec/#scroll_container_end"><code>scroll_container_end[]</code></a>: Elements inside <a href="../layout-elements/#guicontainer"><code>gui.Container</code></a> and <a href="../functional-elements/#guiscrollcontainer"><code>gui.ScrollContainer</code></a> are written inside the table.</li>
 <li><a href="https://api.luanti.org/formspec/#formspec_versionversion"><code>formspec_version[]</code></a>: Flow always uses formspec version 7.</li>
 </ul>
 <h2 id="newer-luanti-features">Newer Luanti Features</h2>
-<p>Because flow always uses formspec version 7 (Luanti 5.8), features that were added in newer versions may not work, even if the missing element or parameter is not listed above. This includes the area label (version 9), floating-point animation frames in <code>gui.Model</code> (version 10), and the <code>halign</code> and <code>valign</code> styles of fields and text areas (version 11), and the <code>editable</code> style of checkboxes, dropdowns, and fields (version 12, the only addition in that version). Formspec versions are described in the "Formspec Version History" section of the Luanti API documentation.</p>
-<p>Flow does not check the formspec version when it writes style properties. A property such as <code>halign</code>, <code>valign</code>, or <code>editable</code> is put in the <code>style[]</code> or <code>style_type[]</code> element exactly as you gave it, and is not removed or changed.</p>
+<p>Because flow always uses formspec version 7 (Luanti 5.8, see <a href="#formspec-versions-and-luanti-releases">Formspec Versions and Luanti Releases</a>), features that were added in newer versions may not work, even if the missing element or parameter is not listed above. This includes the area label (version 9), floating-point animation frames in <code>gui.Model</code> (version 10), and the <code>halign</code> and <code>valign</code> styles of <a href="../styling/#fields-and-text-areas">fields and text areas</a> (version 11), and the <a href="../styling/#read-only-elements-editable"><code>editable</code> style</a> of checkboxes, dropdowns, and fields (version 12, the only addition in that version). Formspec versions are described in the "Formspec Version History" section of the Luanti API documentation.</p>
+<div class="admonition note">
+<p class="admonition-title">Style properties are not checked</p>
+<p>Flow does not check the formspec version when it writes <a href="../styling/#property-reference">style properties</a>. A property such as <code>halign</code>, <code>valign</code>, or <code>editable</code> is put in the <code>style[]</code> or <code>style_type[]</code> element exactly as you gave it, and is not removed or changed.</p>
+</div>
 <p>The version that flow declares (7) does not stop a newer feature from working. In the current Luanti client source, the client does not compare the form's version with the version a feature was added in. It only asks whether the client itself knows the feature. So <code>halign</code> and <code>valign</code> work for players on Luanti 5.17 or newer, <code>editable</code> works on Luanti 5.18 or newer, and the area label (an extra parameter of <code>label[]</code>) is accepted by clients that know it, all from a form that says version 7.</p>
 <p>What happens on a client that is too old depends on the feature. In the current source, a style property that the client does not know is skipped and the other properties of the same <code>style[]</code> still apply. An element with more parameters than the client knows is not drawn at all, and the client logs an error. Clients older than the current source were not checked.</p>
 <h3 id="formspec-versions-and-luanti-releases">Formspec Versions and Luanti Releases</h3>
@@ -848,7 +851,10 @@
 </tbody>
 </table>
 <h2 id="scrollbar-textures-do-not-work">Scrollbar Textures Do Not Work</h2>
-<p><code>scrollbar_bg</code>, <code>slider</code>, <code>arrow_up</code>, and <code>arrow_down</code> should not be used. Flow accepts them, but Luanti has no such parameters, and on Luanti 5.8 and newer a scrollbar that sets any of them is not shown at all.</p>
+<div class="admonition warning">
+<p class="admonition-title">Do not use scrollbar textures</p>
+<p><code>scrollbar_bg</code>, <code>slider</code>, <code>arrow_up</code>, and <code>arrow_down</code> should not be used. Flow accepts them, but Luanti has no such parameters, and on Luanti 5.8 and newer a scrollbar that sets any of them is not shown at all. They are parameters of <a href="../functional-elements/#guiscrollbar"><code>gui.Scrollbar</code></a>.</p>
+</div>
 <p>Flow (through formspec_ast) writes the four textures as one comma-separated sixth parameter after <code>value</code>, leaving the ones you did not set empty. Luanti's <code>scrollbar[]</code> takes exactly five parameters. It only tolerates extra parameters when the form's formspec version is newer than the highest version the client supports, and flow always uses version 7:</p>
 <table>
 <thead>
@@ -906,8 +912,8 @@
 <div class="md-dialog" data-md-component="dialog">
 <div class="md-dialog__inner md-typeset"></div>
 </div>
-<script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.expand", "navigation.top", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
-<script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+<script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.expand", "navigation.top", "content.code.copy"], "search": "../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+<script src="../assets/javascripts/bundle.c21346df.min.js"></script>
 <script src="../js/print-site.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script>
 </body>

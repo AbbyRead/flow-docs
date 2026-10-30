@@ -8,10 +8,10 @@
 <link href="../inventory/" rel="prev"/>
 <link href="../advanced/" rel="next"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.6.1, mkdocs-material-9.7.6" name="generator"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.8.0" name="generator"/>
 <title>HUDs - Flow Unofficial Documentation</title>
-<link href="../assets/stylesheets/main.484c7ddc.min.css" rel="stylesheet"/>
-<link href="../assets/stylesheets/palette.ab4e12ef.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/main.57a0d79d.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/palette.fb2fffe2.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
@@ -142,7 +142,7 @@
 <span class="md-ellipsis">
     
   
-    Getting started
+    Getting Started
   
 
     
@@ -177,7 +177,7 @@
 <span class="md-ellipsis">
     
   
-    Layout elements
+    Layout Elements
   
 
     
@@ -189,7 +189,7 @@
 <span class="md-ellipsis">
     
   
-    Padding and spacing
+    Padding and Spacing
   
 
     
@@ -201,7 +201,7 @@
 <span class="md-ellipsis">
     
   
-    Hiding elements
+    Hiding Elements
   
 
     
@@ -213,7 +213,7 @@
 <span class="md-ellipsis">
     
   
-    Manual positioning
+    Manual Positioning
   
 
     
@@ -251,7 +251,7 @@
 <span class="md-ellipsis">
     
   
-    Common aspects
+    Common Aspects
   
 
     
@@ -263,7 +263,7 @@
 <span class="md-ellipsis">
     
   
-    Functional elements
+    Functional Elements
   
 
     
@@ -275,7 +275,7 @@
 <span class="md-ellipsis">
     
   
-    Hypertext markup
+    Hypertext Markup
   
 
     
@@ -341,7 +341,7 @@
 <span class="md-ellipsis">
     
   
-    Displaying forms
+    Displaying Forms
   
 
     
@@ -353,7 +353,7 @@
 <span class="md-nav__icon md-icon"></span>
             
   
-    Displaying forms
+    Displaying Forms
   
 
           </label>
@@ -446,7 +446,7 @@
 <span class="md-ellipsis">
     
   
-    Advanced features
+    Advanced Features
   
 
     
@@ -481,7 +481,7 @@
 <span class="md-ellipsis">
     
   
-    Experimental features
+    Experimental Features
   
 
     
@@ -509,7 +509,7 @@
 <span class="md-ellipsis">
     
   
-    Limitations and security
+    Limitations and Security
   
 
     
@@ -521,7 +521,7 @@
 <span class="md-nav__icon md-icon"></span>
             
   
-    Limitations and security
+    Limitations and Security
   
 
           </label>
@@ -531,7 +531,7 @@
 <span class="md-ellipsis">
     
   
-    Unsupported features
+    Unsupported Features
   
 
     
@@ -559,7 +559,7 @@
 <span class="md-ellipsis">
     
   
-    Development tools
+    Development Tools
   
 
     
@@ -571,7 +571,7 @@
 <span class="md-nav__icon md-icon"></span>
             
   
-    Development tools
+    Development Tools
   
 
           </label>
@@ -674,7 +674,10 @@
 <article class="md-content__inner md-typeset">
 <h1 id="using-a-form-as-a-hud">Using a Form as a HUD</h1>
 <p>A form can be shown as a HUD (text and pictures drawn over the game screen) instead of a menu. A HUD cannot be clicked or typed into, so it is only useful for showing information such as a score, a timer, or a status display.</p>
+<div class="admonition warning">
+<p class="admonition-title">Requires hud_fs</p>
 <p>Flow uses the <a href="https://content.luanti.org/packages/luk3yx/hud_fs/">hud_fs</a> mod to do this. It is an optional dependency, so it must be installed separately. hud_fs only draws some of the formspec elements, and ignores the others, see its page for the list.</p>
+</div>
 <h2 id="showing-and-closing-a-hud">Showing and Closing a HUD</h2>
 <div class="language-lua highlight"><pre><span></span><code><span id="__span-0-1"><span class="kd">local</span><span class="w"> </span><span class="nv">gui</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">flow</span><span class="p">.</span><span class="py">widgets</span>
 </span><span id="__span-0-2"><span class="kd">local</span><span class="w"> </span><span class="nv">player</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">core</span><span class="p">.</span><span class="nf">get_player_by_name</span><span class="p">(</span><span class="s2">"current_player"</span><span class="p">)</span>
@@ -701,9 +704,9 @@
 <li><code>show_hud(player, ctx)</code> draws the form as a HUD, or redraws it if it is already shown. Without hud_fs it stops with an error. <code>ctx</code> is optional.</li>
 <li><code>close_hud(player)</code> removes the HUD.</li>
 </ul>
-<p>Flow does not keep a context for HUDs. If you leave out <code>ctx</code>, <code>show_hud</code> uses a new empty table every time it is called, so keep your own table and pass it each time if the form needs to remember anything. This is different from <a href="../inventory/">inventory forms</a>, which reuse their context. The table in <a href="../getting-started/#context-lifetime-by-mode">Context Lifetime by Mode</a> compares all the ways of showing a form.</p>
+<p>Flow does not keep a context for HUDs. If you leave out <code>ctx</code> (see <a href="../getting-started/#basic-example">Getting Started</a>), <code>show_hud</code> uses a new empty table every time it is called, so keep your own table and pass it each time if the form needs to remember anything. This is different from <a href="../inventory/">inventory forms</a>, which reuse their context. The table in <a href="../getting-started/#context-lifetime-by-mode">Context Lifetime by Mode</a> compares all the ways of showing a form.</p>
 <h2 id="updating-a-hud">Updating a HUD</h2>
-<p><code>my_gui:update(player)</code> and <code>my_gui:update_where(func)</code> only affect forms shown with <code>my_gui:show(player)</code>, so they do nothing to a HUD. Call <code>show_hud</code> again to update it.</p>
+<p><code>my_gui:update(player)</code> and <code>my_gui:update_where(func)</code> (see <a href="../getting-started/#updating-forms">Updating Forms</a>) only affect forms shown with <code>my_gui:show(player)</code>, so they do nothing to a HUD. Call <code>show_hud</code> again to update it.</p>
 <h2 id="example">Example</h2>
 <div class="language-lua highlight"><pre><span></span><code><span id="__span-1-1"><span class="kd">local</span><span class="w"> </span><span class="nv">gui</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">flow</span><span class="p">.</span><span class="py">widgets</span>
 </span><span id="__span-1-2">
@@ -776,9 +779,9 @@
 <p>The score in the top-right corner goes up by one every second. Run <code>/hud off</code> to remove it with <code>close_hud</code> and <code>/hud on</code> to show it again with <code>show_hud</code>.</p>
 <h2 id="things-to-know">Things to Know</h2>
 <ul>
-<li><strong>No input.</strong> <code>on_event</code> and <code>on_key_enter</code> functions are never called, as the player cannot use a HUD.</li>
+<li><strong>No input.</strong> <a href="../common-aspects/#events"><code>on_event</code></a> and <a href="../experimental/#handling-enter-keypresses-in-fields"><code>on_key_enter</code></a> functions are never called, as the player cannot use a HUD.</li>
 <li><strong>Position and size.</strong> Use <code>window_position</code>, <code>window_anchor</code>, and <code>window_padding</code> on the root element to place the HUD, see <a href="../experimental/#window-position">Experimental Features</a>.</li>
-<li><strong>Scrolling.</strong> Flow does not know the player's formspec version when it draws a HUD, so it treats the player as an old client. <code>gui.ScrollableVBox</code> becomes a <code>gui.PaginatedVBox</code>, whose page buttons do nothing in a HUD. Avoid both of them.</li>
+<li><strong>Scrolling.</strong> Flow does not know the player's formspec version when it draws a HUD, so it treats the player as an old client. <a href="../layout-elements/#guiscrollablevbox"><code>gui.ScrollableVBox</code></a> becomes a <a href="../layout-elements/#guipaginatedvbox"><code>gui.PaginatedVBox</code></a>, whose page buttons do nothing in a HUD. Avoid both of them.</li>
 </ul>
 </article>
 </div>
@@ -807,8 +810,8 @@
 <div class="md-dialog" data-md-component="dialog">
 <div class="md-dialog__inner md-typeset"></div>
 </div>
-<script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.expand", "navigation.top", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
-<script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+<script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.expand", "navigation.top", "content.code.copy"], "search": "../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+<script src="../assets/javascripts/bundle.c21346df.min.js"></script>
 <script src="../js/print-site.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script>
 </body>

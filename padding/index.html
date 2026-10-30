@@ -8,10 +8,10 @@
 <link href="../layout-elements/" rel="prev"/>
 <link href="../hiding-elements/" rel="next"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.6.1, mkdocs-material-9.7.6" name="generator"/>
-<title>Padding and spacing - Flow Unofficial Documentation</title>
-<link href="../assets/stylesheets/main.484c7ddc.min.css" rel="stylesheet"/>
-<link href="../assets/stylesheets/palette.ab4e12ef.min.css" rel="stylesheet"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.8.0" name="generator"/>
+<title>Padding and Spacing - Flow Unofficial Documentation</title>
+<link href="../assets/stylesheets/main.57a0d79d.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/palette.fb2fffe2.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
@@ -49,7 +49,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Padding and spacing
+              Padding and Spacing
             
           </span>
 </div>
@@ -142,7 +142,7 @@
 <span class="md-ellipsis">
     
   
-    Getting started
+    Getting Started
   
 
     
@@ -177,7 +177,7 @@
 <span class="md-ellipsis">
     
   
-    Layout elements
+    Layout Elements
   
 
     
@@ -190,7 +190,7 @@
 <span class="md-ellipsis">
     
   
-    Padding and spacing
+    Padding and Spacing
   
 
     
@@ -202,7 +202,7 @@
 <span class="md-ellipsis">
     
   
-    Hiding elements
+    Hiding Elements
   
 
     
@@ -214,7 +214,7 @@
 <span class="md-ellipsis">
     
   
-    Manual positioning
+    Manual Positioning
   
 
     
@@ -252,7 +252,7 @@
 <span class="md-ellipsis">
     
   
-    Common aspects
+    Common Aspects
   
 
     
@@ -264,7 +264,7 @@
 <span class="md-ellipsis">
     
   
-    Functional elements
+    Functional Elements
   
 
     
@@ -276,7 +276,7 @@
 <span class="md-ellipsis">
     
   
-    Hypertext markup
+    Hypertext Markup
   
 
     
@@ -342,7 +342,7 @@
 <span class="md-ellipsis">
     
   
-    Displaying forms
+    Displaying Forms
   
 
     
@@ -354,7 +354,7 @@
 <span class="md-nav__icon md-icon"></span>
             
   
-    Displaying forms
+    Displaying Forms
   
 
           </label>
@@ -391,7 +391,7 @@
 <span class="md-ellipsis">
     
   
-    Advanced features
+    Advanced Features
   
 
     
@@ -426,7 +426,7 @@
 <span class="md-ellipsis">
     
   
-    Experimental features
+    Experimental Features
   
 
     
@@ -454,7 +454,7 @@
 <span class="md-ellipsis">
     
   
-    Limitations and security
+    Limitations and Security
   
 
     
@@ -466,7 +466,7 @@
 <span class="md-nav__icon md-icon"></span>
             
   
-    Limitations and security
+    Limitations and Security
   
 
           </label>
@@ -476,7 +476,7 @@
 <span class="md-ellipsis">
     
   
-    Unsupported features
+    Unsupported Features
   
 
     
@@ -504,7 +504,7 @@
 <span class="md-ellipsis">
     
   
-    Development tools
+    Development Tools
   
 
     
@@ -516,7 +516,7 @@
 <span class="md-nav__icon md-icon"></span>
             
   
-    Development tools
+    Development Tools
   
 
           </label>
@@ -576,16 +576,21 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1 id="padding-spacing-and-backgrounds">Padding, Spacing, and Backgrounds</h1>
-<p>Most elements can have a <code>padding</code> value, which will add the specified amount of padding around the element, measured in <a href="../common-aspects/#sizes">slot units</a>. The "root" element of the form (the one returned by the <a href="../getting-started/">build function</a>) has a default padding of 0.3, everything else has a default padding of 0.</p>
-<p><code>padding</code> is ignored on these elements:</p>
+<p>Most elements can have a <code>padding</code> value, which will add the specified amount of padding around the element, measured in <a href="../common-aspects/#sizes">slot units</a>. The "root" element of the form (the one returned by the <a href="../getting-started/#basic-example">build function</a>) has a default padding of 0.3, everything else has a default padding of 0.</p>
+<div class="admonition warning">
+<p class="admonition-title"><code>padding</code> is ignored on some elements</p>
 <ul>
-<li><code>gui.Flow</code>, <code>gui.ScrollableVBox</code>, and <code>gui.PaginatedVBox</code>. To pad one, put it inside a <code>gui.VBox</code> (or another layouting element) and set <code>padding</code> on that instead.</li>
-<li>Elements inside a <code>gui.Container</code>, which are placed at their <code>x</code> and <code>y</code> and are not padded.</li>
-<li>Invisible elements such as <code>gui.Style</code>, which take up no space.</li>
+<li><a href="../layout-elements/#guiflow"><code>gui.Flow</code></a>, <a href="../layout-elements/#guiscrollablevbox"><code>gui.ScrollableVBox</code></a>, and <a href="../layout-elements/#guipaginatedvbox"><code>gui.PaginatedVBox</code></a>. To pad one, put it inside a <a href="../layout-elements/#guivbox"><code>gui.VBox</code></a> (or another layouting element) and set <code>padding</code> on that instead.</li>
+<li>Elements inside a <a href="../layout-elements/#guicontainer"><code>gui.Container</code></a>, which are placed at their <code>x</code> and <code>y</code> and are not padded, see <a href="../manual-positioning/">Manual Positioning</a>.</li>
+<li><a href="../common-aspects/#invisible-elements">Invisible elements</a> such as <code>gui.Style</code>, which take up no space.</li>
 </ul>
-<p>There is also a deprecated <a href="../layout-elements/#guipadding-deprecated"><code>gui.Padding</code></a> element that wraps a single element and pads it. Use the <code>padding</code> parameter instead.</p>
-<p><code>HBox</code> and <code>VBox</code> have a <code>spacing</code> field which specifies how much spacing there is between elements inside the box. Its default value is described in <a href="../layout-elements/#guivbox"><code>gui.VBox</code></a>.</p>
-<p>Box elements (<code>gui.HBox</code> and <code>gui.VBox</code>) can optionally have <code>bgimg</code> and <code>bgimg_middle</code> parameters that specify a background for the box. <code>bgimg</code> is the name of a texture, which is stretched to fill the box. If <code>bgimg_middle</code> is set as well, the texture is drawn as a <a href="../common-aspects/#nine-slice-images">nine-slice</a> whose corners are <code>bgimg_middle</code> pixels big, so one small texture can make a background of any size. The background will be drawn behind any padding that the box has.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title"><code>gui.Padding</code> is deprecated</p>
+<p>The <a href="../layout-elements/#guipadding-deprecated"><code>gui.Padding</code></a> element wraps a single element and pads it. Use the <code>padding</code> parameter instead.</p>
+</div>
+<p><a href="../layout-elements/#guihbox"><code>gui.HBox</code></a> and <a href="../layout-elements/#guivbox"><code>gui.VBox</code></a> have a <code>spacing</code> field which specifies how much spacing there is between elements inside the box. Its default value is described in <a href="../layout-elements/#guivbox"><code>gui.VBox</code></a>.</p>
+<p>Box elements (<a href="../layout-elements/#guihbox"><code>gui.HBox</code></a> and <a href="../layout-elements/#guivbox"><code>gui.VBox</code></a>) can optionally have <code>bgimg</code> and <code>bgimg_middle</code> parameters that specify a background for the box. <code>bgimg</code> is the name of a texture, which is stretched to fill the box. If <code>bgimg_middle</code> is set as well, the texture is drawn as a <a href="../common-aspects/#nine-slice-images">nine-slice</a> whose corners are <code>bgimg_middle</code> pixels big, so one small texture can make a background of any size. The background will be drawn behind any padding that the box has.</p>
 <p>The examples below use a small 16x16 texture, a white border around a blue square. It is made with texture modifiers, so no file is needed. Because the border is only 2 pixels wide, you can see how it is stretched.</p>
 <p>Example with only <code>bgimg</code>. The whole texture is stretched, so the border gets thick and blurry:</p>
 <div class="language-lua highlight"><pre><span></span><code><span id="__span-0-1"><span class="nv">gui</span><span class="p">.</span><span class="py">VBox</span><span class="w"> </span><span class="p">{</span>
@@ -612,6 +617,7 @@
 </span></code></pre></div>
 <p><img alt="Screenshot" src="../images/buttons-on-background-middle2.png"/></p>
 <p>The padding around the VBox is 0.5 and the spacing between the buttons inside it is 0.1.</p>
+<p>To draw a background behind other kinds of elements, see <a href="../functional-elements/#guibackground"><code>gui.Background</code></a> and <a href="../functional-elements/#guibackground9"><code>gui.Background9</code></a>.</p>
 </article>
 </div>
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
@@ -639,8 +645,8 @@
 <div class="md-dialog" data-md-component="dialog">
 <div class="md-dialog__inner md-typeset"></div>
 </div>
-<script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.expand", "navigation.top", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
-<script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+<script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.expand", "navigation.top", "content.code.copy"], "search": "../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+<script src="../assets/javascripts/bundle.c21346df.min.js"></script>
 <script src="../js/print-site.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script>
 </body>

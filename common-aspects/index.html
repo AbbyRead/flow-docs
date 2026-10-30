@@ -8,10 +8,10 @@
 <link href="../manual-positioning/" rel="prev"/>
 <link href="../functional-elements/" rel="next"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.6.1, mkdocs-material-9.7.6" name="generator"/>
-<title>Common aspects - Flow Unofficial Documentation</title>
-<link href="../assets/stylesheets/main.484c7ddc.min.css" rel="stylesheet"/>
-<link href="../assets/stylesheets/palette.ab4e12ef.min.css" rel="stylesheet"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.8.0" name="generator"/>
+<title>Common Aspects - Flow Unofficial Documentation</title>
+<link href="../assets/stylesheets/main.57a0d79d.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/palette.fb2fffe2.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
@@ -49,7 +49,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Common aspects
+              Common Aspects
             
           </span>
 </div>
@@ -142,7 +142,7 @@
 <span class="md-ellipsis">
     
   
-    Getting started
+    Getting Started
   
 
     
@@ -177,7 +177,7 @@
 <span class="md-ellipsis">
     
   
-    Layout elements
+    Layout Elements
   
 
     
@@ -189,7 +189,7 @@
 <span class="md-ellipsis">
     
   
-    Padding and spacing
+    Padding and Spacing
   
 
     
@@ -201,7 +201,7 @@
 <span class="md-ellipsis">
     
   
-    Hiding elements
+    Hiding Elements
   
 
     
@@ -213,7 +213,7 @@
 <span class="md-ellipsis">
     
   
-    Manual positioning
+    Manual Positioning
   
 
     
@@ -252,7 +252,7 @@
 <span class="md-ellipsis">
     
   
-    Common aspects
+    Common Aspects
   
 
     
@@ -263,7 +263,7 @@
 <span class="md-ellipsis">
     
   
-    Common aspects
+    Common Aspects
   
 
     
@@ -394,7 +394,7 @@
 <span class="md-ellipsis">
     
   
-    Functional elements
+    Functional Elements
   
 
     
@@ -406,7 +406,7 @@
 <span class="md-ellipsis">
     
   
-    Hypertext markup
+    Hypertext Markup
   
 
     
@@ -472,7 +472,7 @@
 <span class="md-ellipsis">
     
   
-    Displaying forms
+    Displaying Forms
   
 
     
@@ -484,7 +484,7 @@
 <span class="md-nav__icon md-icon"></span>
             
   
-    Displaying forms
+    Displaying Forms
   
 
           </label>
@@ -521,7 +521,7 @@
 <span class="md-ellipsis">
     
   
-    Advanced features
+    Advanced Features
   
 
     
@@ -556,7 +556,7 @@
 <span class="md-ellipsis">
     
   
-    Experimental features
+    Experimental Features
   
 
     
@@ -584,7 +584,7 @@
 <span class="md-ellipsis">
     
   
-    Limitations and security
+    Limitations and Security
   
 
     
@@ -596,7 +596,7 @@
 <span class="md-nav__icon md-icon"></span>
             
   
-    Limitations and security
+    Limitations and Security
   
 
           </label>
@@ -606,7 +606,7 @@
 <span class="md-ellipsis">
     
   
-    Unsupported features
+    Unsupported Features
   
 
     
@@ -634,7 +634,7 @@
 <span class="md-ellipsis">
     
   
-    Development tools
+    Development Tools
   
 
     
@@ -646,7 +646,7 @@
 <span class="md-nav__icon md-icon"></span>
             
   
-    Development tools
+    Development Tools
   
 
           </label>
@@ -830,7 +830,7 @@
 </span></code></pre></div>
 <h2 id="sizes">Sizes</h2>
 <p>Sizes are measured in inventory slots: <code>1</code> is the width and height of one item slot. There is no hidden padding or spacing, so two boxes that are <code>1</code> wide and placed next to each other with <code>spacing = 0</code> touch. You never give an element a position, boxes place their children and flow works out the total size of the form.</p>
-<p>Elements that show text, such as labels, buttons, and fields, are sized to fit their text unless you give them a <code>w</code> and <code>h</code>. Elements that show something without a natural size, such as images, boxes, models, and tables, need an explicit <code>w</code> and <code>h</code> (their parameter lists below do not say <code>-- Optional</code>). Flow can only estimate the width of text because the real width depends on the player's font, screen size, and scaling settings, so avoid layouts that rely on exact text widths (see the note on label sizes in the <a href="../">introduction</a>).</p>
+<p>Elements that show text, such as labels, buttons, and fields, are sized to fit their text unless you give them a <code>w</code> and <code>h</code>. Elements that show something without a natural size, such as images, boxes, models, and tables, need an explicit <code>w</code> and <code>h</code> (their parameter lists below do not say <code>-- Optional</code>). Flow can only estimate the width of text because the real width depends on the player's font, screen size, and scaling settings, so avoid layouts that rely on exact text widths (see the note on label sizes in the <a href="../#features">introduction</a>).</p>
 <h3 id="which-elements-take-w-h-min_w-and-min_h">Which Elements Take <code>w</code>, <code>h</code>, <code>min_w</code>, and <code>min_h</code></h3>
 <p>Elements that size themselves are the ones flow can work out a size for: from their text (labels, buttons, fields, dropdowns, text lists), or from the elements inside them (containers and boxes). For these, <code>w</code> and <code>h</code> are optional, and <code>min_w</code> and <code>min_h</code> set a lower limit on the size flow works out. <code>min_w</code> and <code>min_h</code> only apply to a dimension that flow works out itself: if you set both <code>w</code> and <code>h</code>, both minimums are ignored, and if you set only <code>w</code>, <code>min_w</code> is ignored and <code>min_h</code> still applies. Elements that cannot size themselves ignore <code>min_w</code> and <code>min_h</code>.</p>
 <table>
@@ -843,83 +843,87 @@
 </thead>
 <tbody>
 <tr>
-<td><code>gui.Label</code></td>
+<td><a href="../functional-elements/#guilabel"><code>gui.Label</code></a></td>
 <td>Optional</td>
 <td>Yes</td>
 </tr>
 <tr>
-<td><code>gui.Vertlabel</code>, <code>gui.Checkbox</code></td>
+<td><a href="../functional-elements/#guivertlabel"><code>gui.Vertlabel</code></a>, <a href="../functional-elements/#guicheckbox"><code>gui.Checkbox</code></a></td>
 <td>Not supported, always sized automatically</td>
 <td>Yes</td>
 </tr>
 <tr>
-<td><code>gui.Button</code>, <code>gui.ButtonExit</code>, <code>gui.ButtonURL</code></td>
+<td><a href="../functional-elements/#guibutton"><code>gui.Button</code></a>, <a href="../functional-elements/#guibuttonexit"><code>gui.ButtonExit</code></a>, <a href="../functional-elements/#guibuttonurl"><code>gui.ButtonURL</code></a></td>
 <td>Optional</td>
 <td>Yes</td>
 </tr>
 <tr>
-<td><code>gui.ImageButton</code>, <code>gui.ImageButtonExit</code>, <code>gui.ItemImageButton</code></td>
+<td><a href="../functional-elements/#guiimagebutton"><code>gui.ImageButton</code></a>, <a href="../functional-elements/#guiimagebuttonexit"><code>gui.ImageButtonExit</code></a>, <a href="../functional-elements/#guiitemimagebutton"><code>gui.ItemImageButton</code></a></td>
 <td>Optional, the size is worked out from the label like a button (at least 1.6 by 0.8), so you usually want to set them</td>
 <td>Yes</td>
 </tr>
 <tr>
-<td><code>gui.ButtonUrlExit</code></td>
+<td><a href="../functional-elements/#guibuttonurlexit"><code>gui.ButtonUrlExit</code></a></td>
 <td>Required, it has no automatic size (see the note below the table)</td>
 <td>No</td>
 </tr>
 <tr>
-<td><code>gui.Field</code>, <code>gui.Pwdfield</code>, <code>gui.Textarea</code>, <code>gui.Dropdown</code>, <code>gui.Textlist</code></td>
+<td><a href="../functional-elements/#guifield"><code>gui.Field</code></a>, <a href="../functional-elements/#guipwdfield"><code>gui.Pwdfield</code></a>, <a href="../functional-elements/#guitextarea"><code>gui.Textarea</code></a>, <a href="../functional-elements/#guidropdown"><code>gui.Dropdown</code></a>, <a href="../functional-elements/#guitextlist"><code>gui.Textlist</code></a></td>
 <td>Optional</td>
 <td>Yes</td>
 </tr>
 <tr>
-<td><code>gui.Container</code>, <code>gui.ScrollContainer</code></td>
+<td><a href="../layout-elements/#guicontainer"><code>gui.Container</code></a>, <a href="../functional-elements/#guiscrollcontainer"><code>gui.ScrollContainer</code></a></td>
 <td>Optional, the size is worked out from the elements inside</td>
 <td>Yes</td>
 </tr>
 <tr>
-<td><code>gui.HBox</code>, <code>gui.VBox</code>, <code>gui.Stack</code></td>
+<td><a href="../layout-elements/#guihbox"><code>gui.HBox</code></a>, <a href="../layout-elements/#guivbox"><code>gui.VBox</code></a>, <a href="../layout-elements/#guistack"><code>gui.Stack</code></a></td>
 <td>Not supported, use <code>min_w</code> and <code>min_h</code>. The exception is a <code>gui.Stack</code> with both set, for manual positioning, see the <a href="../layout-elements/">warning in Layout Elements</a></td>
 <td>Yes</td>
 </tr>
 <tr>
-<td><code>gui.ScrollableVBox</code>, <code>gui.PaginatedVBox</code></td>
+<td><a href="../layout-elements/#guiscrollablevbox"><code>gui.ScrollableVBox</code></a>, <a href="../layout-elements/#guipaginatedvbox"><code>gui.PaginatedVBox</code></a></td>
 <td>Optional</td>
 <td>Not checked</td>
 </tr>
 <tr>
-<td><code>gui.Spacer</code></td>
+<td><a href="../layout-elements/#guispacer"><code>gui.Spacer</code></a></td>
 <td>Optional</td>
 <td>Not checked</td>
 </tr>
 <tr>
-<td><code>gui.Flow</code></td>
+<td><a href="../layout-elements/#guiflow"><code>gui.Flow</code></a></td>
 <td><code>w</code> required, <code>h</code> not supported</td>
 <td>No</td>
 </tr>
 <tr>
-<td><code>gui.Image</code>, <code>gui.AnimatedImage</code>, <code>gui.ItemImage</code>, <code>gui.Model</code></td>
+<td><a href="../functional-elements/#guiimage"><code>gui.Image</code></a>, <a href="../functional-elements/#guianimatedimage"><code>gui.AnimatedImage</code></a>, <a href="../functional-elements/#guiitemimage"><code>gui.ItemImage</code></a>, <a href="../functional-elements/#guimodel"><code>gui.Model</code></a></td>
 <td>Required</td>
 <td>No</td>
 </tr>
 <tr>
-<td><code>gui.Box</code>, <code>gui.Table</code>, <code>gui.Hypertext</code>, <code>gui.Scrollbar</code>, <code>gui.Tabheader</code></td>
+<td><a href="../functional-elements/#guibox"><code>gui.Box</code></a>, <a href="../functional-elements/#guitable"><code>gui.Table</code></a>, <a href="../functional-elements/#guihypertext"><code>gui.Hypertext</code></a>, <a href="../functional-elements/#guiscrollbar"><code>gui.Scrollbar</code></a>, <a href="../functional-elements/#guitabheader"><code>gui.Tabheader</code></a></td>
 <td>Required</td>
 <td>No</td>
 </tr>
 <tr>
-<td><code>gui.List</code></td>
+<td><a href="../functional-elements/#guilist"><code>gui.List</code></a></td>
 <td>Required, in slots rather than in size units</td>
 <td>No</td>
 </tr>
 <tr>
-<td><code>gui.Background</code>, <code>gui.Background9</code></td>
+<td><a href="../functional-elements/#guibackground"><code>gui.Background</code></a>, <a href="../functional-elements/#guibackground9"><code>gui.Background9</code></a></td>
 <td>Required, unless <code>auto_clip</code> is <code>true</code></td>
 <td>No</td>
 </tr>
 </tbody>
 </table>
-<p>An element without a size that needs one is written to the form with an empty size, which Luanti rejects, so you will see it as a broken form rather than an error message. <code>gui.ButtonUrlExit</code> has no automatic size, unlike <code>gui.ButtonURL</code>, so its <code>w</code> and <code>h</code> are required, see <a href="../functional-elements/#guibuttonurlexit"><code>gui.ButtonUrlExit</code></a>.</p>
+<div class="admonition warning">
+<p class="admonition-title">A missing size breaks the form</p>
+<p>An element without a size that needs one is written to the form with an empty size, which Luanti rejects, so you will see it as a broken form rather than an error message.</p>
+</div>
+<p><code>gui.ButtonUrlExit</code> has no automatic size, unlike <code>gui.ButtonURL</code>, so its <code>w</code> and <code>h</code> are required, see <a href="../functional-elements/#guibuttonurlexit"><code>gui.ButtonUrlExit</code></a>.</p>
 <h2 id="names-and-values">Names and Values</h2>
 <p>Many elements take a <code>name</code>. Input elements (fields, checkboxes, dropdowns, lists of text, tables, ...) with a <code>name</code> have their current value stored in <code>ctx.form[name]</code> and flow remembers it when the form is redrawn:</p>
 <table>
@@ -931,39 +935,43 @@
 </thead>
 <tbody>
 <tr>
-<td><code>gui.Field</code>, <code>gui.Pwdfield</code>, <code>gui.Textarea</code></td>
+<td><a href="../functional-elements/#guifield"><code>gui.Field</code></a>, <a href="../functional-elements/#guipwdfield"><code>gui.Pwdfield</code></a>, <a href="../functional-elements/#guitextarea"><code>gui.Textarea</code></a></td>
 <td>Text (string)</td>
 </tr>
 <tr>
-<td><code>gui.Checkbox</code></td>
+<td><a href="../functional-elements/#guicheckbox"><code>gui.Checkbox</code></a></td>
 <td><code>true</code> or <code>false</code></td>
 </tr>
 <tr>
-<td><code>gui.Dropdown</code></td>
+<td><a href="../functional-elements/#guidropdown"><code>gui.Dropdown</code></a></td>
 <td>Text of the selected item, or its number if <code>index_event = true</code></td>
 </tr>
 <tr>
-<td><code>gui.Textlist</code>, <code>gui.Table</code></td>
+<td><a href="../functional-elements/#guitextlist"><code>gui.Textlist</code></a>, <a href="../functional-elements/#guitable"><code>gui.Table</code></a></td>
 <td>Number of the selected row (first row is <code>1</code>)</td>
 </tr>
 <tr>
-<td><code>gui.Tabheader</code></td>
+<td><a href="../functional-elements/#guitabheader"><code>gui.Tabheader</code></a></td>
 <td>Number of the selected tab (first tab is <code>1</code>)</td>
 </tr>
 <tr>
-<td><code>gui.Scrollbar</code></td>
+<td><a href="../functional-elements/#guiscrollbar"><code>gui.Scrollbar</code></a></td>
 <td>Position of the slider (number)</td>
 </tr>
 <tr>
-<td><code>gui.Hypertext</code></td>
+<td><a href="../functional-elements/#guihypertext"><code>gui.Hypertext</code></a></td>
 <td><code>"action:"</code> and the name of the last clicked <code>&lt;action&gt;</code> link</td>
 </tr>
 </tbody>
 </table>
-<p>Until the player changes something, the value is the element's initial value (<code>default</code>, <code>selected</code>, <code>selected_idx</code>, <code>value</code>, <code>current_tab</code>). If you did not give one, it is <code>""</code> for text, <code>false</code> for checkboxes, <code>1</code> for tables, text lists, and dropdowns with <code>index_event = true</code>, the text of the first item for other dropdowns, and <code>0</code> for scrollbars. <code>gui.Hypertext</code> has no starting value, and neither has <code>gui.Tabheader</code> without a <code>current_tab</code>, so <code>ctx.form[name]</code> is <code>nil</code> until the player clicks a link or a tab. Text fields only send their text to the server when the player presses a button or Enter, so <code>ctx.form</code> can be out of date until then.</p>
-<p>If your build function reads <code>ctx.form.some_name</code>, flow redraws the form automatically whenever the player changes that value (unless the element has its own <code>on_event</code>), see <a href="../getting-started/#redrawing-when-a-value-changes">Redrawing When a Value Changes</a>. Buttons do not store a value.</p>
+<p>Until the player changes something, the value is the element's initial value (<code>default</code>, <code>selected</code>, <code>selected_idx</code>, <code>value</code>, <code>current_tab</code>). If you did not give one, it is <code>""</code> for text, <code>false</code> for checkboxes, <code>1</code> for tables, text lists, and dropdowns with <code>index_event = true</code>, the text of the first item for other dropdowns, and <code>0</code> for scrollbars. <code>gui.Hypertext</code> has no starting value, and neither has <code>gui.Tabheader</code> without a <code>current_tab</code>, so <code>ctx.form[name]</code> is <code>nil</code> until the player clicks a link or a tab.</p>
+<div class="admonition note">
+<p class="admonition-title">Text fields can be out of date</p>
+<p>Text fields only send their text to the server when the player presses a button or Enter, so <code>ctx.form</code> can be out of date until then.</p>
+</div>
+<p>If your build function reads <code>ctx.form.some_name</code>, flow redraws the form automatically whenever the player changes that value (unless the element has its own <code>on_event</code>), see <a href="../getting-started/#redrawing-when-a-value-changes">Redrawing When a Value Changes</a>. Buttons do not store a value. See <a href="../security/#what-flow-checks">Security</a> for how flow checks the values that clients send.</p>
 <h2 id="events">Events</h2>
-<p>Elements that the player can use accept an <code>on_event</code> function, which is called with the player and <code>ctx</code>. Return <code>true</code> from it to redraw the form. A <code>name</code> is optional if you use <code>on_event</code>, flow makes one up.</p>
+<p>Elements that the player can use accept an <code>on_event</code> function, which is called with the player and <code>ctx</code>. Return <code>true</code> from it to redraw the form, see <a href="../getting-started/#ways-to-redraw-a-form">Ways to Redraw a Form</a>. A <code>name</code> is optional if you use <code>on_event</code>, flow makes one up.</p>
 <p>Flow has four callbacks. All of them are called with the player and <code>ctx</code>:</p>
 <table>
 <thead>
@@ -1004,10 +1012,13 @@
 <p>Only one button callback runs for each submission, and it runs after all other callbacks, see <a href="../security/">Security</a>. This includes <code>on_close_popover</code>, which flow handles as a button. <code>on_event</code> on a text field is easy to mix up with <code>on_key_enter</code>: <code>on_event</code> is called on any submission, <code>on_key_enter</code> only when Enter is pressed.</p>
 <h2 id="colors">Colors</h2>
 <p>Colors are strings. <code>"#RGB"</code> and <code>"#RRGGBB"</code> are fully opaque, while <code>"#RGBA"</code> and <code>"#RRGGBBAA"</code> end with an alpha value, where <code>00</code> is fully transparent and <code>FF</code> is fully opaque. Color names also work (all the names from CSS, such as <code>"red"</code> and <code>"darkgreen"</code>), and you can add an alpha value after a <code>#</code> to a color name. The alpha value is one or two hexadecimal digits, so <code>"darkgreen#08"</code> is dark green with an alpha of <code>08</code> (hex, about 3% opaque) and <code>"darkgreen#80"</code> is about half transparent.</p>
-<p><strong>Warning:</strong> <code>gui.Box</code>, and the <code>bgcolor</code> of containers (which flow draws with a box), are the exception to the opaque rule: a <code>"#RGB"</code> or <code>"#RRGGBB"</code> color there is drawn semitransparent. Color names are not affected. See <a href="../functional-elements/#guibox"><code>gui.Box</code></a>.</p>
-<p>Most text can also be coloured by putting color escape sequences in it, such as the ones made by <code>core.colorize()</code>. Dropdown items and tab captions are an exception, they cannot be coloured.</p>
+<div class="admonition warning">
+<p class="admonition-title">Box colors are semitransparent</p>
+<p><a href="../functional-elements/#guibox"><code>gui.Box</code></a>, and the <code>bgcolor</code> of containers (which flow draws with a box), are the exception to the opaque rule: a <code>"#RGB"</code> or <code>"#RRGGBB"</code> color there is drawn semitransparent. Color names are not affected.</p>
+</div>
+<p>Most text can also be coloured by putting color escape sequences in it, such as the ones made by <code>core.colorize()</code>. <a href="../functional-elements/#guidropdown">Dropdown</a> items and <a href="../functional-elements/#guitabheader">tab</a> captions are an exception, they cannot be coloured. Colors are used by many <a href="../styling/#property-reference">style properties</a> such as <code>bgcolor</code> and <code>textcolor</code>.</p>
 <h2 id="textures-and-items">Textures and Items</h2>
-<p>A texture name is the file name of an image from the <code>textures</code> folder of any loaded mod, such as <code>"default_dirt.png"</code>. An item name is the registered name of an item or node, such as <code>"unifieddyes:colorium"</code>.</p>
+<p>A texture name is the file name of an image from the <code>textures</code> folder of any loaded mod, such as <code>"default_dirt.png"</code>. It is used by elements such as <a href="../functional-elements/#guiimage"><code>gui.Image</code></a> and <a href="../functional-elements/#guiimagebutton"><code>gui.ImageButton</code></a>. An item name is the registered name of an item or node, such as <code>"unifieddyes:colorium"</code>. It is used by <a href="../functional-elements/#guiitemimage"><code>gui.ItemImage</code></a> and <a href="../functional-elements/#guiitemimagebutton"><code>gui.ItemImageButton</code></a>.</p>
 <h2 id="invisible-elements">Invisible Elements</h2>
 <p>Some elements draw nothing and take up no space in a <code>gui.HBox</code>, <code>gui.VBox</code>, or <code>gui.Stack</code>. They change how a nearby element looks or behaves, and where you put them matters:</p>
 <table>
@@ -1107,7 +1118,7 @@
 </tr>
 <tr>
 <td><code>on_event</code></td>
-<td>A function to call when the player uses the element, see Events above.</td>
+<td>A function to call when the player uses the element, see <a href="#events">Events</a> above.</td>
 </tr>
 </tbody>
 </table>
@@ -1147,7 +1158,7 @@
 </tr>
 </tbody>
 </table>
-<p>Set <code>align_h</code> or <code>align_v</code> yourself to override this. Which elements need a <code>w</code> and <code>h</code>, and which do not, is a separate question, see Sizes above.</p>
+<p>Set <code>align_h</code> or <code>align_v</code> yourself to override this. Which elements need a <code>w</code> and <code>h</code>, and which do not, is a separate question, see <a href="#sizes">Sizes</a> above.</p>
 <h2 id="nine-slice-images">Nine-Slice Images</h2>
 <p>Images and image-like backgrounds can optionally be drawn as a "nine-slice". The picture is cut into a 3x3 grid, where the corners keep their size, the edges are stretched in one direction, and the middle is stretched in both. This lets one small texture make a panel or border of any size without distorting its corners. The <code>middle_*</code> parameters describe where the cuts are, in texture pixels (whole numbers):</p>
 <ul>
@@ -1181,7 +1192,7 @@
 </thead>
 <tbody>
 <tr>
-<td>Elements with <code>middle_*</code> parameters, such as <code>gui.Background9</code> and <code>gui.AnimatedImage</code></td>
+<td>Elements with <code>middle_*</code> parameters, such as <a href="../functional-elements/#guibackground9"><code>gui.Background9</code></a> and <a href="../functional-elements/#guianimatedimage"><code>gui.AnimatedImage</code></a></td>
 <td><code>middle_x</code>, <code>middle_y</code>, <code>middle_x2</code>, <code>middle_y2</code></td>
 <td>Separate numbers</td>
 <td>As described above.</td>
@@ -1227,8 +1238,8 @@
 <div class="md-dialog" data-md-component="dialog">
 <div class="md-dialog__inner md-typeset"></div>
 </div>
-<script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.expand", "navigation.top", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
-<script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+<script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.expand", "navigation.top", "content.code.copy"], "search": "../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+<script src="../assets/javascripts/bundle.c21346df.min.js"></script>
 <script src="../js/print-site.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script>
 </body>

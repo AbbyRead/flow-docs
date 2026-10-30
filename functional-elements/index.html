@@ -8,10 +8,10 @@
 <link href="../common-aspects/" rel="prev"/>
 <link href="../hypertext/" rel="next"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.6.1, mkdocs-material-9.7.6" name="generator"/>
-<title>Functional elements - Flow Unofficial Documentation</title>
-<link href="../assets/stylesheets/main.484c7ddc.min.css" rel="stylesheet"/>
-<link href="../assets/stylesheets/palette.ab4e12ef.min.css" rel="stylesheet"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.8.0" name="generator"/>
+<title>Functional Elements - Flow Unofficial Documentation</title>
+<link href="../assets/stylesheets/main.57a0d79d.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/palette.fb2fffe2.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
@@ -49,7 +49,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Functional elements
+              Functional Elements
             
           </span>
 </div>
@@ -142,7 +142,7 @@
 <span class="md-ellipsis">
     
   
-    Getting started
+    Getting Started
   
 
     
@@ -177,7 +177,7 @@
 <span class="md-ellipsis">
     
   
-    Layout elements
+    Layout Elements
   
 
     
@@ -189,7 +189,7 @@
 <span class="md-ellipsis">
     
   
-    Padding and spacing
+    Padding and Spacing
   
 
     
@@ -201,7 +201,7 @@
 <span class="md-ellipsis">
     
   
-    Hiding elements
+    Hiding Elements
   
 
     
@@ -213,7 +213,7 @@
 <span class="md-ellipsis">
     
   
-    Manual positioning
+    Manual Positioning
   
 
     
@@ -251,7 +251,7 @@
 <span class="md-ellipsis">
     
   
-    Common aspects
+    Common Aspects
   
 
     
@@ -264,7 +264,7 @@
 <span class="md-ellipsis">
     
   
-    Functional elements
+    Functional Elements
   
 
     
@@ -275,7 +275,7 @@
 <span class="md-ellipsis">
     
   
-    Functional elements
+    Functional Elements
   
 
     
@@ -1202,7 +1202,7 @@
 <span class="md-ellipsis">
     
   
-    Hypertext markup
+    Hypertext Markup
   
 
     
@@ -1268,7 +1268,7 @@
 <span class="md-ellipsis">
     
   
-    Displaying forms
+    Displaying Forms
   
 
     
@@ -1280,7 +1280,7 @@
 <span class="md-nav__icon md-icon"></span>
             
   
-    Displaying forms
+    Displaying Forms
   
 
           </label>
@@ -1317,7 +1317,7 @@
 <span class="md-ellipsis">
     
   
-    Advanced features
+    Advanced Features
   
 
     
@@ -1352,7 +1352,7 @@
 <span class="md-ellipsis">
     
   
-    Experimental features
+    Experimental Features
   
 
     
@@ -1380,7 +1380,7 @@
 <span class="md-ellipsis">
     
   
-    Limitations and security
+    Limitations and Security
   
 
     
@@ -1392,7 +1392,7 @@
 <span class="md-nav__icon md-icon"></span>
             
   
-    Limitations and security
+    Limitations and Security
   
 
           </label>
@@ -1402,7 +1402,7 @@
 <span class="md-ellipsis">
     
   
-    Unsupported features
+    Unsupported Features
   
 
     
@@ -1430,7 +1430,7 @@
 <span class="md-ellipsis">
     
   
-    Development tools
+    Development Tools
   
 
     
@@ -1442,7 +1442,7 @@
 <span class="md-nav__icon md-icon"></span>
             
   
-    Development tools
+    Development Tools
   
 
           </label>
@@ -2415,6 +2415,7 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1 id="functional-elements">Functional Elements</h1>
+<p>These elements draw something or accept input. Do <code>local gui = flow.widgets</code> to use them, as described in <a href="../getting-started/">Getting Started</a>. Elements that arrange other elements are in <a href="../layout-elements/">Layout Elements</a>, and the parameters that every element accepts are in <a href="../common-aspects/#parameters-shared-by-all-elements">Common Aspects</a>.</p>
 <h2 id="guianimatedimage"><code>gui.AnimatedImage</code></h2>
 <p>Shows an image that plays an animation. The texture must contain every frame stacked on top of each other (the first frame at the top), with all frames the same size, like the frames of an animated node texture. So a texture with 3 frames of 16x16 pixels is 16 pixels wide and 48 pixels high. <code>w</code> and <code>h</code> are the size of one displayed frame, and the picture is scaled to that size.</p>
 <p><code>middle_*</code> parameters turn on nine-slice drawing, see <a href="../common-aspects/#nine-slice-images">Nine-Slice Images</a>. The cuts are measured in pixels of one frame.</p>
@@ -2468,7 +2469,11 @@
 </span></code></pre></div>
 <h2 id="guibackground"><code>gui.Background</code></h2>
 <p>Draws a picture behind everything else in the form: all backgrounds are drawn before any other element, whatever order they are in. The picture (<code>texture_name</code>) is stretched to <code>w</code> by <code>h</code>. If <code>auto_clip</code> is <code>true</code>, it is cut off at the edge of the form instead and <code>w</code> and <code>h</code> are ignored.</p>
-<p>You usually do not need this element, set <code>bgimg</code> on a container or the root element instead (see <a href="../padding/">Padding</a>). Inside a <code>gui.Stack</code>, a <code>gui.ScrollableVBox</code>, or an embedded form, flow draws backgrounds without <code>auto_clip</code> as ordinary images.</p>
+<div class="admonition tip">
+<p class="admonition-title">Usually not needed</p>
+<p>Set <code>bgimg</code> on a container or the root element instead, see <a href="../padding/">Padding</a>.</p>
+</div>
+<p>Inside a <a href="../layout-elements/#guistack"><code>gui.Stack</code></a>, a <a href="../layout-elements/#guiscrollablevbox"><code>gui.ScrollableVBox</code></a>, or an <a href="../advanced/#embedding-a-form-into-another-form">embedded form</a>, flow draws backgrounds without <code>auto_clip</code> as ordinary images.</p>
 <h3 id="example_1">Example</h3>
 <p>The background comes last in the list but is still drawn behind the button.</p>
 <div class="language-lua highlight"><pre><span></span><code><span id="__span-2-1"><span class="kd">local</span><span class="w"> </span><span class="nv">form</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">flow</span><span class="p">.</span><span class="nf">make_gui</span><span class="p">(</span><span class="kr">function</span><span class="p">(</span><span class="nv">player</span><span class="p">,</span><span class="w"> </span><span class="nv">ctx</span><span class="p">)</span>
@@ -2540,7 +2545,10 @@
 </span></code></pre></div>
 <h2 id="guibox"><code>gui.Box</code></h2>
 <p>Draws a solid rectangle of one color. Boxes have no natural size, so give them a <code>w</code> and <code>h</code>.</p>
-<p>Unlike everywhere else, a hexadecimal color without an alpha value (<code>"#RGB"</code> or <code>"#RRGGBB"</code>) is drawn with an alpha of <code>8C</code> (140 out of 255, about 55% opaque) here. Add the alpha value (<code>"#FF0000FF"</code>) to make it opaque. Color names such as <code>"red"</code> are not affected and are opaque unless you add an alpha value (<code>"red#80"</code>). Flow also draws the <code>bgcolor</code> of <code>gui.HBox</code>, <code>gui.VBox</code>, and other containers with a box, so the same applies to it.</p>
+<div class="admonition warning">
+<p class="admonition-title">Box colors are semitransparent by default</p>
+<p>Unlike everywhere else (see <a href="../common-aspects/#colors">Colors</a>), a hexadecimal color without an alpha value (<code>"#RGB"</code> or <code>"#RRGGBB"</code>) is drawn with an alpha of <code>8C</code> (140 out of 255, about 55% opaque) here. Add the alpha value (<code>"#FF0000FF"</code>) to make it opaque. Color names such as <code>"red"</code> are not affected and are opaque unless you add an alpha value (<code>"red#80"</code>). Flow also draws the <code>bgcolor</code> of <a href="../layout-elements/#guihbox"><code>gui.HBox</code></a>, <a href="../layout-elements/#guivbox"><code>gui.VBox</code></a>, and other containers with a box, so the same applies to it.</p>
+</div>
 <h3 id="example_4">Example</h3>
 <p>The first and last boxes are translucent, the other two are opaque:</p>
 <div class="language-lua highlight"><pre><span></span><code><span id="__span-5-1"><span class="nv">gui</span><span class="p">.</span><span class="py">HBox</span><span class="w"> </span><span class="p">{</span>
@@ -2556,8 +2564,8 @@
 </span><span id="__span-5-11"><span class="p">}</span>
 </span></code></pre></div>
 <h2 id="guibutton"><code>gui.Button</code></h2>
-<p>A clickable button showing <code>label</code>. Your <code>on_event</code> function is called when it is clicked. If you do not set <code>w</code> and <code>h</code>, the button is sized to fit the label (but never smaller than 1.6 by 0.8).</p>
-<p>Buttons do not store a value in <code>ctx.form</code>.</p>
+<p>A clickable button showing <code>label</code>. Your <a href="../common-aspects/#events"><code>on_event</code></a> function is called when it is clicked. If you do not set <code>w</code> and <code>h</code>, the button is sized to fit the label (but never smaller than 1.6 by 0.8).</p>
+<p>Buttons do not store a value in <code>ctx.form</code>, see <a href="../common-aspects/#names-and-values">Names and Values</a>.</p>
 <h3 id="example_5">Example</h3>
 <div class="language-lua highlight"><pre><span></span><code><span id="__span-6-1"><span class="nv">gui</span><span class="p">.</span><span class="py">Button</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-6-2"><span class="w">    </span><span class="nv">w</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
@@ -2604,7 +2612,7 @@
 </span></code></pre></div>
 <h2 id="guicheckbox"><code>gui.Checkbox</code></h2>
 <p>A tick box with a text <code>label</code>. <code>selected</code> sets whether it starts ticked. If you give it a <code>name</code>, <code>ctx.form[name]</code> is <code>true</code> or <code>false</code> and is updated as soon as the player ticks or unticks it.</p>
-<p>Checkboxes are sized automatically and do not accept <code>w</code> or <code>h</code>.</p>
+<p>Checkboxes are sized automatically and do not accept <code>w</code> or <code>h</code>, see <a href="../common-aspects/#which-elements-take-w-h-min_w-and-min_h">Which Elements Take <code>w</code>, <code>h</code>, <code>min_w</code>, and <code>min_h</code></a>.</p>
 <h3 id="example_9">Example</h3>
 <div class="language-lua highlight"><pre><span></span><code><span id="__span-10-1"><span class="nv">gui</span><span class="p">.</span><span class="py">Checkbox</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-10-2"><span class="w">    </span><span class="nv">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"my_checkbox"</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
@@ -2657,7 +2665,11 @@
 </span><span id="__span-12-18"><span class="p">}</span>
 </span></code></pre></div>
 <h2 id="guifieldcloseonenter"><code>gui.FieldCloseOnEnter</code></h2>
-<p>Sets whether pressing Enter in the field with this <code>name</code> closes the form. You normally do not need this element, as <code>gui.Field</code> has a <code>close_on_enter</code> parameter (and by default Enter does not close the form).</p>
+<p>Sets whether pressing Enter in the field with this <code>name</code> closes the form.</p>
+<div class="admonition tip">
+<p class="admonition-title">Usually not needed</p>
+<p><code>gui.Field</code> has a <code>close_on_enter</code> parameter, and by default Enter does not close the form. See <a href="../experimental/#handling-enter-keypresses-in-fields">Handling Enter Keypresses in Fields</a>.</p>
+</div>
 <h3 id="example_12">Example</h3>
 <p>Type something and press Enter. While the checkbox is ticked, Enter also closes the form.</p>
 <div class="language-lua highlight"><pre><span></span><code><span id="__span-13-1"><span class="kd">local</span><span class="w"> </span><span class="nv">form</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">flow</span><span class="p">.</span><span class="nf">make_gui</span><span class="p">(</span><span class="kr">function</span><span class="p">(</span><span class="nv">player</span><span class="p">,</span><span class="w"> </span><span class="nv">ctx</span><span class="p">)</span>
@@ -2673,7 +2685,15 @@
 </span><span id="__span-13-11"><span class="kr">end</span><span class="p">)</span>
 </span></code></pre></div>
 <h2 id="guifieldenterafteredit"><code>gui.FieldEnterAfterEdit</code></h2>
-<p>Experimental, and only affects Android. If <code>enter_after_edit</code> is <code>true</code>, pressing "Done" in the text input dialog of the field with this <code>name</code> counts as pressing Enter. You normally do not need this element, as <code>gui.Field</code> has an <code>enter_after_edit</code> parameter.</p>
+<div class="admonition warning">
+<p class="admonition-title">Experimental</p>
+<p>This element only affects Android.</p>
+</div>
+<p>If <code>enter_after_edit</code> is <code>true</code>, pressing "Done" in the text input dialog of the field with this <code>name</code> counts as pressing Enter.</p>
+<div class="admonition tip">
+<p class="admonition-title">Usually not needed</p>
+<p><code>gui.Field</code> has an <code>enter_after_edit</code> parameter.</p>
+</div>
 <h3 id="example_13">Example</h3>
 <div class="language-lua highlight"><pre><span></span><code><span id="__span-14-1"><span class="nv">gui</span><span class="p">.</span><span class="py">VBox</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-14-2"><span class="w">    </span><span class="nv">gui</span><span class="p">.</span><span class="py">Field</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"msg"</span><span class="p">,</span><span class="w"> </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Edit me, then press Done"</span><span class="w"> </span><span class="p">},</span>
@@ -2686,7 +2706,11 @@
 </span></code></pre></div>
 <h2 id="guihypertext"><code>gui.Hypertext</code></h2>
 <p>Shows text that can be formatted (bold, colors, different sizes, images, ...) and can contain clickable links. The text is written in a small HTML-like language, which is described in <a href="../hypertext/">Hypertext Markup</a>. <code>w</code> and <code>h</code> are the size of the area that the text is wrapped to fit in.</p>
-<p>If the markup contains <code>&lt;action name=...&gt;</code> links, <code>ctx.form[name]</code> is set to <code>"action:"</code> followed by the action name when the player clicks one. This behaviour is experimental and may change.</p>
+<p>If the markup contains <code>&lt;action name=...&gt;</code> links, <code>ctx.form[name]</code> is set to <code>"action:"</code> followed by the action name when the player clicks one.</p>
+<div class="admonition warning">
+<p class="admonition-title">Experimental</p>
+<p>The <code>&lt;action&gt;</code> behaviour may change, see <a href="../hypertext/#links">Links</a>.</p>
+</div>
 <h3 id="example_14">Example</h3>
 <div class="language-lua highlight"><pre><span></span><code><span id="__span-15-1"><span class="nv">gui</span><span class="p">.</span><span class="py">Hypertext</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-15-2"><span class="w">    </span><span class="nv">w</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span>
@@ -2766,7 +2790,10 @@
 </span></code></pre></div>
 <h2 id="guiitemimagebutton"><code>gui.ItemImageButton</code></h2>
 <p>A button that shows the inventory picture of an item or node (<code>item_name</code>). By default, the item's description is shown as a tooltip when the player hovers over the button, which you can replace with the <code>tooltip</code> parameter. It works like <code>gui.Button</code> otherwise.</p>
-<p>Give every item image button its own unique <code>name</code>, otherwise its tooltip may not work.</p>
+<div class="admonition note">
+<p class="admonition-title">Give each item image button a unique <code>name</code></p>
+<p>Otherwise its tooltip may not work. See <a href="../tooltips/">Tooltips</a>.</p>
+</div>
 <h3 id="example_19">Example</h3>
 <div class="language-lua highlight"><pre><span></span><code><span id="__span-20-1"><span class="nv">gui</span><span class="p">.</span><span class="py">ItemImageButton</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-20-2"><span class="w">    </span><span class="nv">w</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span>
@@ -2779,7 +2806,11 @@
 </span><span id="__span-20-9"><span class="p">}</span>
 </span></code></pre></div>
 <h2 id="guilabel"><code>gui.Label</code></h2>
-<p>Shows text. Labels do not wrap long lines automatically: use <code>\n</code> to start a new line and do not use labels for long paragraphs. For those, use <code>gui.Hypertext</code>, or a <code>gui.Textarea</code> without a <code>name</code> (which wraps its text and gets a scrollbar if the text is too long).</p>
+<p>Shows text.</p>
+<div class="admonition note">
+<p class="admonition-title">Labels do not wrap</p>
+<p>Labels do not wrap long lines automatically: use <code>\n</code> to start a new line and do not use labels for long paragraphs. For those, use <a href="#guihypertext"><code>gui.Hypertext</code></a>, or a <a href="#guitextarea"><code>gui.Textarea</code></a> without a <code>name</code> (which wraps its text and gets a scrollbar if the text is too long).</p>
+</div>
 <p>Labels are sized to fit their text, and flow ignores color escape sequences when it estimates the width. To make the text bigger or smaller, use the <code>font_size</code> style (for example <code>style = {font_size = "*2"}</code>), see <a href="../styling/">Styling</a>.</p>
 <h3 id="example_20">Example</h3>
 <div class="language-lua highlight"><pre><span></span><code><span id="__span-21-1"><span class="nv">gui</span><span class="p">.</span><span class="py">Label</span><span class="w"> </span><span class="p">{</span>
@@ -2787,14 +2818,14 @@
 </span><span id="__span-21-3"><span class="p">}</span>
 </span></code></pre></div>
 <h2 id="guilist"><code>gui.List</code></h2>
-<p>Shows a grid of inventory slots, with the items of one inventory list in it. This is how you show the player's inventory, a chest, a furnace's input slots, and so on.</p>
+<p>Shows a grid of inventory slots, with the items of one inventory list in it. This is how you show the player's inventory, a chest, a furnace's input slots, and so on. To use a whole form as the player's inventory, see <a href="../inventory/">Using a Form as an Inventory</a>.</p>
 <ul>
 <li><code>inventory_location</code>: Which inventory to show. Common values are <code>"current_player"</code> (the inventory of the player who has the form open), <code>"nodemeta:X,Y,Z"</code> (the inventory of the node at that position, for example <code>"nodemeta:10,5,-3"</code>), and <code>"detached:name"</code> (a detached inventory). <code>"player:name"</code> is the inventory of a specific player and is only ever sent to that player.</li>
 <li><code>list_name</code>: The name of the list inside that inventory, such as <code>"main"</code> or <code>"craft"</code>.</li>
 <li><code>w</code> and <code>h</code>: How many slots wide and high to draw (whole numbers).</li>
 </ul>
 <p>Slots are filled from left to right, then top to bottom, and the player can move items in and out of them. The list is only shown if the inventory has been sent to the player's client. Only as many slots as the inventory list has are drawn, even if <code>w</code> times <code>h</code> is larger.</p>
-<p>Each slot is 1 by 1, with 0.25 between slots, so a list that is 8 slots wide and 4 high is 9.75 by 4.75 big. To change the slot size or spacing, use the <code>size</code> and <code>spacing</code> styles, see <a href="../styling/">Styling</a>.</p>
+<p>Each slot is 1 by 1, with 0.25 between slots, so a list that is 8 slots wide and 4 high is 9.75 by 4.75 big. To change the slot size or spacing, use the <code>size</code> and <code>spacing</code> styles, see <a href="../styling/#lists">Lists</a> in Styling.</p>
 <h3 id="example_21">Example</h3>
 <div class="language-lua highlight"><pre><span></span><code><span id="__span-22-1"><span class="nv">gui</span><span class="p">.</span><span class="py">List</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-22-2"><span class="w">    </span><span class="c1">-- Which inventory to show.</span>
@@ -2811,7 +2842,7 @@
 </span><span id="__span-22-13"><span class="p">}</span>
 </span></code></pre></div>
 <h2 id="guilistcolors"><code>gui.Listcolors</code></h2>
-<p>Sets the colors of inventory slots. It is invisible, takes up no space, and should come before the <code>gui.List</code> elements it is for.</p>
+<p>Sets the colors of inventory slots. It is <a href="../common-aspects/#invisible-elements">invisible</a>, takes up no space, and should come before the <code>gui.List</code> elements it is for.</p>
 <ul>
 <li><code>slot_bg_normal</code>: Background color of a slot.</li>
 <li><code>slot_bg_hover</code>: Background color of a slot while the mouse is over it.</li>
@@ -2853,7 +2884,7 @@
 <h2 id="guilistring"><code>gui.Listring</code></h2>
 <p>Sets where items go when the player shift-clicks them. A <em>ring</em> is an ordered list of inventory lists that Luanti keeps for the form, which starts out empty. Every <code>gui.Listring{inventory_location = ..., list_name = ...}</code> adds one list to the end of the ring. When the player shift-clicks an item in a list that is in the ring, the item is sent to the next list in the ring. Lists that are not in the ring keep Luanti's default shift-click behavior.</p>
 <p>A list can be added to the ring more than once. Luanti sends an item to the entry after the <em>first</em> entry of its own list, and later entries of the same list are only destinations. In a ring of <code>main</code>, <code>craft</code>, <code>main</code>, <code>output</code>, items from <code>main</code> go to <code>craft</code>, items from <code>craft</code> go to the second <code>main</code>, and items from <code>output</code> wrap around to the first <code>main</code>, so both <code>craft</code> and <code>output</code> send to <code>main</code>.</p>
-<p><code>gui.Listring{}</code> with no parameters adds the last two <code>gui.List</code> elements before it. It is invisible and takes up no space.</p>
+<p><code>gui.Listring{}</code> with no parameters adds the last two <code>gui.List</code> elements before it. It is <a href="../common-aspects/#invisible-elements">invisible</a> and takes up no space.</p>
 <h3 id="example_23">Example</h3>
 <p>Shift-click an item in either list to send it to the other one. Untick the checkbox to remove the ring and go back to Luanti's default.</p>
 <div class="language-lua highlight"><pre><span></span><code><span id="__span-24-1"><span class="kd">local</span><span class="w"> </span><span class="nv">form</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">flow</span><span class="p">.</span><span class="nf">make_gui</span><span class="p">(</span><span class="kr">function</span><span class="p">(</span><span class="nv">player</span><span class="p">,</span><span class="w"> </span><span class="nv">ctx</span><span class="p">)</span>
@@ -2942,7 +2973,11 @@
 </span><span id="__span-26-9"><span class="p">}</span>
 </span></code></pre></div>
 <h2 id="guiscrollcontainer"><code>gui.ScrollContainer</code></h2>
-<p>An area of a fixed size that clips the elements inside it and moves them when a scrollbar is moved. You usually want <code>gui.ScrollableVBox</code> instead, which does all of this for you. The elements inside are positioned by hand with <code>x</code> and <code>y</code>, like in <code>gui.Container</code>.</p>
+<p>An area of a fixed size that clips the elements inside it and moves them when a scrollbar is moved. The elements inside are positioned by hand with <code>x</code> and <code>y</code>, like in <a href="../layout-elements/#guicontainer"><code>gui.Container</code></a>. See <a href="../manual-positioning/">Manual Positioning</a>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Prefer <code>gui.ScrollableVBox</code></p>
+<p>You usually want <a href="../layout-elements/#guiscrollablevbox"><code>gui.ScrollableVBox</code></a> instead, which does all of this for you.</p>
+</div>
 <ul>
 <li><code>w</code> and <code>h</code>: The size of the visible area.</li>
 <li><code>scrollbar_name</code>: The <code>name</code> of the <code>gui.Scrollbar</code> that controls the area. You need to add that scrollbar yourself.</li>
@@ -2989,9 +3024,12 @@
 </span><span id="__span-28-10"><span class="w">    </span><span class="nv">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
 </span><span id="__span-28-11"><span class="p">}</span>
 </span></code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Do not use scrollbar textures</p>
 <p>Do not use the <code>scrollbar_bg</code>, <code>slider</code>, <code>arrow_up</code>, and <code>arrow_down</code> texture parameters: Luanti has no such parameters, and on Luanti 5.8 and newer a scrollbar that sets any of them is not shown at all. See <a href="../not-supported/#scrollbar-textures-do-not-work">Scrollbar Textures Do Not Work</a>.</p>
+</div>
 <h2 id="guiscrollbaroptions"><code>gui.ScrollbarOptions</code></h2>
-<p>Sets the options of the <code>gui.Scrollbar</code> elements that come after it. It is invisible and takes up no space. <code>opts</code> is a table with any of these options, all values are strings that contain whole numbers (except <code>arrows</code>):</p>
+<p>Sets the options of the <code>gui.Scrollbar</code> elements that come after it. It is <a href="../common-aspects/#invisible-elements">invisible</a> and takes up no space. <code>opts</code> is a table with any of these options, all values are strings that contain whole numbers (except <code>arrows</code>):</p>
 <ul>
 <li><code>min</code>: The smallest value (default <code>0</code>).</li>
 <li><code>max</code>: The largest value (default <code>1000</code>). If it is the same as <code>min</code>, the scrollbar is disabled.</li>
@@ -3044,7 +3082,7 @@
 </span><span id="__span-30-12"><span class="kr">end</span><span class="p">)</span>
 </span></code></pre></div>
 <h2 id="guistyle"><code>gui.Style</code></h2>
-<p>Sets style properties of elements by their <code>name</code>. See <a href="../styling/#separate-style-elements">Styling</a>. It is invisible and takes up no space.</p>
+<p>Sets style properties of elements by their <code>name</code>. See <a href="../styling/#separate-style-elements">Styling</a>. It is <a href="../common-aspects/#invisible-elements">invisible</a> and takes up no space.</p>
 <h3 id="example_30">Example</h3>
 <p>Pick a color to tint the button named "fancy". The other button is not affected.</p>
 <div class="language-lua highlight"><pre><span></span><code><span id="__span-31-1"><span class="kd">local</span><span class="w"> </span><span class="nv">form</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">flow</span><span class="p">.</span><span class="nf">make_gui</span><span class="p">(</span><span class="kr">function</span><span class="p">(</span><span class="nv">player</span><span class="p">,</span><span class="w"> </span><span class="nv">ctx</span><span class="p">)</span>
@@ -3062,7 +3100,7 @@
 </span><span id="__span-31-13"><span class="kr">end</span><span class="p">)</span>
 </span></code></pre></div>
 <h2 id="guistyletype"><code>gui.StyleType</code></h2>
-<p>Sets style properties of every element of a type. See <a href="../styling/#separate-style-elements">Styling</a>. It is invisible and takes up no space.</p>
+<p>Sets style properties of every element of a type. See <a href="../styling/#separate-style-elements">Styling</a>. It is <a href="../common-aspects/#invisible-elements">invisible</a> and takes up no space.</p>
 <h3 id="example_31">Example</h3>
 <p>Pick a text color. Every button after the style changes, but the label does not.</p>
 <div class="language-lua highlight"><pre><span></span><code><span id="__span-32-1"><span class="kd">local</span><span class="w"> </span><span class="nv">form</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">flow</span><span class="p">.</span><span class="nf">make_gui</span><span class="p">(</span><span class="kr">function</span><span class="p">(</span><span class="nv">player</span><span class="p">,</span><span class="w"> </span><span class="nv">ctx</span><span class="p">)</span>
@@ -3082,7 +3120,7 @@
 </span></code></pre></div>
 <h2 id="guitabheader"><code>gui.Tabheader</code></h2>
 <p>A row of tabs. <code>captions</code> is the text of each tab, <code>ctx.form[name]</code> is the number of the selected tab (the first tab is <code>1</code>), and <code>current_tab</code> is the tab that is selected at first. Showing the right contents for the selected tab is up to you, usually by reading <code>ctx.form[name]</code> in your build function.</p>
-<p>Give it both a <code>w</code> and an <code>h</code>: flow cannot work out how much space it needs. If <code>transparent</code> is <code>true</code> the tabs are semi-transparent, and <code>draw_border</code> draws a thin line along the bottom of the tabs.</p>
+<p>Give it both a <code>w</code> and an <code>h</code>: flow cannot work out how much space it needs, see <a href="../common-aspects/#which-elements-take-w-h-min_w-and-min_h">Which Elements Take <code>w</code>, <code>h</code>, <code>min_w</code>, and <code>min_h</code></a>. If <code>transparent</code> is <code>true</code> the tabs are semi-transparent, and <code>draw_border</code> draws a thin line along the bottom of the tabs.</p>
 <h3 id="example_32">Example</h3>
 <div class="language-lua highlight"><pre><span></span><code><span id="__span-33-1"><span class="nv">gui</span><span class="p">.</span><span class="py">Tabheader</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-33-2"><span class="w">    </span><span class="nv">w</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span>
@@ -3105,7 +3143,7 @@
 <h2 id="guitable"><code>gui.Table</code></h2>
 <p>A table with rows and columns that scrolls if it has too many rows. The player can select one row, and <code>ctx.form[name]</code> is the number of the selected row (the first row is <code>1</code>). <code>selected_idx</code> is the row that is selected at first.</p>
 <p><code>cells</code> is one flat list with the text of every cell, going left to right along each row and then down to the next row. The number of columns comes from <a href="#guitablecolumns"><code>gui.TableColumns</code></a> (the default is one text column). Put <code>gui.TableColumns</code> and <a href="#guitableoptions"><code>gui.TableOptions</code></a> before the table, as they only affect the table that comes after them. They do not take up any space.</p>
-<p>Tables have no natural size, so you must give them a <code>w</code> and <code>h</code>.</p>
+<p>Tables have no natural size, so you must give them a <code>w</code> and <code>h</code>, see <a href="../common-aspects/#sizes">Sizes</a>.</p>
 <h3 id="example_33">Example</h3>
 <div class="language-lua highlight"><pre><span></span><code><span id="__span-34-1"><span class="nv">gui</span><span class="p">.</span><span class="py">Table</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-34-2"><span class="w">    </span><span class="nv">w</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span>
@@ -3292,7 +3330,7 @@
 </span><span id="__span-40-15"><span class="p">}</span>
 </span></code></pre></div>
 <h2 id="guitooltip"><code>gui.Tooltip</code></h2>
-<p>Sets the text that is shown when the player hovers over another element, and optionally the colors of that tooltip. <code>gui_element_name</code> is the <code>name</code> of that element. Put the tooltip after the element it belongs to. It is invisible and does not take up any space.</p>
+<p>Sets the text that is shown when the player hovers over another element, and optionally the colors of that tooltip. <code>gui_element_name</code> is the <code>name</code> of that element. Put the tooltip after the element it belongs to. It is <a href="../common-aspects/#invisible-elements">invisible</a> and does not take up any space.</p>
 <p>If you only need to add some text, use the <code>tooltip</code> parameter on the element itself, see <a href="../tooltips/">Tooltips</a>.</p>
 <h3 id="example_38">Example</h3>
 <p>Hover over the button to see the tooltip. Click it and hover again: the text has changed.</p>
@@ -3351,8 +3389,8 @@
 <div class="md-dialog" data-md-component="dialog">
 <div class="md-dialog__inner md-typeset"></div>
 </div>
-<script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.expand", "navigation.top", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
-<script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+<script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.expand", "navigation.top", "content.code.copy"], "search": "../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+<script src="../assets/javascripts/bundle.c21346df.min.js"></script>
 <script src="../js/print-site.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script>
 </body>

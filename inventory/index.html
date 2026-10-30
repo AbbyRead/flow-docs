@@ -8,10 +8,10 @@
 <link href="../tooltips/" rel="prev"/>
 <link href="../huds/" rel="next"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.6.1, mkdocs-material-9.7.6" name="generator"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.8.0" name="generator"/>
 <title>Inventory - Flow Unofficial Documentation</title>
-<link href="../assets/stylesheets/main.484c7ddc.min.css" rel="stylesheet"/>
-<link href="../assets/stylesheets/palette.ab4e12ef.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/main.57a0d79d.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/palette.fb2fffe2.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
@@ -142,7 +142,7 @@
 <span class="md-ellipsis">
     
   
-    Getting started
+    Getting Started
   
 
     
@@ -177,7 +177,7 @@
 <span class="md-ellipsis">
     
   
-    Layout elements
+    Layout Elements
   
 
     
@@ -189,7 +189,7 @@
 <span class="md-ellipsis">
     
   
-    Padding and spacing
+    Padding and Spacing
   
 
     
@@ -201,7 +201,7 @@
 <span class="md-ellipsis">
     
   
-    Hiding elements
+    Hiding Elements
   
 
     
@@ -213,7 +213,7 @@
 <span class="md-ellipsis">
     
   
-    Manual positioning
+    Manual Positioning
   
 
     
@@ -251,7 +251,7 @@
 <span class="md-ellipsis">
     
   
-    Common aspects
+    Common Aspects
   
 
     
@@ -263,7 +263,7 @@
 <span class="md-ellipsis">
     
   
-    Functional elements
+    Functional Elements
   
 
     
@@ -275,7 +275,7 @@
 <span class="md-ellipsis">
     
   
-    Hypertext markup
+    Hypertext Markup
   
 
     
@@ -341,7 +341,7 @@
 <span class="md-ellipsis">
     
   
-    Displaying forms
+    Displaying Forms
   
 
     
@@ -353,7 +353,7 @@
 <span class="md-nav__icon md-icon"></span>
             
   
-    Displaying forms
+    Displaying Forms
   
 
           </label>
@@ -391,7 +391,7 @@
 <span class="md-ellipsis">
     
   
-    Advanced features
+    Advanced Features
   
 
     
@@ -426,7 +426,7 @@
 <span class="md-ellipsis">
     
   
-    Experimental features
+    Experimental Features
   
 
     
@@ -454,7 +454,7 @@
 <span class="md-ellipsis">
     
   
-    Limitations and security
+    Limitations and Security
   
 
     
@@ -466,7 +466,7 @@
 <span class="md-nav__icon md-icon"></span>
             
   
-    Limitations and security
+    Limitations and Security
   
 
           </label>
@@ -476,7 +476,7 @@
 <span class="md-ellipsis">
     
   
-    Unsupported features
+    Unsupported Features
   
 
     
@@ -504,7 +504,7 @@
 <span class="md-ellipsis">
     
   
-    Development tools
+    Development Tools
   
 
     
@@ -516,7 +516,7 @@
 <span class="md-nav__icon md-icon"></span>
             
   
-    Development tools
+    Development Tools
   
 
           </label>
@@ -576,10 +576,15 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1 id="using-a-form-as-an-inventory">Using a Form as an Inventory</h1>
-<p>A form can be set as the player inventory, which is the screen the player sees when they open their inventory. Flow internally generates the <a href="../">formspec</a> (the text Luanti uses to describe a menu) and passes it to <a href="https://api.luanti.org/class-reference/#player-only-no-op-for-other-objects"><code>player:set_inventory_formspec()</code></a>. This will completely replace your inventory and isn't compatible with inventory mods like sfinv (the inventory in Minetest Game, which lets mods add tabs). To put a flow form inside an sfinv-style inventory instead, see <a href="../experimental/#rendering-to-a-formspec">Rendering to a Formspec</a>.</p>
-<blockquote>
+<p>A form can be set as the player inventory, which is the screen the player sees when they open their inventory. Flow internally generates the <a href="../#terms-used-in-this-documentation">formspec</a> (the text Luanti uses to describe a menu) and passes it to <a href="https://api.luanti.org/class-reference/#player-only-no-op-for-other-objects"><code>player:set_inventory_formspec()</code></a>. To show inventory slots inside the form, use <a href="../functional-elements/#guilist"><code>gui.List</code></a>.</p>
+<div class="admonition warning">
+<p class="admonition-title">This replaces your inventory</p>
+<p>This will completely replace your inventory and isn't compatible with inventory mods like sfinv (the inventory in Minetest Game, which lets mods add tabs). To put a flow form inside an sfinv-style inventory instead, see <a href="../experimental/#rendering-to-a-formspec">Rendering to a Formspec</a>.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Consider Sway</p>
 <p>Consider using <a href="https://content.luanti.org/packages/lazerbeak12345/sway/">Sway</a> instead if you want to use flow as an inventory replacement while still having some way for other mods to extend the inventory.</p>
-</blockquote>
+</div>
 <div class="language-lua highlight"><pre><span></span><code><span id="__span-0-1"><span class="kd">local</span><span class="w"> </span><span class="nv">gui</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">flow</span><span class="p">.</span><span class="py">widgets</span>
 </span><span id="__span-0-2">
 </span><span id="__span-0-3"><span class="kd">local</span><span class="w"> </span><span class="nv">example_inventory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">flow</span><span class="p">.</span><span class="nf">make_gui</span><span class="p">(</span><span class="kr">function</span><span class="p">(</span><span class="nv">player</span><span class="p">,</span><span class="w"> </span><span class="nv">ctx</span><span class="p">)</span>
@@ -623,10 +628,10 @@
 </span><span id="__span-0-41"><span class="p">})</span>
 </span></code></pre></div>
 <p>Open your inventory and click the button: the counter goes up, and the form is redrawn with the new context.</p>
-<p>Like with the <code>show_hud</code> function (see <a href="../huds/">HUDs</a>), <code>update*</code> functions don't do anything, so to update it, call <code>example_inventory:set_as_inventory_for(player, new_ctx)</code> again with the new context. If the context is not provided, it will reuse the existing context of the same form. This is different from HUDs, which never keep a context. Passing a new context replaces the existing one, so values that were stored in the old one are gone. See <a href="../getting-started/#context-lifetime-by-mode">Context Lifetime by Mode</a>.</p>
+<p>Like with the <code>show_hud</code> function (see <a href="../huds/">HUDs</a>), the <code>update*</code> functions (see <a href="../getting-started/#updating-forms">Updating Forms</a>) don't do anything, so to update it, call <code>example_inventory:set_as_inventory_for(player, new_ctx)</code> again with the new context. If the context is not provided, it will reuse the existing context of the same form. This is different from HUDs, which never keep a context. Passing a new context replaces the existing one, so values that were stored in the old one are gone. See <a href="../getting-started/#context-lifetime-by-mode">Context Lifetime by Mode</a>.</p>
 <p>The <code>/inv_title</code> chat command above does this. Keep your inventory open while you run it and the title changes straight away. The command passes a new context, which replaces the old one, so the click counter goes back to 0.</p>
-<p>If the player has the inventory open when you do this, it is redrawn straight away: Luanti compares the new formspec with the one on screen and rebuilds the screen if they differ. As with any redraw, text that the player has typed into a field but not yet sent is lost. If the new formspec is identical to the old one, nothing is sent.</p>
-<p>Flow does the same when the player does something in the inventory that needs a redraw (an <code>on_event</code> function returning <code>true</code>, for example). Other changes to <code>ctx.form</code> that do not need a redraw are applied when the player closes the inventory, so they show up the next time it is opened.</p>
+<p>If the player has the inventory open when you do this, it is redrawn straight away: Luanti compares the new formspec with the one on screen and rebuilds the screen if they differ. As with any <a href="../getting-started/#updating-forms">redraw</a>, text that the player has typed into a field but not yet sent is lost. If the new formspec is identical to the old one, nothing is sent.</p>
+<p>Flow does the same when the player does something in the inventory that needs a redraw (an <a href="../common-aspects/#events"><code>on_event</code></a> function returning <code>true</code>, for example). Other changes to <code>ctx.form</code> (see <a href="../common-aspects/#names-and-values">Names and Values</a>) that do not need a redraw are applied when the player closes the inventory, so they show up the next time it is opened.</p>
 <p>While the form will of course be cleared when the player leaves, if you'd like to unset the inventory manually, call <code>example_inventory:unset_as_inventory_for(player)</code>, analogue to <code>close_hud</code> (see <a href="../huds/">HUDs</a>).</p>
 <p>For example, after the <code>/inv_off</code> chat command above, the inventory key shows the default inventory (or nothing, depending on your game) instead of the form.</p>
 <p>This will set the inventory formspec string to <code>""</code> and stop flow from processing inventory formspec input.</p>
@@ -657,8 +662,8 @@
 <div class="md-dialog" data-md-component="dialog">
 <div class="md-dialog__inner md-typeset"></div>
 </div>
-<script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.expand", "navigation.top", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
-<script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+<script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.expand", "navigation.top", "content.code.copy"], "search": "../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+<script src="../assets/javascripts/bundle.c21346df.min.js"></script>
 <script src="../js/print-site.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script>
 </body>

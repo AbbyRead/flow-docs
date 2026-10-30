@@ -8,10 +8,10 @@
 <link href="../advanced/" rel="prev"/>
 <link href="../popovers/" rel="next"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.6.1, mkdocs-material-9.7.6" name="generator"/>
-<title>Experimental features - Flow Unofficial Documentation</title>
-<link href="../assets/stylesheets/main.484c7ddc.min.css" rel="stylesheet"/>
-<link href="../assets/stylesheets/palette.ab4e12ef.min.css" rel="stylesheet"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.8.0" name="generator"/>
+<title>Experimental Features - Flow Unofficial Documentation</title>
+<link href="../assets/stylesheets/main.57a0d79d.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/palette.fb2fffe2.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
@@ -49,7 +49,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Experimental features
+              Experimental Features
             
           </span>
 </div>
@@ -142,7 +142,7 @@
 <span class="md-ellipsis">
     
   
-    Getting started
+    Getting Started
   
 
     
@@ -177,7 +177,7 @@
 <span class="md-ellipsis">
     
   
-    Layout elements
+    Layout Elements
   
 
     
@@ -189,7 +189,7 @@
 <span class="md-ellipsis">
     
   
-    Padding and spacing
+    Padding and Spacing
   
 
     
@@ -201,7 +201,7 @@
 <span class="md-ellipsis">
     
   
-    Hiding elements
+    Hiding Elements
   
 
     
@@ -213,7 +213,7 @@
 <span class="md-ellipsis">
     
   
-    Manual positioning
+    Manual Positioning
   
 
     
@@ -251,7 +251,7 @@
 <span class="md-ellipsis">
     
   
-    Common aspects
+    Common Aspects
   
 
     
@@ -263,7 +263,7 @@
 <span class="md-ellipsis">
     
   
-    Functional elements
+    Functional Elements
   
 
     
@@ -275,7 +275,7 @@
 <span class="md-ellipsis">
     
   
-    Hypertext markup
+    Hypertext Markup
   
 
     
@@ -341,7 +341,7 @@
 <span class="md-ellipsis">
     
   
-    Displaying forms
+    Displaying Forms
   
 
     
@@ -353,7 +353,7 @@
 <span class="md-nav__icon md-icon"></span>
             
   
-    Displaying forms
+    Displaying Forms
   
 
           </label>
@@ -390,7 +390,7 @@
 <span class="md-ellipsis">
     
   
-    Advanced features
+    Advanced Features
   
 
     
@@ -426,7 +426,7 @@
 <span class="md-ellipsis">
     
   
-    Experimental features
+    Experimental Features
   
 
     
@@ -437,7 +437,7 @@
 <span class="md-ellipsis">
     
   
-    Experimental features
+    Experimental Features
   
 
     
@@ -518,7 +518,7 @@
 <span class="md-ellipsis">
     
   
-    Limitations and security
+    Limitations and Security
   
 
     
@@ -530,7 +530,7 @@
 <span class="md-nav__icon md-icon"></span>
             
   
-    Limitations and security
+    Limitations and Security
   
 
           </label>
@@ -540,7 +540,7 @@
 <span class="md-ellipsis">
     
   
-    Unsupported features
+    Unsupported Features
   
 
     
@@ -568,7 +568,7 @@
 <span class="md-ellipsis">
     
   
-    Development tools
+    Development Tools
   
 
     
@@ -580,7 +580,7 @@
 <span class="md-nav__icon md-icon"></span>
             
   
-    Development tools
+    Development Tools
   
 
           </label>
@@ -691,10 +691,14 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1 id="experimental-features">Experimental Features</h1>
-<p>These features might be broken in the future. <a href="../popovers/">Popovers</a> are also experimental, and have their own page. Other less common features are on the <a href="../advanced/">Advanced Features</a> page.</p>
+<div class="admonition warning">
+<p class="admonition-title">Subject to change</p>
+<p>These features might be broken in the future.</p>
+</div>
+<p><a href="../popovers/">Popovers</a> are also experimental, and have their own page. Other less common features are on the <a href="../advanced/">Advanced Features</a> page.</p>
 <h2 id="no_prepend"><code>no_prepend</code></h2>
 <p>Games and mods can add extra content to the start of every form shown to a player with <code>player:set_formspec_prepend()</code>, for example to give all forms the same background or style. This is called a "prepend", and it can be why a form has a background or style you did not expect.</p>
-<p>You can set <code>no_prepend = true</code> on the "root" element to stop prepends from being applied to a form.</p>
+<p>You can set <code>no_prepend = true</code> on the "root" element (see <a href="../#terms-used-in-this-documentation">Terms Used in This Documentation</a>) to stop prepends from being applied to a form.</p>
 <p>To see what <code>no_prepend</code> does, this example gives the player a prepend that makes every button red. Tick the checkbox and the red disappears:</p>
 <div class="language-lua highlight"><pre><span></span><code><span id="__span-0-1"><span class="kd">local</span><span class="w"> </span><span class="nv">gui</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">flow</span><span class="p">.</span><span class="py">widgets</span>
 </span><span id="__span-0-2"><span class="kd">local</span><span class="w"> </span><span class="nv">player</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">core</span><span class="p">.</span><span class="nf">get_player_by_name</span><span class="p">(</span><span class="s2">"current_player"</span><span class="p">)</span>
@@ -787,12 +791,15 @@
 </span><span id="__span-2-19"><span class="kr">end</span><span class="p">)</span>
 </span></code></pre></div>
 <h2 id="rendering-to-a-formspec">Rendering to a Formspec</h2>
+<div class="admonition warning">
+<p class="admonition-title">Use only when necessary</p>
 <p>This API should only be used when necessary and may have breaking changes in the future.</p>
-<p>Luanti describes menus with <em>formspec</em> strings (see the <a href="../">introduction</a>), which flow normally generates and shows for you. Some APIs in other mods, such as sfinv (see <a href="../inventory/">Using a Form as an Inventory</a>), expect formspec strings instead. You can use this API to embed flow forms inside them. To use flow with these mods, you can call <code>form:render_to_formspec_string(player, ctx, standalone)</code>.</p>
+</div>
+<p>Luanti describes menus with <em>formspec</em> strings (see <a href="../#terms-used-in-this-documentation">Terms Used in This Documentation</a>), which flow normally generates and shows for you. Some APIs in other mods, such as sfinv (see <a href="../inventory/">Using a Form as an Inventory</a>), expect formspec strings instead. You can use this API to embed flow forms inside them. To use flow with these mods, you can call <code>form:render_to_formspec_string(player, ctx, standalone)</code>.</p>
 <ul>
 <li>A complete formspec starts with a <code>formspec_version[]</code> element (the version of the formspec language it uses) and a <code>size[]</code> element (the size of the form). By default these aren't included in the returned formspec, and are returned in a third value instead: a table <code>info</code> with <code>w</code> and <code>h</code> (the size of the form, in the units described in <a href="../common-aspects/#sizes">Sizes</a>) and <code>formspec_version</code> (the version number). Set <code>standalone</code> to include them in the returned formspec string. The third return value will not be returned (it is <code>nil</code>).</li>
 <li>Returns <code>formspec, process_event[, info]</code>, see the two forms below. <code>info.formspec_version</code> is always 7, whatever the player's client supports. Pass the same <code>ctx</code> again when you redraw so the form keeps its values.</li>
-<li>Call <code>process_event(fields)</code> with the <code>fields</code> table that Luanti passes to <code>core.register_on_player_receive_fields</code> callbacks. It returns <code>true</code> if the formspec should be redrawn, where <code>render_to_formspec_string</code> should be called and the new <code>process_event</code> should be used in the future. It returns <code>true</code> when an <code>on_event</code> or <code>on_key_enter</code> function returned <code>true</code>, or when the player changed a value that the build function read from <code>ctx.form</code>. This is also the case when <code>fields.quit</code> is set (for example when the player clicks a <code>gui.ButtonExit</code> whose <code>on_event</code> returns <code>true</code>), because flow does not look at <code>fields.quit</code> itself. The form is closing then, so callers normally skip the redraw, as the example below does.</li>
+<li>Call <code>process_event(fields)</code> with the <code>fields</code> table that Luanti passes to <code>core.register_on_player_receive_fields</code> callbacks. It returns <code>true</code> if the formspec should be redrawn, where <code>render_to_formspec_string</code> should be called and the new <code>process_event</code> should be used in the future. It returns <code>true</code> when an <code>on_event</code> or <code>on_key_enter</code> function returned <code>true</code>, or when the player changed a value that the build function read from <code>ctx.form</code>. This is also the case when <code>fields.quit</code> is set (for example when the player clicks a <a href="../functional-elements/#guibuttonexit"><code>gui.ButtonExit</code></a> whose <a href="../common-aspects/#events"><code>on_event</code></a> returns <code>true</code>), because flow does not look at <code>fields.quit</code> itself. The form is closing then, so callers normally skip the redraw, as the example below does.</li>
 </ul>
 <p>The two call forms side by side:</p>
 <div class="language-lua highlight"><pre><span></span><code><span id="__span-3-1"><span class="c1">-- Embeddable: size and version come back as a third value.</span>
@@ -856,19 +863,23 @@
 </span><span id="__span-4-48">
 </span><span id="__span-4-49"><span class="nf">show</span><span class="p">(</span><span class="nv">core</span><span class="p">.</span><span class="nf">get_player_by_name</span><span class="p">(</span><span class="s2">"current_player"</span><span class="p">))</span>
 </span></code></pre></div>
-<blockquote>
-<p><strong>Warning:</strong> Do not use this API with node meta formspecs (formspecs that are stored in the metadata of a node), it can and will break!</p>
-</blockquote>
+<div class="admonition warning">
+<p class="admonition-title">Not for node meta formspecs</p>
+<p>Do not use this API with node meta formspecs (formspecs that are stored in the metadata of a node), it can and will break!</p>
+</div>
 <h2 id="handling-enter-keypresses-in-fields">Handling Enter Keypresses in Fields</h2>
 <p>Several options deal with the Enter key:</p>
 <ul>
-<li><code>on_key_enter</code> is called when the player presses Enter in a <code>gui.Field</code> or <code>gui.Pwdfield</code>.</li>
+<li><code>on_key_enter</code> is called when the player presses Enter in a <a href="../functional-elements/#guifield"><code>gui.Field</code></a> or <a href="../functional-elements/#guipwdfield"><code>gui.Pwdfield</code></a>.</li>
 <li><a href="../common-aspects/#events"><code>on_event</code></a> on the same field is called whenever the client submits the field, which includes Enter but is not limited to it. Be careful not to use it by mistake.</li>
 <li><code>close_on_enter</code> makes Enter close the form (<code>gui.Field</code> only). It is the same as <a href="../functional-elements/#guifieldcloseonenter"><code>gui.FieldCloseOnEnter</code></a>. Without an <code>on_key_enter</code> callback flow logs a warning, because closing is the only thing Enter would do.</li>
 <li><code>enter_after_edit</code> makes Android's "Done" button count as Enter (experimental). It is the same as <a href="../functional-elements/#guifieldenterafteredit"><code>gui.FieldEnterAfterEdit</code></a>.</li>
 </ul>
+<div class="admonition warning">
+<p class="admonition-title">This API may be replaced</p>
 <p>Also provide another way to trigger the action, such as a button, in case this API is replaced.</p>
-<p><code>gui.Field</code> and <code>gui.Pwdfield</code> support an <code>on_key_enter</code> callback that gets called if enter is pressed:</p>
+</div>
+<p><a href="../functional-elements/#guifield"><code>gui.Field</code></a> and <a href="../functional-elements/#guipwdfield"><code>gui.Pwdfield</code></a> support an <code>on_key_enter</code> callback that gets called if enter is pressed:</p>
 <div class="language-lua highlight"><pre><span></span><code><span id="__span-5-1"><span class="kd">local</span><span class="w"> </span><span class="nv">form</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">flow</span><span class="p">.</span><span class="nf">make_gui</span><span class="p">(</span><span class="kr">function</span><span class="p">(</span><span class="nv">player</span><span class="p">,</span><span class="w"> </span><span class="nv">ctx</span><span class="p">)</span>
 </span><span id="__span-5-2"><span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="nv">gui</span><span class="p">.</span><span class="py">VBox</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-5-3"><span class="w">        </span><span class="nv">gui</span><span class="p">.</span><span class="py">Field</span><span class="w"> </span><span class="p">{</span>
@@ -925,8 +936,8 @@
 <div class="md-dialog" data-md-component="dialog">
 <div class="md-dialog__inner md-typeset"></div>
 </div>
-<script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.expand", "navigation.top", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
-<script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+<script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.expand", "navigation.top", "content.code.copy"], "search": "../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+<script src="../assets/javascripts/bundle.c21346df.min.js"></script>
 <script src="../js/print-site.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script>
 </body>

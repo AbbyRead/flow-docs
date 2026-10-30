@@ -8,10 +8,10 @@
 <link href="../huds/" rel="prev"/>
 <link href="../experimental/" rel="next"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.6.1, mkdocs-material-9.7.6" name="generator"/>
-<title>Advanced features - Flow Unofficial Documentation</title>
-<link href="../assets/stylesheets/main.484c7ddc.min.css" rel="stylesheet"/>
-<link href="../assets/stylesheets/palette.ab4e12ef.min.css" rel="stylesheet"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.8.0" name="generator"/>
+<title>Advanced Features - Flow Unofficial Documentation</title>
+<link href="../assets/stylesheets/main.57a0d79d.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/palette.fb2fffe2.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
@@ -49,7 +49,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Advanced features
+              Advanced Features
             
           </span>
 </div>
@@ -142,7 +142,7 @@
 <span class="md-ellipsis">
     
   
-    Getting started
+    Getting Started
   
 
     
@@ -177,7 +177,7 @@
 <span class="md-ellipsis">
     
   
-    Layout elements
+    Layout Elements
   
 
     
@@ -189,7 +189,7 @@
 <span class="md-ellipsis">
     
   
-    Padding and spacing
+    Padding and Spacing
   
 
     
@@ -201,7 +201,7 @@
 <span class="md-ellipsis">
     
   
-    Hiding elements
+    Hiding Elements
   
 
     
@@ -213,7 +213,7 @@
 <span class="md-ellipsis">
     
   
-    Manual positioning
+    Manual Positioning
   
 
     
@@ -251,7 +251,7 @@
 <span class="md-ellipsis">
     
   
-    Common aspects
+    Common Aspects
   
 
     
@@ -263,7 +263,7 @@
 <span class="md-ellipsis">
     
   
-    Functional elements
+    Functional Elements
   
 
     
@@ -275,7 +275,7 @@
 <span class="md-ellipsis">
     
   
-    Hypertext markup
+    Hypertext Markup
   
 
     
@@ -341,7 +341,7 @@
 <span class="md-ellipsis">
     
   
-    Displaying forms
+    Displaying Forms
   
 
     
@@ -353,7 +353,7 @@
 <span class="md-nav__icon md-icon"></span>
             
   
-    Displaying forms
+    Displaying Forms
   
 
           </label>
@@ -391,7 +391,7 @@
 <span class="md-ellipsis">
     
   
-    Advanced features
+    Advanced Features
   
 
     
@@ -402,7 +402,7 @@
 <span class="md-ellipsis">
     
   
-    Advanced features
+    Advanced Features
   
 
     
@@ -472,7 +472,7 @@
 <span class="md-ellipsis">
     
   
-    Experimental features
+    Experimental Features
   
 
     
@@ -500,7 +500,7 @@
 <span class="md-ellipsis">
     
   
-    Limitations and security
+    Limitations and Security
   
 
     
@@ -512,7 +512,7 @@
 <span class="md-nav__icon md-icon"></span>
             
   
-    Limitations and security
+    Limitations and Security
   
 
           </label>
@@ -522,7 +522,7 @@
 <span class="md-ellipsis">
     
   
-    Unsupported features
+    Unsupported Features
   
 
     
@@ -550,7 +550,7 @@
 <span class="md-ellipsis">
     
   
-    Development tools
+    Development Tools
   
 
     
@@ -562,7 +562,7 @@
 <span class="md-nav__icon md-icon"></span>
             
   
-    Development tools
+    Development Tools
   
 
           </label>
@@ -657,7 +657,7 @@
 <h1 id="advanced-features">Advanced Features</h1>
 <p>These features are for more complex forms and custom elements, and most forms will not need them. Features that are more likely to change are on the <a href="../experimental/">Experimental Features</a> page.</p>
 <h2 id="embedding-a-form-into-another-form">Embedding a Form Into Another Form</h2>
-<p>You can embed form objects inside others like this:</p>
+<p>You can embed form objects (made with <code>flow.make_gui</code>, see <a href="../getting-started/">Getting Started</a>) inside others like this:</p>
 <div class="language-lua highlight"><pre><span></span><code><span id="__span-0-1"><span class="kd">local</span><span class="w"> </span><span class="nv">gui</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">flow</span><span class="p">.</span><span class="py">widgets</span>
 </span><span id="__span-0-2">
 </span><span id="__span-0-3"><span class="kd">local</span><span class="w"> </span><span class="nv">other_form</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">flow</span><span class="p">.</span><span class="nf">make_gui</span><span class="p">(</span><span class="kr">function</span><span class="p">(</span><span class="nv">player</span><span class="p">,</span><span class="w"> </span><span class="nv">ctx</span><span class="p">)</span>
@@ -674,8 +674,14 @@
 </span><span id="__span-0-14"><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-0-15"><span class="kr">end</span><span class="p">)</span>
 </span></code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Older versions of flow</p>
 <p>Current versions of flow ignore a <code>player</code> parameter in the table passed to <code>embed</code>. Versions from before 2025-06-17 need <code>player = player</code>, so add it if your mod has to work with them.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Embed names</p>
 <p>Special characters (excluding <code>-</code> and <code>_</code>) are not allowed in embed names.</p>
+</div>
 <p>The <code>name</code> changes a lot about how the embedded form works:</p>
 <table>
 <thead>
@@ -697,28 +703,34 @@
 <td>The same <code>ctx.form</code> as the parent</td>
 </tr>
 <tr>
-<td>Field names, scrollbar names, tooltip names, and style selectors</td>
+<td>Field names, scrollbar names, <a href="../tooltips/">tooltip</a> names, and <a href="../styling/#selectors-and-states">style selectors</a></td>
 <td>Rewritten, so they cannot clash with the parent's</td>
 <td>Not rewritten, so a name used in both forms is the same input</td>
 </tr>
 <tr>
-<td><code>on_event</code>, <code>on_quit</code>, and <code>on_close_popover</code> functions</td>
+<td><a href="../common-aspects/#events"><code>on_event</code></a>, <a href="#running-code-when-a-form-is-closed"><code>on_quit</code></a>, and <a href="../popovers/"><code>on_close_popover</code></a> functions</td>
 <td>Called with the embedded form's own <code>ctx</code></td>
 <td>Called with the shared <code>ctx</code></td>
 </tr>
 <tr>
-<td><code>on_key_enter</code> functions</td>
+<td><a href="../experimental/#handling-enter-keypresses-in-fields"><code>on_key_enter</code></a> functions</td>
 <td>Called with the parent's <code>ctx</code>, not the embedded form's (a known limitation, see below)</td>
 <td>Called with the shared <code>ctx</code></td>
 </tr>
 </tbody>
 </table>
-<p>Events and redraws work through the parent. The embedded form's elements are part of the parent's form, so a callback that returns <code>true</code> redraws the whole parent form, and <code>update</code> and <code>update_where</code> called on the embedded form object do nothing, because the form that is open belongs to the parent. Call them on the parent form object instead.</p>
-<p><strong>Known limitation:</strong> the <code>on_key_enter</code> function of a field in a form embedded with a <code>name</code> is called with the parent's <code>ctx</code>, unlike <code>on_event</code>, which gets the embedded form's own <code>ctx</code>. In that function <code>ctx.form.my_field</code> is <code>nil</code>, because the value is stored under the rewritten field name, and anything you store in <code>ctx</code> goes into the parent's <code>ctx</code>. To reach the embedded form's own <code>ctx</code> from there, go through the embed's entry in the parent's <code>ctx</code>, for example <code>ctx.my_embed_name.form.my_field</code>. Embeds without a <code>name</code> are not affected, because they share the parent's <code>ctx</code> anyway.</p>
+<p>Events and redraws work through the parent. The embedded form's elements are part of the parent's form, so a callback that returns <code>true</code> redraws the whole parent form, and <code>update</code> and <code>update_where</code> (see <a href="../getting-started/#updating-forms">Updating Forms</a>) called on the embedded form object do nothing, because the form that is open belongs to the parent. Call them on the parent form object instead.</p>
+<div class="admonition warning">
+<p class="admonition-title">Known limitation</p>
+<p>The <code>on_key_enter</code> function of a field in a form embedded with a <code>name</code> is called with the parent's <code>ctx</code>, unlike <code>on_event</code>, which gets the embedded form's own <code>ctx</code>. In that function <code>ctx.form.my_field</code> (see <a href="../common-aspects/#names-and-values">Names and Values</a>) is <code>nil</code>, because the value is stored under the rewritten field name, and anything you store in <code>ctx</code> goes into the parent's <code>ctx</code>. To reach the embedded form's own <code>ctx</code> from there, go through the embed's entry in the parent's <code>ctx</code>, for example <code>ctx.my_embed_name.form.my_field</code>. Embeds without a <code>name</code> are not affected, because they share the parent's <code>ctx</code> anyway.</p>
+</div>
 <h2 id="running-code-when-a-form-is-closed">Running Code When a Form Is Closed</h2>
 <p><a href="../layout-elements/#guicontainer"><code>gui.Container</code></a>, <a href="../layout-elements/#guihbox"><code>gui.HBox</code></a>, <a href="../layout-elements/#guivbox"><code>gui.VBox</code></a>, and <a href="../layout-elements/#guistack"><code>gui.Stack</code></a> elements support an <code>on_quit</code> callback which gets run when a player closes a form (for example by pressing Escape or clicking an exit button).</p>
-<p>Note that this function is not called in some cases, such as when the player leaves without closing the form or when another form/formspec is shown.</p>
+<div class="admonition note">
+<p class="admonition-title">Limitations of <code>on_quit</code></p>
+<p>This function is not called in some cases, such as when the player leaves without closing the form or when another form/formspec is shown.</p>
 <p>This function must not return anything, behaviour may get added to return values in the future.</p>
+</div>
 <div class="language-lua highlight"><pre><span></span><code><span id="__span-1-1"><span class="kd">local</span><span class="w"> </span><span class="nv">gui</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">flow</span><span class="p">.</span><span class="py">widgets</span>
 </span><span id="__span-1-2">
 </span><span id="__span-1-3"><span class="c1">-- A second form that pops up once the first one is closed.</span>
@@ -749,7 +761,7 @@
 </span></code></pre></div>
 <p>If multiple <code>on_quit</code> callbacks are specified in different elements, they will all get called.</p>
 <h2 id="getting-a-reference-to-the-current-player-and-context">Getting a Reference to the Current Player and Context</h2>
-<p>If you're making a custom element, it might be useful to get a reference to <code>ctx</code> and <code>player</code> so you don't have to pass them in manually.</p>
+<p>If you're making a custom element, it might be useful to get a reference to <code>ctx</code> and <code>player</code> (the arguments of the <a href="../getting-started/#basic-example">build function</a>) so you don't have to pass them in manually.</p>
 <div class="language-lua highlight"><pre><span></span><code><span id="__span-2-1"><span class="kd">local</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="nf">HelloWorld</span><span class="p">(</span><span class="nv">def</span><span class="p">)</span>
 </span><span id="__span-2-2"><span class="w">    </span><span class="kd">local</span><span class="w"> </span><span class="nv">ctx</span><span class="p">,</span><span class="w"> </span><span class="nv">player</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">flow</span><span class="p">.</span><span class="nf">get_context</span><span class="p">()</span>
 </span><span id="__span-2-3"><span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="nv">gui</span><span class="p">.</span><span class="py">Label</span><span class="w"> </span><span class="p">{</span>
@@ -764,7 +776,10 @@
 </span><span id="__span-2-12"><span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="nv">HelloWorld</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">style</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">font_size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"*2"</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span>
 </span><span id="__span-2-13"><span class="kr">end</span><span class="p">)</span>
 </span></code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Only call it in a build function</p>
 <p><code>flow.get_context()</code> will error when called outside a build function (as you should not normally do this).</p>
+</div>
 </article>
 </div>
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
@@ -792,8 +807,8 @@
 <div class="md-dialog" data-md-component="dialog">
 <div class="md-dialog__inner md-typeset"></div>
 </div>
-<script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.expand", "navigation.top", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
-<script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+<script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.expand", "navigation.top", "content.code.copy"], "search": "../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+<script src="../assets/javascripts/bundle.c21346df.min.js"></script>
 <script src="../js/print-site.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script>
 </body>

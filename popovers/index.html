@@ -8,10 +8,10 @@
 <link href="../experimental/" rel="prev"/>
 <link href="../not-supported/" rel="next"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.6.1, mkdocs-material-9.7.6" name="generator"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.8.0" name="generator"/>
 <title>Popovers - Flow Unofficial Documentation</title>
-<link href="../assets/stylesheets/main.484c7ddc.min.css" rel="stylesheet"/>
-<link href="../assets/stylesheets/palette.ab4e12ef.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/main.57a0d79d.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/palette.fb2fffe2.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
@@ -142,7 +142,7 @@
 <span class="md-ellipsis">
     
   
-    Getting started
+    Getting Started
   
 
     
@@ -177,7 +177,7 @@
 <span class="md-ellipsis">
     
   
-    Layout elements
+    Layout Elements
   
 
     
@@ -189,7 +189,7 @@
 <span class="md-ellipsis">
     
   
-    Padding and spacing
+    Padding and Spacing
   
 
     
@@ -201,7 +201,7 @@
 <span class="md-ellipsis">
     
   
-    Hiding elements
+    Hiding Elements
   
 
     
@@ -213,7 +213,7 @@
 <span class="md-ellipsis">
     
   
-    Manual positioning
+    Manual Positioning
   
 
     
@@ -251,7 +251,7 @@
 <span class="md-ellipsis">
     
   
-    Common aspects
+    Common Aspects
   
 
     
@@ -263,7 +263,7 @@
 <span class="md-ellipsis">
     
   
-    Functional elements
+    Functional Elements
   
 
     
@@ -275,7 +275,7 @@
 <span class="md-ellipsis">
     
   
-    Hypertext markup
+    Hypertext Markup
   
 
     
@@ -341,7 +341,7 @@
 <span class="md-ellipsis">
     
   
-    Displaying forms
+    Displaying Forms
   
 
     
@@ -353,7 +353,7 @@
 <span class="md-nav__icon md-icon"></span>
             
   
-    Displaying forms
+    Displaying Forms
   
 
           </label>
@@ -390,7 +390,7 @@
 <span class="md-ellipsis">
     
   
-    Advanced features
+    Advanced Features
   
 
     
@@ -425,7 +425,7 @@
 <span class="md-ellipsis">
     
   
-    Experimental features
+    Experimental Features
   
 
     
@@ -482,7 +482,7 @@
 <span class="md-ellipsis">
     
   
-    Limitations and security
+    Limitations and Security
   
 
     
@@ -494,7 +494,7 @@
 <span class="md-nav__icon md-icon"></span>
             
   
-    Limitations and security
+    Limitations and Security
   
 
           </label>
@@ -504,7 +504,7 @@
 <span class="md-ellipsis">
     
   
-    Unsupported features
+    Unsupported Features
   
 
     
@@ -532,7 +532,7 @@
 <span class="md-ellipsis">
     
   
-    Development tools
+    Development Tools
   
 
     
@@ -544,7 +544,7 @@
 <span class="md-nav__icon md-icon"></span>
             
   
-    Development tools
+    Development Tools
   
 
           </label>
@@ -619,14 +619,17 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1 id="popovers-highly-experimental">Popovers (Highly Experimental)</h1>
-<p><strong>This API will likely have breaking changes in the future.</strong></p>
+<div class="admonition warning">
+<p class="admonition-title">Highly experimental</p>
+<p>This API will likely have breaking changes in the future. Other experimental features are on the <a href="../experimental/">Experimental Features</a> page.</p>
+</div>
 <p>Flow supports a highly experimental low-level API for defining popovers. Popovers appear over top of all other elements and are anchored to their parent.</p>
 <p>This API is intended to be used for creating themed elements like dropdowns, or for a higher level popover API that adds styling and is easier to use.</p>
-<p>You add a <code>popover</code> attribute to any container element to define a popover. Flow does not manage the lifecycle (opening/closing) of popovers, you must ensure that you do this yourself like in the example.</p>
+<p>You add a <code>popover</code> attribute to any container element (see <a href="../#terms-used-in-this-documentation">Terms Used in This Documentation</a>) to define a popover. Flow does not manage the lifecycle (opening/closing) of popovers, you must ensure that you do this yourself like in the example.</p>
 <p>Two parameters go on the container that owns the popover:</p>
 <ul>
 <li><code>popover</code>: the element to show over the container, or <code>nil</code> for no popover.</li>
-<li><code>on_close_popover</code>: a function that flow calls with <code>(player, ctx)</code> when the player clicks anywhere outside the popover. Like an <code>on_event</code> function, it can return <code>true</code> to redraw the form. Flow only adds this click catcher while a popover is shown.</li>
+<li><code>on_close_popover</code>: a function that flow calls with <code>(player, ctx)</code> when the player clicks anywhere outside the popover. Like an <a href="../common-aspects/#events"><code>on_event</code></a> function, it can return <code>true</code> to redraw the form. Flow only adds this click catcher while a popover is shown.</li>
 </ul>
 <p>Here is the smallest useful popover: a button that opens a popover with one label, and <code>on_close_popover</code> to close it again. The popover is only given to the container while <code>ctx.show_popover</code> is set, and is <code>nil</code> otherwise (<code>cond and element or nil</code> is the usual Lua way to write that):</p>
 <div class="language-lua highlight"><pre><span></span><code><span id="__span-0-1"><span class="kd">local</span><span class="w"> </span><span class="nv">gui</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">flow</span><span class="p">.</span><span class="py">widgets</span>
@@ -760,7 +763,8 @@
 </span></code></pre></div>
 <p>Show the form with <code>my_gui:show(player)</code> as usual.</p>
 <p><code>align_h</code> and <code>align_v</code> are among the <a href="../common-aspects/#parameters-shared-by-all-elements">parameters shared by all elements</a>.</p>
-<p>There are some restrictions on popovers:</p>
+<div class="admonition warning">
+<p class="admonition-title">Popover restrictions</p>
 <ul>
 <li>They must not extend outside the form, otherwise they'll only be partially visible (unless everything is styled with <a href="../styling/#all-elements"><code>noclip = true</code></a>). Flow does not attempt to detect this.</li>
 <li>You can only define <code>popover</code> on container elements, like <a href="../layout-elements/#guistack"><code>gui.Stack</code></a>, <a href="../layout-elements/#guihbox"><code>gui.HBox</code></a>, and <a href="../layout-elements/#guivbox"><code>gui.VBox</code></a>.</li>
@@ -769,6 +773,7 @@
 <li>You cannot show popovers inside of other popovers.</li>
 <li>Popovers cannot be on the root element.</li>
 </ul>
+</div>
 </article>
 </div>
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
@@ -796,8 +801,8 @@
 <div class="md-dialog" data-md-component="dialog">
 <div class="md-dialog__inner md-typeset"></div>
 </div>
-<script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.expand", "navigation.top", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
-<script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+<script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.expand", "navigation.top", "content.code.copy"], "search": "../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+<script src="../assets/javascripts/bundle.c21346df.min.js"></script>
 <script src="../js/print-site.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script>
 </body>

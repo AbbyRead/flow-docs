@@ -8,10 +8,10 @@
 <link href="../padding/" rel="prev"/>
 <link href="../manual-positioning/" rel="next"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.6.1, mkdocs-material-9.7.6" name="generator"/>
-<title>Hiding elements - Flow Unofficial Documentation</title>
-<link href="../assets/stylesheets/main.484c7ddc.min.css" rel="stylesheet"/>
-<link href="../assets/stylesheets/palette.ab4e12ef.min.css" rel="stylesheet"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.8.0" name="generator"/>
+<title>Hiding Elements - Flow Unofficial Documentation</title>
+<link href="../assets/stylesheets/main.57a0d79d.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/palette.fb2fffe2.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
@@ -49,7 +49,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Hiding elements
+              Hiding Elements
             
           </span>
 </div>
@@ -142,7 +142,7 @@
 <span class="md-ellipsis">
     
   
-    Getting started
+    Getting Started
   
 
     
@@ -177,7 +177,7 @@
 <span class="md-ellipsis">
     
   
-    Layout elements
+    Layout Elements
   
 
     
@@ -189,7 +189,7 @@
 <span class="md-ellipsis">
     
   
-    Padding and spacing
+    Padding and Spacing
   
 
     
@@ -202,7 +202,7 @@
 <span class="md-ellipsis">
     
   
-    Hiding elements
+    Hiding Elements
   
 
     
@@ -213,7 +213,7 @@
 <span class="md-ellipsis">
     
   
-    Hiding elements
+    Hiding Elements
   
 
     
@@ -269,7 +269,7 @@
 <span class="md-ellipsis">
     
   
-    Manual positioning
+    Manual Positioning
   
 
     
@@ -307,7 +307,7 @@
 <span class="md-ellipsis">
     
   
-    Common aspects
+    Common Aspects
   
 
     
@@ -319,7 +319,7 @@
 <span class="md-ellipsis">
     
   
-    Functional elements
+    Functional Elements
   
 
     
@@ -331,7 +331,7 @@
 <span class="md-ellipsis">
     
   
-    Hypertext markup
+    Hypertext Markup
   
 
     
@@ -397,7 +397,7 @@
 <span class="md-ellipsis">
     
   
-    Displaying forms
+    Displaying Forms
   
 
     
@@ -409,7 +409,7 @@
 <span class="md-nav__icon md-icon"></span>
             
   
-    Displaying forms
+    Displaying Forms
   
 
           </label>
@@ -446,7 +446,7 @@
 <span class="md-ellipsis">
     
   
-    Advanced features
+    Advanced Features
   
 
     
@@ -481,7 +481,7 @@
 <span class="md-ellipsis">
     
   
-    Experimental features
+    Experimental Features
   
 
     
@@ -509,7 +509,7 @@
 <span class="md-ellipsis">
     
   
-    Limitations and security
+    Limitations and Security
   
 
     
@@ -521,7 +521,7 @@
 <span class="md-nav__icon md-icon"></span>
             
   
-    Limitations and security
+    Limitations and Security
   
 
           </label>
@@ -531,7 +531,7 @@
 <span class="md-ellipsis">
     
   
-    Unsupported features
+    Unsupported Features
   
 
     
@@ -559,7 +559,7 @@
 <span class="md-ellipsis">
     
   
-    Development tools
+    Development Tools
   
 
     
@@ -571,7 +571,7 @@
 <span class="md-nav__icon md-icon"></span>
             
   
-    Development tools
+    Development Tools
   
 
           </label>
@@ -673,7 +673,11 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1 id="hiding-elements">Hiding Elements</h1>
-<p>Elements inside boxes can have <a href="../common-aspects/#parameters-shared-by-all-elements"><code>visible = false</code></a> set to hide them from the player. Elements hidden this way will still take up space like with <code>visibility: hidden;</code> in CSS.</p>
+<p>Elements inside boxes can have <a href="../common-aspects/#parameters-shared-by-all-elements"><code>visible = false</code></a> set to hide them from the player.</p>
+<div class="admonition note">
+<p class="admonition-title">Hidden elements keep their space</p>
+<p>Elements hidden this way will still take up space like with <code>visibility: hidden;</code> in CSS. To remove the space as well, see <a href="#alternatives">Alternatives</a>.</p>
+</div>
 <h2 id="example">Example</h2>
 <p>Untick the checkbox to hide the middle button: it disappears, but the gap it leaves stays.</p>
 <div class="language-lua highlight"><pre><span></span><code><span id="__span-0-1"><span class="kd">local</span><span class="w"> </span><span class="nv">form</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">flow</span><span class="p">.</span><span class="nf">make_gui</span><span class="p">(</span><span class="kr">function</span><span class="p">(</span><span class="nv">player</span><span class="p">,</span><span class="w"> </span><span class="nv">ctx</span><span class="p">)</span>
@@ -688,16 +692,16 @@
 <p><img alt="Screenshot" src="../images/show-middle-button-hidden.png"/></p>
 <h2 id="where-it-works">Where It Works</h2>
 <ul>
-<li><code>visible = false</code> works on elements inside <code>gui.HBox</code>, <code>gui.VBox</code>, <code>gui.Stack</code>, <code>gui.ScrollableVBox</code>, and <code>gui.PaginatedVBox</code>. In a <code>gui.Stack</code>, the hidden element still counts towards the size of the stack.</li>
-<li>It does nothing on elements placed directly inside a <code>gui.Container</code> or <code>gui.ScrollContainer</code> (the ones you position yourself with <code>x</code> and <code>y</code>): they are still drawn. See <a href="../manual-positioning/">Manual Positioning</a>.</li>
-<li>It does nothing on the root element of the form, which is always shown.</li>
+<li><code>visible = false</code> works on elements inside <a href="../layout-elements/#guihbox"><code>gui.HBox</code></a>, <a href="../layout-elements/#guivbox"><code>gui.VBox</code></a>, <a href="../layout-elements/#guistack"><code>gui.Stack</code></a>, <a href="../layout-elements/#guiscrollablevbox"><code>gui.ScrollableVBox</code></a>, and <a href="../layout-elements/#guipaginatedvbox"><code>gui.PaginatedVBox</code></a>. In a <code>gui.Stack</code>, the hidden element still counts towards the size of the stack.</li>
+<li>It does nothing on elements placed directly inside a <a href="../layout-elements/#guicontainer"><code>gui.Container</code></a> or <a href="../functional-elements/#guiscrollcontainer"><code>gui.ScrollContainer</code></a> (the ones you position yourself with <code>x</code> and <code>y</code>): they are still drawn. See <a href="../manual-positioning/">Manual Positioning</a>.</li>
+<li>It does nothing on the root element of the form (see <a href="../#terms-used-in-this-documentation">Terms Used in This Documentation</a>), which is always shown.</li>
 </ul>
 <h2 id="what-happens-to-hidden-elements">What Happens to Hidden Elements</h2>
 <p>Flow takes a hidden element out of the form after it has worked out the layout, and before it handles anything else. The player's client never receives it, so:</p>
 <ul>
-<li>A hidden button cannot be clicked or focused, and its <code>on_event</code> function is never called. The same goes for every other hidden element.</li>
-<li>Its <code>style</code> and <code>tooltip</code> are not sent either.</li>
-<li>A hidden input with a <code>name</code> is not registered, so flow does not set or update <code>ctx.form[name]</code> while it is hidden. A value that is already in <code>ctx.form</code> is kept and is applied again when the element is shown.</li>
+<li>A hidden button cannot be clicked or focused, and its <a href="../common-aspects/#events"><code>on_event</code></a> function is never called. The same goes for every other hidden element.</li>
+<li>Its <a href="../styling/"><code>style</code></a> and <a href="../tooltips/"><code>tooltip</code></a> are not sent either.</li>
+<li>A hidden input with a <code>name</code> is not registered, so flow does not set or update <code>ctx.form[name]</code> (see <a href="../common-aspects/#names-and-values">Names and Values</a>) while it is hidden. A value that is already in <code>ctx.form</code> is kept and is applied again when the element is shown.</li>
 </ul>
 <p>Type something in the field of this example, then untick the checkbox. The field disappears, but the label still shows what you typed, and the text is back in the field when you tick the checkbox again:</p>
 <div class="language-lua highlight"><pre><span></span><code><span id="__span-1-1"><span class="kd">local</span><span class="w"> </span><span class="nv">form</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">flow</span><span class="p">.</span><span class="nf">make_gui</span><span class="p">(</span><span class="kr">function</span><span class="p">(</span><span class="nv">player</span><span class="p">,</span><span class="w"> </span><span class="nv">ctx</span><span class="p">)</span>
@@ -708,7 +712,7 @@
 </span><span id="__span-1-6"><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-1-7"><span class="kr">end</span><span class="p">)</span>
 </span></code></pre></div>
-<p>While the field is hidden, flow ignores a <code>note</code> value sent by the client, because the field is not registered.</p>
+<p>While the field is hidden, flow ignores a <code>note</code> value sent by the client, because the field is not registered, see <a href="../security/#what-flow-checks">What Flow Checks</a>.</p>
 <h2 id="alternatives">Alternatives</h2>
 <p>If you don't want hidden elements to take up any space, see the documentation for <a href="../layout-elements/#guinil"><code>gui.Nil</code></a>. <code>gui.Nil</code> is an invisible element (a tooltip) that is hidden with <code>visible = false</code>, so it is skipped when the layout is worked out. See <a href="../common-aspects/#invisible-elements">Invisible Elements</a> for the others. An invisible element that is itself given <code>visible = false</code> is removed from the form in the same way, it just never had a size.</p>
 </article>
@@ -738,8 +742,8 @@
 <div class="md-dialog" data-md-component="dialog">
 <div class="md-dialog__inner md-typeset"></div>
 </div>
-<script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.expand", "navigation.top", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
-<script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+<script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.expand", "navigation.top", "content.code.copy"], "search": "../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+<script src="../assets/javascripts/bundle.c21346df.min.js"></script>
 <script src="../js/print-site.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script>
 </body>
