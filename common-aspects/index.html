@@ -864,7 +864,7 @@
 </span><span id="__span-0-2">
 </span><span id="__span-0-3"><span class="nv">gui</span><span class="p">.</span><span class="py">Label</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Hello world!"</span><span class="w"> </span><span class="p">}</span>
 </span></code></pre></div>
-<p><img alt="Screenshot" src="../images/mtg/028_common-aspects_common-aspects.png"/></p>
+<p><img alt="Screenshot" src="../images/sbz/028_common-aspects_common-aspects.png"/></p>
 <h2 id="sizes">Sizes</h2>
 <p>Sizes are measured in inventory slots: <code>1</code> is the width and height of one item slot. There is no hidden padding or spacing, so two boxes that are <code>1</code> wide and placed next to each other with <code>spacing = 0</code> touch. You never give an element a position, boxes place their children and flow works out the total size of the form.</p>
 <p>Elements that show text, such as labels, buttons, and fields, are sized to fit their text unless you give them a <code>w</code> and <code>h</code>. Elements that show something without a natural size, such as images, boxes, models, and tables, need an explicit <code>w</code> and <code>h</code> (their parameter lists below do not say <code>-- Optional</code>). Flow can only estimate the width of text because the real width depends on the player's font, screen size, and scaling settings, so avoid layouts that rely on exact text widths (see the note on label sizes in the <a href="../introduction/#features">introduction</a>).</p>

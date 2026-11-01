@@ -884,7 +884,7 @@
 </span><span id="__span-0-5"><span class="w">    </span><span class="nv">gui</span><span class="p">.</span><span class="py">Label</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"I am a second label!"</span><span class="w"> </span><span class="p">},</span>
 </span><span id="__span-0-6"><span class="p">}</span>
 </span></code></pre></div>
-<p><img alt="Screenshot" src="../images/mtg/011_layout-elements_gui-vbox.png"/></p>
+<p><img alt="Screenshot" src="../images/sbz/011_layout-elements_gui-vbox.png"/></p>
 <p>Elements inside boxes have a spacing of 0.2 between them. Add <code>spacing = &lt;number&gt;</code> to change it (<code>gui.HBox</code> and <code>gui.Flow</code> work the same way). Spacing is the gap between elements, while <a href="../padding/">padding</a> is the space around one element.</p>
 <h2 id="guihbox"><code>gui.HBox</code></h2>
 <p>Like <code>gui.VBox</code> but stacks elements horizontally instead.</p>
@@ -901,7 +901,7 @@
 </span><span id="__span-1-11"><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-1-12"><span class="p">}</span>
 </span></code></pre></div>
-<p><img alt="Screenshot" src="../images/mtg/012_layout-elements_gui-hbox.png"/></p>
+<p><img alt="Screenshot" src="../images/sbz/012_layout-elements_gui-hbox.png"/></p>
 <h2 id="guiscrollablevbox"><code>gui.ScrollableVBox</code></h2>
 <p>Similar to <code>gui.VBox</code>, but shows its contents in an area of a fixed size that the player can scroll, and automatically adds a scrollbar next to it. Anything outside the area is hidden until it is scrolled into view. The area is <code>w</code> by <code>h</code>, both are optional: the width defaults to the width of the contents and the height defaults to the height of the contents, up to a maximum of 5.</p>
 <div class="admonition note">
@@ -926,7 +926,7 @@
 </span><span id="__span-2-15"><span class="w">    </span><span class="nv">gui</span><span class="p">.</span><span class="py">Label</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"I am a fourth label!"</span><span class="w"> </span><span class="p">},</span>
 </span><span id="__span-2-16"><span class="p">}</span>
 </span></code></pre></div>
-<p><img alt="Screenshot" src="../images/mtg/013_layout-elements_gui-scrollablevbox.png"/></p>
+<p><img alt="Screenshot" src="../images/sbz/013_layout-elements_gui-scrollablevbox.png"/></p>
 <h2 id="guispacer"><code>gui.Spacer</code></h2>
 <p>A "flexible space" element that expands by default. A spacer only fills spare room, so this box has a <code>min_w</code> and a background color to show how much there is:</p>
 <div class="language-lua highlight"><pre><span></span><code><span id="__span-3-1"><span class="nv">gui</span><span class="p">.</span><span class="py">HBox</span><span class="w"> </span><span class="p">{</span>
@@ -944,7 +944,7 @@
 </span><span id="__span-3-13"><span class="w">    </span><span class="nv">gui</span><span class="p">.</span><span class="py">Button</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Confirm"</span><span class="w"> </span><span class="p">},</span>
 </span><span id="__span-3-14"><span class="p">}</span>
 </span></code></pre></div>
-<p><img alt="Screenshot" src="../images/mtg/014_layout-elements_gui-spacer.png"/></p>
+<p><img alt="Screenshot" src="../images/sbz/014_layout-elements_gui-spacer.png"/></p>
 <div class="admonition tip">
 <p class="admonition-title">Prefer <code>expand</code> when it works</p>
 <p>Prefer <code>expand = true</code> with <code>align_h</code> or <code>align_v</code> when that gives the same result, see <a href="../common-aspects/#parameters-shared-by-all-elements">Parameters Shared by All Elements</a>.</p>
@@ -967,7 +967,7 @@
 </span><span id="__span-4-8"><span class="w">    </span><span class="nv">gui</span><span class="p">.</span><span class="py">Button</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Confirm"</span><span class="w"> </span><span class="p">},</span>
 </span><span id="__span-4-9"><span class="p">}</span>
 </span></code></pre></div>
-<p><img alt="Screenshot" src="../images/mtg/015_layout-elements_gui-spacer-2.png"/></p>
+<p><img alt="Screenshot" src="../images/sbz/015_layout-elements_gui-spacer-2.png"/></p>
 <div class="admonition warning">
 <p class="admonition-title">Do not use spacers to center elements</p>
 <p>It creates unnecessary boxes, and labels may end up slightly off-center, because label widths depend on screen size and DPI and this code does not trigger the centering hack. The centering hack is what flow does when <code>align_h</code> or <code>expand</code> centers or stretches a label: it draws the label as a background-less button as wide as the whole area, so the client centers the text itself.</p>
@@ -982,7 +982,7 @@
 </span><span id="__span-5-8"><span class="w">    </span><span class="nv">gui</span><span class="p">.</span><span class="py">Spacer</span><span class="w"> </span><span class="p">{},</span>
 </span><span id="__span-5-9"><span class="p">}</span>
 </span></code></pre></div>
-<p><img alt="Screenshot" src="../images/mtg/016_layout-elements_gui-spacer-3.png"/></p>
+<p><img alt="Screenshot" src="../images/sbz/016_layout-elements_gui-spacer-3.png"/></p>
 <p>Do this instead:</p>
 <div class="language-lua highlight"><pre><span></span><code><span id="__span-6-1"><span class="nv">gui</span><span class="p">.</span><span class="py">VBox</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-6-2"><span class="w">    </span><span class="nv">min_w</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span>
@@ -991,7 +991,7 @@
 </span><span id="__span-6-5"><span class="w">    </span><span class="nv">gui</span><span class="p">.</span><span class="py">Label</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"I am centered!"</span><span class="p">,</span><span class="w"> </span><span class="nv">align_h</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"center"</span><span class="w"> </span><span class="p">},</span>
 </span><span id="__span-6-6"><span class="p">}</span>
 </span></code></pre></div>
-<p><img alt="Screenshot" src="../images/mtg/017_layout-elements_gui-spacer-4.png"/></p>
+<p><img alt="Screenshot" src="../images/sbz/017_layout-elements_gui-spacer-4.png"/></p>
 <h2 id="guinil"><code>gui.Nil</code></h2>
 <p>A tool for ternary-ish conditional elements. Unlike <code>visible = false</code> (see <a href="../hiding-elements/">Hiding Elements</a>), which keeps its space, a <code>gui.Nil</code> takes up none. Untick the checkbox to remove the box: the last label moves up.</p>
 <div class="language-lua highlight"><pre><span></span><code><span id="__span-7-1"><span class="kd">local</span><span class="w"> </span><span class="nv">form</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">flow</span><span class="p">.</span><span class="nf">make_gui</span><span class="p">(</span><span class="kr">function</span><span class="p">(</span><span class="nv">player</span><span class="p">,</span><span class="w"> </span><span class="nv">ctx</span><span class="p">)</span>
@@ -1004,7 +1004,7 @@
 </span><span id="__span-7-8"><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-7-9"><span class="kr">end</span><span class="p">)</span>
 </span></code></pre></div>
-<p><img alt="Screenshot" src="../images/mtg/018_layout-elements_gui-nil.png"/></p>
+<p><img alt="Screenshot" src="../images/sbz/018_layout-elements_gui-nil.png"/></p>
 <div class="admonition note">
 <p class="admonition-title">Use sparingly</p>
 <p>Flow still has to process each <code>Nil</code> to remove it.</p>
@@ -1018,7 +1018,7 @@
 </span><span id="__span-8-4"><span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nb">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"label"</span><span class="p">,</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nv">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.5</span><span class="p">,</span><span class="w"> </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Hello world!"</span><span class="w"> </span><span class="p">},</span>
 </span><span id="__span-8-5"><span class="p">}</span>
 </span></code></pre></div>
-<p><img alt="Screenshot" src="../images/mtg/019_layout-elements_gui-container_example.png"/></p>
+<p><img alt="Screenshot" src="../images/sbz/019_layout-elements_gui-container_example.png"/></p>
 <h2 id="guistack"><code>gui.Stack</code></h2>
 <p>This container element places its children on top of each other. All child elements are expanded in both directions.</p>
 <div class="admonition note">
@@ -1035,7 +1035,7 @@
 </span><span id="__span-9-7"><span class="w">    </span><span class="nv">gui</span><span class="p">.</span><span class="py">Image</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">w</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nv">h</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nv">texture_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"[fill:16x16:red"</span><span class="p">,</span><span class="w"> </span><span class="nv">padding</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.2</span><span class="p">,</span><span class="w"> </span><span class="nv">align_h</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"left"</span><span class="w"> </span><span class="p">},</span>
 </span><span id="__span-9-8"><span class="p">}</span>
 </span></code></pre></div>
-<p><img alt="Screenshot" src="../images/mtg/020_layout-elements_gui-stack_example.png"/></p>
+<p><img alt="Screenshot" src="../images/sbz/020_layout-elements_gui-stack_example.png"/></p>
 <h2 id="guipaginatedvbox"><code>gui.PaginatedVBox</code></h2>
 <p>Like <code>gui.ScrollableVBox</code>, but splits the contents into pages instead of scrolling. Only one page is shown at a time, with a <code>&lt;</code> button, a "Page 1 of 3" label, and a <code>&gt;</code> button underneath to change page. It needs a unique <code>name</code>, and <code>w</code> and <code>h</code> work the same way as for <code>gui.ScrollableVBox</code>. Elements are never cut in half: an element that does not fit on a page starts the next one.</p>
 <p><a href="#guiscrollablevbox"><code>gui.ScrollableVBox</code></a> uses this automatically on clients that cannot scroll.</p>
@@ -1055,7 +1055,7 @@
 </span><span id="__span-10-10"><span class="w">    </span><span class="nv">gui</span><span class="p">.</span><span class="py">Box</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">w</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nv">h</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nv">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"#3498DB"</span><span class="w"> </span><span class="p">},</span>
 </span><span id="__span-10-11"><span class="p">}</span>
 </span></code></pre></div>
-<p><img alt="Screenshot" src="../images/mtg/021_layout-elements_gui-flow.png"/></p>
+<p><img alt="Screenshot" src="../images/sbz/021_layout-elements_gui-flow.png"/></p>
 <h2 id="guipadding-deprecated"><code>gui.Padding</code> (Deprecated)</h2>
 <p>Wraps a single element to add padding around it.</p>
 <div class="admonition warning">
