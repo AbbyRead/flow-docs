@@ -1835,7 +1835,6 @@
 <p>At the top of each Lua file that builds forms, add:</p>
 <div class="language-lua highlight"><pre><span></span><code><span id="__span-1-1"><span class="kd">local</span><span class="w"> </span><span class="nv">gui</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">flow</span><span class="p">.</span><span class="py">widgets</span>
 </span></code></pre></div>
-<p><img alt="Screenshot" src="../images/mtg/002_getting-started_setup.png" /></p>
 <p>Every element (label, button, box, ...) is a function in <code>gui</code>, and the examples in this documentation assume this line exists. See <a href="#glossary">Terms Used in This Documentation</a> if a word is unfamiliar.</p>
 <h2 id="getting-started-your-first-form">Your First Form</h2>
 <p>A <em>form</em> is a menu shown to a player. You describe it with a <em>build function</em>, which returns the elements to show, and pass that to <code>flow.make_gui()</code>. <code>form:show(player)</code> then shows it.</p>
@@ -3213,7 +3212,6 @@
 </span><span id="__span-7-5"><span class="w">    </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Hello world!"</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
 </span><span id="__span-7-6"><span class="p">}</span>
 </span></code></pre></div>
-<p><img alt="Screenshot" src="../images/mtg/036_functional-elements_gui-buttonexit_example.png" /></p>
 <h2 id="functional-elements-guibuttonurl"><code>gui.ButtonURL</code></h2>
 <p>A button that, when clicked, offers the player the choice of opening <code>url</code> in their web browser. <code>url</code> must start with <code>http://</code> or <code>https://</code>. Your <code>on_event</code> function is also called. In all other respects it works like <code>gui.Button</code>.</p>
 <h3 id="functional-elements-example_7">Example</h3>
@@ -3227,7 +3225,6 @@
 </span><span id="__span-8-8"><span class="w">    </span><span class="nv">url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"https://example.com"</span><span class="p">,</span>
 </span><span id="__span-8-9"><span class="p">}</span>
 </span></code></pre></div>
-<p><img alt="Screenshot" src="../images/mtg/037_functional-elements_gui-buttonurl_example.png" /></p>
 <h2 id="functional-elements-guibuttonurlexit"><code>gui.ButtonUrlExit</code></h2>
 <p>Like <code>gui.ButtonURL</code>, but the form also closes when the button is clicked. Unlike <code>gui.ButtonURL</code>, it does not get a size from its label, so <code>w</code> and <code>h</code> are required.</p>
 <h3 id="functional-elements-example_8">Example</h3>
@@ -3241,7 +3238,6 @@
 </span><span id="__span-9-8"><span class="w">    </span><span class="nv">url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"https://example.com"</span><span class="p">,</span>
 </span><span id="__span-9-9"><span class="p">}</span>
 </span></code></pre></div>
-<p><img alt="Screenshot" src="../images/mtg/038_functional-elements_gui-buttonurlexit_example.png" /></p>
 <h2 id="functional-elements-guicheckbox"><code>gui.Checkbox</code></h2>
 <p>A tick box with a text <code>label</code>. <code>selected</code> sets whether it starts ticked. If you give it a <code>name</code>, <code>ctx.form[name]</code> is <code>true</code> or <code>false</code> and is updated as soon as the player ticks or unticks it.</p>
 <p>Checkboxes are sized automatically and do not accept <code>w</code> or <code>h</code>, see <a href="#common-aspects-which-elements-take-w-h-min_w-and-min_h">Which Elements Take <code>w</code>, <code>h</code>, <code>min_w</code>, and <code>min_h</code></a>.</p>
@@ -3605,7 +3601,6 @@
 </span><span id="__span-25-36"><span class="w">    </span><span class="nv">animation_speed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
 </span><span id="__span-25-37"><span class="p">}</span>
 </span></code></pre></div>
-<p><img alt="Screenshot" src="../images/mtg/054_functional-elements_gui-model_example.png" /></p>
 <h2 id="functional-elements-guipwdfield"><code>gui.Pwdfield</code></h2>
 <p>A single-line text box for passwords: what the player types is hidden. It works like <code>gui.Field</code>, apart from not having a <code>default</code>. <code>ctx.form[name]</code> is the text that was typed. <code>on_key_enter</code> is supported, see <a href="#experimental-handling-enter-keypresses-in-fields">Handling Enter Keypresses in Fields</a>.</p>
 <h3 id="functional-elements-example_25">Example</h3>
@@ -5016,7 +5011,6 @@
 </span><span id="__span-3-8"><span class="kd">local</span><span class="w"> </span><span class="nv">fs</span><span class="p">,</span><span class="w"> </span><span class="nv">process_event</span><span class="w"> </span><span class="o">=</span>
 </span><span id="__span-3-9"><span class="w">    </span><span class="nv">form</span><span class="p">:</span><span class="nf">render_to_formspec_string</span><span class="p">(</span><span class="nv">player</span><span class="p">,</span><span class="w"> </span><span class="nv">ctx</span><span class="p">,</span><span class="w"> </span><span class="kc">true</span><span class="p">)</span>
 </span></code></pre></div>
-<p><img alt="Screenshot" src="../images/mtg/086_experimental_rendering-to-a-formspec.png" /></p>
 <p>Here is a complete example. It wraps a flow form in a formspec of its own and shows it with <code>core.show_formspec</code>. The label above the form belongs to the outer formspec, and the counter keeps working because <code>process_event</code> handles the button click:</p>
 <div class="language-lua highlight"><pre><span></span><code><span id="__span-4-1"><span class="kd">local</span><span class="w"> </span><span class="nv">gui</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">flow</span><span class="p">.</span><span class="py">widgets</span>
 </span><span id="__span-4-2">

@@ -771,7 +771,6 @@
 <p>At the top of each Lua file that builds forms, add:</p>
 <div class="language-lua highlight"><pre><span></span><code><span id="__span-1-1"><span class="kd">local</span><span class="w"> </span><span class="nv">gui</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">flow</span><span class="p">.</span><span class="py">widgets</span>
 </span></code></pre></div>
-<p><img alt="Screenshot" src="../images/mtg/002_getting-started_setup.png"/></p>
 <p>Every element (label, button, box, ...) is a function in <code>gui</code>, and the examples in this documentation assume this line exists. See <a href="../glossary/">Terms Used in This Documentation</a> if a word is unfamiliar.</p>
 <h2 id="your-first-form">Your First Form</h2>
 <p>A <em>form</em> is a menu shown to a player. You describe it with a <em>build function</em>, which returns the elements to show, and pass that to <code>flow.make_gui()</code>. <code>form:show(player)</code> then shows it.</p>

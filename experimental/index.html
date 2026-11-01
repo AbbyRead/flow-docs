@@ -851,7 +851,6 @@
 </span><span id="__span-3-8"><span class="kd">local</span><span class="w"> </span><span class="nv">fs</span><span class="p">,</span><span class="w"> </span><span class="nv">process_event</span><span class="w"> </span><span class="o">=</span>
 </span><span id="__span-3-9"><span class="w">    </span><span class="nv">form</span><span class="p">:</span><span class="nf">render_to_formspec_string</span><span class="p">(</span><span class="nv">player</span><span class="p">,</span><span class="w"> </span><span class="nv">ctx</span><span class="p">,</span><span class="w"> </span><span class="kc">true</span><span class="p">)</span>
 </span></code></pre></div>
-<p><img alt="Screenshot" src="../images/mtg/086_experimental_rendering-to-a-formspec.png"/></p>
 <p>Here is a complete example. It wraps a flow form in a formspec of its own and shows it with <code>core.show_formspec</code>. The label above the form belongs to the outer formspec, and the counter keeps working because <code>process_event</code> handles the button click:</p>
 <div class="language-lua highlight"><pre><span></span><code><span id="__span-4-1"><span class="kd">local</span><span class="w"> </span><span class="nv">gui</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">flow</span><span class="p">.</span><span class="py">widgets</span>
 </span><span id="__span-4-2">
