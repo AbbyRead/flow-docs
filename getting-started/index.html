@@ -771,6 +771,7 @@
 <p>At the top of each Lua file that builds forms, add:</p>
 <div class="language-lua highlight"><pre><span></span><code><span id="__span-1-1"><span class="kd">local</span><span class="w"> </span><span class="nv">gui</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">flow</span><span class="p">.</span><span class="py">widgets</span>
 </span></code></pre></div>
+<p><img alt="Screenshot" src="../images/mtg/002_getting-started_setup.png"/></p>
 <p>Every element (label, button, box, ...) is a function in <code>gui</code>, and the examples in this documentation assume this line exists. See <a href="../glossary/">Terms Used in This Documentation</a> if a word is unfamiliar.</p>
 <h2 id="your-first-form">Your First Form</h2>
 <p>A <em>form</em> is a menu shown to a player. You describe it with a <em>build function</em>, which returns the elements to show, and pass that to <code>flow.make_gui()</code>. <code>form:show(player)</code> then shows it.</p>
@@ -790,6 +791,7 @@
 </span><span id="__span-2-14"><span class="w">    </span><span class="kr">end</span><span class="p">,</span>
 </span><span id="__span-2-15"><span class="p">})</span>
 </span></code></pre></div>
+<p><img alt="Screenshot" src="../images/mtg/003_getting-started_your-first-form.png"/></p>
 <p>Run <code>/hello</code> in game to open it. You gave no positions or sizes: flow stacked the label above the button and sized both to fit their text.</p>
 <div class="admonition tip">
 <p class="admonition-title">Playground</p>
@@ -814,6 +816,7 @@
 </span><span id="__span-3-8"><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-3-9"><span class="kr">end</span><span class="p">)</span>
 </span></code></pre></div>
+<p><img alt="Screenshot" src="../images/mtg/004_getting-started_arranging-elements.png"/></p>
 <p>Sizes are measured in inventory slots and are worked out for you. When you need more control, see <a href="../layout-elements/">Layout Elements</a>, <a href="../padding/">Padding and Spacing</a>, and <a href="../common-aspects/#sizes">Common Aspects</a>.</p>
 <h2 id="reading-input-and-reacting">Reading Input and Reacting</h2>
 <p>Give an input element a <code>name</code> and flow stores its current value in <code>ctx.form[name]</code>. Give an element an <code>on_event</code> function to run code when the player uses it. Return <code>true</code> from <code>on_event</code> to redraw the form with the new state:</p>
@@ -837,6 +840,7 @@
 </span><span id="__span-4-18"><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-4-19"><span class="kr">end</span><span class="p">)</span>
 </span></code></pre></div>
+<p><img alt="Screenshot" src="../images/mtg/005_getting-started_reading-input-and-reacting.png"/></p>
 <p>Text fields only send their text when the player presses a button or Enter, which is why the greeting appears on the button press. See <a href="../common-aspects/#names-and-values">Names and Values</a> and <a href="../common-aspects/#events">Events</a> for the details.</p>
 <h2 id="a-complete-example">A Complete Example</h2>
 <p>This form combines everything above, and adds a way to start with a value from outside. The three <code>ctx</code> values in it look alike but differ:</p>
@@ -905,7 +909,7 @@
 </span><span id="__span-5-36">
 </span><span id="__span-5-37"><span class="nv">form</span><span class="p">:</span><span class="nf">show</span><span class="p">(</span><span class="nv">player_obj</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">STARTING_SELECTION</span><span class="w"> </span><span class="p">})</span><span class="w"> </span><span class="c1">-- Starting ctx is optional.</span>
 </span></code></pre></div>
-<p><img alt="Screenshot" src="../images/getting-started-basic-example.png"/></p>
+<p><img alt="Screenshot" src="../images/mtg/006_getting-started_a-complete-example.png"/></p>
 <p>Pick an item and press the button: the button's <code>on_event</code> function stores the index in <code>ctx.picked</code> and returns <code>true</code>, which redraws the form so that the label under the button changes. The same message is also sent to the chat.</p>
 <p>The flow repository also has an <a href="https://gitlab.com/luk3yx/minetest-flow/-/blob/main/example.lua"><code>example.lua</code></a> that demonstrates layouting and <a href="../common-aspects/#automatic-alignment">alignment</a> in more depth.</p>
 <div class="admonition tip">

@@ -710,6 +710,7 @@
 </span><span id="__span-0-14"><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-0-15"><span class="kr">end</span><span class="p">)</span>
 </span></code></pre></div>
+<p><img alt="Screenshot" src="../images/mtg/089_advanced_embedding-a-form-into-another-form.png"/></p>
 <div class="admonition note">
 <p class="admonition-title">Older versions of flow</p>
 <p>Current versions of flow ignore a <code>player</code> parameter in the table passed to <code>embed</code>. Versions from before 2025-06-17 need <code>player = player</code>, so add it if your mod has to work with them.</p>
@@ -795,6 +796,7 @@
 </span><span id="__span-1-26">
 </span><span id="__span-1-27"><span class="nv">my_gui</span><span class="p">:</span><span class="nf">show</span><span class="p">(</span><span class="nv">core</span><span class="p">.</span><span class="nf">get_player_by_name</span><span class="p">(</span><span class="s2">"current_player"</span><span class="p">))</span>
 </span></code></pre></div>
+<p><img alt="Screenshot" src="../images/mtg/090_advanced_running-code-when-a-form-is-closed.png"/></p>
 <p>If multiple <code>on_quit</code> callbacks are specified in different elements, they will all get called.</p>
 <h2 id="getting-a-reference-to-the-current-player-and-context">Getting a Reference to the Current Player and Context</h2>
 <p>If you're making a custom element, it might be useful to get a reference to <code>ctx</code> and <code>player</code> (the arguments of the <a href="../getting-started/#the-build-function">build function</a>) so you don't have to pass them in manually.</p>
@@ -812,6 +814,7 @@
 </span><span id="__span-2-12"><span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="nv">HelloWorld</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">style</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">font_size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"*2"</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span>
 </span><span id="__span-2-13"><span class="kr">end</span><span class="p">)</span>
 </span></code></pre></div>
+<p><img alt="Screenshot" src="../images/mtg/091_advanced_getting-a-reference-to-the-current-player-and-context.png"/></p>
 <div class="admonition warning">
 <p class="admonition-title">Only call it in a build function</p>
 <p><code>flow.get_context()</code> will error when called outside a build function (as you should not normally do this).</p>

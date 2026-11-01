@@ -771,6 +771,7 @@
 </span><span id="__span-0-33"><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-0-34"><span class="kr">end</span><span class="p">)</span>
 </span></code></pre></div>
+<p><img alt="Screenshot" src="../images/mtg/007_updating-forms_updating-from-your-code.png"/></p>
 <p>Inside an <a href="../common-aspects/#events"><code>on_event</code> handler</a>, you can <code>return true</code> instead of calling <code>my_gui:update(player)</code>, as the click counter example below does.</p>
 <div class="admonition note">
 <p class="admonition-title">HUDs and inventories</p>
@@ -804,7 +805,7 @@
 </span><span id="__span-1-24">
 </span><span id="__span-1-25"><span class="nv">form</span><span class="p">:</span><span class="nf">show</span><span class="p">(</span><span class="nv">core</span><span class="p">.</span><span class="nf">get_player_by_name</span><span class="p">(</span><span class="s2">"current_player"</span><span class="p">))</span>
 </span></code></pre></div>
-<p><img alt="Screenshot" src="../images/update-form-drawn-ctx-clicks.png"/></p>
+<p><img alt="Screenshot" src="../images/mtg/008_updating-forms_updating-keeps-ctx.png"/></p>
 <h2 id="redrawing-when-a-value-changes">Redrawing When a Value Changes</h2>
 <p>You often do not need <code>return true</code>. If your build function reads the value of a named input from <code>ctx.form</code>, flow notices and redraws the form by itself whenever the player changes that value.</p>
 <div class="language-lua highlight"><pre><span></span><code><span id="__span-2-1"><span class="kd">local</span><span class="w"> </span><span class="nv">form</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">flow</span><span class="p">.</span><span class="nf">make_gui</span><span class="p">(</span><span class="kr">function</span><span class="p">(</span><span class="nv">player</span><span class="p">,</span><span class="w"> </span><span class="nv">ctx</span><span class="p">)</span>
@@ -818,7 +819,7 @@
 </span><span id="__span-2-9"><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-2-10"><span class="kr">end</span><span class="p">)</span>
 </span></code></pre></div>
-<p><img alt="Screenshot" src="../images/show-advanced-options.png"/></p>
+<p><img alt="Screenshot" src="../images/mtg/009_updating-forms_redrawing-when-a-value-changes.png"/></p>
 <p>The rules are:</p>
 <ul>
 <li>Only reads while the build function runs count, including reads in helper functions that it calls. Reading <code>ctx.form</code> inside an <code>on_event</code> function does not.</li>
@@ -847,6 +848,7 @@
 </span><span id="__span-3-18"><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-3-19"><span class="kr">end</span><span class="p">)</span>
 </span></code></pre></div>
+<p><img alt="Screenshot" src="../images/mtg/010_updating-forms_redrawing-when-a-value-changes-2.png"/></p>
 <h2 id="context-lifetime-by-mode">Context Lifetime by Mode</h2>
 <p>How long <code>ctx</code> lives depends on how the form is shown:</p>
 <table>

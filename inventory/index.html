@@ -663,6 +663,7 @@
 </span><span id="__span-0-40"><span class="w">    </span><span class="kr">end</span><span class="p">,</span>
 </span><span id="__span-0-41"><span class="p">})</span>
 </span></code></pre></div>
+<p><img alt="Screenshot" src="../images/mtg/075_inventory_using-a-form-as-an-inventory.png"/></p>
 <p>Open your inventory and click the button: the counter goes up, and the form is redrawn with the new context.</p>
 <p>Like with the <code>show_hud</code> function (see <a href="../huds/">HUDs</a>), the <code>update*</code> functions (see <a href="../updating-forms/">Updating Forms</a>) don't do anything, so to update it, call <code>example_inventory:set_as_inventory_for(player, new_ctx)</code> again with the new context. If the context is not provided, it will reuse the existing context of the same form. This is different from HUDs, which never keep a context. Passing a new context replaces the existing one, so values that were stored in the old one are gone. See <a href="../updating-forms/#context-lifetime-by-mode">Context Lifetime by Mode</a>.</p>
 <p>The <code>/inv_title</code> chat command above does this. Keep your inventory open while you run it and the title changes straight away. The command passes a new context, which replaces the old one, so the click counter goes back to 0.</p>

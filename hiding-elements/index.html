@@ -725,7 +725,7 @@
 </span><span id="__span-0-7"><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-0-8"><span class="kr">end</span><span class="p">)</span>
 </span></code></pre></div>
-<p><img alt="Screenshot" src="../images/show-middle-button-hidden.png"/></p>
+<p><img alt="Screenshot" src="../images/mtg/024_hiding-elements_example.png"/></p>
 <h2 id="where-it-works">Where It Works</h2>
 <ul>
 <li><code>visible = false</code> works on elements inside <a href="../layout-elements/#guihbox"><code>gui.HBox</code></a>, <a href="../layout-elements/#guivbox"><code>gui.VBox</code></a>, <a href="../layout-elements/#guistack"><code>gui.Stack</code></a>, <a href="../layout-elements/#guiscrollablevbox"><code>gui.ScrollableVBox</code></a>, and <a href="../layout-elements/#guipaginatedvbox"><code>gui.PaginatedVBox</code></a>. In a <code>gui.Stack</code>, the hidden element still counts towards the size of the stack.</li>
@@ -748,6 +748,7 @@
 </span><span id="__span-1-6"><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-1-7"><span class="kr">end</span><span class="p">)</span>
 </span></code></pre></div>
+<p><img alt="Screenshot" src="../images/mtg/025_hiding-elements_what-happens-to-hidden-elements.png"/></p>
 <p>While the field is hidden, flow ignores a <code>note</code> value sent by the client, because the field is not registered, see <a href="../security/#what-flow-checks">What Flow Checks</a>.</p>
 <h2 id="alternatives">Alternatives</h2>
 <p>If you don't want hidden elements to take up any space, see the documentation for <a href="../layout-elements/#guinil"><code>gui.Nil</code></a>. <code>gui.Nil</code> is an invisible element (a tooltip) that is hidden with <code>visible = false</code>, so it is skipped when the layout is worked out. See <a href="../common-aspects/#invisible-elements">Invisible Elements</a> for the others. An invisible element that is itself given <code>visible = false</code> is removed from the form in the same way, it just never had a size.</p>

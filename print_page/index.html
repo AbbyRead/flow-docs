@@ -1788,6 +1788,7 @@
 </span><span id="__span-0-12"><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-0-13"><span class="kr">end</span><span class="p">)</span>
 </span></code></pre></div>
+<p><img alt="Screenshot" src="../images/mtg/001_introduction_why-flow.png" /></p>
 <p>Flow generates the formspec behind the scenes, so you never have to write one. If your editor supports it, you also get definitions and completion for every element, because LuaCATS annotations are included.</p>
 <h2 id="introduction-features">Features</h2>
 <h3 id="introduction-layouting">Layouting</h3>
@@ -1834,6 +1835,7 @@
 <p>At the top of each Lua file that builds forms, add:</p>
 <div class="language-lua highlight"><pre><span></span><code><span id="__span-1-1"><span class="kd">local</span><span class="w"> </span><span class="nv">gui</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">flow</span><span class="p">.</span><span class="py">widgets</span>
 </span></code></pre></div>
+<p><img alt="Screenshot" src="../images/mtg/002_getting-started_setup.png" /></p>
 <p>Every element (label, button, box, ...) is a function in <code>gui</code>, and the examples in this documentation assume this line exists. See <a href="#glossary">Terms Used in This Documentation</a> if a word is unfamiliar.</p>
 <h2 id="getting-started-your-first-form">Your First Form</h2>
 <p>A <em>form</em> is a menu shown to a player. You describe it with a <em>build function</em>, which returns the elements to show, and pass that to <code>flow.make_gui()</code>. <code>form:show(player)</code> then shows it.</p>
@@ -1853,6 +1855,7 @@
 </span><span id="__span-2-14"><span class="w">    </span><span class="kr">end</span><span class="p">,</span>
 </span><span id="__span-2-15"><span class="p">})</span>
 </span></code></pre></div>
+<p><img alt="Screenshot" src="../images/mtg/003_getting-started_your-first-form.png" /></p>
 <p>Run <code>/hello</code> in game to open it. You gave no positions or sizes: flow stacked the label above the button and sized both to fit their text.</p>
 <div class="admonition tip">
 <p class="admonition-title">Playground</p>
@@ -1877,6 +1880,7 @@
 </span><span id="__span-3-8"><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-3-9"><span class="kr">end</span><span class="p">)</span>
 </span></code></pre></div>
+<p><img alt="Screenshot" src="../images/mtg/004_getting-started_arranging-elements.png" /></p>
 <p>Sizes are measured in inventory slots and are worked out for you. When you need more control, see <a href="#layout-elements">Layout Elements</a>, <a href="#padding">Padding and Spacing</a>, and <a href="#common-aspects-sizes">Common Aspects</a>.</p>
 <h2 id="getting-started-reading-input-and-reacting">Reading Input and Reacting</h2>
 <p>Give an input element a <code>name</code> and flow stores its current value in <code>ctx.form[name]</code>. Give an element an <code>on_event</code> function to run code when the player uses it. Return <code>true</code> from <code>on_event</code> to redraw the form with the new state:</p>
@@ -1900,6 +1904,7 @@
 </span><span id="__span-4-18"><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-4-19"><span class="kr">end</span><span class="p">)</span>
 </span></code></pre></div>
+<p><img alt="Screenshot" src="../images/mtg/005_getting-started_reading-input-and-reacting.png" /></p>
 <p>Text fields only send their text when the player presses a button or Enter, which is why the greeting appears on the button press. See <a href="#common-aspects-names-and-values">Names and Values</a> and <a href="#common-aspects-events">Events</a> for the details.</p>
 <h2 id="getting-started-a-complete-example">A Complete Example</h2>
 <p>This form combines everything above, and adds a way to start with a value from outside. The three <code>ctx</code> values in it look alike but differ:</p>
@@ -1968,7 +1973,7 @@
 </span><span id="__span-5-36">
 </span><span id="__span-5-37"><span class="nv">form</span><span class="p">:</span><span class="nf">show</span><span class="p">(</span><span class="nv">player_obj</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">STARTING_SELECTION</span><span class="w"> </span><span class="p">})</span><span class="w"> </span><span class="c1">-- Starting ctx is optional.</span>
 </span></code></pre></div>
-<p><img alt="Screenshot" src="../images/getting-started-basic-example.png" /></p>
+<p><img alt="Screenshot" src="../images/mtg/006_getting-started_a-complete-example.png" /></p>
 <p>Pick an item and press the button: the button's <code>on_event</code> function stores the index in <code>ctx.picked</code> and returns <code>true</code>, which redraws the form so that the label under the button changes. The same message is also sent to the chat.</p>
 <p>The flow repository also has an <a href="https://gitlab.com/luk3yx/minetest-flow/-/blob/main/example.lua"><code>example.lua</code></a> that demonstrates layouting and <a href="#common-aspects-automatic-alignment">alignment</a> in more depth.</p>
 <div class="admonition tip">
@@ -2026,6 +2031,7 @@
 </span><span id="__span-0-33"><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-0-34"><span class="kr">end</span><span class="p">)</span>
 </span></code></pre></div>
+<p><img alt="Screenshot" src="../images/mtg/007_updating-forms_updating-from-your-code.png" /></p>
 <p>Inside an <a href="#common-aspects-events"><code>on_event</code> handler</a>, you can <code>return true</code> instead of calling <code>my_gui:update(player)</code>, as the click counter example below does.</p>
 <div class="admonition note">
 <p class="admonition-title">HUDs and inventories</p>
@@ -2059,7 +2065,7 @@
 </span><span id="__span-1-24">
 </span><span id="__span-1-25"><span class="nv">form</span><span class="p">:</span><span class="nf">show</span><span class="p">(</span><span class="nv">core</span><span class="p">.</span><span class="nf">get_player_by_name</span><span class="p">(</span><span class="s2">"current_player"</span><span class="p">))</span>
 </span></code></pre></div>
-<p><img alt="Screenshot" src="../images/update-form-drawn-ctx-clicks.png" /></p>
+<p><img alt="Screenshot" src="../images/mtg/008_updating-forms_updating-keeps-ctx.png" /></p>
 <h2 id="updating-forms-redrawing-when-a-value-changes">Redrawing When a Value Changes</h2>
 <p>You often do not need <code>return true</code>. If your build function reads the value of a named input from <code>ctx.form</code>, flow notices and redraws the form by itself whenever the player changes that value.</p>
 <div class="language-lua highlight"><pre><span></span><code><span id="__span-2-1"><span class="kd">local</span><span class="w"> </span><span class="nv">form</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">flow</span><span class="p">.</span><span class="nf">make_gui</span><span class="p">(</span><span class="kr">function</span><span class="p">(</span><span class="nv">player</span><span class="p">,</span><span class="w"> </span><span class="nv">ctx</span><span class="p">)</span>
@@ -2073,7 +2079,7 @@
 </span><span id="__span-2-9"><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-2-10"><span class="kr">end</span><span class="p">)</span>
 </span></code></pre></div>
-<p><img alt="Screenshot" src="../images/show-advanced-options.png" /></p>
+<p><img alt="Screenshot" src="../images/mtg/009_updating-forms_redrawing-when-a-value-changes.png" /></p>
 <p>The rules are:</p>
 <ul>
 <li>Only reads while the build function runs count, including reads in helper functions that it calls. Reading <code>ctx.form</code> inside an <code>on_event</code> function does not.</li>
@@ -2102,6 +2108,7 @@
 </span><span id="__span-3-18"><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-3-19"><span class="kr">end</span><span class="p">)</span>
 </span></code></pre></div>
+<p><img alt="Screenshot" src="../images/mtg/010_updating-forms_redrawing-when-a-value-changes-2.png" /></p>
 <h2 id="updating-forms-context-lifetime-by-mode">Context Lifetime by Mode</h2>
 <p>How long <code>ctx</code> lives depends on how the form is shown:</p>
 <table>
@@ -2256,6 +2263,7 @@
 </span><span id="__span-0-5"><span class="w">    </span><span class="nv">gui</span><span class="p">.</span><span class="py">Label</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"I am a second label!"</span><span class="w"> </span><span class="p">},</span>
 </span><span id="__span-0-6"><span class="p">}</span>
 </span></code></pre></div>
+<p><img alt="Screenshot" src="../images/mtg/011_layout-elements_gui-vbox.png" /></p>
 <p>Elements inside boxes have a spacing of 0.2 between them. Add <code>spacing = &lt;number&gt;</code> to change it (<code>gui.HBox</code> and <code>gui.Flow</code> work the same way). Spacing is the gap between elements, while <a href="#padding">padding</a> is the space around one element.</p>
 <h2 id="layout-elements-guihbox"><code>gui.HBox</code></h2>
 <p>Like <code>gui.VBox</code> but stacks elements horizontally instead.</p>
@@ -2272,6 +2280,7 @@
 </span><span id="__span-1-11"><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-1-12"><span class="p">}</span>
 </span></code></pre></div>
+<p><img alt="Screenshot" src="../images/mtg/012_layout-elements_gui-hbox.png" /></p>
 <h2 id="layout-elements-guiscrollablevbox"><code>gui.ScrollableVBox</code></h2>
 <p>Similar to <code>gui.VBox</code>, but shows its contents in an area of a fixed size that the player can scroll, and automatically adds a scrollbar next to it. Anything outside the area is hidden until it is scrolled into view. The area is <code>w</code> by <code>h</code>, both are optional: the width defaults to the width of the contents and the height defaults to the height of the contents, up to a maximum of 5.</p>
 <div class="admonition note">
@@ -2296,6 +2305,7 @@
 </span><span id="__span-2-15"><span class="w">    </span><span class="nv">gui</span><span class="p">.</span><span class="py">Label</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"I am a fourth label!"</span><span class="w"> </span><span class="p">},</span>
 </span><span id="__span-2-16"><span class="p">}</span>
 </span></code></pre></div>
+<p><img alt="Screenshot" src="../images/mtg/013_layout-elements_gui-scrollablevbox.png" /></p>
 <h2 id="layout-elements-guispacer"><code>gui.Spacer</code></h2>
 <p>A "flexible space" element that expands by default. A spacer only fills spare room, so this box has a <code>min_w</code> and a background color to show how much there is:</p>
 <div class="language-lua highlight"><pre><span></span><code><span id="__span-3-1"><span class="nv">gui</span><span class="p">.</span><span class="py">HBox</span><span class="w"> </span><span class="p">{</span>
@@ -2313,7 +2323,7 @@
 </span><span id="__span-3-13"><span class="w">    </span><span class="nv">gui</span><span class="p">.</span><span class="py">Button</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Confirm"</span><span class="w"> </span><span class="p">},</span>
 </span><span id="__span-3-14"><span class="p">}</span>
 </span></code></pre></div>
-<p><img alt="Screenshot" src="../images/cancel-back-space-next-confirm.png" /></p>
+<p><img alt="Screenshot" src="../images/mtg/014_layout-elements_gui-spacer.png" /></p>
 <div class="admonition tip">
 <p class="admonition-title">Prefer <code>expand</code> when it works</p>
 <p>Prefer <code>expand = true</code> with <code>align_h</code> or <code>align_v</code> when that gives the same result, see <a href="#common-aspects-parameters-shared-by-all-elements">Parameters Shared by All Elements</a>.</p>
@@ -2336,7 +2346,7 @@
 </span><span id="__span-4-8"><span class="w">    </span><span class="nv">gui</span><span class="p">.</span><span class="py">Button</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Confirm"</span><span class="w"> </span><span class="p">},</span>
 </span><span id="__span-4-9"><span class="p">}</span>
 </span></code></pre></div>
-<p><img alt="Screenshot" src="../images/cancel-back-next-confirm.png" /></p>
+<p><img alt="Screenshot" src="../images/mtg/015_layout-elements_gui-spacer-2.png" /></p>
 <div class="admonition warning">
 <p class="admonition-title">Do not use spacers to center elements</p>
 <p>It creates unnecessary boxes, and labels may end up slightly off-center, because label widths depend on screen size and DPI and this code does not trigger the centering hack. The centering hack is what flow does when <code>align_h</code> or <code>expand</code> centers or stretches a label: it draws the label as a background-less button as wide as the whole area, so the client centers the text itself.</p>
@@ -2351,7 +2361,7 @@
 </span><span id="__span-5-8"><span class="w">    </span><span class="nv">gui</span><span class="p">.</span><span class="py">Spacer</span><span class="w"> </span><span class="p">{},</span>
 </span><span id="__span-5-9"><span class="p">}</span>
 </span></code></pre></div>
-<p><img alt="Screenshot" src="../images/not-properly-centered.png" /></p>
+<p><img alt="Screenshot" src="../images/mtg/016_layout-elements_gui-spacer-3.png" /></p>
 <p>Do this instead:</p>
 <div class="language-lua highlight"><pre><span></span><code><span id="__span-6-1"><span class="nv">gui</span><span class="p">.</span><span class="py">VBox</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-6-2"><span class="w">    </span><span class="nv">min_w</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span>
@@ -2360,7 +2370,7 @@
 </span><span id="__span-6-5"><span class="w">    </span><span class="nv">gui</span><span class="p">.</span><span class="py">Label</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"I am centered!"</span><span class="p">,</span><span class="w"> </span><span class="nv">align_h</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"center"</span><span class="w"> </span><span class="p">},</span>
 </span><span id="__span-6-6"><span class="p">}</span>
 </span></code></pre></div>
-<p><img alt="Screenshot" src="../images/centered-label.png" /></p>
+<p><img alt="Screenshot" src="../images/mtg/017_layout-elements_gui-spacer-4.png" /></p>
 <h2 id="layout-elements-guinil"><code>gui.Nil</code></h2>
 <p>A tool for ternary-ish conditional elements. Unlike <code>visible = false</code> (see <a href="#hiding-elements">Hiding Elements</a>), which keeps its space, a <code>gui.Nil</code> takes up none. Untick the checkbox to remove the box: the last label moves up.</p>
 <div class="language-lua highlight"><pre><span></span><code><span id="__span-7-1"><span class="kd">local</span><span class="w"> </span><span class="nv">form</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">flow</span><span class="p">.</span><span class="nf">make_gui</span><span class="p">(</span><span class="kr">function</span><span class="p">(</span><span class="nv">player</span><span class="p">,</span><span class="w"> </span><span class="nv">ctx</span><span class="p">)</span>
@@ -2373,6 +2383,7 @@
 </span><span id="__span-7-8"><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-7-9"><span class="kr">end</span><span class="p">)</span>
 </span></code></pre></div>
+<p><img alt="Screenshot" src="../images/mtg/018_layout-elements_gui-nil.png" /></p>
 <div class="admonition note">
 <p class="admonition-title">Use sparingly</p>
 <p>Flow still has to process each <code>Nil</code> to remove it.</p>
@@ -2386,6 +2397,7 @@
 </span><span id="__span-8-4"><span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nb">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"label"</span><span class="p">,</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nv">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.5</span><span class="p">,</span><span class="w"> </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Hello world!"</span><span class="w"> </span><span class="p">},</span>
 </span><span id="__span-8-5"><span class="p">}</span>
 </span></code></pre></div>
+<p><img alt="Screenshot" src="../images/mtg/019_layout-elements_gui-container_example.png" /></p>
 <h2 id="layout-elements-guistack"><code>gui.Stack</code></h2>
 <p>This container element places its children on top of each other. All child elements are expanded in both directions.</p>
 <div class="admonition note">
@@ -2402,7 +2414,7 @@
 </span><span id="__span-9-7"><span class="w">    </span><span class="nv">gui</span><span class="p">.</span><span class="py">Image</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">w</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nv">h</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nv">texture_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"[fill:16x16:red"</span><span class="p">,</span><span class="w"> </span><span class="nv">padding</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.2</span><span class="p">,</span><span class="w"> </span><span class="nv">align_h</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"left"</span><span class="w"> </span><span class="p">},</span>
 </span><span id="__span-9-8"><span class="p">}</span>
 </span></code></pre></div>
-<p><img alt="Screenshot" src="../images/stacked-air-on-button.png" /></p>
+<p><img alt="Screenshot" src="../images/mtg/020_layout-elements_gui-stack_example.png" /></p>
 <h2 id="layout-elements-guipaginatedvbox"><code>gui.PaginatedVBox</code></h2>
 <p>Like <code>gui.ScrollableVBox</code>, but splits the contents into pages instead of scrolling. Only one page is shown at a time, with a <code>&lt;</code> button, a "Page 1 of 3" label, and a <code>&gt;</code> button underneath to change page. It needs a unique <code>name</code>, and <code>w</code> and <code>h</code> work the same way as for <code>gui.ScrollableVBox</code>. Elements are never cut in half: an element that does not fit on a page starts the next one.</p>
 <p><a href="#layout-elements-guiscrollablevbox"><code>gui.ScrollableVBox</code></a> uses this automatically on clients that cannot scroll.</p>
@@ -2422,6 +2434,7 @@
 </span><span id="__span-10-10"><span class="w">    </span><span class="nv">gui</span><span class="p">.</span><span class="py">Box</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">w</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nv">h</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nv">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"#3498DB"</span><span class="w"> </span><span class="p">},</span>
 </span><span id="__span-10-11"><span class="p">}</span>
 </span></code></pre></div>
+<p><img alt="Screenshot" src="../images/mtg/021_layout-elements_gui-flow.png" /></p>
 <h2 id="layout-elements-guipadding-deprecated"><code>gui.Padding</code> (Deprecated)</h2>
 <p>Wraps a single element to add padding around it.</p>
 <div class="admonition warning">
@@ -2453,7 +2466,7 @@
 </span><span id="__span-0-6"><span class="w">    </span><span class="nv">gui</span><span class="p">.</span><span class="py">Button</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Button 2"</span><span class="w"> </span><span class="p">},</span>
 </span><span id="__span-0-7"><span class="p">}</span>
 </span></code></pre></div>
-<p><img alt="Screenshot" src="../images/buttons-on-background-stretched.png" /></p>
+<p><img alt="Screenshot" src="../images/mtg/022_padding_padding-spacing-and-backgrounds.png" /></p>
 <p>Example with <code>bgimg_middle</code> as well. The corners and edges keep their 2 pixel border, and only the middle is stretched:</p>
 <div class="language-lua highlight"><pre><span></span><code><span id="__span-1-1"><span class="nv">gui</span><span class="p">.</span><span class="py">VBox</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-1-2"><span class="w">    </span><span class="nv">padding</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.5</span><span class="p">,</span>
@@ -2467,7 +2480,7 @@
 </span><span id="__span-1-10"><span class="w">    </span><span class="nv">gui</span><span class="p">.</span><span class="py">Button</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Button 2"</span><span class="w"> </span><span class="p">},</span>
 </span><span id="__span-1-11"><span class="p">}</span>
 </span></code></pre></div>
-<p><img alt="Screenshot" src="../images/buttons-on-background-middle2.png" /></p>
+<p><img alt="Screenshot" src="../images/mtg/023_padding_padding-spacing-and-backgrounds-2.png" /></p>
 <p>The padding around the VBox is 0.5 and the spacing between the buttons inside it is 0.1.</p>
 <p>To draw a background behind other kinds of elements, see <a href="#functional-elements-guibackground"><code>gui.Background</code></a> and <a href="#functional-elements-guibackground9"><code>gui.Background9</code></a>.</p></section><section class="print-page" id="hiding-elements" heading-number="2.3"><h1 id="hiding-elements-hiding-elements">Hiding Elements</h1>
 <p>Elements inside boxes can have <a href="#common-aspects-parameters-shared-by-all-elements"><code>visible = false</code></a> set to hide them from the player.</p>
@@ -2486,7 +2499,7 @@
 </span><span id="__span-0-7"><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-0-8"><span class="kr">end</span><span class="p">)</span>
 </span></code></pre></div>
-<p><img alt="Screenshot" src="../images/show-middle-button-hidden.png" /></p>
+<p><img alt="Screenshot" src="../images/mtg/024_hiding-elements_example.png" /></p>
 <h2 id="hiding-elements-where-it-works">Where It Works</h2>
 <ul>
 <li><code>visible = false</code> works on elements inside <a href="#layout-elements-guihbox"><code>gui.HBox</code></a>, <a href="#layout-elements-guivbox"><code>gui.VBox</code></a>, <a href="#layout-elements-guistack"><code>gui.Stack</code></a>, <a href="#layout-elements-guiscrollablevbox"><code>gui.ScrollableVBox</code></a>, and <a href="#layout-elements-guipaginatedvbox"><code>gui.PaginatedVBox</code></a>. In a <code>gui.Stack</code>, the hidden element still counts towards the size of the stack.</li>
@@ -2509,6 +2522,7 @@
 </span><span id="__span-1-6"><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-1-7"><span class="kr">end</span><span class="p">)</span>
 </span></code></pre></div>
+<p><img alt="Screenshot" src="../images/mtg/025_hiding-elements_what-happens-to-hidden-elements.png" /></p>
 <p>While the field is hidden, flow ignores a <code>note</code> value sent by the client, because the field is not registered, see <a href="#security-what-flow-checks">What Flow Checks</a>.</p>
 <h2 id="hiding-elements-alternatives">Alternatives</h2>
 <p>If you don't want hidden elements to take up any space, see the documentation for <a href="#layout-elements-guinil"><code>gui.Nil</code></a>. <code>gui.Nil</code> is an invisible element (a tooltip) that is hidden with <code>visible = false</code>, so it is skipped when the layout is worked out. See <a href="#common-aspects-invisible-elements">Invisible Elements</a> for the others. An invisible element that is itself given <code>visible = false</code> is removed from the form in the same way, it just never had a size.</p></section><section class="print-page" id="manual-positioning" heading-number="2.4"><h1 id="manual-positioning-manual-positioning">Manual Positioning</h1>
@@ -2532,7 +2546,7 @@
 </span><span id="__span-0-11"><span class="w">    </span><span class="p">},</span>
 </span><span id="__span-0-12"><span class="p">}</span>
 </span></code></pre></div>
-<p><img alt="Screenshot" src="../images/auto-manual-position-rgb-boxes.png" /></p>
+<p><img alt="Screenshot" src="../images/mtg/026_manual-positioning_manual-positioning-of-elements_container-example.png" /></p>
 <h3 id="manual-positioning-container-noclip-example">Container: <code>noclip</code> Example</h3>
 <p>Luanti cuts off elements that stick out of the form unless their <code>noclip</code> style is <code>true</code>. This example puts a button and a box outside a 2 by 2 area, which is why it needs <code>noclip</code>. The <code>gui.Stack</code> is only a reference area: it draws nothing, and gives the two containers a known size to be placed against. Setting both <code>w</code> and <code>h</code> on a <code>gui.Stack</code> is supported for this: flow does not lay out such a stack, so its children keep their own <code>x</code> and <code>y</code>. In every other case flow positions the children itself and overwrites their <code>x</code> and <code>y</code>, which is why a stack with only <code>w</code>, or with <code>min_w</code> and <code>min_h</code>, would lose the <code>x = -1</code> of the second container. See the <a href="#layout-elements">warning in Layout Elements</a>.</p>
 <div class="language-lua highlight"><pre><span></span><code><span id="__span-1-1"><span class="nv">gui</span><span class="p">.</span><span class="py">Stack</span><span class="w"> </span><span class="p">{</span>
@@ -2587,6 +2601,7 @@
 </span><span id="__span-1-50"><span class="w">    </span><span class="p">},</span>
 </span><span id="__span-1-51"><span class="p">}</span>
 </span></code></pre></div>
+<p><img alt="Screenshot" src="../images/mtg/027_manual-positioning_manual-positioning-of-elements_container-noclip-example.png" /></p>
 <div class="admonition note">
 <p class="admonition-title"><code>noclip</code> is set per element</p>
 <p><code>noclip</code> is a <a href="#styling-all-elements">style</a> of each element, and the <code>style</code> of an element only applies to that element, so set it on every element that sticks out, as both of the elements above do.</p>
@@ -2638,6 +2653,7 @@
 </span><span id="__span-0-2">
 </span><span id="__span-0-3"><span class="nv">gui</span><span class="p">.</span><span class="py">Label</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Hello world!"</span><span class="w"> </span><span class="p">}</span>
 </span></code></pre></div>
+<p><img alt="Screenshot" src="../images/mtg/028_common-aspects_common-aspects.png" /></p>
 <h2 id="common-aspects-sizes">Sizes</h2>
 <p>Sizes are measured in inventory slots: <code>1</code> is the width and height of one item slot. There is no hidden padding or spacing, so two boxes that are <code>1</code> wide and placed next to each other with <code>spacing = 0</code> touch. You never give an element a position, boxes place their children and flow works out the total size of the form.</p>
 <p>Elements that show text, such as labels, buttons, and fields, are sized to fit their text unless you give them a <code>w</code> and <code>h</code>. Elements that show something without a natural size, such as images, boxes, models, and tables, need an explicit <code>w</code> and <code>h</code> (their parameter lists below do not say <code>-- Optional</code>). Flow can only estimate the width of text because the real width depends on the player's font, screen size, and scaling settings, so avoid layouts that rely on exact text widths (see the note on label sizes in the <a href="#introduction-features">introduction</a>).</p>
@@ -3054,6 +3070,7 @@
 </span><span id="__span-0-25"><span class="w">    </span><span class="nv">middle_x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
 </span><span id="__span-0-26"><span class="p">}</span>
 </span></code></pre></div>
+<p><img alt="Screenshot" src="../images/mtg/029_functional-elements_gui-animatedimage_example.png" /></p>
 <h3 id="functional-elements-live-example">Live Example</h3>
 <p>The left one cycles through the frames and the right one is nine-sliced (<code>middle_x = 2</code>). Set <code>frame_duration = 0</code> to stop on <code>frame_start</code>.</p>
 <div class="language-lua highlight"><pre><span></span><code><span id="__span-1-1"><span class="kd">local</span><span class="w"> </span><span class="nv">FRAMES</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"[fill:16x48:white^[fill:12x12:2,2:#E74C3C"</span>
@@ -3073,6 +3090,7 @@
 </span><span id="__span-1-15"><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-1-16"><span class="kr">end</span><span class="p">)</span>
 </span></code></pre></div>
+<p><img alt="Screenshot" src="../images/mtg/030_functional-elements_gui-animatedimage_live-example.png" /></p>
 <h2 id="functional-elements-guibackground"><code>gui.Background</code></h2>
 <p>Draws a picture behind everything else in the form: all backgrounds are drawn before any other element, whatever order they are in. The picture (<code>texture_name</code>) is stretched to <code>w</code> by <code>h</code>. If <code>auto_clip</code> is <code>true</code>, it is cut off at the edge of the form instead and <code>w</code> and <code>h</code> are ignored.</p>
 <div class="admonition tip">
@@ -3097,6 +3115,7 @@
 </span><span id="__span-2-13"><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-2-14"><span class="kr">end</span><span class="p">)</span>
 </span></code></pre></div>
+<p><img alt="Screenshot" src="../images/mtg/031_functional-elements_gui-background_example.png" /></p>
 <h2 id="functional-elements-guibackground9"><code>gui.Background9</code></h2>
 <p>Like <code>gui.Background</code>, but the picture is drawn as a <a href="#common-aspects-nine-slice-images">nine-slice</a> so that it can be stretched to any size without distorting its corners.</p>
 <h3 id="functional-elements-example_2">Example</h3>
@@ -3126,6 +3145,7 @@
 </span><span id="__span-3-23"><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-3-24"><span class="kr">end</span><span class="p">)</span>
 </span></code></pre></div>
+<p><img alt="Screenshot" src="../images/mtg/032_functional-elements_gui-background9_example.png" /></p>
 <h2 id="functional-elements-guibgcolor"><code>gui.Bgcolor</code></h2>
 <p>Sets the colors behind the form. This does the same thing as the <code>bgcolor</code>, <code>fbgcolor</code>, and <code>bg_fullscreen</code> options of the root element, which are explained in <a href="#experimental-bgcolor">Experimental Features</a> and are easier to use. <code>fullscreen</code> can be <code>false</code>, <code>true</code>, <code>"both"</code>, or <code>"neither"</code>.</p>
 <h3 id="functional-elements-example_3">Example</h3>
@@ -3149,6 +3169,7 @@
 </span><span id="__span-4-17"><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-4-18"><span class="kr">end</span><span class="p">)</span>
 </span></code></pre></div>
+<p><img alt="Screenshot" src="../images/mtg/033_functional-elements_gui-bgcolor_example.png" /></p>
 <h2 id="functional-elements-guibox"><code>gui.Box</code></h2>
 <p>Draws a solid rectangle of one color. Boxes have no natural size, so give them a <code>w</code> and <code>h</code>.</p>
 <div class="admonition warning">
@@ -3169,6 +3190,7 @@
 </span><span id="__span-5-10"><span class="w">    </span><span class="nv">gui</span><span class="p">.</span><span class="py">Box</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">w</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nv">h</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="nv">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"red#80"</span><span class="w"> </span><span class="p">},</span>
 </span><span id="__span-5-11"><span class="p">}</span>
 </span></code></pre></div>
+<p><img alt="Screenshot" src="../images/mtg/034_functional-elements_gui-box_example.png" /></p>
 <h2 id="functional-elements-guibutton"><code>gui.Button</code></h2>
 <p>A clickable button showing <code>label</code>. Your <a href="#common-aspects-events"><code>on_event</code></a> function is called when it is clicked. If you do not set <code>w</code> and <code>h</code>, the button is sized to fit the label (but never smaller than 1.6 by 0.8).</p>
 <p>Buttons do not store a value in <code>ctx.form</code>, see <a href="#common-aspects-names-and-values">Names and Values</a>.</p>
@@ -3180,6 +3202,7 @@
 </span><span id="__span-6-5"><span class="w">    </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Hello world!"</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
 </span><span id="__span-6-6"><span class="p">}</span>
 </span></code></pre></div>
+<p><img alt="Screenshot" src="../images/mtg/035_functional-elements_gui-button_example.png" /></p>
 <h2 id="functional-elements-guibuttonexit"><code>gui.ButtonExit</code></h2>
 <p>A button that closes the form when it is clicked. Your <code>on_event</code> function is still called before the form closes. In all other respects it works like <code>gui.Button</code>.</p>
 <h3 id="functional-elements-example_6">Example</h3>
@@ -3190,6 +3213,7 @@
 </span><span id="__span-7-5"><span class="w">    </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Hello world!"</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
 </span><span id="__span-7-6"><span class="p">}</span>
 </span></code></pre></div>
+<p><img alt="Screenshot" src="../images/mtg/036_functional-elements_gui-buttonexit_example.png" /></p>
 <h2 id="functional-elements-guibuttonurl"><code>gui.ButtonURL</code></h2>
 <p>A button that, when clicked, offers the player the choice of opening <code>url</code> in their web browser. <code>url</code> must start with <code>http://</code> or <code>https://</code>. Your <code>on_event</code> function is also called. In all other respects it works like <code>gui.Button</code>.</p>
 <h3 id="functional-elements-example_7">Example</h3>
@@ -3203,6 +3227,7 @@
 </span><span id="__span-8-8"><span class="w">    </span><span class="nv">url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"https://example.com"</span><span class="p">,</span>
 </span><span id="__span-8-9"><span class="p">}</span>
 </span></code></pre></div>
+<p><img alt="Screenshot" src="../images/mtg/037_functional-elements_gui-buttonurl_example.png" /></p>
 <h2 id="functional-elements-guibuttonurlexit"><code>gui.ButtonUrlExit</code></h2>
 <p>Like <code>gui.ButtonURL</code>, but the form also closes when the button is clicked. Unlike <code>gui.ButtonURL</code>, it does not get a size from its label, so <code>w</code> and <code>h</code> are required.</p>
 <h3 id="functional-elements-example_8">Example</h3>
@@ -3216,6 +3241,7 @@
 </span><span id="__span-9-8"><span class="w">    </span><span class="nv">url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"https://example.com"</span><span class="p">,</span>
 </span><span id="__span-9-9"><span class="p">}</span>
 </span></code></pre></div>
+<p><img alt="Screenshot" src="../images/mtg/038_functional-elements_gui-buttonurlexit_example.png" /></p>
 <h2 id="functional-elements-guicheckbox"><code>gui.Checkbox</code></h2>
 <p>A tick box with a text <code>label</code>. <code>selected</code> sets whether it starts ticked. If you give it a <code>name</code>, <code>ctx.form[name]</code> is <code>true</code> or <code>false</code> and is updated as soon as the player ticks or unticks it.</p>
 <p>Checkboxes are sized automatically and do not accept <code>w</code> or <code>h</code>, see <a href="#common-aspects-which-elements-take-w-h-min_w-and-min_h">Which Elements Take <code>w</code>, <code>h</code>, <code>min_w</code>, and <code>min_h</code></a>.</p>
@@ -3226,6 +3252,7 @@
 </span><span id="__span-10-4"><span class="w">    </span><span class="nv">selected</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
 </span><span id="__span-10-5"><span class="p">}</span>
 </span></code></pre></div>
+<p><img alt="Screenshot" src="../images/mtg/039_functional-elements_gui-checkbox_example.png" /></p>
 <h2 id="functional-elements-guidropdown"><code>gui.Dropdown</code></h2>
 <p>A drop-down list that shows the currently selected item and lets the player pick another one from <code>items</code> (a list of strings). <code>selected_idx</code> is the number of the item that is selected at first (the first item is <code>1</code>).</p>
 <p><code>ctx.form[name]</code> is the text of the selected item. If <code>index_event = true</code> it is the number of the selected item instead, which is easier to work with when two items have the same text or when the text is translated.</p>
@@ -3246,6 +3273,7 @@
 </span><span id="__span-11-13"><span class="w">    </span><span class="nv">index_event</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
 </span><span id="__span-11-14"><span class="p">}</span>
 </span></code></pre></div>
+<p><img alt="Screenshot" src="../images/mtg/040_functional-elements_gui-dropdown_example.png" /></p>
 <h2 id="functional-elements-guifield"><code>gui.Field</code></h2>
 <p>A single-line text box. <code>label</code>, if set, is shown above the box (flow leaves room for it automatically). <code>default</code> is the text it starts with.</p>
 <p><code>ctx.form[name]</code> is the text in the box. Newlines and other control characters are removed from it, but tabs are kept (a player can only get a newline into a field by pasting). See <a href="#security-what-flow-checks">Security</a> for the exact rules. The text is sent to the server when the player presses a button or Enter. To react to Enter, see <a href="#experimental-handling-enter-keypresses-in-fields">Handling Enter Keypresses in Fields</a>.</p>
@@ -3270,6 +3298,7 @@
 </span><span id="__span-12-17"><span class="w">    </span><span class="nv">enter_after_edit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
 </span><span id="__span-12-18"><span class="p">}</span>
 </span></code></pre></div>
+<p><img alt="Screenshot" src="../images/mtg/041_functional-elements_gui-field_example.png" /></p>
 <h2 id="functional-elements-guifieldcloseonenter"><code>gui.FieldCloseOnEnter</code></h2>
 <p>Sets whether pressing Enter in the field with this <code>name</code> closes the form.</p>
 <div class="admonition tip">
@@ -3290,6 +3319,7 @@
 </span><span id="__span-13-10"><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-13-11"><span class="kr">end</span><span class="p">)</span>
 </span></code></pre></div>
+<p><img alt="Screenshot" src="../images/mtg/042_functional-elements_gui-fieldcloseonenter_example.png" /></p>
 <h2 id="functional-elements-guifieldenterafteredit"><code>gui.FieldEnterAfterEdit</code></h2>
 <div class="admonition warning">
 <p class="admonition-title">Experimental</p>
@@ -3310,6 +3340,7 @@
 </span><span id="__span-14-7"><span class="w">    </span><span class="p">},</span>
 </span><span id="__span-14-8"><span class="p">}</span>
 </span></code></pre></div>
+<p><img alt="Screenshot" src="../images/mtg/043_functional-elements_gui-fieldenterafteredit_example.png" /></p>
 <h2 id="functional-elements-guihypertext"><code>gui.Hypertext</code></h2>
 <p>Shows text that can be formatted (bold, colors, different sizes, images, ...) and can contain clickable links. The text is written in a small HTML-like language, which is described in <a href="#hypertext">Hypertext Markup</a>. <code>w</code> and <code>h</code> are the size of the area that the text is wrapped to fit in.</p>
 <p>If the markup contains <code>&lt;action name=...&gt;</code> links, <code>ctx.form[name]</code> is set to <code>"action:"</code> followed by the action name when the player clicks one.</p>
@@ -3330,6 +3361,7 @@
 </span><span id="__span-15-10"><span class="w">        </span><span class="s2">"&lt;style color='red'&gt;red&lt;/style&gt; world!"</span><span class="p">,</span>
 </span><span id="__span-15-11"><span class="p">}</span>
 </span></code></pre></div>
+<p><img alt="Screenshot" src="../images/mtg/044_functional-elements_gui-hypertext_example.png" /></p>
 <h2 id="functional-elements-guiimage"><code>gui.Image</code></h2>
 <p>Shows a picture, stretched to fit <code>w</code> by <code>h</code>. If you want to use one small texture for pictures of many sizes, use the <code>middle_*</code> parameters, see <a href="#common-aspects-nine-slice-images">Nine-Slice Images</a>.</p>
 <h3 id="functional-elements-example_15">Example</h3>
@@ -3349,6 +3381,7 @@
 </span><span id="__span-16-14"><span class="w">    </span><span class="nv">middle_y2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
 </span><span id="__span-16-15"><span class="p">}</span>
 </span></code></pre></div>
+<p><img alt="Screenshot" src="../images/mtg/045_functional-elements_gui-image_example.png" /></p>
 <h2 id="functional-elements-guiimagebutton"><code>gui.ImageButton</code></h2>
 <p>A button that is drawn as a picture instead of the usual button face. The picture (<code>texture_name</code>) is stretched to <code>w</code> by <code>h</code>, and <code>label</code> is drawn on top of it. It works like <code>gui.Button</code> otherwise.</p>
 <ul>
@@ -3373,6 +3406,7 @@
 </span><span id="__span-17-14"><span class="w">    </span><span class="nv">pressed_texture_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"[fill:16x16:#E74C3C"</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
 </span><span id="__span-17-15"><span class="p">}</span>
 </span></code></pre></div>
+<p><img alt="Screenshot" src="../images/mtg/046_functional-elements_gui-imagebutton_example.png" /></p>
 <h2 id="functional-elements-guiimagebuttonexit"><code>gui.ImageButtonExit</code></h2>
 <p>Like <code>gui.ImageButton</code>, but the form also closes when the button is clicked.</p>
 <h3 id="functional-elements-example_17">Example</h3>
@@ -3383,6 +3417,7 @@
 </span><span id="__span-18-5"><span class="w">    </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Close"</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
 </span><span id="__span-18-6"><span class="p">}</span>
 </span></code></pre></div>
+<p><img alt="Screenshot" src="../images/mtg/047_functional-elements_gui-imagebuttonexit_example.png" /></p>
 <h2 id="functional-elements-guiitemimage"><code>gui.ItemImage</code></h2>
 <p>Shows the picture that is used for an item or node in inventories (<code>item_name</code>, such as <code>"unifieddyes:colorium"</code>), stretched to fit <code>w</code> by <code>h</code>.</p>
 <h3 id="functional-elements-example_18">Example</h3>
@@ -3394,6 +3429,7 @@
 </span><span id="__span-19-6"><span class="w">    </span><span class="nv">item_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"unifieddyes:colorium"</span><span class="p">,</span>
 </span><span id="__span-19-7"><span class="p">}</span>
 </span></code></pre></div>
+<p><img alt="Screenshot" src="../images/mtg/048_functional-elements_gui-itemimage_example.png" /></p>
 <h2 id="functional-elements-guiitemimagebutton"><code>gui.ItemImageButton</code></h2>
 <p>A button that shows the inventory picture of an item or node (<code>item_name</code>). By default, the item's description is shown as a tooltip when the player hovers over the button, which you can replace with the <code>tooltip</code> parameter. It works like <code>gui.Button</code> otherwise.</p>
 <div class="admonition note">
@@ -3411,6 +3447,7 @@
 </span><span id="__span-20-8"><span class="w">    </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Hello world!"</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
 </span><span id="__span-20-9"><span class="p">}</span>
 </span></code></pre></div>
+<p><img alt="Screenshot" src="../images/mtg/049_functional-elements_gui-itemimagebutton_example.png" /></p>
 <h2 id="functional-elements-guilabel"><code>gui.Label</code></h2>
 <p>Shows text.</p>
 <div class="admonition note">
@@ -3423,6 +3460,7 @@
 </span><span id="__span-21-2"><span class="w">    </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Hello world!"</span><span class="p">,</span>
 </span><span id="__span-21-3"><span class="p">}</span>
 </span></code></pre></div>
+<p><img alt="Screenshot" src="../images/mtg/050_functional-elements_gui-label_example.png" /></p>
 <h2 id="functional-elements-guilist"><code>gui.List</code></h2>
 <p>Shows a grid of inventory slots, with the items of one inventory list in it. This is how you show the player's inventory, a chest, a furnace's input slots, and so on. To use a whole form as the player's inventory, see <a href="#inventory">Using a Form as an Inventory</a>.</p>
 <ul>
@@ -3447,6 +3485,7 @@
 </span><span id="__span-22-12"><span class="w">    </span><span class="nv">starting_item_index</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
 </span><span id="__span-22-13"><span class="p">}</span>
 </span></code></pre></div>
+<p><img alt="Screenshot" src="../images/mtg/051_functional-elements_gui-list_example.png" /></p>
 <h2 id="functional-elements-guilistcolors"><code>gui.Listcolors</code></h2>
 <p>Sets the colors of inventory slots. It is <a href="#common-aspects-invisible-elements">invisible</a>, takes up no space, and should come before the <code>gui.List</code> elements it is for.</p>
 <ul>
@@ -3487,6 +3526,7 @@
 </span><span id="__span-23-26"><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-23-27"><span class="kr">end</span><span class="p">)</span>
 </span></code></pre></div>
+<p><img alt="Screenshot" src="../images/mtg/052_functional-elements_gui-listcolors_example.png" /></p>
 <h2 id="functional-elements-guilistring"><code>gui.Listring</code></h2>
 <p>Sets where items go when the player shift-clicks them. A <em>ring</em> is an ordered list of inventory lists that Luanti keeps for the form, which starts out empty. Every <code>gui.Listring{inventory_location = ..., list_name = ...}</code> adds one list to the end of the ring. When the player shift-clicks an item in a list that is in the ring, the item is sent to the next list in the ring. Lists that are not in the ring keep Luanti's default shift-click behavior.</p>
 <p>A list can be added to the ring more than once. Luanti sends an item to the entry after the <em>first</em> entry of its own list, and later entries of the same list are only destinations. In a ring of <code>main</code>, <code>craft</code>, <code>main</code>, <code>output</code>, items from <code>main</code> go to <code>craft</code>, items from <code>craft</code> go to the second <code>main</code>, and items from <code>output</code> wrap around to the first <code>main</code>, so both <code>craft</code> and <code>output</code> send to <code>main</code>.</p>
@@ -3513,7 +3553,7 @@
 </span><span id="__span-24-18"><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-24-19"><span class="kr">end</span><span class="p">)</span>
 </span></code></pre></div>
-<p><img alt="Screenshot" src="../images/linked-lists-moved-item.png" /></p>
+<p><img alt="Screenshot" src="../images/mtg/053_functional-elements_gui-listring_example.png" /></p>
 <h2 id="functional-elements-guimodel"><code>gui.Model</code></h2>
 <p>Shows a 3D model that the player can turn around with their mouse.</p>
 <ul>
@@ -3565,6 +3605,7 @@
 </span><span id="__span-25-36"><span class="w">    </span><span class="nv">animation_speed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
 </span><span id="__span-25-37"><span class="p">}</span>
 </span></code></pre></div>
+<p><img alt="Screenshot" src="../images/mtg/054_functional-elements_gui-model_example.png" /></p>
 <h2 id="functional-elements-guipwdfield"><code>gui.Pwdfield</code></h2>
 <p>A single-line text box for passwords: what the player types is hidden. It works like <code>gui.Field</code>, apart from not having a <code>default</code>. <code>ctx.form[name]</code> is the text that was typed. <code>on_key_enter</code> is supported, see <a href="#experimental-handling-enter-keypresses-in-fields">Handling Enter Keypresses in Fields</a>.</p>
 <h3 id="functional-elements-example_25">Example</h3>
@@ -3578,6 +3619,7 @@
 </span><span id="__span-26-8"><span class="w">    </span><span class="nv">on_key_enter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">function</span><span class="p">(</span><span class="nv">player</span><span class="p">,</span><span class="w"> </span><span class="nv">ctx</span><span class="p">)</span><span class="w"> </span><span class="kr">end</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
 </span><span id="__span-26-9"><span class="p">}</span>
 </span></code></pre></div>
+<p><img alt="Screenshot" src="../images/mtg/055_functional-elements_gui-pwdfield_example.png" /></p>
 <h2 id="functional-elements-guiscrollcontainer"><code>gui.ScrollContainer</code></h2>
 <p>An area of a fixed size that clips the elements inside it and moves them when a scrollbar is moved. The elements inside are positioned by hand with <code>x</code> and <code>y</code>, like in <a href="#layout-elements-guicontainer"><code>gui.Container</code></a>. See <a href="#manual-positioning">Manual Positioning</a>.</p>
 <div class="admonition tip">
@@ -3615,6 +3657,7 @@
 </span><span id="__span-27-17"><span class="w">    </span><span class="p">},</span>
 </span><span id="__span-27-18"><span class="p">}</span>
 </span></code></pre></div>
+<p><img alt="Screenshot" src="../images/mtg/056_functional-elements_gui-scrollcontainer_example.png" /></p>
 <h2 id="functional-elements-guiscrollbar"><code>gui.Scrollbar</code></h2>
 <p>A slider that the player can drag. <code>ctx.form[name]</code> is its position, a whole number from <code>min</code> to <code>max</code> (by default <code>0</code> to <code>1000</code>, change them with <a href="#functional-elements-guiscrollbaroptions"><code>gui.ScrollbarOptions</code></a> before the scrollbar). <code>value</code> is the position it starts at, and <code>orientation</code> is <code>"vertical"</code> or <code>"horizontal"</code>. Use it with a <code>gui.ScrollContainer</code>, or by itself as a slider.</p>
 <h3 id="functional-elements-example_27">Example</h3>
@@ -3630,6 +3673,7 @@
 </span><span id="__span-28-10"><span class="w">    </span><span class="nv">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
 </span><span id="__span-28-11"><span class="p">}</span>
 </span></code></pre></div>
+<p><img alt="Screenshot" src="../images/mtg/057_functional-elements_gui-scrollbar_example.png" /></p>
 <div class="admonition warning">
 <p class="admonition-title">Do not use scrollbar textures</p>
 <p>Do not use the <code>scrollbar_bg</code>, <code>slider</code>, <code>arrow_up</code>, and <code>arrow_down</code> texture parameters: Luanti has no such parameters, and on Luanti 5.8 and newer a scrollbar that sets any of them is not shown at all. See <a href="#not-supported-scrollbar-textures-do-not-work">Scrollbar Textures Do Not Work</a>.</p>
@@ -3669,6 +3713,7 @@
 </span><span id="__span-29-21"><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-29-22"><span class="kr">end</span><span class="p">)</span>
 </span></code></pre></div>
+<p><img alt="Screenshot" src="../images/mtg/058_functional-elements_gui-scrollbaroptions_example.png" /></p>
 <h2 id="functional-elements-guisetfocus"><code>gui.SetFocus</code></h2>
 <p>Gives keyboard focus to the element with this <code>name</code>. Put it before that element. Normally the focus is not changed when the form is shown again (for example by <code>form:update()</code>), so that the focus the player chose is kept. Set <code>force</code> to <code>true</code> to move the focus every time.</p>
 <p>Checkboxes, buttons (of all kinds), tables, text lists, dropdowns, fields, password fields, text areas, and scrollbars can be focused.</p>
@@ -3687,6 +3732,7 @@
 </span><span id="__span-30-11"><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-30-12"><span class="kr">end</span><span class="p">)</span>
 </span></code></pre></div>
+<p><img alt="Screenshot" src="../images/mtg/059_functional-elements_gui-setfocus_example.png" /></p>
 <h2 id="functional-elements-guistyle"><code>gui.Style</code></h2>
 <p>Sets style properties of elements by their <code>name</code>. See <a href="#styling-separate-style-elements">Styling</a>. It is <a href="#common-aspects-invisible-elements">invisible</a> and takes up no space.</p>
 <h3 id="functional-elements-example_30">Example</h3>
@@ -3705,6 +3751,7 @@
 </span><span id="__span-31-12"><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-31-13"><span class="kr">end</span><span class="p">)</span>
 </span></code></pre></div>
+<p><img alt="Screenshot" src="../images/mtg/060_functional-elements_gui-style_example.png" /></p>
 <h2 id="functional-elements-guistyletype"><code>gui.StyleType</code></h2>
 <p>Sets style properties of every element of a type. See <a href="#styling-separate-style-elements">Styling</a>. It is <a href="#common-aspects-invisible-elements">invisible</a> and takes up no space.</p>
 <h3 id="functional-elements-example_31">Example</h3>
@@ -3724,6 +3771,7 @@
 </span><span id="__span-32-13"><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-32-14"><span class="kr">end</span><span class="p">)</span>
 </span></code></pre></div>
+<p><img alt="Screenshot" src="../images/mtg/061_functional-elements_gui-styletype_example.png" /></p>
 <h2 id="functional-elements-guitabheader"><code>gui.Tabheader</code></h2>
 <p>A row of tabs. <code>captions</code> is the text of each tab, <code>ctx.form[name]</code> is the number of the selected tab (the first tab is <code>1</code>), and <code>current_tab</code> is the tab that is selected at first. Showing the right contents for the selected tab is up to you, usually by reading <code>ctx.form[name]</code> in your build function.</p>
 <p>Give it both a <code>w</code> and an <code>h</code>: flow cannot work out how much space it needs, see <a href="#common-aspects-which-elements-take-w-h-min_w-and-min_h">Which Elements Take <code>w</code>, <code>h</code>, <code>min_w</code>, and <code>min_h</code></a>. If <code>transparent</code> is <code>true</code> the tabs are semi-transparent, and <code>draw_border</code> draws a thin line along the bottom of the tabs.</p>
@@ -3746,6 +3794,7 @@
 </span><span id="__span-33-16"><span class="w">    </span><span class="nv">draw_border</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
 </span><span id="__span-33-17"><span class="p">}</span>
 </span></code></pre></div>
+<p><img alt="Screenshot" src="../images/mtg/062_functional-elements_gui-tabheader_example.png" /></p>
 <h2 id="functional-elements-guitable"><code>gui.Table</code></h2>
 <p>A table with rows and columns that scrolls if it has too many rows. The player can select one row, and <code>ctx.form[name]</code> is the number of the selected row (the first row is <code>1</code>). <code>selected_idx</code> is the row that is selected at first.</p>
 <p><code>cells</code> is one flat list with the text of every cell, going left to right along each row and then down to the next row. The number of columns comes from <a href="#functional-elements-guitablecolumns"><code>gui.TableColumns</code></a> (the default is one text column). Put <code>gui.TableColumns</code> and <a href="#functional-elements-guitableoptions"><code>gui.TableOptions</code></a> before the table, as they only affect the table that comes after them. They do not take up any space.</p>
@@ -3764,6 +3813,7 @@
 </span><span id="__span-34-11"><span class="w">    </span><span class="nv">selected_idx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
 </span><span id="__span-34-12"><span class="p">}</span>
 </span></code></pre></div>
+<p><img alt="Screenshot" src="../images/mtg/063_functional-elements_gui-table_example.png" /></p>
 <h3 id="functional-elements-example-with-columns-and-options">Example With Columns and Options</h3>
 <div class="language-lua highlight"><pre><span></span><code><span id="__span-35-1"><span class="nv">gui</span><span class="p">.</span><span class="py">VBox</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-35-2"><span class="w">    </span><span class="nv">gui</span><span class="p">.</span><span class="py">TableColumns</span><span class="w"> </span><span class="p">{</span>
@@ -3785,6 +3835,7 @@
 </span><span id="__span-35-18"><span class="w">    </span><span class="p">},</span>
 </span><span id="__span-35-19"><span class="p">}</span>
 </span></code></pre></div>
+<p><img alt="Screenshot" src="../images/mtg/064_functional-elements_gui-table_example-with-columns-and-options.png" /></p>
 <h2 id="functional-elements-guitablecolumns"><code>gui.TableColumns</code></h2>
 <p>Sets the columns of the <code>gui.Table</code> that follows it. <code>tablecolumns</code> is a list with one <code>{type = ..., opts = {...}}</code> entry for each column, from left to right. <code>type</code> is one of:</p>
 <ul>
@@ -3832,7 +3883,7 @@
 </span><span id="__span-36-26"><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-36-27"><span class="kr">end</span><span class="p">)</span>
 </span></code></pre></div>
-<p><img alt="Screenshot" src="../images/table-right-aligned.png" /></p>
+<p><img alt="Screenshot" src="../images/mtg/065_functional-elements_gui-tablecolumns_example.png" /></p>
 <h3 id="functional-elements-example-with-indent-and-tree-columns">Example With Indent and Tree Columns</h3>
 <p>An <code>"indent"</code> or <code>"tree"</code> column takes one cell in every row, like any other column, but the cell is not shown. It holds the level of the row: <code>"0"</code> for the leftmost level, <code>"1"</code> for the next one, and so on (a negative number counts as <code>0</code>). The column after it is moved to the right by the level times the <code>width</code> option of the indent or tree column, so put the text you want to show in that next column.</p>
 <div class="language-lua highlight"><pre><span></span><code><span id="__span-37-1"><span class="nv">gui</span><span class="p">.</span><span class="py">VBox</span><span class="w"> </span><span class="p">{</span>
@@ -3861,6 +3912,7 @@
 </span><span id="__span-37-24"><span class="w">    </span><span class="p">},</span>
 </span><span id="__span-37-25"><span class="p">}</span>
 </span></code></pre></div>
+<p><img alt="Screenshot" src="../images/mtg/066_functional-elements_gui-tablecolumns_example-with-indent-and-tree-columns.png" /></p>
 <p>Each row is its level, then its text. <code>Apple</code> and <code>Banana</code> are one level deeper than <code>Fruit</code>, so they are indented and belong to it.</p>
 <p>With <code>"tree"</code>, a parent row shows a <code>-</code> (open) or <code>+</code> (closed) that the player clicks, or they double-click the row, to open or close the rows below it. <code>opendepth = "1"</code> in <a href="#functional-elements-guitableoptions"><code>gui.TableOptions</code></a> opens level 0 at first, otherwise only <code>Fruit</code> and <code>Vegetables</code> are visible. The selected row in <code>ctx.form.files</code> is the position in <code>cells</code>, so <code>Carrot</code> is <code>5</code> even when the rows above it are closed.</p>
 <p>With <code>"indent"</code>, rows are indented the same way, but there is no sign and every row is always visible.</p>
@@ -3897,6 +3949,7 @@
 </span><span id="__span-38-19"><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-38-20"><span class="kr">end</span><span class="p">)</span>
 </span></code></pre></div>
+<p><img alt="Screenshot" src="../images/mtg/067_functional-elements_gui-tableoptions_example.png" /></p>
 <h2 id="functional-elements-guitextarea"><code>gui.Textarea</code></h2>
 <p>A multi-line text box. Long lines are wrapped to fit the width, and a scrollbar is added if the text is too tall. <code>label</code>, if set, is shown above the box and <code>default</code> is the text it starts with. <code>ctx.form[name]</code> is the text in the box, including its newlines.</p>
 <div class="admonition warning">
@@ -3914,7 +3967,7 @@
 </span><span id="__span-39-8"><span class="w">    </span><span class="nv">default</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Hello world!"</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
 </span><span id="__span-39-9"><span class="p">}</span>
 </span></code></pre></div>
-<p><img alt="Screenshot" src="../images/label-and-textbox.png" /></p>
+<p><img alt="Screenshot" src="../images/mtg/068_functional-elements_gui-textarea_example.png" /></p>
 <h2 id="functional-elements-guitextlist"><code>gui.Textlist</code></h2>
 <p>A list of text rows that scrolls if there are too many to fit. The player can select a row, and <code>ctx.form[name]</code> is the number of the selected row (the first row is <code>1</code>). <code>selected_idx</code> is the row that is selected at first.</p>
 <p><code>listelems</code> is the text of each row. To color a row, start it with <code>#RRGGBB</code> (six hexadecimal digits). To start a row with a literal <code>#</code>, write <code>##</code>. If <code>transparent</code> is <code>true</code>, no background is drawn behind the list.</p>
@@ -3935,6 +3988,7 @@
 </span><span id="__span-40-14"><span class="w">    </span><span class="nv">transparent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
 </span><span id="__span-40-15"><span class="p">}</span>
 </span></code></pre></div>
+<p><img alt="Screenshot" src="../images/mtg/069_functional-elements_gui-textlist_example.png" /></p>
 <h2 id="functional-elements-guitooltip"><code>gui.Tooltip</code></h2>
 <p>Sets the text that is shown when the player hovers over another element, and optionally the colors of that tooltip. <code>gui_element_name</code> is the <code>name</code> of that element. Put the tooltip after the element it belongs to. It is <a href="#common-aspects-invisible-elements">invisible</a> and does not take up any space.</p>
 <p>If you only need to add some text, use the <code>tooltip</code> parameter on the element itself, see <a href="#tooltips">Tooltips</a>.</p>
@@ -3960,14 +4014,15 @@
 </span><span id="__span-41-18"><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-41-19"><span class="kr">end</span><span class="p">)</span>
 </span></code></pre></div>
-<p><img alt="Screenshot" src="../images/click-me-then-hover-1.png" /></p>
+<p><img alt="Screenshot" src="../images/mtg/070_functional-elements_gui-tooltip_example.png" /></p>
 <h2 id="functional-elements-guivertlabel"><code>gui.Vertlabel</code></h2>
 <p>Shows text vertically, with one letter below the other, from top to bottom.</p>
 <h3 id="functional-elements-example_39">Example</h3>
 <div class="language-lua highlight"><pre><span></span><code><span id="__span-42-1"><span class="nv">gui</span><span class="p">.</span><span class="py">Vertlabel</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-42-2"><span class="w">    </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Hello world!"</span><span class="p">,</span>
 </span><span id="__span-42-3"><span class="p">}</span>
-</span></code></pre></div></section><section class="print-page" id="hypertext" heading-number="3.3"><h1 id="hypertext-hypertext-markup">Hypertext Markup</h1>
+</span></code></pre></div>
+<p><img alt="Screenshot" src="../images/mtg/071_functional-elements_gui-vertlabel_example.png" /></p></section><section class="print-page" id="hypertext" heading-number="3.3"><h1 id="hypertext-hypertext-markup">Hypertext Markup</h1>
 <p><a href="#functional-elements-guihypertext"><code>gui.Hypertext</code></a> shows text that is written in a small markup language with tags that look like HTML tags. It can be used to make text bold, coloured, bigger, or centred, to add pictures, and to add clickable links.</p>
 <p>The markup language is defined by Luanti, see <a href="https://api.luanti.org/formspec/#markup-language">Markup Language</a> in the Luanti API documentation.</p>
 <div class="admonition warning">
@@ -3981,6 +4036,7 @@
 </span><span id="__span-0-5"><span class="w">        </span><span class="s2">"&lt;style color='red'&gt;red&lt;/style&gt; text."</span><span class="p">,</span>
 </span><span id="__span-0-6"><span class="p">}</span>
 </span></code></pre></div>
+<p><img alt="Screenshot" src="../images/mtg/072_hypertext_hypertext-markup.png" /></p>
 <div class="admonition note">
 <p class="admonition-title">What flow does not have</p>
 <p>The markup can only be used in <code>gui.Hypertext</code>. Luanti can also show it in a tooltip (<code>hypertip[]</code>), but flow has no element for that, see <a href="#not-supported-missing-elements">Unsupported Features</a> and <a href="#tooltips">Tooltips</a>.</p>
@@ -4098,6 +4154,7 @@
 </span><span id="__span-1-18"><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-1-19"><span class="kr">end</span><span class="p">)</span>
 </span></code></pre></div>
+<p><img alt="Screenshot" src="../images/mtg/073_hypertext_links_action-name-action.png" /></p>
 <h2 id="hypertext-pictures">Pictures</h2>
 <h3 id="hypertext-img-name-float-width-height"><code>&lt;img name=... float=... width=... height=...&gt;</code></h3>
 <p>Draws a texture that is in the client's media cache.</p>
@@ -4122,6 +4179,7 @@
 </span><span id="__span-0-3"><span class="w">    </span><span class="nv">gui</span><span class="p">.</span><span class="py">Label</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Hover over me too"</span><span class="p">,</span><span class="w"> </span><span class="nv">tooltip</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Labels work as well."</span><span class="w"> </span><span class="p">},</span>
 </span><span id="__span-0-4"><span class="p">}</span>
 </span></code></pre></div>
+<p><img alt="Screenshot" src="../images/mtg/074_tooltips_tooltips.png" /></p>
 <p>This works on elements without a <code>name</code> (see <a href="#common-aspects-names-and-values">Names and Values</a>) as well. In that case the tooltip covers the area of the element, and the tooltip of a named element that overlaps it takes priority.</p>
 <div class="admonition note">
 <p class="admonition-title">Overlapping tooltips</p>
@@ -4188,6 +4246,7 @@
 </span><span id="__span-0-40"><span class="w">    </span><span class="kr">end</span><span class="p">,</span>
 </span><span id="__span-0-41"><span class="p">})</span>
 </span></code></pre></div>
+<p><img alt="Screenshot" src="../images/mtg/075_inventory_using-a-form-as-an-inventory.png" /></p>
 <p>Open your inventory and click the button: the counter goes up, and the form is redrawn with the new context.</p>
 <p>Like with the <code>show_hud</code> function (see <a href="#huds">HUDs</a>), the <code>update*</code> functions (see <a href="#updating-forms">Updating Forms</a>) don't do anything, so to update it, call <code>example_inventory:set_as_inventory_for(player, new_ctx)</code> again with the new context. If the context is not provided, it will reuse the existing context of the same form. This is different from HUDs, which never keep a context. Passing a new context replaces the existing one, so values that were stored in the old one are gone. See <a href="#updating-forms-context-lifetime-by-mode">Context Lifetime by Mode</a>.</p>
 <p>The <code>/inv_title</code> chat command above does this. Keep your inventory open while you run it and the title changes straight away. The command passes a new context, which replaces the old one, so the click counter goes back to 0.</p>
@@ -4223,6 +4282,7 @@
 </span><span id="__span-0-19"><span class="w">    </span><span class="nv">my_gui</span><span class="p">:</span><span class="nf">close_hud</span><span class="p">(</span><span class="nv">player</span><span class="p">)</span>
 </span><span id="__span-0-20"><span class="kr">end</span><span class="p">)</span>
 </span></code></pre></div>
+<p><img alt="Screenshot" src="../images/mtg/076_huds_showing-and-closing-a-hud.png" /></p>
 <ul>
 <li><code>show_hud(player, ctx)</code> draws the form as a HUD, or redraws it if it is already shown. Without hud_fs it stops with an error. <code>ctx</code> is optional.</li>
 <li><code>close_hud(player)</code> removes the HUD.</li>
@@ -4299,6 +4359,7 @@
 </span><span id="__span-1-66"><span class="w">    </span><span class="kr">end</span><span class="p">,</span>
 </span><span id="__span-1-67"><span class="p">})</span>
 </span></code></pre></div>
+<p><img alt="Screenshot" src="../images/mtg/077_huds_example.png" /></p>
 <p>The score in the top-right corner goes up by one every second. Run <code>/hud off</code> to remove it with <code>close_hud</code> and <code>/hud on</code> to show it again with <code>show_hud</code>.</p>
 <h2 id="huds-things-to-know">Things to Know</h2>
 <ul>
@@ -4355,6 +4416,7 @@
 </span><span id="__span-0-12"><span class="w">    </span><span class="p">},</span>
 </span><span id="__span-0-13"><span class="p">}</span>
 </span></code></pre></div>
+<p><img alt="Screenshot" src="../images/mtg/078_styling_inline-syntax.png" /></p>
 <p>Properties directly inside <code>style</code> always apply. A <code>sel</code> entry only applies in the listed <a href="#styling-states">states</a>, and <code>$</code> stands for the element itself (so <code>"$hovered+pressed"</code> is <code>"button:hovered+pressed"</code> for an unnamed button). Separate states with a comma to match <em>any</em> of them, or join them with <code>+</code> to require <em>all</em> of them. Every comma-separated entry needs its own <code>$</code>, or it is skipped with a logged warning.</p>
 <p>If you need to style multiple elements, you can reuse the <code>style</code> table:</p>
 <div class="language-lua highlight"><pre><span></span><code><span id="__span-1-1"><span class="kd">local</span><span class="w"> </span><span class="nv">my_style</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">bgcolor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"red"</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">sel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"$hovered"</span><span class="p">,</span><span class="w"> </span><span class="nv">bgcolor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"green"</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span>
@@ -4367,6 +4429,7 @@
 </span><span id="__span-1-8"><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-1-9"><span class="kr">end</span><span class="p">)</span>
 </span></code></pre></div>
+<p><img alt="Screenshot" src="../images/mtg/079_styling_inline-syntax-2.png" /></p>
 <div class="admonition warning">
 <p class="admonition-title">Styling an unnamed element can undo other styles</p>
 <p>Luanti can only style unnamed elements by their type, so flow applies the style to every element of that type and then resets those properties to their defaults straight after the element. This also undoes any earlier <code>gui.StyleType</code> for the same properties, for every element of that type that comes after. Give the element a <code>name</code> to avoid this.</p>
@@ -4381,6 +4444,7 @@
 </span><span id="__span-2-7"><span class="w">    </span><span class="nv">gui</span><span class="p">.</span><span class="py">Button</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"d"</span><span class="p">,</span><span class="w"> </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"D"</span><span class="p">,</span><span class="w"> </span><span class="nv">style</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">bgcolor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"red"</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">},</span>
 </span><span id="__span-2-8"><span class="p">}</span>
 </span></code></pre></div>
+<p><img alt="Screenshot" src="../images/mtg/080_styling_inline-syntax-3.png" /></p>
 <p>Property values are normally strings, but flow also accepts numbers and booleans where a property needs one. Setting a property to an empty string (<code>bgimg = ""</code>) resets it to its default value.</p>
 <h2 id="styling-separate-style-elements">Separate Style Elements</h2>
 <p>Alternatively, use the <a href="#functional-elements-guistyle"><code>gui.Style</code></a> and <a href="#functional-elements-guistyletype"><code>gui.StyleType</code></a> elements to style a large group of elements or to support older versions of flow:</p>
@@ -4391,6 +4455,7 @@
 </span><span id="__span-3-5"><span class="w">    </span><span class="nv">gui</span><span class="p">.</span><span class="py">Button</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"btn2"</span><span class="p">,</span><span class="w"> </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Not styled"</span><span class="w"> </span><span class="p">},</span>
 </span><span id="__span-3-6"><span class="p">}</span>
 </span></code></pre></div>
+<p><img alt="Screenshot" src="../images/mtg/081_styling_separate-style-elements.png" /></p>
 <p>The <code>Style</code> and <code>StyleType</code> elements are <a href="#common-aspects-invisible-elements">invisible</a> and won't affect <a href="#padding">padding</a>. They only affect the elements that come after them, so put them before the elements you want to style.</p>
 <h2 id="styling-styles-that-change-size">Styles That Change Size</h2>
 <p>Flow works out the size of an element before it writes any styles, so it has to see a style that changes the size. It only does that in some cases:</p>
@@ -4426,6 +4491,7 @@
 </span><span id="__span-4-15"><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-4-16"><span class="kr">end</span><span class="p">)</span>
 </span></code></pre></div>
+<p><img alt="Screenshot" src="../images/mtg/082_styling_selectors-and-states.png" /></p>
 <h3 id="styling-states">States</h3>
 <p>Every element has the <code>default</code> state, which is the same as not giving any state. Buttons (<code>gui.Button</code>, <code>gui.ButtonExit</code>, <code>gui.ImageButton</code>, <code>gui.ItemImageButton</code>) also have these states:</p>
 <table>
@@ -4853,6 +4919,7 @@
 </span><span id="__span-0-16">
 </span><span id="__span-0-17"><span class="nv">form</span><span class="p">:</span><span class="nf">show</span><span class="p">(</span><span class="nv">player</span><span class="p">)</span>
 </span></code></pre></div>
+<p><img alt="Screenshot" src="../images/mtg/083_experimental_no-prepend.png" /></p>
 <h2 id="experimental-bgcolor"><code>bgcolor</code></h2>
 <p>You can set <code>bgcolor = "#123"</code>, <code>fbgcolor = "#123"</code>, and <code>bg_fullscreen = true</code> on the root element to set background colors:</p>
 <ul>
@@ -4902,6 +4969,7 @@
 </span><span id="__span-1-6"><span class="w">    </span><span class="nv">gui</span><span class="p">.</span><span class="py">Label</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Hello world!"</span><span class="w"> </span><span class="p">},</span>
 </span><span id="__span-1-7"><span class="p">}</span>
 </span></code></pre></div>
+<p><img alt="Screenshot" src="../images/mtg/084_experimental_bgcolor.png" /></p>
 <h2 id="experimental-window-position">Window Position</h2>
 <p>These values allow the position of the displayed form to be moved around and adjust how it is scaled. You will likely need them for most HUDs, which are described in <a href="#huds">Using a Form as a HUD</a>.</p>
 <p>Example:</p>
@@ -4925,6 +4993,7 @@
 </span><span id="__span-2-18"><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-2-19"><span class="kr">end</span><span class="p">)</span>
 </span></code></pre></div>
+<p><img alt="Screenshot" src="../images/mtg/085_experimental_window-position.png" /></p>
 <h2 id="experimental-rendering-to-a-formspec">Rendering to a Formspec</h2>
 <div class="admonition warning">
 <p class="admonition-title">Use only when necessary</p>
@@ -4947,6 +5016,7 @@
 </span><span id="__span-3-8"><span class="kd">local</span><span class="w"> </span><span class="nv">fs</span><span class="p">,</span><span class="w"> </span><span class="nv">process_event</span><span class="w"> </span><span class="o">=</span>
 </span><span id="__span-3-9"><span class="w">    </span><span class="nv">form</span><span class="p">:</span><span class="nf">render_to_formspec_string</span><span class="p">(</span><span class="nv">player</span><span class="p">,</span><span class="w"> </span><span class="nv">ctx</span><span class="p">,</span><span class="w"> </span><span class="kc">true</span><span class="p">)</span>
 </span></code></pre></div>
+<p><img alt="Screenshot" src="../images/mtg/086_experimental_rendering-to-a-formspec.png" /></p>
 <p>Here is a complete example. It wraps a flow form in a formspec of its own and shows it with <code>core.show_formspec</code>. The label above the form belongs to the outer formspec, and the counter keeps working because <code>process_event</code> handles the button click:</p>
 <div class="language-lua highlight"><pre><span></span><code><span id="__span-4-1"><span class="kd">local</span><span class="w"> </span><span class="nv">gui</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">flow</span><span class="p">.</span><span class="py">widgets</span>
 </span><span id="__span-4-2">
@@ -4998,6 +5068,7 @@
 </span><span id="__span-4-48">
 </span><span id="__span-4-49"><span class="nf">show</span><span class="p">(</span><span class="nv">core</span><span class="p">.</span><span class="nf">get_player_by_name</span><span class="p">(</span><span class="s2">"current_player"</span><span class="p">))</span>
 </span></code></pre></div>
+<p><img alt="Screenshot" src="../images/mtg/087_experimental_rendering-to-a-formspec-2.png" /></p>
 <div class="admonition warning">
 <p class="admonition-title">Not for node meta formspecs</p>
 <p>Do not use this API with node meta formspecs (formspecs that are stored in the metadata of a node), it can and will break!</p>
@@ -5043,6 +5114,7 @@
 </span><span id="__span-5-26"><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-5-27"><span class="kr">end</span><span class="p">)</span>
 </span></code></pre></div>
+<p><img alt="Screenshot" src="../images/mtg/088_experimental_handling-enter-keypresses-in-fields.png" /></p>
 <p>Press enter and the label counts the key presses. If you tick the checkbox first, enter closes the form as well.</p></section><section class="print-page" id="advanced" heading-number="5.2"><h1 id="advanced-advanced-features">Advanced Features</h1>
 <p>These features are for more complex forms and custom elements, and most forms will not need them. Features that are more likely to change are on the <a href="#experimental">Experimental Features</a> page.</p>
 <h2 id="advanced-embedding-a-form-into-another-form">Embedding a Form Into Another Form</h2>
@@ -5063,6 +5135,7 @@
 </span><span id="__span-0-14"><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-0-15"><span class="kr">end</span><span class="p">)</span>
 </span></code></pre></div>
+<p><img alt="Screenshot" src="../images/mtg/089_advanced_embedding-a-form-into-another-form.png" /></p>
 <div class="admonition note">
 <p class="admonition-title">Older versions of flow</p>
 <p>Current versions of flow ignore a <code>player</code> parameter in the table passed to <code>embed</code>. Versions from before 2025-06-17 need <code>player = player</code>, so add it if your mod has to work with them.</p>
@@ -5148,6 +5221,7 @@
 </span><span id="__span-1-26">
 </span><span id="__span-1-27"><span class="nv">my_gui</span><span class="p">:</span><span class="nf">show</span><span class="p">(</span><span class="nv">core</span><span class="p">.</span><span class="nf">get_player_by_name</span><span class="p">(</span><span class="s2">"current_player"</span><span class="p">))</span>
 </span></code></pre></div>
+<p><img alt="Screenshot" src="../images/mtg/090_advanced_running-code-when-a-form-is-closed.png" /></p>
 <p>If multiple <code>on_quit</code> callbacks are specified in different elements, they will all get called.</p>
 <h2 id="advanced-getting-a-reference-to-the-current-player-and-context">Getting a Reference to the Current Player and Context</h2>
 <p>If you're making a custom element, it might be useful to get a reference to <code>ctx</code> and <code>player</code> (the arguments of the <a href="#getting-started-the-build-function">build function</a>) so you don't have to pass them in manually.</p>
@@ -5165,6 +5239,7 @@
 </span><span id="__span-2-12"><span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="nv">HelloWorld</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">style</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">font_size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"*2"</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span>
 </span><span id="__span-2-13"><span class="kr">end</span><span class="p">)</span>
 </span></code></pre></div>
+<p><img alt="Screenshot" src="../images/mtg/091_advanced_getting-a-reference-to-the-current-player-and-context.png" /></p>
 <div class="admonition warning">
 <p class="admonition-title">Only call it in a build function</p>
 <p><code>flow.get_context()</code> will error when called outside a build function (as you should not normally do this).</p>
@@ -5213,6 +5288,7 @@
 </span><span id="__span-0-29"><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-0-30"><span class="kr">end</span><span class="p">)</span>
 </span></code></pre></div>
+<p><img alt="Screenshot" src="../images/mtg/092_popovers_popovers-highly-experimental.png" /></p>
 <h3 id="popovers-where-the-popover-goes">Where the Popover Goes</h3>
 <p><code>side</code> decides which edge of the container the popover is attached to: <code>"bottom"</code> (the default, also used for any other value), <code>"top"</code>, <code>"left"</code>, or <code>"right"</code>. The popover is then lined up along that edge with <code>align_h</code> for <code>"top"</code> and <code>"bottom"</code>, or <code>align_v</code> for <code>"left"</code> and <code>"right"</code> (the other one is ignored). The alignment is relative to the container, not to the form:</p>
 <table>
@@ -5286,6 +5362,7 @@
 </span><span id="__span-1-41"><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-1-42"><span class="kr">end</span><span class="p">)</span>
 </span></code></pre></div>
+<p><img alt="Screenshot" src="../images/mtg/093_popovers_where-the-popover-goes.png" /></p>
 <p>Show the form with <code>my_gui:show(player)</code> as usual.</p>
 <p><code>align_h</code> and <code>align_v</code> are among the <a href="#common-aspects-parameters-shared-by-all-elements">parameters shared by all elements</a>.</p>
 <div class="admonition warning">

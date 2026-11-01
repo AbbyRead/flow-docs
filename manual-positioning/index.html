@@ -737,7 +737,7 @@
 </span><span id="__span-0-11"><span class="w">    </span><span class="p">},</span>
 </span><span id="__span-0-12"><span class="p">}</span>
 </span></code></pre></div>
-<p><img alt="Screenshot" src="../images/auto-manual-position-rgb-boxes.png"/></p>
+<p><img alt="Screenshot" src="../images/mtg/026_manual-positioning_manual-positioning-of-elements_container-example.png"/></p>
 <h3 id="container-noclip-example">Container: <code>noclip</code> Example</h3>
 <p>Luanti cuts off elements that stick out of the form unless their <code>noclip</code> style is <code>true</code>. This example puts a button and a box outside a 2 by 2 area, which is why it needs <code>noclip</code>. The <code>gui.Stack</code> is only a reference area: it draws nothing, and gives the two containers a known size to be placed against. Setting both <code>w</code> and <code>h</code> on a <code>gui.Stack</code> is supported for this: flow does not lay out such a stack, so its children keep their own <code>x</code> and <code>y</code>. In every other case flow positions the children itself and overwrites their <code>x</code> and <code>y</code>, which is why a stack with only <code>w</code>, or with <code>min_w</code> and <code>min_h</code>, would lose the <code>x = -1</code> of the second container. See the <a href="../layout-elements/">warning in Layout Elements</a>.</p>
 <div class="language-lua highlight"><pre><span></span><code><span id="__span-1-1"><span class="nv">gui</span><span class="p">.</span><span class="py">Stack</span><span class="w"> </span><span class="p">{</span>
@@ -792,6 +792,7 @@
 </span><span id="__span-1-50"><span class="w">    </span><span class="p">},</span>
 </span><span id="__span-1-51"><span class="p">}</span>
 </span></code></pre></div>
+<p><img alt="Screenshot" src="../images/mtg/027_manual-positioning_manual-positioning-of-elements_container-noclip-example.png"/></p>
 <div class="admonition note">
 <p class="admonition-title"><code>noclip</code> is set per element</p>
 <p><code>noclip</code> is a <a href="../styling/#all-elements">style</a> of each element, and the <code>style</code> of an element only applies to that element, so set it on every element that sticks out, as both of the elements above do.</p>

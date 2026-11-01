@@ -754,6 +754,7 @@
 </span><span id="__span-0-16">
 </span><span id="__span-0-17"><span class="nv">form</span><span class="p">:</span><span class="nf">show</span><span class="p">(</span><span class="nv">player</span><span class="p">)</span>
 </span></code></pre></div>
+<p><img alt="Screenshot" src="../images/mtg/083_experimental_no-prepend.png"/></p>
 <h2 id="bgcolor"><code>bgcolor</code></h2>
 <p>You can set <code>bgcolor = "#123"</code>, <code>fbgcolor = "#123"</code>, and <code>bg_fullscreen = true</code> on the root element to set background colors:</p>
 <ul>
@@ -803,6 +804,7 @@
 </span><span id="__span-1-6"><span class="w">    </span><span class="nv">gui</span><span class="p">.</span><span class="py">Label</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Hello world!"</span><span class="w"> </span><span class="p">},</span>
 </span><span id="__span-1-7"><span class="p">}</span>
 </span></code></pre></div>
+<p><img alt="Screenshot" src="../images/mtg/084_experimental_bgcolor.png"/></p>
 <h2 id="window-position">Window Position</h2>
 <p>These values allow the position of the displayed form to be moved around and adjust how it is scaled. You will likely need them for most HUDs, which are described in <a href="../huds/">Using a Form as a HUD</a>.</p>
 <p>Example:</p>
@@ -826,6 +828,7 @@
 </span><span id="__span-2-18"><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-2-19"><span class="kr">end</span><span class="p">)</span>
 </span></code></pre></div>
+<p><img alt="Screenshot" src="../images/mtg/085_experimental_window-position.png"/></p>
 <h2 id="rendering-to-a-formspec">Rendering to a Formspec</h2>
 <div class="admonition warning">
 <p class="admonition-title">Use only when necessary</p>
@@ -848,6 +851,7 @@
 </span><span id="__span-3-8"><span class="kd">local</span><span class="w"> </span><span class="nv">fs</span><span class="p">,</span><span class="w"> </span><span class="nv">process_event</span><span class="w"> </span><span class="o">=</span>
 </span><span id="__span-3-9"><span class="w">    </span><span class="nv">form</span><span class="p">:</span><span class="nf">render_to_formspec_string</span><span class="p">(</span><span class="nv">player</span><span class="p">,</span><span class="w"> </span><span class="nv">ctx</span><span class="p">,</span><span class="w"> </span><span class="kc">true</span><span class="p">)</span>
 </span></code></pre></div>
+<p><img alt="Screenshot" src="../images/mtg/086_experimental_rendering-to-a-formspec.png"/></p>
 <p>Here is a complete example. It wraps a flow form in a formspec of its own and shows it with <code>core.show_formspec</code>. The label above the form belongs to the outer formspec, and the counter keeps working because <code>process_event</code> handles the button click:</p>
 <div class="language-lua highlight"><pre><span></span><code><span id="__span-4-1"><span class="kd">local</span><span class="w"> </span><span class="nv">gui</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">flow</span><span class="p">.</span><span class="py">widgets</span>
 </span><span id="__span-4-2">
@@ -899,6 +903,7 @@
 </span><span id="__span-4-48">
 </span><span id="__span-4-49"><span class="nf">show</span><span class="p">(</span><span class="nv">core</span><span class="p">.</span><span class="nf">get_player_by_name</span><span class="p">(</span><span class="s2">"current_player"</span><span class="p">))</span>
 </span></code></pre></div>
+<p><img alt="Screenshot" src="../images/mtg/087_experimental_rendering-to-a-formspec-2.png"/></p>
 <div class="admonition warning">
 <p class="admonition-title">Not for node meta formspecs</p>
 <p>Do not use this API with node meta formspecs (formspecs that are stored in the metadata of a node), it can and will break!</p>
@@ -944,6 +949,7 @@
 </span><span id="__span-5-26"><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-5-27"><span class="kr">end</span><span class="p">)</span>
 </span></code></pre></div>
+<p><img alt="Screenshot" src="../images/mtg/088_experimental_handling-enter-keypresses-in-fields.png"/></p>
 <p>Press enter and the label counts the key presses. If you tick the checkbox first, enter closes the form as well.</p>
 </article>
 </div>

@@ -1008,6 +1008,7 @@
 </span><span id="__span-0-12"><span class="w">    </span><span class="p">},</span>
 </span><span id="__span-0-13"><span class="p">}</span>
 </span></code></pre></div>
+<p><img alt="Screenshot" src="../images/mtg/078_styling_inline-syntax.png"/></p>
 <p>Properties directly inside <code>style</code> always apply. A <code>sel</code> entry only applies in the listed <a href="#states">states</a>, and <code>$</code> stands for the element itself (so <code>"$hovered+pressed"</code> is <code>"button:hovered+pressed"</code> for an unnamed button). Separate states with a comma to match <em>any</em> of them, or join them with <code>+</code> to require <em>all</em> of them. Every comma-separated entry needs its own <code>$</code>, or it is skipped with a logged warning.</p>
 <p>If you need to style multiple elements, you can reuse the <code>style</code> table:</p>
 <div class="language-lua highlight"><pre><span></span><code><span id="__span-1-1"><span class="kd">local</span><span class="w"> </span><span class="nv">my_style</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">bgcolor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"red"</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">sel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"$hovered"</span><span class="p">,</span><span class="w"> </span><span class="nv">bgcolor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"green"</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span>
@@ -1020,6 +1021,7 @@
 </span><span id="__span-1-8"><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-1-9"><span class="kr">end</span><span class="p">)</span>
 </span></code></pre></div>
+<p><img alt="Screenshot" src="../images/mtg/079_styling_inline-syntax-2.png"/></p>
 <div class="admonition warning">
 <p class="admonition-title">Styling an unnamed element can undo other styles</p>
 <p>Luanti can only style unnamed elements by their type, so flow applies the style to every element of that type and then resets those properties to their defaults straight after the element. This also undoes any earlier <code>gui.StyleType</code> for the same properties, for every element of that type that comes after. Give the element a <code>name</code> to avoid this.</p>
@@ -1034,6 +1036,7 @@
 </span><span id="__span-2-7"><span class="w">    </span><span class="nv">gui</span><span class="p">.</span><span class="py">Button</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"d"</span><span class="p">,</span><span class="w"> </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"D"</span><span class="p">,</span><span class="w"> </span><span class="nv">style</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">bgcolor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"red"</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">},</span>
 </span><span id="__span-2-8"><span class="p">}</span>
 </span></code></pre></div>
+<p><img alt="Screenshot" src="../images/mtg/080_styling_inline-syntax-3.png"/></p>
 <p>Property values are normally strings, but flow also accepts numbers and booleans where a property needs one. Setting a property to an empty string (<code>bgimg = ""</code>) resets it to its default value.</p>
 <h2 id="separate-style-elements">Separate Style Elements</h2>
 <p>Alternatively, use the <a href="../functional-elements/#guistyle"><code>gui.Style</code></a> and <a href="../functional-elements/#guistyletype"><code>gui.StyleType</code></a> elements to style a large group of elements or to support older versions of flow:</p>
@@ -1044,6 +1047,7 @@
 </span><span id="__span-3-5"><span class="w">    </span><span class="nv">gui</span><span class="p">.</span><span class="py">Button</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"btn2"</span><span class="p">,</span><span class="w"> </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Not styled"</span><span class="w"> </span><span class="p">},</span>
 </span><span id="__span-3-6"><span class="p">}</span>
 </span></code></pre></div>
+<p><img alt="Screenshot" src="../images/mtg/081_styling_separate-style-elements.png"/></p>
 <p>The <code>Style</code> and <code>StyleType</code> elements are <a href="../common-aspects/#invisible-elements">invisible</a> and won't affect <a href="../padding/">padding</a>. They only affect the elements that come after them, so put them before the elements you want to style.</p>
 <h2 id="styles-that-change-size">Styles That Change Size</h2>
 <p>Flow works out the size of an element before it writes any styles, so it has to see a style that changes the size. It only does that in some cases:</p>
@@ -1079,6 +1083,7 @@
 </span><span id="__span-4-15"><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-4-16"><span class="kr">end</span><span class="p">)</span>
 </span></code></pre></div>
+<p><img alt="Screenshot" src="../images/mtg/082_styling_selectors-and-states.png"/></p>
 <h3 id="states">States</h3>
 <p>Every element has the <code>default</code> state, which is the same as not giving any state. Buttons (<code>gui.Button</code>, <code>gui.ButtonExit</code>, <code>gui.ImageButton</code>, <code>gui.ItemImageButton</code>) also have these states:</p>
 <table>
