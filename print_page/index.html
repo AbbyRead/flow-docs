@@ -2408,8 +2408,8 @@
 </span><span id="__span-9-2"><span class="w">    </span><span class="nv">min_w</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span>
 </span><span id="__span-9-3"><span class="w">    </span><span class="nv">gui</span><span class="p">.</span><span class="py">Button</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Hello world!"</span><span class="w"> </span><span class="p">},</span>
 </span><span id="__span-9-4">
-</span><span id="__span-9-5"><span class="w">    </span><span class="c1">-- A red square, drawn on top of the button.</span>
-</span><span id="__span-9-6"><span class="w">    </span><span class="nv">gui</span><span class="p">.</span><span class="py">Image</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">w</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nv">h</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nv">texture_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"ui_red_icon_background.png"</span><span class="p">,</span><span class="w"> </span><span class="nv">padding</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.2</span><span class="p">,</span><span class="w"> </span><span class="nv">align_h</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"left"</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-9-5"><span class="w">    </span><span class="c1">-- A pencil icon, drawn on top of the button.</span>
+</span><span id="__span-9-6"><span class="w">    </span><span class="nv">gui</span><span class="p">.</span><span class="py">Image</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">w</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nv">h</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nv">texture_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"pencil.png"</span><span class="p">,</span><span class="w"> </span><span class="nv">padding</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.2</span><span class="p">,</span><span class="w"> </span><span class="nv">align_h</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"left"</span><span class="w"> </span><span class="p">},</span>
 </span><span id="__span-9-7"><span class="p">}</span>
 </span></code></pre></div>
 <p><img alt="Screenshot" src="../images/sbz/020_layout-elements_gui-stack_example.png" /></p>
@@ -2454,11 +2454,11 @@
 </div>
 <p><a href="#layout-elements-guihbox"><code>gui.HBox</code></a> and <a href="#layout-elements-guivbox"><code>gui.VBox</code></a> have a <code>spacing</code> field which specifies how much spacing there is between elements inside the box. Its default value is described in <a href="#layout-elements-guivbox"><code>gui.VBox</code></a>.</p>
 <p>Box elements (<a href="#layout-elements-guihbox"><code>gui.HBox</code></a> and <a href="#layout-elements-guivbox"><code>gui.VBox</code></a>) can optionally have <code>bgimg</code> and <code>bgimg_middle</code> parameters that specify a background for the box. <code>bgimg</code> is the name of a texture, which is stretched to fill the box. If <code>bgimg_middle</code> is set as well, the texture is drawn as a <a href="#common-aspects-nine-slice-images">nine-slice</a> whose corners are <code>bgimg_middle</code> pixels big, so one small texture can make a background of any size. The background will be drawn behind any padding that the box has.</p>
-<p>The examples below use <code>ui_smallbg_9_sliced.png</code> from Skyblock Zero, a 48x48 panel with rounded corners. Its corners are 16 pixels big, so you can see how they are stretched.</p>
+<p>The examples below use <code>emittrium_block_bouncy.png</code> from Skyblock Zero, a 16x16 block texture with a 1-pixel border, so you can see how they are stretched.</p>
 <p>Example with only <code>bgimg</code>. The whole texture is stretched, so the corners and border get stretched and blurry:</p>
 <div class="language-lua highlight"><pre><span></span><code><span id="__span-0-1"><span class="nv">gui</span><span class="p">.</span><span class="py">VBox</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-0-2"><span class="w">    </span><span class="c1">-- Stretch the texture over the whole box</span>
-</span><span id="__span-0-3"><span class="w">    </span><span class="nv">bgimg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"ui_smallbg_9_sliced.png"</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">    </span><span class="nv">bgimg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"emittrium_block_bouncy.png"</span><span class="p">,</span>
 </span><span id="__span-0-4">
 </span><span id="__span-0-5"><span class="w">    </span><span class="nv">gui</span><span class="p">.</span><span class="py">Button</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Button 1"</span><span class="w"> </span><span class="p">},</span>
 </span><span id="__span-0-6"><span class="w">    </span><span class="nv">gui</span><span class="p">.</span><span class="py">Button</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Button 2"</span><span class="w"> </span><span class="p">},</span>
@@ -2471,8 +2471,8 @@
 </span><span id="__span-1-3"><span class="w">    </span><span class="nv">spacing</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.1</span><span class="p">,</span>
 </span><span id="__span-1-4">
 </span><span id="__span-1-5"><span class="w">    </span><span class="c1">-- Draw the texture as a nine-slice</span>
-</span><span id="__span-1-6"><span class="w">    </span><span class="nv">bgimg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"ui_smallbg_9_sliced.png"</span><span class="p">,</span>
-</span><span id="__span-1-7"><span class="w">    </span><span class="nv">bgimg_middle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span>
+</span><span id="__span-1-6"><span class="w">    </span><span class="nv">bgimg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"emittrium_block_bouncy.png"</span><span class="p">,</span>
+</span><span id="__span-1-7"><span class="w">    </span><span class="nv">bgimg_middle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
 </span><span id="__span-1-8">
 </span><span id="__span-1-9"><span class="w">    </span><span class="nv">gui</span><span class="p">.</span><span class="py">Button</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Button 1"</span><span class="w"> </span><span class="p">},</span>
 </span><span id="__span-1-10"><span class="w">    </span><span class="nv">gui</span><span class="p">.</span><span class="py">Button</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Button 2"</span><span class="w"> </span><span class="p">},</span>
@@ -3103,7 +3103,7 @@
 </span><span id="__span-2-5"><span class="w">        </span><span class="p">{</span>
 </span><span id="__span-2-6"><span class="w">            </span><span class="nb">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"background"</span><span class="p">,</span>
 </span><span id="__span-2-7"><span class="w">            </span><span class="nv">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nv">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nv">w</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="nv">h</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span>
-</span><span id="__span-2-8"><span class="w">            </span><span class="nv">texture_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"ui_smallbg_9_sliced.png"</span><span class="p">,</span>
+</span><span id="__span-2-8"><span class="w">            </span><span class="nv">texture_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"emittrium_block_bouncy.png"</span><span class="p">,</span>
 </span><span id="__span-2-9">
 </span><span id="__span-2-10"><span class="w">            </span><span class="c1">-- Cut off at the form edge, ignoring w and h.</span>
 </span><span id="__span-2-11"><span class="w">            </span><span class="nv">auto_clip</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
@@ -3116,7 +3116,7 @@
 <p>Like <code>gui.Background</code>, but the picture is drawn as a <a href="#common-aspects-nine-slice-images">nine-slice</a> so that it can be stretched to any size without distorting its corners.</p>
 <h3 id="functional-elements-example_2">Example</h3>
 <p>The left background stretches the whole picture, so its corners get stretched and blurry. The right one is a <code>gui.Background9</code>, so only the middle stretches.</p>
-<div class="language-lua highlight"><pre><span></span><code><span id="__span-3-1"><span class="kd">local</span><span class="w"> </span><span class="nv">FRAME</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"ui_smallbg_9_sliced.png"</span>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-3-1"><span class="kd">local</span><span class="w"> </span><span class="nv">FRAME</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"emittrium_block_bouncy.png"</span>
 </span><span id="__span-3-2">
 </span><span id="__span-3-3"><span class="kd">local</span><span class="w"> </span><span class="nv">form</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">flow</span><span class="p">.</span><span class="nf">make_gui</span><span class="p">(</span><span class="kr">function</span><span class="p">(</span><span class="nv">player</span><span class="p">,</span><span class="w"> </span><span class="nv">ctx</span><span class="p">)</span>
 </span><span id="__span-3-4"><span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="nv">gui</span><span class="p">.</span><span class="py">HBox</span><span class="w"> </span><span class="p">{</span>
@@ -3133,9 +3133,9 @@
 </span><span id="__span-3-15"><span class="w">                </span><span class="nv">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nv">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nv">w</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="nv">h</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span>
 </span><span id="__span-3-16"><span class="w">                </span><span class="nv">texture_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">FRAME</span><span class="p">,</span>
 </span><span id="__span-3-17">
-</span><span id="__span-3-18"><span class="w">                </span><span class="c1">-- Cut 16 pixels from every side. Also optional:</span>
+</span><span id="__span-3-18"><span class="w">                </span><span class="c1">-- Cut 3 pixels from every side. Also optional:</span>
 </span><span id="__span-3-19"><span class="w">                </span><span class="c1">-- middle_y, middle_x2 and middle_y2.</span>
-</span><span id="__span-3-20"><span class="w">                </span><span class="nv">middle_x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span>
+</span><span id="__span-3-20"><span class="w">                </span><span class="nv">middle_x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span>
 </span><span id="__span-3-21"><span class="w">            </span><span class="p">},</span>
 </span><span id="__span-3-22"><span class="w">        </span><span class="p">},</span>
 </span><span id="__span-3-23"><span class="w">    </span><span class="p">}</span>
@@ -3362,15 +3362,15 @@
 </span><span id="__span-16-2"><span class="w">    </span><span class="nv">w</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span>
 </span><span id="__span-16-3"><span class="w">    </span><span class="nv">h</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
 </span><span id="__span-16-4">
-</span><span id="__span-16-5"><span class="w">    </span><span class="c1">-- Texture to draw. This one is a 48x48 panel with rounded corners.</span>
-</span><span id="__span-16-6"><span class="w">    </span><span class="nv">texture_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"ui_smallbg_9_sliced.png"</span><span class="p">,</span>
+</span><span id="__span-16-5"><span class="w">    </span><span class="c1">-- Texture to draw. This one is a 16x16 block texture with a one-pixel border.</span>
+</span><span id="__span-16-6"><span class="w">    </span><span class="nv">texture_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"emittrium_block_bouncy.png"</span><span class="p">,</span>
 </span><span id="__span-16-7">
-</span><span id="__span-16-8"><span class="w">    </span><span class="c1">-- Nine-slice cuts, in pixels of the texture. The corners are 16</span>
-</span><span id="__span-16-9"><span class="w">    </span><span class="c1">-- pixels, so these keep them the same size however big the image is.</span>
-</span><span id="__span-16-10"><span class="w">    </span><span class="nv">middle_x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
-</span><span id="__span-16-11"><span class="w">    </span><span class="nv">middle_y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
-</span><span id="__span-16-12"><span class="w">    </span><span class="nv">middle_x2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">16</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
-</span><span id="__span-16-13"><span class="w">    </span><span class="nv">middle_y2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">16</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
+</span><span id="__span-16-8"><span class="w">    </span><span class="c1">-- Nine-slice cuts, in pixels of the texture. The edge is one pixel</span>
+</span><span id="__span-16-9"><span class="w">    </span><span class="c1">-- wide, so this keeps it one pixel while the middle is stretched.</span>
+</span><span id="__span-16-10"><span class="w">    </span><span class="nv">middle_x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
+</span><span id="__span-16-11"><span class="w">    </span><span class="nv">middle_y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
+</span><span id="__span-16-12"><span class="w">    </span><span class="nv">middle_x2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
+</span><span id="__span-16-13"><span class="w">    </span><span class="nv">middle_y2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
 </span><span id="__span-16-14"><span class="p">}</span>
 </span></code></pre></div>
 <p><img alt="Screenshot" src="../images/sbz/045_functional-elements_gui-image_example.png" /></p>
@@ -3386,15 +3386,15 @@
 </span><span id="__span-17-2"><span class="w">    </span><span class="nv">w</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span>
 </span><span id="__span-17-3"><span class="w">    </span><span class="nv">h</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
 </span><span id="__span-17-4">
-</span><span id="__span-17-5"><span class="w">    </span><span class="c1">-- Picture to draw as the button. This one is a blue rounded square.</span>
-</span><span id="__span-17-6"><span class="w">    </span><span class="nv">texture_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"ui_blue_icon_background.png"</span><span class="p">,</span>
+</span><span id="__span-17-5"><span class="w">    </span><span class="c1">-- Picture to draw as the button.</span>
+</span><span id="__span-17-6"><span class="w">    </span><span class="nv">texture_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"the_core.png"</span><span class="p">,</span>
 </span><span id="__span-17-7"><span class="w">    </span><span class="nv">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"my_image_button"</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
 </span><span id="__span-17-8"><span class="w">    </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Hello world!"</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
 </span><span id="__span-17-9"><span class="w">    </span><span class="nv">noclip</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
 </span><span id="__span-17-10"><span class="w">    </span><span class="nv">drawborder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
 </span><span id="__span-17-11">
-</span><span id="__span-17-12"><span class="w">    </span><span class="c1">-- Picture to show while the button is held down (a red square).</span>
-</span><span id="__span-17-13"><span class="w">    </span><span class="nv">pressed_texture_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"ui_red_icon_background.png"</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
+</span><span id="__span-17-12"><span class="w">    </span><span class="c1">-- Picture to show while the button is held down.</span>
+</span><span id="__span-17-13"><span class="w">    </span><span class="nv">pressed_texture_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"dust.png"</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
 </span><span id="__span-17-14"><span class="p">}</span>
 </span></code></pre></div>
 <p><img alt="Screenshot" src="../images/sbz/046_functional-elements_gui-imagebutton_example.png" /></p>
@@ -3404,7 +3404,7 @@
 <div class="language-lua highlight"><pre><span></span><code><span id="__span-18-1"><span class="nv">gui</span><span class="p">.</span><span class="py">ImageButtonExit</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-18-2"><span class="w">    </span><span class="nv">w</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span>
 </span><span id="__span-18-3"><span class="w">    </span><span class="nv">h</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
-</span><span id="__span-18-4"><span class="w">    </span><span class="nv">texture_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"ui_blue_icon_background.png"</span><span class="p">,</span>
+</span><span id="__span-18-4"><span class="w">    </span><span class="nv">texture_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"phlogiston_blob.png"</span><span class="p">,</span>
 </span><span id="__span-18-5"><span class="w">    </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Close"</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Optional</span>
 </span><span id="__span-18-6"><span class="p">}</span>
 </span></code></pre></div>
@@ -3570,7 +3570,7 @@
 </span><span id="__span-25-10"><span class="w">    </span><span class="nv">mesh</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"voxelmodel.obj"</span><span class="p">,</span>
 </span><span id="__span-25-11">
 </span><span id="__span-25-12"><span class="w">    </span><span class="c1">-- One texture for each material of the model.</span>
-</span><span id="__span-25-13"><span class="w">    </span><span class="nv">textures</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"ui_blue_icon_background.png"</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-25-13"><span class="w">    </span><span class="nv">textures</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"uranium_ore.png"</span><span class="w"> </span><span class="p">},</span>
 </span><span id="__span-25-14">
 </span><span id="__span-25-15"><span class="w">    </span><span class="c1">-- Starting rotation in degrees. This tilts the model so that you can</span>
 </span><span id="__span-25-16"><span class="w">    </span><span class="c1">-- see it is 3D.</span>
