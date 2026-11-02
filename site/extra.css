@@ -1,0 +1,269 @@
+/* VS Code Light+ (Material "default" scheme) */
+[data-md-color-scheme="default"] {
+  --md-code-fg-color: #000000;
+  --md-code-bg-color: #FFFFFF;
+  --md-code-hl-color: #ADD6FF66;
+
+  --md-code-hl-number-color: #098658;
+  --md-code-hl-special-color: #811F3F;
+  --md-code-hl-function-color: #795E26;
+  --md-code-hl-constant-color: #0070C1;
+  --md-code-hl-keyword-color: #0000FF;
+  --md-code-hl-string-color: #A31515;
+  --md-code-hl-name-color: #267F99;
+  --md-code-hl-operator-color: #000000;
+  --md-code-hl-punctuation-color: #000000;
+  --md-code-hl-comment-color: #008000;
+  --md-code-hl-generic-color: #000000;
+  --md-code-hl-variable-color: #001080;
+
+  --vsc-control-color: #AF00DB;
+  --vsc-tag-color: #800000;
+  --vsc-attr-color: #E50000;
+  --vsc-invalid-color: #CD3131;
+  --vsc-code-border: #E5E5E5;
+}
+
+/* Center all images inside the main content area */
+.md-content img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.arithmatex {
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+/* VS Code Dark+ (Material "slate" scheme) */
+[data-md-color-scheme="slate"] {
+  --md-code-fg-color: #D4D4D4;
+  --md-code-bg-color: #1E1E1E;
+  --md-code-hl-color: #264F7866;
+
+  --md-code-hl-number-color: #B5CEA8;
+  --md-code-hl-special-color: #D16969;
+  --md-code-hl-function-color: #DCDCAA;
+  --md-code-hl-constant-color: #4FC1FF;
+  --md-code-hl-keyword-color: #569CD6;
+  --md-code-hl-string-color: #CE9178;
+  --md-code-hl-name-color: #4EC9B0;
+  --md-code-hl-operator-color: #D4D4D4;
+  --md-code-hl-punctuation-color: #D4D4D4;
+  --md-code-hl-comment-color: #6A9955;
+  --md-code-hl-generic-color: #D4D4D4;
+  --md-code-hl-variable-color: #9CDCFE;
+
+  --vsc-control-color: #C586C0;
+  --vsc-tag-color: #569CD6;
+  --vsc-attr-color: #9CDCFE;
+  --vsc-invalid-color: #F44747;
+  --vsc-code-border: transparent;
+}
+
+/* Outline white code backgrounds so they stand out from the page. */
+.md-typeset .highlight,
+.md-typeset :not(pre) > code {
+  outline: 1px solid var(--vsc-code-border);
+}
+
+/* Control-flow keywords (Pygments only exposes import/from as .kn). */
+.md-typeset .highlight .kn {
+  color: var(--vsc-control-color);
+}
+
+/* HTML/XML tags and attributes. */
+.md-typeset .highlight .nt {
+  color: var(--vsc-tag-color);
+}
+
+.md-typeset .highlight .na {
+  color: var(--vsc-attr-color);
+}
+
+/* Invalid syntax. */
+.md-typeset .highlight .err {
+  color: var(--vsc-invalid-color);
+}
+
+
+/* Prevent monospaced words from breaking inside table cells */
+table td code,
+table th code,
+.md-typeset table td code,
+.md-typeset table th code {
+    white-space: nowrap !important;
+    overflow-wrap: normal !important;
+    word-break: normal !important;
+}
+
+/* Let columns expand to accommodate their content */
+table {
+    table-layout: auto !important;
+}
+
+
+/* Global paged media configuration for WeasyPrint (PDF output) */
+@page {
+    size: A4;
+    margin: 20mm 20mm 20mm 20mm;
+
+    /* Hide embedded images / screenshots in PDF output */
+    img,
+    figure {
+        display: none !important;
+    }
+
+    /* Top Right: Section name / title */
+    @top-right {
+        content: "Your Section Name";
+        font-size: 10pt !important;
+    }
+
+    /* Bottom Center: Page numbering */
+    @bottom-center {
+        content: counter(page);
+        font-size: 11pt !important;
+    }
+}
+
+/* PDF/print only styles */
+@media print {
+    /* Hide embedded screenshots / images in PDF */
+    img, figure {
+        display: none !important;
+    }
+
+    /* Title page elements */
+    .pdf-title, h1.title, .print-site-page-title, title {
+        font-size: 64pt !important;
+    }
+    
+    .pdf-subtitle, .print-site-page-subtitle {
+        font-size: 48pt !important;
+    }
+
+    /* Change regular body text font size */
+    body, p, li, span, div {
+        font-size: 10pt !important;
+        line-height: 1.5 !important;
+    }
+
+    /* Change mkdocs-to-pdf header underlines to gray */
+    article h1,
+    article h2,
+    article h3 {
+        border-bottom-color: #667788 !important;
+    }
+
+    /* Headings hierarchy */
+    h1, .md-typeset h1 { font-size: 20pt }
+    h2, .md-typeset h2 { font-size: 16pt }
+    h3, .md-typeset h3 { font-size: 13pt }
+    h4, h5, h6, .md-typeset h4, .md-typeset h5, .md-typeset h6 { font-size: 11.5pt !important; }
+
+    /* Heading numbers set 2pt smaller */
+    h1 *, .md-typeset h1 * { font-size: 16pt !important; }
+    h2 *, .md-typeset h2 * { font-size: 13pt !important; }
+    h3 *, .md-typeset h3 * { font-size: 11pt !important; }
+    h4 *, h5 *, h6 *, .md-typeset h4 *, .md-typeset h5 *, .md-typeset h6 * { font-size: 9.5pt !important; }
+
+    /* Table headers and cells */
+    table th,
+    table td,
+    .md-typeset table th,
+    .md-typeset table td {
+        font-size: 11pt !important;
+    }
+
+    /* Inline code (single backticks) */
+    code:not(pre code) {
+        font-size: 9pt !important;
+    }
+
+    /* Inline code (single backticks) */
+    code:not(pre code) {
+        font-size: 9pt !important;
+    }
+
+    /* Inline code (single backticks) */
+    code:not(pre code) {
+        font-size: 9pt !important;
+    }
+
+    /* Code blocks font size and wrapping */
+    pre {
+        white-space: pre-wrap !important;
+        overflow-wrap: break-word !important;
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
+        margin: 0 0 1em !important;
+        padding: 8px 10px !important;
+        background: #ffffff !important;
+        border: 1px solid #e1e4e5 !important;
+        font-size: 8pt !important;
+    }
+
+    pre code,
+    pre code span {
+        white-space: inherit !important;
+        overflow-wrap: inherit !important;
+        max-width: none !important;
+        padding: 0 !important;
+        border: 0 !important;
+        background: none !important;
+        font-size: 8pt !important;
+        /* Note: color: #000 !important removed so syntax highlighting colors remain visible */
+    }
+
+    /* Force Light+ Variables in Print / PDF Mode */
+    :root, body, [data-md-color-scheme] {
+        --md-code-fg-color: #000000;
+        --md-code-bg-color: #FFFFFF;
+        --md-code-hl-color: #ADD6FF66;
+
+        --md-code-hl-number-color: #098658;
+        --md-code-hl-special-color: #811F3F;
+        --md-code-hl-function-color: #795E26;
+        --md-code-hl-constant-color: #0070C1;
+        --md-code-hl-keyword-color: #0000FF;
+        --md-code-hl-string-color: #A31515;
+        --md-code-hl-name-color: #267F99;
+        --md-code-hl-operator-color: #000000;
+        --md-code-hl-punctuation-color: #000000;
+        --md-code-hl-comment-color: #008000;
+        --md-code-hl-generic-color: #000000;
+        --md-code-hl-variable-color: #001080;
+
+        --vsc-control-color: #AF00DB;
+        --vsc-tag-color: #800000;
+        --vsc-attr-color: #E50000;
+        --vsc-invalid-color: #CD3131;
+        --vsc-code-border: #E5E5E5;
+    }
+}
+
+/* Style non-interactive section titles with distinct coloring and no uppercasing */
+.md-nav__item--section > .md-nav__link:not([href]),
+.md-nav__item--section > label.md-nav__link {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: none; /* Keeps original capitalization */
+  color: var(--md-typeset-a-color); /* Uses your primary link/accent color so it stands out */
+  cursor: default;
+  margin-top: 1rem;
+}
+
+/* Suppress hover background color and pointer effect for non-interactive headers */
+.md-nav__item--section > .md-nav__link:not([href]):hover,
+.md-nav__item--section > label.md-nav__link:hover {
+  background-color: transparent;
+  color: var(--md-typeset-a-color);
+}
+
+/* Add a subtle dividing line and extra spacing above major sections for clear grouping */
+.md-nav__item--section:not(:first-child) {
+  border-top: 1px solid var(--md-default-fg-color--lightest);
+  padding-top: 0.5rem;
+}
